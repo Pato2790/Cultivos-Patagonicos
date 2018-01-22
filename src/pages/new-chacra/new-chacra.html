@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Nueva Chacra</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<form (ngSubmit)="addNewChacra()">
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="chacra.nombre" name="nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Renspa</ion-label>
+      <ion-input type="text" [(ngModel)]="chacra.renspa" name="renspa"></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block>Agregar</button>
+</form>
+</ion-content>

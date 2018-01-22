@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Nuevo Productor</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<form (ngSubmit)="addNewProductor()">
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="productor.nombre" name="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>DNI</ion-label>
+      <ion-input type="text" [(ngModel)]="productor.dni" name="dni"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Telefono</ion-label>
+      <ion-input type="number" [(ngModel)]="productor.telefono" name="telefono"></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block>Agregar</button>
+</form>
+</ion-content>

@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Chacras</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item ion-item *ngFor="let chacra of chacrasList">
+      <ion-icon [name]="build" item-start></ion-icon>
+      {{chacra.nombre}}
+      <div class="item-note" item-end>
+		{{chacra.renspa}}
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>
