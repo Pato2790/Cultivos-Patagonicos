@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Empresas</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="back-color">
+  <div class="back-black-color" padding>
+    <h3 padding>Listado de Empresas:</h3>
+      <ion-list>
+        <ion-item ion-item *ngFor="let empresa of empresasList">
+          <ion-avatar item-left>
+            <img src="assets/img/user.png">
+          </ion-avatar>
+          <h2>{{empresa.nombre}}</h2>
+          <p>Direccion: {{empresa.direccion}}</p>
+          <p>Telefono: {{empresa.telefono}}</p>
+          <button ion-button (click)="goToEdit(empresa)">
+           Editar
+          </button>
+          <button ion-button (click)="alertDeleteEmpresa(empresa.id)">
+           Eliminar
+          </button>
+        </ion-item>
+      </ion-list>
+    </div>
+</ion-content>

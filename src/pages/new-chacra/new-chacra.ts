@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { ChacrasServiceProvider } from '../../providers/chacras-service/chacras-service';
 
 @Component({
@@ -15,5 +15,9 @@ export class NewChacra {
 
 	addNewChacra() {
 		this.ChacrasServiceProvider.addNewChacra(this.chacra).subscribe(data => console.log(data));
+	}
+
+	destroyView(){
+	  this.navCtrl.pop();
 	}
 }

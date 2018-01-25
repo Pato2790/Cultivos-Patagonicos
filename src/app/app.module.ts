@@ -7,8 +7,16 @@ import { HomePage } from '../pages/home/home';
 import { Login } from '../pages/login/login';
 import { ProductoresList } from '../pages/productoresList/productoresList';
 import { NewProductor } from '../pages/new-productor/new-productor';
+import { EditProductor } from '../pages/edit-productor/edit-productor';
 import { ChacrasList } from '../pages/chacras-list/chacras-list';
 import { NewChacra } from '../pages/new-chacra/new-chacra';
+import { EditChacra } from '../pages/edit-chacra/edit-chacra';
+import { CamionesList } from '../pages/camiones-list/camiones-list';
+import { NewCamion } from '../pages/new-camion/new-camion';
+import { EditCamion } from '../pages/edit-camion/edit-camion';
+import { EmpresasList } from '../pages/empresas-list/empresas-list';
+import { NewEmpresa } from '../pages/new-empresa/new-empresa';
+import { EditEmpresa } from '../pages/edit-empresa/edit-empresa';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -19,6 +27,8 @@ import { ChacrasServiceProvider } from '../providers/chacras-service/chacras-ser
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
+import { CamionesServiceProvider } from '../providers/camiones-service/camiones-service';
+import { EmpresasServiceProvider } from '../providers/empresas-service/empresas-service';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyAlCvR3L2sO5B8GFSaRvPRMWD1uU498VgE",
@@ -36,8 +46,16 @@ export const firebaseConfig = {
     HomePage,
     ProductoresList,
     NewProductor,
+    EditProductor,
     ChacrasList,
-    NewChacra
+    NewChacra,
+    EditChacra,
+    CamionesList,
+    NewCamion,
+    EditCamion,
+    EmpresasList,
+    NewEmpresa,
+    EditEmpresa
   ],
   imports: [
     BrowserModule,
@@ -53,8 +71,16 @@ export const firebaseConfig = {
     HomePage,
     ProductoresList,
     NewProductor,
+    EditProductor,
     ChacrasList,
-    NewChacra
+    NewChacra,
+    EditChacra,
+    CamionesList,
+    NewCamion,
+    EditCamion,
+    EmpresasList,
+    NewEmpresa,
+    EditEmpresa
   ],
   providers: [
     StatusBar,
@@ -62,7 +88,9 @@ export const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ProductoresServiceProvider,
     ChacrasServiceProvider,
-    AuthServiceProvider
+    AuthServiceProvider,
+    CamionesServiceProvider,
+    EmpresasServiceProvider
   ]
 })
 export class AppModule {}

@@ -33,6 +33,35 @@ export class ProductoresServiceProvider {
         .catch(this.catchError);
     }
 
+    editProductor(productor : any){
+
+      let headers = new Headers({
+      'Content-Type': 'application/json'
+      });
+
+      let options = new RequestOptions({
+        headers: headers
+      });
+
+      return this.http.put(this.urlAPI + '/' + productor.id, productor, options)
+        .do(res => console.log(res))
+        .catch(this.catchError);
+    }
+
+    deleteProductor(productorId : any){
+      let headers = new Headers({
+      'Content-Type': 'application/json'
+      });
+
+      let options = new RequestOptions({
+        headers: headers
+      });
+
+      return this.http.delete(this.urlAPI + '/' + productorId, options)
+        .do(res => console.log(res))
+        .catch(this.catchError);
+    }
+
   	private catchError(error : Response)
   	{
   		return Observable.throw(error.json().error || "Server Error");

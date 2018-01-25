@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Editar Productor</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="editProductor()">
+      <ion-item>
+        <ion-label>Nombre</ion-label>
+        <ion-input type="text" [(ngModel)]="productor.nombre" name="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>DNI</ion-label>
+        <ion-input type="text" [(ngModel)]="productor.dni" name="dni"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Telefono</ion-label>
+        <ion-input type="number" [(ngModel)]="productor.telefono" name="telefono"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Chacra</ion-label>
+        <ion-select [(ngModel)]="productor.chacras_ids" multiple="true" cancelText="Cancelar" okText="Aceptar" name="chacras_ids">
+          <ion-option *ngFor="let chacra of chacras" [value] = "chacra.id" >{{chacra.nombre}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <button ion-button type="submit" block>Editar</button>
+  </form>
+</ion-content>

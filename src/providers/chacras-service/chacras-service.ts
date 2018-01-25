@@ -24,7 +24,7 @@ export class ChacrasServiceProvider {
 		.catch(this.catchError);
 	}
 
-	addNewChacra(data : any){
+	addNewChacra(chacra : any){
 		let headers = new Headers({
 			'Content-Type': 'application/json'
 		});
@@ -33,7 +33,35 @@ export class ChacrasServiceProvider {
 			headers: headers
 		});
 
-		return this.http.post(this.urlAPI, data, options)
+		return this.http.post(this.urlAPI, chacra, options)
+		.do(res => console.log(res))
+		.catch(this.catchError);
+	}
+
+	editChacra(chacra : any){
+		let headers = new Headers({
+			'Content-Type': 'application/json'
+		});
+
+		let options = new RequestOptions({
+			headers: headers
+		});
+
+		return this.http.put(this.urlAPI + '/' + chacra.id, chacra, options)
+		.do(res => console.log(res))
+		.catch(this.catchError);
+	}
+
+	deleteChacra(chacraId : any){
+		let headers = new Headers({
+			'Content-Type': 'application/json'
+		});
+
+		let options = new RequestOptions({
+			headers: headers
+		});
+
+		return this.http.delete(this.urlAPI + '/' + chacraId, options)
 		.do(res => console.log(res))
 		.catch(this.catchError);
 	}

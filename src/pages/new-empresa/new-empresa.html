@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Nuevo Empresa</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<form (ngSubmit)="addNewEmpresa()">
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="empresa.nombre" name="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Direccion</ion-label>
+      <ion-input type="text" [(ngModel)]="empresa.direccion" name="dni"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Telefono</ion-label>
+      <ion-input type="number" [(ngModel)]="empresa.telefono" name="telefono"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Camiones</ion-label>
+      <ion-select [(ngModel)]="empresa.camiones_ids" multiple="true" cancelText="Cancelar" okText="Aceptar" name="camiones_ids">
+        <ion-option *ngFor="let camion of camiones" [value] = "camion.id" >{{camion.nombreChofer}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <button ion-button type="submit" block>Agregar</button>
+</form>
+</ion-content>

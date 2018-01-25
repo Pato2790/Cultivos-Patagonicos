@@ -7,14 +7,24 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-item ion-item *ngFor="let prod of productoresList">
-      <ion-icon [name]="build" item-start></ion-icon>
-      {{prod.nombre}}
-      <div class="item-note" item-end>
-        {{prod.dni}} {{prod.telefono}}
-      </div>
-    </ion-item>
-  </ion-list>
+<ion-content padding class="back-color">
+  <div class="back-black-color" padding>
+    <h3 padding>Listado de Productores:</h3>
+    <ion-list>
+      <ion-item ion-item *ngFor="let prod of productoresList">
+        <ion-avatar item-left>
+          <img src="assets/img/user.png">
+        </ion-avatar>
+        <h2>{{prod.nombre}}</h2>
+        <p>Dni: {{prod.dni}}</p>
+        <p>Telefono: {{prod.telefono}}</p>
+        <button ion-button (click)="goToEdit(prod)">
+         Editar
+        </button>
+        <button ion-button (click)="alertDeleteProductor(prod.id)">
+         Eliminar
+        </button>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

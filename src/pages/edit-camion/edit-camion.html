@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Editar Camion</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="editCamion()">
+      <ion-item>
+      <ion-label>Nombre Chofer</ion-label>
+      <ion-input type="text" [(ngModel)]="camion.nombreChofer" name="nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Patente Acoplado</ion-label>
+      <ion-input type="text" [(ngModel)]="camion.patenteAcoplado" name="renspa"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Patente Chasis</ion-label>
+      <ion-input type="text" [(ngModel)]="camion.patenteChasis" name="renspa"></ion-input>
+    </ion-item>
+      <button ion-button type="submit" block>Editar</button>
+  </form>
+</ion-content>

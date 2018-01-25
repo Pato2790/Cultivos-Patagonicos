@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Editar Empresa</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="editEmpresa()">
+      <ion-item>
+        <ion-label>Nombre</ion-label>
+        <ion-input type="text" [(ngModel)]="empresa.nombre" name="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Direccion</ion-label>
+        <ion-input type="text" [(ngModel)]="empresa.direccion" name="direccion"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Telefono</ion-label>
+        <ion-input type="number" [(ngModel)]="empresa.telefono" name="telefono"></ion-input>
+      </ion-item>
+      <button ion-button type="submit" block>Editar</button>
+  </form>
+</ion-content>

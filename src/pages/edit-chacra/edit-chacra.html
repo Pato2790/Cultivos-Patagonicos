@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Editar Chacra</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="editChacra()">
+      <ion-item>
+        <ion-label>Nombre</ion-label>
+        <ion-input type="text" [(ngModel)]="chacra.nombre" name="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Renspa</ion-label>
+        <ion-input type="text" [(ngModel)]="chacra.renspa" name="dni"></ion-input>
+      </ion-item>
+      <button ion-button type="submit" block>Editar</button>
+  </form>
+</ion-content>

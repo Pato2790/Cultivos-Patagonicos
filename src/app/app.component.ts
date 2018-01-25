@@ -9,6 +9,10 @@ import { ProductoresList } from '../pages/productoresList/productoresList';
 import { NewProductor } from '../pages/new-productor/new-productor';
 import { ChacrasList } from '../pages/chacras-list/chacras-list';
 import { NewChacra } from '../pages/new-chacra/new-chacra';
+import { CamionesList } from '../pages/camiones-list/camiones-list';
+import { NewCamion } from '../pages/new-camion/new-camion';
+import { EmpresasList } from '../pages/empresas-list/empresas-list';
+import { NewEmpresa } from '../pages/new-empresa/new-empresa';
 
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 
@@ -39,7 +43,11 @@ export class MyApp {
       { title: 'Productores', component: ProductoresList },
       { title: 'Nuevo Productor', component: NewProductor },
       { title: 'Chacras', component: ChacrasList },
-      { title: 'Nueva Chacra', component: NewChacra }
+      { title: 'Nueva Chacra', component: NewChacra },
+      { title: 'Camiones', component: CamionesList },
+      { title: 'Nuevo Camion', component: NewCamion },
+      { title: 'Empresas', component: EmpresasList },
+      { title: 'Nuevo Empresa', component: NewEmpresa }
     ];
 
   }
