@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-content.component';
+import { SelectSearchableModule } from '../shared/select/select-module';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -17,18 +19,30 @@ import { EditCamion } from '../pages/edit-camion/edit-camion';
 import { EmpresasList } from '../pages/empresas-list/empresas-list';
 import { NewEmpresa } from '../pages/new-empresa/new-empresa';
 import { EditEmpresa } from '../pages/edit-empresa/edit-empresa';
+import { InstitucionesList } from '../pages/instituciones-list/instituciones-list';
+import { NewInstitucion } from '../pages/new-institucion/new-institucion';
+import { EditInstitucion } from '../pages/edit-institucion/edit-institucion';
+import { NewIngreso } from '../pages/new-ingreso/new-ingreso';
+import { IngresosList } from '../pages/ingresos-list/ingresos-list';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { ProductoresServiceProvider } from '../providers/productores-service/productores-service';
 import { HttpModule } from '@angular/http';
-import { ChacrasServiceProvider } from '../providers/chacras-service/chacras-service';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 import { CamionesServiceProvider } from '../providers/camiones-service/camiones-service';
 import { EmpresasServiceProvider } from '../providers/empresas-service/empresas-service';
+import { InstitucionesServiceProvider } from '../providers/instituciones-service/instituciones-service';
+import { CuadrosServiceProvider } from '../providers/cuadros-service/cuadros-service';
+import { IngresosServiceProvider } from '../providers/ingresos-service/ingresos-service';
+import { EspecieServiceProvider } from '../providers/especie-service/especie-service';
+import { CalidadesServiceProvider } from '../providers/calidades-service/calidades-service';
+import { VariedadesServiceProvider } from '../providers/variedades-service/variedades-service';
+import { ChacrasServiceProvider } from '../providers/chacras-service/chacras-service';
+import { ProductoresServiceProvider } from '../providers/productores-service/productores-service';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyAlCvR3L2sO5B8GFSaRvPRMWD1uU498VgE",
@@ -42,6 +56,7 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
+    SideMenuContentComponent,
     Login,
     HomePage,
     ProductoresList,
@@ -55,14 +70,20 @@ export const firebaseConfig = {
     EditCamion,
     EmpresasList,
     NewEmpresa,
-    EditEmpresa
+    EditEmpresa,
+    InstitucionesList,
+    NewInstitucion,
+    EditInstitucion,
+    IngresosList,
+    NewIngreso
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
-    HttpModule
+    HttpModule,
+    SelectSearchableModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -80,7 +101,12 @@ export const firebaseConfig = {
     EditCamion,
     EmpresasList,
     NewEmpresa,
-    EditEmpresa
+    EditEmpresa,
+    InstitucionesList,
+    NewInstitucion,
+    EditInstitucion,
+    IngresosList,
+    NewIngreso
   ],
   providers: [
     StatusBar,
@@ -90,7 +116,13 @@ export const firebaseConfig = {
     ChacrasServiceProvider,
     AuthServiceProvider,
     CamionesServiceProvider,
-    EmpresasServiceProvider
+    EmpresasServiceProvider,
+    InstitucionesServiceProvider,
+    CuadrosServiceProvider,
+    IngresosServiceProvider,
+    EspecieServiceProvider,
+    CalidadesServiceProvider,
+    VariedadesServiceProvider
   ]
 })
 export class AppModule {}

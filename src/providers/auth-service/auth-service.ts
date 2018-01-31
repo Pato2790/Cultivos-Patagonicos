@@ -32,4 +32,9 @@ export class AuthServiceProvider {
         return this.angularFireAuth.auth.signOut();
     }
 
+    getCurrentUser()
+    {
+        return this.angularFireAuth.auth.currentUser;
+    }
+
 }

@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Ingresos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="back-color">
+  <div class="back-black-color" padding>
+    <h3 padding>Listado de Ingresos:</h3>
+      <ion-list>
+        <ion-item ion-item *ngFor="let ingreso of ingresosList">
+          <h2>Remito: {{ingreso.nroRemito}}</h2>
+          <p>Fecha Ingreso: {{ingreso.fechaIngreso}}</p>
+          <p>Ingresado por: {{ingreso.createdFor}}</p>
+          <div padding>
+            <h3 padding>Lotes: </h3>
+            <ion-list>
+              <ion-item ion-item *ngFor="let lote of ingreso.lotes">
+                <p>Nro Lote: {{lote.nroLote}}</p>
+                <p>Cantidad Bins: {{lote.cantBins}}</p>
+                <p>Peso Neto: {{lote.pesoNeto}}</p>
+                <p>Especie: {{lote.especy.tipo}}</p>
+                <p>Variedad: {{lote.variedad.tipo}}</p>
+                <p>Calidad: {{lote.calidad.tipo}}</p>
+                <p>Lugar Actual: {{lote.institucion.nombre}}</p>
+                <p>Camion Transporto: {{lote.camion.nombreChofer}}</p>
+                <button ion-button (click)="alertEditCuadro(cuadro)">
+                 Editar
+                </button>
+                <button ion-button (click)="alertDeleteCuadro(cuadro.id)">
+                 Eliminar
+                </button>
+              </ion-item>
+            </ion-list>
+          </div>
+          <button ion-button (click)="goToEdit(chacra)">
+           Editar
+          </button>
+          <button ion-button (click)="alertDeleteChacra(chacra.id)">
+           Eliminar
+          </button>
+        </ion-item>
+      </ion-list>
+    </div>
+</ion-content>

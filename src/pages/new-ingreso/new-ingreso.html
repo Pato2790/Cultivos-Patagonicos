@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Nuevo Ingreso</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<form (ngSubmit)="addNewIngreso()">
+	    <ion-item>
+	      <ion-label>Nro Remito</ion-label>
+	      <ion-input type="text" [(ngModel)]="ingreso.nroRemito" name="nroRemito"></ion-input>
+	    </ion-item>
+	    <ion-item>
+	      <ion-label>Fecha de Ingreso</ion-label>
+	      <ion-input type="date" [value]="ingreso.fechaIngreso" (input)="ingreso.fechaIngreso = $event.target.value" name="fechaIngreso"></ion-input>
+	    </ion-item>
+	    <ion-item>
+	        <select-searchable
+	            [(ngModel)]="institucion"
+	            [ngModelOptions]="{standalone: true}"
+	            title="Instituciones"
+	            itemValueField="id"
+	            itemTextField="nombre"
+	            [items]="instituciones"
+	            [canSearch]="true"
+	            (onChange)="institucionChange($event)">
+	        </select-searchable>
+	    </ion-item>
+	    <ion-item>
+	        <select-searchable
+	            [(ngModel)]="camion"
+	            [ngModelOptions]="{standalone: true}"
+	            title="Camiones"
+	            itemValueField="id"
+	            itemTextField="nombreChofer"
+	            [items]="camiones"
+	            [canSearch]="true"
+	            (onChange)="camionChange($event)">
+	        </select-searchable>
+	    </ion-item>
+	    <div *ngFor="let lote of lotes" padding>
+            <h3 padding>Nuevo Lote: </h3>
+            <ion-item>
+              <ion-label>Nro Lote</ion-label>
+              <ion-input type="number" [value]="lote.nroLote" (input)="lote.nroLote = $event.target.value" name="nroLote"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Cantidad Bins</ion-label>
+              <ion-input type="number" [value]="lote.cantBins" (input)="lote.cantBins = $event.target.value" name="cantBins"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label>Peso</ion-label>
+              <ion-input type="number" [value]="lote.peso" (input)="lote.peso = $event.target.value" name="peso"></ion-input>
+            </ion-item>
+            <ion-item>
+                <select-searchable
+                    [(ngModel)]="lote.calidad"
+                    [ngModelOptions]="{standalone: true}"
+                    title="Calidades"
+                    itemValueField="id"
+                    itemTextField="tipo"
+                    [items]="lote.calidades"
+                    [canSearch]="true"
+                    (onChange)="calidadChange($event,lote)">
+                </select-searchable>
+            </ion-item>
+            <ion-item>
+                <select-searchable
+                    [(ngModel)]="lote.especie"
+                    [ngModelOptions]="{standalone: true}"
+                    title="Especies"
+                    itemValueField="id"
+                    itemTextField="tipo"
+                    [items]="lote.especies"
+                    [canSearch]="true"
+                    (onChange)="especieChange($event,lote)">
+                </select-searchable>
+            </ion-item>
+            <ion-item>
+                <select-searchable
+                    [(ngModel)]="lote.variedad"
+                    [ngModelOptions]="{standalone: true}"
+                    title="Variedades"
+                    itemValueField="id"
+                    itemTextField="tipo"
+                    [items]="lote.variedades"
+                    [canSearch]="true"
+                    (onChange)="variedadChange($event,lote)">
+                </select-searchable>
+            </ion-item>
+            <button ion-button (click)="deleteLoteList(lote)">Eliminar Lote</button>
+        </div>
+        <button ion-button type="button" (click)="agregarLoteList()">Nuevo Lote</button>
+	    <button ion-button type="submit" block>Aceptar Ingreso</button>
+	</form>
+</ion-content>

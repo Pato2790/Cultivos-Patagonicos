@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Instituciones</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="back-color">
+  <div class="back-black-color" padding>
+    <h3 padding>Listado de Instituciones:</h3>
+      <ion-list>
+        <ion-item ion-item *ngFor="let institucion of institucionesList">
+          <ion-avatar item-left>
+            <img src="assets/img/user.png">
+          </ion-avatar>
+          <h2>{{institucion.nombre}}</h2>
+          <p>Direccion: {{institucion.direccion}}</p>
+          <p>Telefono: {{institucion.telefono}}</p>
+          <button ion-button (click)="goToEdit(institucion)">
+           Editar
+          </button>
+          <button ion-button (click)="alertDeleteInstitucion(institucion.id)">
+           Eliminar
+          </button>
+        </ion-item>
+      </ion-list>
+    </div>
+</ion-content>
+
+
+

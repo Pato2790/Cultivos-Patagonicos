@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar hideBackButton="true">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -17,6 +17,23 @@
           </ion-avatar>
           <h2>{{chacra.nombre}}</h2>
           <p>Renspa: {{chacra.renspa}}</p>
+          <div padding>
+            <h3 padding>Cuadros: </h3>
+            <ion-list>
+              <ion-item ion-item *ngFor="let cuadro of chacra.cuadros">
+                <p>UP: {{cuadro.up}}</p>
+                <button ion-button (click)="alertEditCuadro(cuadro)">
+                 Editar
+                </button>
+                <button ion-button (click)="alertDeleteCuadro(cuadro.id)">
+                 Eliminar
+                </button>
+              </ion-item>
+            </ion-list>
+            <button ion-button (click)="alertNewCuadro(chacra.id)">
+             Agregar Cuadro
+            </button>
+          </div>
           <button ion-button (click)="goToEdit(chacra)">
            Editar
           </button>
@@ -27,3 +44,4 @@
       </ion-list>
     </div>
 </ion-content>
+

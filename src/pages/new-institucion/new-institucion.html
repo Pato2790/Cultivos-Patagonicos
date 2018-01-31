@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar hideBackButton="true">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Nueva Institucion</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+<form (ngSubmit)="addNewInstitucion()">
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="institucion.nombre" name="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Direccion</ion-label>
+      <ion-input type="text" [(ngModel)]="institucion.direccion" name="direccion"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Telefono</ion-label>
+      <ion-input type="number" [(ngModel)]="institucion.telefono" name="telefono"></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block>Agregar</button>
+</form>
+</ion-content>
+
+
