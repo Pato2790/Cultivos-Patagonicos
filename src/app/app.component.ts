@@ -98,7 +98,7 @@ export class MyApp {
           subItems: [
               {
                   displayName: `Lista Ingresos`,
-                  iconName: 'add',
+                  iconName: 'crop',
                   component: IngresosList,
               },
               {

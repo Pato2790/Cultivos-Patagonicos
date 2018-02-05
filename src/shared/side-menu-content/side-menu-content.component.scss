@@ -2,7 +2,7 @@
 // Global variables                     //
 // ------------------------------------ //
 $item-color-bg: #ccc;
-$header-color-bg: #eee;
+$header-color-bg: #272727;
 $animation-duration: 0.3s;
 
 // ------------------------------------ //
@@ -46,6 +46,7 @@ ion-list.accordion-menu {
     ion-item.header {
 
         background-color: $header-color-bg;
+        color: white;
 
         ion-icon.header-icon {
             will-change: transform;

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController  } from 'ionic-angular';
 import { SelectSearchable } from '../../shared/select/select';
 
 import { CalidadModel } from '../../models/calidad-model';
@@ -7,6 +7,7 @@ import { EspecieModel } from '../../models/especie-model';
 import { VariedadModel } from '../../models/variedad-model';
 import { InstitucionModel } from '../../models/institucion-model';
 import { CamionModel } from '../../models/camion-model';
+import { ChacraModel } from '../../models/chacra-model';
 
 import { CalidadesServiceProvider } from '../../providers/calidades-service/calidades-service';
 import { EspecieServiceProvider } from '../../providers/especie-service/especie-service';
@@ -14,6 +15,7 @@ import { InstitucionesServiceProvider } from '../../providers/instituciones-serv
 import { CamionesServiceProvider } from '../../providers/camiones-service/camiones-service';
 import { IngresosServiceProvider } from '../../providers/ingresos-service/ingresos-service';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
+import { ChacrasServiceProvider } from '../../providers/chacras-service/chacras-service';
 
 @Component({
   selector: 'page-new-ingreso',
@@ -21,7 +23,7 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 })
 export class NewIngreso {
 
-	ingreso = { nroRemito: 0, fechaIngreso: this.formatDate(), institucionId: 0, camionId: 0, createdFor: '', lotes: []};
+	ingreso = { nroRemito: null, fechaIngreso: this.formatDate(), institucionId: 0, camionId: 0, chacraId: 0, createdFor: '', lotes: []};
 
 	calidades = [];
 	calidad = CalidadModel;
@@ -38,25 +40,28 @@ export class NewIngreso {
 	camion = CamionModel;
 	camiones = [];
 
+	chacra = ChacraModel;
+	chacras = [];
+
 	lotes = []; 
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, public CalidadesServiceProvider: CalidadesServiceProvider,
 	 public EspecieServiceProvider: EspecieServiceProvider, public InstitucionesServiceProvider: InstitucionesServiceProvider,
 	 public CamionesServiceProvider: CamionesServiceProvider, public IngresosServiceProvider: IngresosServiceProvider,
-	 public AuthServiceProvider: AuthServiceProvider) {
+	 public AuthServiceProvider: AuthServiceProvider, public ChacrasServiceProvider: ChacrasServiceProvider,
+	 public AlertController: AlertController) {
 		
 		this.agregarLoteList();
 		this.CalidadesServiceProvider.getAllCalidades().subscribe(data => this.calidades = this.lotes[0].calidades = Object.assign([], data) );
 		this.EspecieServiceProvider.getAllEmpecies().subscribe(data => this.especies = this.lotes[0].especies = Object.assign([], data));
 		this.InstitucionesServiceProvider.getAllInstituciones().subscribe(data => this.instituciones = this.lotes[0].instituciones = Object.assign([], data));
 		this.CamionesServiceProvider.getAllCamiones().subscribe(data => this.camiones = data);
-		console.log(this.lotes);
-
+		this.ChacrasServiceProvider.getAllChacras().subscribe(data => this.chacras = data);
 	}
 
 	agregarLoteList()
 	{
-		this.lotes.push({ peso: 0, nroLote: 0, cantBins: 0, calidadId: 0, especieId: 0, variedadId: 0, 
+		this.lotes.push({ peso: null, nroLote: null, cantBins: null, calidadId: null, especieId: null, variedadId: null, 
 			calidades: Object.assign([], this.calidades), especies: Object.assign([], this.especies), variedades: Object.assign([], this.variedades),
 			especie: Object.assign({}, this.especie), variedad: Object.assign({}, this.variedad), calidad: Object.assign({}, this.calidad) });
 	}
@@ -69,36 +74,51 @@ export class NewIngreso {
 
 	calidadChange(event: { component: SelectSearchable, value: any }, lote) {
         lote.calidadId = event.value.id;
-        console.log('value:', event.value);
     }
 
     especieChange(event: { component: SelectSearchable, value: any }, lote) {
         lote.especieId = event.value.id;
         var currentVariedades = this.especies[this.especies.indexOf(event.value,0)].variedads;
         lote.variedades = Object.assign([], currentVariedades);
-        console.log('value:', event.value);
     }
 
     variedadChange(event: { component: SelectSearchable, value: any }, lote) {
         lote.variedadId = event.value.id;
-        console.log('value:', event.value);
     }
 
     institucionChange(event: { component: SelectSearchable, value: any }) {
         this.ingreso.institucionId = event.value.id;
-        console.log('value:', event.value);
     }
 
     camionChange(event: { component: SelectSearchable, value: any }) {
         this.ingreso.camionId = event.value.id;
-        console.log('value:', event.value);
+    }
+
+    chacraChange(event: { component: SelectSearchable, value: any }) {
+        this.ingreso.chacraId = event.value.id;
     }
 
     addNewIngreso(){
     	this.ingreso.lotes = this.lotes;
     	this.ingreso.createdFor = this.AuthServiceProvider.getCurrentUser().email;
-    	this.IngresosServiceProvider.addNewIngreso(this.ingreso).subscribe(data => console.log(data));
-    	console.log(this.ingreso);
+    	this.IngresosServiceProvider.addNewIngreso(this.ingreso).subscribe(data => {
+    		if(data.error) {
+    			let alert = this.AlertController.create({
+    			    title: 'Error al crear el nuevo ingreso',
+    			    subTitle: 'Por favor revise los datos ingresados.',
+    			    buttons: ['Aceptar']
+    			  });
+    			  alert.present();
+    		}
+    		else {
+    			let alert = this.AlertController.create({
+    			    title: 'Ingreso creado correctamente',
+    			    subTitle: 'Se ha ingresado exitosamente el nuevo ingreso',
+    			    buttons: ['Aceptar']
+    			  });
+    			  alert.present();
+    		}
+    	});
     }
 
     formatDate()

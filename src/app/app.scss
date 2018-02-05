@@ -22,3 +22,18 @@
 .back-black-color {
 	background-color: white;
 }
+
+.card-hearder-color{
+	background-color: color($colors, semiDark, base);;
+	color: white;
+	font-size: 18px;
+}
+
+.no-border {
+	border:none !important;
+}
+
+.no-border-cards *
+{
+	@extend .no-border;
+}

@@ -1,3 +1,23 @@
 page-ingresos-list {
 
+	.accordion-list {
+        height: 100%;
+    }
+    .section {
+        background: color($colors, semiDark);
+        color: #fff;
+        margin-bottom: 4px;
+    }
+    .section-active {
+        background: color($colors, cultivos);
+        color: #fff;
+    }
+ 
+    .label {
+        margin: 0px;
+    }
+    .list {
+        margin-bottom: 4px;
+    }
+
 }

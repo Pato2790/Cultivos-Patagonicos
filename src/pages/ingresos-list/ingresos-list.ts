@@ -10,10 +10,14 @@ import { IngresosServiceProvider } from '../../providers/ingresos-service/ingres
 export class IngresosList {
 
   ingresosList = [];
+  itemExpandHeight: number = 100;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public IngresosServiceProvider: IngresosServiceProvider) {
-  	this.IngresosServiceProvider.getAllIngresos().subscribe(data => this.ingresosList = data);
+  	this.IngresosServiceProvider.getAllIngresos().subscribe(
+  		data => { this.ingresosList = data; });
   }
 
-
+  toggleIngreso(index) {
+    this.ingresosList[index].open = !this.ingresosList[index].open;
+  }
 }

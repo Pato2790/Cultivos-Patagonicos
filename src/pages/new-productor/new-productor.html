@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar hideBackButton="true">
+  <ion-navbar color="cultivos" hideBackButton="true">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -8,26 +8,49 @@
 </ion-header>
 
 
-<ion-content padding>
-<form (ngSubmit)="addNewProductor()">
-    <ion-item>
-      <ion-label>Nombre</ion-label>
-      <ion-input type="text" [(ngModel)]="productor.nombre" name="name"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>DNI</ion-label>
-      <ion-input type="text" [(ngModel)]="productor.dni" name="dni"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Telefono</ion-label>
-      <ion-input type="number" [(ngModel)]="productor.telefono" name="telefono"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label>Chacras</ion-label>
-      <ion-select [(ngModel)]="productor.chacras_ids" multiple="true" cancelText="Cancelar" okText="Aceptar" name="chacras_ids">
-        <ion-option *ngFor="let chacra of chacras" [value] = "chacra.id" >{{chacra.nombre}}</ion-option>
-      </ion-select>
-    </ion-item>
-    <button ion-button type="submit" block>Agregar</button>
-</form>
+<ion-content padding class="back-color">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-sm-12 col-md-12 padding>
+        <h1 text-center>Nuevo Productor</h1>
+        <p text-center>Ingrese los datos necesarios para generar un nuevo productor.</p>
+      </ion-col>
+      <ion-col col-sm-12 col-md-12 padding class="back-black-color">
+        <h3 padding-top no-margin>Datos generales del productor</h3>
+        <form (ngSubmit)="addNewProductor()">
+          <ion-grid>
+            <ion-row>
+              <ion-col col-sm-12 col-md-12 padding-bottom>
+                <ion-row>
+                  <ion-item col-sm-12 col-md-6 class="no-border">
+                    <ion-label stacked>Nombre</ion-label>
+                    <ion-input type="text" [(ngModel)]="productor.nombre" name="name"></ion-input>
+                  </ion-item>
+                  <ion-item col-sm-12 col-md-6 class="no-border">
+                    <ion-label stacked>DNI</ion-label>
+                    <ion-input type="text" [(ngModel)]="productor.dni" name="dni"></ion-input>
+                  </ion-item>
+                  <ion-item col-sm-12 col-md-6 class="no-border">
+                    <ion-label stacked>Telefono</ion-label>
+                    <ion-input type="number" [(ngModel)]="productor.telefono" name="telefono"></ion-input>
+                  </ion-item>
+                  <ion-item col-sm-12 col-md-6 class="no-border">
+                    <ion-label stacked>Chacras</ion-label>
+                    <ion-select [(ngModel)]="productor.chacras_ids" multiple="true" cancelText="Cancelar" okText="Aceptar" name="chacras_ids">
+                      <ion-option *ngFor="let chacra of chacras" [value] = "chacra.id" >{{chacra.nombre}}</ion-option>
+                    </ion-select>
+                  </ion-item>
+                  <ion-col col-sm-12 col-md-12 padding>
+                    <ion-buttons right>
+                        <button ion-button type="submit" color="semiDark">Agregar</button>
+                    </ion-buttons>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
