@@ -1,12 +1,13 @@
 import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import * as Constants from '../api-service/api-service';
 import 'rxjs/Rx';
 
 @Injectable()
 export class CalidadesServiceProvider {
 
-	private urlAPI = 'http://localhost:3000/calidad';
+	private urlAPI = Constants.urlAPI + '/calidad';
 
 	constructor(public http: Http) {
 	}

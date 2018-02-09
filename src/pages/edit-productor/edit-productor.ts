@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 
 import { ProductoresServiceProvider } from '../../providers/productores-service/productores-service';
 
@@ -11,13 +11,46 @@ export class EditProductor {
 
 	productor = [];
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, private ProductoresServiceProvider : ProductoresServiceProvider) {
+	constructor(public navCtrl: NavController, public navParams: NavParams, private ProductoresServiceProvider : ProductoresServiceProvider, public AlertController: AlertController) {
 		this.productor = this.navParams.get('productor');
 	}
 
 	editProductor()	{
-		this.ProductoresServiceProvider.editProductor(this.productor).subscribe(data => console.log(data));
-		this.destroyView();
+		this.ProductoresServiceProvider.editProductor(this.productor).subscribe(data => this.alertEditLote(data.error));
+	}
+
+	alertEditLote(error) {
+	  let alert;
+
+	  if(!error)
+	  {
+	    alert = this.AlertController.create({
+	      title: 'Edicion exitosa',
+	      message: 'Se ha editado correctamente el productor.',
+	      buttons: [
+	        {
+	          text: 'Aceptar',
+	          handler: () => {
+	            this.destroyView();
+	          }
+	        }
+	      ]
+	    });
+	  }
+	  else {
+	    alert = this.AlertController.create({
+	      title: 'Error',
+	      message: 'Se ha producido un error al intentar editar el productor.',
+	      buttons: [
+	        {
+	          text: 'Aceptar',
+	          handler: () => {}
+	        }
+	      ]
+	    });
+	  }
+	  
+	  alert.present();
 	}
 
 	destroyView(){

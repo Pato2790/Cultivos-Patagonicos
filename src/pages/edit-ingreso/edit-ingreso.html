@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar color="cultivos">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Editar Ingreso</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="back-color">
+    <ion-grid>
+        <ion-row>
+            <ion-col col-sm-12 col-md-12 padding>
+              <h1 text-center>Editar Ingreso</h1>
+              <p text-center>Ingrese los datos necesarios para editar un ingreso de fruta existente.</p>
+            </ion-col>
+            <ion-col col-sm-12 col-md-12 padding class="back-black-color">
+                <h3 padding-top no-margin>Datos generales del Ingreso</h3>
+            	<form (ngSubmit)="editIngreso()">
+            	    <ion-grid>
+                        <ion-row>
+                            <ion-col col-sm-12 col-md-12 padding-bottom>
+                                <ion-row>
+                                    <ion-item col-sm-12 col-md-6 class="no-border">
+                                      <ion-label stacked>Nro Remito</ion-label>
+                                      <ion-input type="text" [(ngModel)]="ingreso.nroRemito" name="nroRemito"></ion-input>
+                                    </ion-item>
+                                    <ion-item col-sm-12 col-md-6 class="no-border">
+                                      <ion-label stacked>Fecha de Ingreso</ion-label>
+                                      <ion-input type="date" [value]="ingreso.fechaIngreso" (input)="ingreso.fechaIngreso = $event.target.value" name="fechaIngreso"></ion-input>
+                                    </ion-item>
+                                </ion-row>
+                            </ion-col>
+                            <ion-col col-sm-12 col-md-12 padding>
+                                    <ion-buttons right>
+                                        <button ion-button color="semiDark" type="submit">Editar</button>
+                                    </ion-buttons>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+            	</form>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

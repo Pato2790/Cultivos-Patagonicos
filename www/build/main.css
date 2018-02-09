@@ -30548,6 +30548,19 @@ ion-navbar.toolbar {
   border: none !important;
 }
 
+page-home .backImg {
+  background-image: url("../../assets/imgs/logoCultivos.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+page-home .dashBoard-item-color {
+  background: #323232;
+  color: white;
+  opacity: 0.94;
+}
+
 page-ingresos-list .accordion-list {
   height: 100%;
 }

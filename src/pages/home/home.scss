@@ -1,3 +1,15 @@
 page-home {
 
+	.backImg {
+		background-image: url('../../assets/imgs/logoCultivos.png');
+		background-repeat: no-repeat;
+    	background-attachment: fixed;
+    	background-position: center;
+	}
+
+	.dashBoard-item-color{
+		background: color($colors, semiDark);
+		color: white;
+		opacity: 0.94;
+	}
 }

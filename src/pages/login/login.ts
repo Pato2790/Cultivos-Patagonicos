@@ -27,15 +27,14 @@ export class Login {
         });
         loading.present();
 
-        this.authService.signInWithEmailAndPassword(this.userModel).then(result => {
+        this.authService.signInWithEmailAndPassword(this.userModel)
+        .then(result => {
             loading.dismiss();
-
             this.navCtrl.setRoot(HomePage);
-        }).catch(error => {
+        })
+        .catch(error => {
             loading.dismiss();
-
-            console.log(error);
-            this.alert('Error', 'Ha ocurrido un error inesperado. Por favor intente nuevamente.');
+            this.alert('Error', error);
         });
     }
 

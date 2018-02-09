@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 
-
 import { InstitucionesServiceProvider } from '../../providers/instituciones-service/instituciones-service';
 import { EditInstitucion } from '../../pages/edit-institucion/edit-institucion';
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController  } from 'ionic-angular';
+
 import { ChacrasServiceProvider } from '../../providers/chacras-service/chacras-service';
 import { CuadrosServiceProvider } from '../../providers/cuadros-service/cuadros-service';
 
@@ -57,7 +58,7 @@ export class ChacrasList {
 //CUADROS
 	alertNewCuadro(chacraId) {
 	  let alert = this.AlertController.create({
-	    title: 'Editar Cuadro',
+	    title: 'Agregar Cuadro',
 	    inputs: [
 	      {
 	        name: 'Up',

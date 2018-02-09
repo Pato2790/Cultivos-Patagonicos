@@ -7,7 +7,113 @@
   </ion-navbar>
 </ion-header>
 
+
 <ion-content padding class="back-color">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-sm-12 col-md-12 padding>
+        <h1 text-center>Listado de Chacras</h1>
+        <p text-center>Presentacion en forma de lista de chacras donde se obtiene la produccion</p>
+      </ion-col>
+      <ion-col col-sm-12 col-md-12 padding class="back-black-color">
+        <h4 padding-top no-margin>Chacras</h4>
+        <ion-row padding>
+          <ion-col col-sm-12 col-md-10 offset-md-1>
+            <ion-list>
+              <ion-item ion-item *ngFor="let chacra of chacrasList" class="no-border">
+                <ion-avatar item-left>
+                  <img src="assets/imgs/chacra-icon.png">
+                </ion-avatar>
+                <ion-row>
+                  <ion-col col-sm-12 col-md-5>
+                    <ion-row>
+                      <ion-col col-sm-12 col-md-12>
+                        <h2 text-center>Chacra</h2>
+                      </ion-col>
+                      <ion-col col-sm-12 col-md-12>
+                        <p text-center>{{chacra.nombre}}</p>
+                      </ion-col>
+                    </ion-row>
+                  </ion-col>
+                  <ion-col col-sm-12 col-md-5>
+                    <ion-row>
+                      <ion-col col-sm-12 col-md-12>
+                        <h2 text-center>Renspa</h2>
+                      </ion-col>
+                      <ion-col col-sm-12 col-md-12>
+                        <p text-center>{{chacra.renspa}}</p>
+                      </ion-col>
+                    </ion-row>
+                  </ion-col>
+                  <ion-col col-sm-12 col-md-2> 
+                    <ion-row>
+                      <ion-col col-sm-12 col-md-4>
+                        <button ion-button color="semiDark" round icon-only small (click)="alertNewCuadro(chacra.id)">
+                          <ion-icon name="add"></ion-icon>
+                        </button>
+                      </ion-col>
+                      <ion-col col-sm-12 col-md-4>
+                        <button ion-button color="semiDark" round icon-only small (click)="goToEdit(chacra)">
+                          <ion-icon name="create"></ion-icon>
+                        </button>
+                      </ion-col>
+                      <ion-col col-sm-12 col-md-4>
+                        <button ion-button color="semiDark" round icon-only small 
+                          (click)="alertDeleteChacra(chacra.id)">
+                          <ion-icon name="trash"></ion-icon>
+                        </button>
+                      </ion-col>
+                    </ion-row>
+                  </ion-col>
+                  <ion-col col-sm-12 col-md-12>
+                    <h2>Cuadros</h2>
+                  </ion-col>
+                  <ion-col *ngFor="let cuadro of chacra.cuadros; let i = 'index'" no-padding margin col-sm-12 col-md-2>
+                    <ion-row>
+                      <ion-list>
+                        <ion-item class="no-border" class="back-color">
+                          <ion-row>
+                            <ion-col col-sm-12 col-md-12>
+                              <ion-row>
+                                <ion-col col-sm-12 col-md-12>
+                                  <h2 text-center>UP</h2>
+                                </ion-col>
+                                <ion-col col-sm-12 col-md-12>
+                                  <p text-center>{{cuadro.up}}</p>
+                                </ion-col>
+                              </ion-row>
+                            </ion-col>
+                            <ion-col col-sm-12 col-md-12> 
+                              <ion-row>
+                                <ion-col col-sm-12 col-md-6>
+                                  <button ion-button color="semiDark" round icon-only small (click)="alertEditCuadro(cuadro)">
+                                    <ion-icon name="create"></ion-icon>
+                                  </button>
+                                </ion-col>
+                                <ion-col col-sm-12 col-md-6>
+                                  <button ion-button color="semiDark" round icon-only small 
+                                    (click)="alertDeleteCuadro(cuadro.id)">
+                                    <ion-icon name="trash"></ion-icon>
+                                  </button>
+                                </ion-col>
+                              </ion-row>
+                            </ion-col>
+                          </ion-row>
+                        </ion-item>
+                      </ion-list>
+                    </ion-row>    
+                  </ion-col>
+                </ion-row>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<!--ion-content padding class="back-color">
   <div class="back-black-color" padding>
     <h3 padding>Listado de Chacras:</h3>
       <ion-list>
@@ -43,5 +149,5 @@
         </ion-item>
       </ion-list>
     </div>
-</ion-content>
+</ion-content-->
 

@@ -1,12 +1,13 @@
 import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import * as Constants from '../api-service/api-service';
 import 'rxjs/Rx';
 
 @Injectable()
 export class IngresosServiceProvider {
 
-  private urlAPI = 'http://localhost:3000/ingreso';
+  private urlAPI = Constants.urlAPI + '/ingreso';
 
   constructor(public http: Http) {
     
@@ -31,6 +32,34 @@ export class IngresosServiceProvider {
   	return this.http.post(this.urlAPI, ingreso, options)
   	.do(res => console.log(res))
   	.catch(this.catchError);
+  }
+
+  editIngreso(ingreso : any){
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+
+    let options = new RequestOptions({
+      headers: headers
+    });
+
+    return this.http.put(this.urlAPI + '/' + ingreso.id, ingreso, options)
+    .do(res => console.log(res))
+    .catch(this.catchError);
+  }
+
+  deleteIngreso(ingresoId : any){
+    let headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+
+    let options = new RequestOptions({
+      headers: headers
+    });
+
+    return this.http.delete(this.urlAPI + '/' + ingresoId, options)
+    .do(res => console.log(res))
+    .catch(this.catchError);
   }
 
   private catchError(error : Response)

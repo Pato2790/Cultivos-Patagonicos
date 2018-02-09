@@ -30,7 +30,8 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
   @ViewChild(SideMenuContentComponent) sideMenu: SideMenuContentComponent;
 
-  rootPage: any = Login;
+  rootPage: any;
+  currentUser;
 
   pages: Array<{title: string, component: any}>;
   public options: Array<MenuOptionModel>;
@@ -41,35 +42,21 @@ export class MyApp {
     };
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen, public authService: AuthServiceProvider, public menuCtrl: MenuController) {
-    if (authService.authenticated) 
-    {
-      this.rootPage = Login;
-    } 
-    else {
-      this.rootPage = HomePage;
-    }
-
     this.initializeApp();
-
-    // used for an example of ngFor and navigation
-    /*this.pages = [
-      { title: 'Inicio', component: HomePage },
-      { title: 'Productores', component: ProductoresList },
-      { title: 'Nuevo Productor', component: NewProductor },
-      { title: 'Chacras', component: ChacrasList },
-      { title: 'Nueva Chacra', component: NewChacra },
-      { title: 'Camiones', component: CamionesList },
-      { title: 'Nuevo Camion', component: NewCamion },
-      { title: 'Empresas', component: EmpresasList },
-      { title: 'Nuevo Empresa', component: NewEmpresa }
-    ];*/
-
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+      if (this.authService.authenticated) 
+       {
+         this.rootPage = HomePage;
+       } 
+       else {
+         this.rootPage = Login;
+       }
+
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
@@ -82,6 +69,11 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  getCurrentUser()
+  {
+    this.currentUser = this.authService.getCurrentUser();
   }
 
   // Initialize the side menu options

@@ -11,13 +11,13 @@ export class AuthServiceProvider {
 	user: User;
 
 	constructor(public angularFireAuth: AngularFireAuth) {
-        angularFireAuth.authState.subscribe((user: User) => {
+        this.angularFireAuth.authState.subscribe((user: User) => {
             this.user = user;
         });
     }
 
     get authenticated(): boolean {
-        return this.user != null;
+        return this.user !== null;
     }
 
     signInWithEmailAndPassword(userModel: UserModel): Promise<any> {
@@ -29,7 +29,7 @@ export class AuthServiceProvider {
     }
 
     signOut(): Promise<any> {
-        return this.angularFireAuth.auth.signOut();
+        return this.angularFireAuth.auth.signOut();   
     }
 
     getCurrentUser()

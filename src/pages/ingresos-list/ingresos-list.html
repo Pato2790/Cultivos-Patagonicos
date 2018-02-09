@@ -79,12 +79,16 @@
                       <ion-row>
                         <ion-col col-6> 
                           <ion-buttons left>
-                            <button ion-button color="semiDark" (click)="alertEditCuadro(cuadro)">Editar Lote</button>
+                            <button ion-button color="semiDark" round icon-only small (click)="goToEditLote(lote)">
+                              <ion-icon name="create"></ion-icon>
+                            </button>
                           </ion-buttons>
                         </ion-col>
                         <ion-col col-6>
                           <ion-buttons right>
-                            <button ion-button color="semiDark" (click)="alertDeleteCuadro(cuadro.id)">Eliminar Lote</button>
+                            <button ion-button color="semiDark" round icon-only small (click)="alertDeleteLote(lote.id)">
+                              <ion-icon name="trash"></ion-icon>
+                            </button>
                           </ion-buttons>
                         </ion-col>
                       </ion-row>
@@ -93,13 +97,15 @@
                 </ion-item>
               </ion-list>    
             </ion-col>
-            <ion-col col-md-12> 
-              <ion-buttons right>
-                <button ion-button color="semiDark" (click)="goToEdit(chacra)">Editar Ingreso</button>
-              </ion-buttons>
-              <ion-buttons right>
-                <button ion-button color="semiDark" (click)="alertDeleteChacra(chacra.id)">Eliminar Ingreso</button>
-              </ion-buttons>
+            <ion-col col-md-12>
+              <ion-row>
+                <ion-buttons right>
+                  <button ion-button color="semiDark" (click)="goToEditIngreso(ingreso)">Editar Ingreso</button>
+                </ion-buttons>
+                <ion-buttons right>
+                  <button ion-button color="semiDark" (click)="alertDeleteIngreso(ingreso.id)">Eliminar Ingreso</button>
+                </ion-buttons>
+              </ion-row> 
             </ion-col>
           </ion-row>
         </ion-grid>

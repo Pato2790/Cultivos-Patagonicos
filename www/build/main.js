@@ -1,14 +1,20 @@
 webpackJsonp([0],{
 
-/***/ 142:
+/***/ 143:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__ = __webpack_require__(60);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_login_login__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_productoresList_productoresList__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_camiones_list_camiones_list__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_empresas_list_empresas_list__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_instituciones_list_instituciones_list__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_ingresos_list_ingresos_list__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_new_ingreso_new_ingreso__ = __webpack_require__(171);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -22,18 +28,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
+
+
+
 var HomePage = (function () {
     function HomePage(navCtrl, AuthServiceProvider) {
         this.navCtrl = navCtrl;
         this.AuthServiceProvider = AuthServiceProvider;
+        this.pages = [
+            { title: 'Ingreso', icon: 'crop', component: __WEBPACK_IMPORTED_MODULE_8__pages_ingresos_list_ingresos_list__["a" /* IngresosList */] },
+            { title: 'Nuevo Ingreso', icon: 'add', component: __WEBPACK_IMPORTED_MODULE_9__pages_new_ingreso_new_ingreso__["a" /* NewIngreso */] },
+            { title: 'Productores', icon: 'contact', component: __WEBPACK_IMPORTED_MODULE_4__pages_productoresList_productoresList__["a" /* ProductoresList */] },
+            { title: 'Camiones', icon: 'bus', component: __WEBPACK_IMPORTED_MODULE_5__pages_camiones_list_camiones_list__["a" /* CamionesList */] },
+            { title: 'Empresas', icon: 'briefcase', component: __WEBPACK_IMPORTED_MODULE_6__pages_empresas_list_empresas_list__["a" /* EmpresasList */] },
+            { title: 'Instituciones', icon: 'home', component: __WEBPACK_IMPORTED_MODULE_7__pages_instituciones_list_instituciones_list__["a" /* InstitucionesList */] }
+        ];
     }
     HomePage.prototype.signOut = function () {
         this.AuthServiceProvider.signOut();
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__pages_login_login__["a" /* Login */]);
     };
+    HomePage.prototype.goToPage = function (page) {
+        this.navCtrl.push(page.component);
+    };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Inicio</ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="signOut()">\n        Cerrar Sesion\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  \n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Inicio</ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="signOut()">\n        Cerrar Sesion\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="backImg">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-10 offset-2>\n        <ion-row>\n          <ion-col col-3 *ngFor="let page of pages" padding margin> \n            <button (click)="goToPage(page)" ion-item detail-none color="semiDark" class="no-border-cards">\n              <ion-icon item-left style="zoom:1.35;" name="{{page.icon}}"></ion-icon>\n              {{page.title}}\n            </button>\n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]])
     ], HomePage);
@@ -51,9 +74,9 @@ var HomePage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Login; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_user_model__ = __webpack_require__(473);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_service_auth_service__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_user_model__ = __webpack_require__(476);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_service_auth_service__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(143);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -82,13 +105,14 @@ var Login = (function () {
             content: 'Iniciando sesión. Por favor, espere...'
         });
         loading.present();
-        this.authService.signInWithEmailAndPassword(this.userModel).then(function (result) {
+        this.authService.signInWithEmailAndPassword(this.userModel)
+            .then(function (result) {
             loading.dismiss();
             _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */]);
-        }).catch(function (error) {
+        })
+            .catch(function (error) {
             loading.dismiss();
-            console.log(error);
-            _this.alert('Error', 'Ha ocurrido un error inesperado. Por favor intente nuevamente.');
+            _this.alert('Error', error);
         });
     };
     Login.prototype.alert = function (title, message) {
@@ -101,7 +125,7 @@ var Login = (function () {
     };
     Login = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\login\login.html"*/'<ion-header>\n    <ion-navbar hideBackButton="true">\n        <ion-title>Iniciar Sesión</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content>\n    <form #signInForm="ngForm" (submit)="signIn()">\n        <ion-list>\n            <ion-item>\n                <ion-label stacked>Correo electrónico</ion-label>\n                <ion-input [(ngModel)]="userModel.email" type="email" autocorrect="off" autocapitalize="none" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"\n                    required></ion-input>\n            </ion-item>\n\n            <ion-item>\n                <ion-label stacked>Contraseña</ion-label>\n                <ion-input [(ngModel)]="userModel.password" type="password" name="password" required minlength="6"></ion-input>\n            </ion-item>\n\n            <div padding-left padding-right padding-top>\n                <button ion-button [disabled]="!signInForm.form.valid" block>Entrar</button>\n            </div>\n        </ion-list>\n    </form>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\login\login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\login\login.html"*/'<ion-header>\n    <ion-navbar color="cultivos" hideBackButton="true">\n        <ion-title>Iniciar Sesión</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n    <form  #signInForm="ngForm" (submit)="signIn()">\n        <ion-grid>\n            <ion-row class="back-black-color" col-4 offset-4 padding padding-top>\n                <ion-col col-8 offset-2>\n                    <img src="assets/imgs/cultivosTexto.png">\n                </ion-col>\n                <ion-col col-12>\n                    <ion-row>\n                        <ion-col col-12 padding>\n                            <p text-center>Inicia sesion en Cultivos Patagonicos con tu cuenta de Google</p>\n                        </ion-col>\n                        <ion-col col-10 offset-1>\n                            <ion-item class="no-border">\n                                <ion-label stacked>Correo electrónico</ion-label>\n                                <ion-input [(ngModel)]="userModel.email" type="email" autocorrect="off" autocapitalize="none" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"\n                                    required></ion-input>\n                            </ion-item>\n                        </ion-col>\n                        <ion-col col-10 offset-1> \n                            <ion-item class="no-border">\n                                <ion-label stacked>Contraseña</ion-label>\n                                <ion-input [(ngModel)]="userModel.password" type="password" name="password" required minlength="6"></ion-input>\n                            </ion-item>\n                        </ion-col>\n                    </ion-row>\n                </ion-col>\n                <ion-col col-8 offset-2>\n                    <button ion-button color="semiDark" type="submit" [disabled]="!signInForm.form.valid" block>Ingresar</button>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n    </form>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\login\login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */],
@@ -115,17 +139,15 @@ var Login = (function () {
 
 /***/ }),
 
-/***/ 163:
+/***/ 150:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IngresosServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductoresList; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_productor_edit_productor__ = __webpack_require__(378);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -139,46 +161,779 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var IngresosServiceProvider = (function () {
-    function IngresosServiceProvider(http) {
-        this.http = http;
-        this.urlAPI = 'http://localhost:3000/ingreso';
+var ProductoresList = (function () {
+    function ProductoresList(navCtrl, navParams, ProductoresServiceProvider, AlertController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.ProductoresServiceProvider = ProductoresServiceProvider;
+        this.AlertController = AlertController;
+        this.productoresList = [];
+        this.getProductores();
     }
-    IngresosServiceProvider.prototype.getAllIngresos = function () {
+    ProductoresList.prototype.getProductores = function () {
+        var _this = this;
+        this.ProductoresServiceProvider.getAllProductores().subscribe(function (data) { return _this.productoresList = data; });
+    };
+    ProductoresList.prototype.goToEdit = function (productor) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pages_edit_productor_edit_productor__["a" /* EditProductor */], {
+            productor: productor
+        });
+    };
+    ProductoresList.prototype.deleteProductor = function (productorId) {
+        var _this = this;
+        this.ProductoresServiceProvider.deleteProductor(productorId).subscribe(function (data) { return _this.getProductores(); });
+    };
+    ProductoresList.prototype.alertDeleteProductor = function (productorId) {
+        var _this = this;
+        var alert = this.AlertController.create({
+            title: 'Confirmar eliminacion',
+            message: 'Esta seguro que desea eliminar el productor de la lista?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function () { }
+                },
+                {
+                    text: 'Eliminar',
+                    handler: function () {
+                        _this.deleteProductor(productorId);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    ProductoresList = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\productoresList\productoresList.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Productores</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Listado de Productores</h1>\n        <p text-center>Presentacion en forma de lista de los productores con los que se trabaja</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h4 padding-top no-margin>Datos generales de los productores</h4>\n        <ion-row padding>\n          <ion-col col-sm-12 col-md-8 offset-md-2>\n            <ion-list>\n              <ion-item ion-item *ngFor="let prod of productoresList" class="no-border">\n                <ion-avatar item-left>\n                  <img src="assets/imgs/user.png">\n                </ion-avatar>\n                <ion-row>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Productor</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{prod.nombre}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Dni</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{prod.dni}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Telefono</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{prod.telefono}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small (click)="goToEdit(prod)">\n                          <ion-icon name="create"></ion-icon>\n                        </button>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small \n                          (click)="alertDeleteProductor(prod.id)">\n                          <ion-icon name="trash"></ion-icon>\n                        </button>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                </ion-row>\n              </ion-item>\n            </ion-list>\n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\productoresList\productoresList.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__["a" /* ProductoresServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], ProductoresList);
+    return ProductoresList;
+}());
+
+//# sourceMappingURL=productoresList.js.map
+
+/***/ }),
+
+/***/ 164:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CamionesList; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_camiones_service_camiones_service__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_camion_edit_camion__ = __webpack_require__(379);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var CamionesList = (function () {
+    function CamionesList(navCtrl, navParams, CamionesServiceProvider, AlertController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.CamionesServiceProvider = CamionesServiceProvider;
+        this.AlertController = AlertController;
+        this.camionesList = [];
+        this.getAllCamiones();
+    }
+    CamionesList.prototype.getAllCamiones = function () {
+        var _this = this;
+        this.CamionesServiceProvider.getAllCamiones().subscribe(function (data) { return _this.camionesList = data; });
+    };
+    CamionesList.prototype.goToEdit = function (camion) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pages_edit_camion_edit_camion__["a" /* EditCamion */], {
+            camion: camion
+        });
+    };
+    CamionesList.prototype.deleteCamion = function (camionId) {
+        var _this = this;
+        this.CamionesServiceProvider.deleteCamion(camionId).subscribe(function (data) { return _this.getAllCamiones(); });
+    };
+    CamionesList.prototype.alertDeleteCamion = function (camionId) {
+        var _this = this;
+        var alert = this.AlertController.create({
+            title: 'Confirmar eliminacion',
+            message: 'Esta seguro que desea eliminar el camion de la lista?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function () { }
+                },
+                {
+                    text: 'Eliminar',
+                    handler: function () {
+                        _this.deleteCamion(camionId);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    CamionesList = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-camiones-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\camiones-list\camiones-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Camiones</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Listado de Camiones</h1>\n        <p text-center>Presentacion en forma de lista de los camiones con los que se transporta</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h4 padding-top no-margin>Camiones</h4>\n        <ion-row padding>\n          <ion-col col-sm-12 col-md-8 offset-md-2>\n            <ion-list>\n              <ion-item ion-item *ngFor="let camion of camionesList" class="no-border">\n                <ion-avatar item-left>\n                  <img src="assets/imgs/camion-icon.png">\n                </ion-avatar>\n                <ion-row>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Chofer</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{camion.nombreChofer}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Patente Chasis</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{camion.patenteChasis}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Patente Acoplado</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{camion.patenteAcoplado}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small (click)="goToEdit(camion)">\n                          <ion-icon name="create"></ion-icon>\n                        </button>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small \n                          (click)="alertDeleteCamion(camion.id)">\n                          <ion-icon name="trash"></ion-icon>\n                        </button>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                </ion-row>\n              </ion-item>\n            </ion-list>\n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\camiones-list\camiones-list.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], CamionesList);
+    return CamionesList;
+}());
+
+//# sourceMappingURL=camiones-list.js.map
+
+/***/ }),
+
+/***/ 165:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmpresasList; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_empresas_service_empresas_service__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_empresa_edit_empresa__ = __webpack_require__(380);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var EmpresasList = (function () {
+    function EmpresasList(navCtrl, navParams, EmpresasServiceProvider, AlertController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.EmpresasServiceProvider = EmpresasServiceProvider;
+        this.AlertController = AlertController;
+        this.empresasList = [];
+        this.getAllEmpresas();
+    }
+    EmpresasList.prototype.getAllEmpresas = function () {
+        var _this = this;
+        this.EmpresasServiceProvider.getAllEmpresas().subscribe(function (data) { return _this.empresasList = data; });
+    };
+    EmpresasList.prototype.goToEdit = function (empresa) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pages_edit_empresa_edit_empresa__["a" /* EditEmpresa */], {
+            empresa: empresa
+        });
+    };
+    EmpresasList.prototype.deleteEmpresa = function (empresaId) {
+        var _this = this;
+        this.EmpresasServiceProvider.deleteEmpresa(empresaId).subscribe(function (data) { return _this.getAllEmpresas(); });
+    };
+    EmpresasList.prototype.alertDeleteEmpresa = function (empresaId) {
+        var _this = this;
+        var alert = this.AlertController.create({
+            title: 'Confirmar eliminacion',
+            message: 'Esta seguro que desea eliminar la empresa de la lista?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function () { }
+                },
+                {
+                    text: 'Eliminar',
+                    handler: function () {
+                        _this.deleteEmpresa(empresaId);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    EmpresasList = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-empresas-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\empresas-list\empresas-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Empresas</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Listado de Empresas</h1>\n        <p text-center>Presentacion en forma de lista de las empresas con los que se comercializa</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h4 padding-top no-margin>Empresas</h4>\n        <ion-row padding>\n          <ion-col col-sm-12 col-md-8 offset-md-2>\n            <ion-list>\n              <ion-item ion-item *ngFor="let empresa of empresasList" class="no-border">\n                <ion-avatar item-left>\n                  <img src="assets/imgs/emperesa-icon.png">\n                </ion-avatar>\n                <ion-row>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Empresa</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{empresa.nombre}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Direccion</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{empresa.direccion}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Telefono</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{empresa.telefono}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small (click)="goToEdit(empresa)">\n                          <ion-icon name="create"></ion-icon>\n                        </button>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small \n                          (click)="alertDeleteEmpresa(empresa.id)">\n                          <ion-icon name="trash"></ion-icon>\n                        </button>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                </ion-row>\n              </ion-item>\n            </ion-list>\n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\empresas-list\empresas-list.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_empresas_service_empresas_service__["a" /* EmpresasServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], EmpresasList);
+    return EmpresasList;
+}());
+
+//# sourceMappingURL=empresas-list.js.map
+
+/***/ }),
+
+/***/ 166:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InstitucionesList; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_instituciones_service_instituciones_service__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_institucion_edit_institucion__ = __webpack_require__(381);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var InstitucionesList = (function () {
+    function InstitucionesList(navCtrl, navParams, InstitucionesServiceProvider, AlertController) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.InstitucionesServiceProvider = InstitucionesServiceProvider;
+        this.AlertController = AlertController;
+        this.institucionesList = [];
+        this.InstitucionesServiceProvider.getAllInstituciones().subscribe(function (data) { return _this.institucionesList = data; });
+    }
+    InstitucionesList.prototype.getAllInstituciones = function () {
+        var _this = this;
+        this.InstitucionesServiceProvider.getAllInstituciones().subscribe(function (data) { return _this.institucionesList = data; });
+    };
+    InstitucionesList.prototype.goToEdit = function (institucion) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pages_edit_institucion_edit_institucion__["a" /* EditInstitucion */], {
+            institucion: institucion
+        });
+    };
+    InstitucionesList.prototype.deleteInstitucion = function (institucionId) {
+        var _this = this;
+        this.InstitucionesServiceProvider.deleteInstitucion(institucionId).subscribe(function (data) { return _this.getAllInstituciones(); });
+    };
+    InstitucionesList.prototype.alertDeleteInstitucion = function (institucionId) {
+        var _this = this;
+        var alert = this.AlertController.create({
+            title: 'Confirmar eliminacion',
+            message: 'Esta seguro que desea eliminar el camion de la lista?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function () { }
+                },
+                {
+                    text: 'Eliminar',
+                    handler: function () {
+                        _this.deleteInstitucion(institucionId);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    InstitucionesList = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-instituciones-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\instituciones-list\instituciones-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Instituciones</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Listado de Instituciones</h1>\n        <p text-center>Presentacion en forma de lista de las intituciones donde se destina la fruta</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h4 padding-top no-margin>Instituciones</h4>\n        <ion-row padding>\n          <ion-col col-sm-12 col-md-8 offset-md-2>\n            <ion-list>\n              <ion-item ion-item *ngFor="let institucion of institucionesList" class="no-border">\n                <ion-avatar item-left>\n                  <img src="assets/imgs/institucion-icon.png">\n                </ion-avatar>\n                <ion-row>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Institucion</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{institucion.nombre}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Direccion</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{institucion.direccion}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Telefono</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{institucion.telefono}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small (click)="goToEdit(institucion)">\n                          <ion-icon name="create"></ion-icon>\n                        </button>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small \n                          (click)="alertDeleteInstitucion(institucion.id)">\n                          <ion-icon name="trash"></ion-icon>\n                        </button>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                </ion-row>\n              </ion-item>\n            </ion-list>\n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\instituciones-list\instituciones-list.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], InstitucionesList);
+    return InstitucionesList;
+}());
+
+//# sourceMappingURL=instituciones-list.js.map
+
+/***/ }),
+
+/***/ 167:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IngresosList; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_ingresos_service_ingresos_service__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_lotes_service_lotes_service__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_edit_ingreso_edit_ingreso__ = __webpack_require__(382);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_edit_lote_edit_lote__ = __webpack_require__(383);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var IngresosList = (function () {
+    function IngresosList(navCtrl, navParams, IngresosServiceProvider, AlertController, LotesServiceProvider) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.IngresosServiceProvider = IngresosServiceProvider;
+        this.AlertController = AlertController;
+        this.LotesServiceProvider = LotesServiceProvider;
+        this.ingresosList = [];
+        this.itemExpandHeight = 100;
+        this.getAllIngresos();
+    }
+    IngresosList.prototype.getAllIngresos = function () {
+        var _this = this;
+        this.IngresosServiceProvider.getAllIngresos().subscribe(function (data) { return _this.ingresosList = data; });
+    };
+    IngresosList.prototype.toggleIngreso = function (index) {
+        this.ingresosList[index].open = !this.ingresosList[index].open;
+    };
+    IngresosList.prototype.goToEditIngreso = function (ingreso) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__pages_edit_ingreso_edit_ingreso__["a" /* EditIngreso */], {
+            ingreso: ingreso
+        });
+    };
+    IngresosList.prototype.alertDeleteIngreso = function (ingresoId) {
+        var _this = this;
+        var alert = this.AlertController.create({
+            title: 'Confirmar eliminacion',
+            message: 'Esta seguro que desea eliminar el ingreso de la lista?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function () { }
+                },
+                {
+                    text: 'Eliminar',
+                    handler: function () {
+                        _this.deleteIngreso(ingresoId);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    IngresosList.prototype.deleteIngreso = function (ingresoId) {
+        var _this = this;
+        this.IngresosServiceProvider.deleteIngreso(ingresoId).subscribe(function (data) { return _this.getAllIngresos(); });
+    };
+    IngresosList.prototype.goToEditLote = function (lote) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__pages_edit_lote_edit_lote__["a" /* EditLote */], {
+            lote: lote
+        });
+    };
+    IngresosList.prototype.alertDeleteLote = function (loteId) {
+        var _this = this;
+        var alert = this.AlertController.create({
+            title: 'Confirmar eliminacion',
+            message: 'Esta seguro que desea eliminar el lote de la lista?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function () { }
+                },
+                {
+                    text: 'Eliminar',
+                    handler: function () {
+                        _this.deleteLote(loteId);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    IngresosList.prototype.deleteLote = function (loteId) {
+        var _this = this;
+        this.LotesServiceProvider.deleteLote(loteId).subscribe(function (data) { return _this.getAllIngresos(); });
+    };
+    IngresosList = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-ingresos-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\ingresos-list\ingresos-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Ingresos</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12>\n        <h1 padding text-center>Listado de Ingresos</h1>\n        <p text-center>Listado de de todos los ingresos de fruta con sus correspondientes lotes</p>\n      </ion-col>\n      <ion-col padding col-sm-12 col-md-12 class="accordion-list" *ngFor=" let ingreso of ingresosList; let i = index">\n        <button ion-item class="no-border-cards" (click)="toggleIngreso(i)" detail-none [ngClass]="{ \'section-active\': ingreso.open, \'section\': !ingreso.open }">\n          <ion-icon item-left name="arrow-forward" *ngIf="!ingreso.open"></ion-icon>\n          <ion-icon item-left name="arrow-down" *ngIf="ingreso.open"></ion-icon>\n          Ingreso Remito {{ingreso.nroRemito}}\n        </button>\n        <ion-grid *ngIf="ingreso.open" class="back-black-color">\n          <ion-row>\n            <ion-col padding col-sm-12 col-md-12>\n              <ion-list no-padding no-margin>\n                <ion-item class="no-border">\n                  <ion-icon name="calendar" item-start></ion-icon>\n                    Fecha Ingreso {{ingreso.fechaIngreso}}\n                </ion-item>\n                <ion-item class="no-border">\n                  <ion-icon name="contact" item-start></ion-icon>\n                    Ingresado por {{ingreso.createdFor}}\n                </ion-item>\n              </ion-list>\n            </ion-col>\n            <ion-col *ngFor="let lote of ingreso.lotes" padding col-sm-12 col-md-4>\n              <ion-list>\n                <ion-item class="no-border">\n                  <ion-card>\n                    <ion-card-header text-center class="card-hearder-color no-border">\n                      Lote Nro {{lote.nroLote}}\n                    </ion-card-header>\n                    <ion-card-content>\n                      <ion-list no-padding no-margin>\n                        <ion-item class="no-border">\n                          <ion-icon name="cube" item-start></ion-icon>\n                          {{lote.cantBins}} Bins\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="podium" item-start></ion-icon>\n                          Peso Neto {{lote.pesoNeto}} Kgs\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="rose" item-start></ion-icon>\n                          Especie {{lote.especy.tipo}}\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="flower" item-start></ion-icon>\n                          Variedad {{lote.variedad.tipo}}\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="star-half" item-start></ion-icon>\n                          Calidad {{lote.calidad.tipo}}\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="home" item-start></ion-icon>\n                          Lugar Actual {{lote.institucion.nombre}}\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="leaf" item-start></ion-icon>\n                          Chacra {{lote.chacra.nombre}}\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="bus" item-start></ion-icon>\n                          Chofer Camion {{lote.camion.nombreChofer}}\n                        </ion-item>\n                      </ion-list>\n                      <ion-row>\n                        <ion-col col-6> \n                          <ion-buttons left>\n                            <button ion-button color="semiDark" round icon-only small (click)="goToEditLote(lote)">\n                              <ion-icon name="create"></ion-icon>\n                            </button>\n                          </ion-buttons>\n                        </ion-col>\n                        <ion-col col-6>\n                          <ion-buttons right>\n                            <button ion-button color="semiDark" round icon-only small (click)="alertDeleteLote(lote.id)">\n                              <ion-icon name="trash"></ion-icon>\n                            </button>\n                          </ion-buttons>\n                        </ion-col>\n                      </ion-row>\n                    </ion-card-content>\n                  </ion-card>\n                </ion-item>\n              </ion-list>    \n            </ion-col>\n            <ion-col col-md-12>\n              <ion-row>\n                <ion-buttons right>\n                  <button ion-button color="semiDark" (click)="goToEditIngreso(ingreso)">Editar Ingreso</button>\n                </ion-buttons>\n                <ion-buttons right>\n                  <button ion-button color="semiDark" (click)="alertDeleteIngreso(ingreso.id)">Eliminar Ingreso</button>\n                </ion-buttons>\n              </ion-row> \n            </ion-col>\n          </ion-row>\n        </ion-grid>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\ingresos-list\ingresos-list.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_ingresos_service_ingresos_service__["a" /* IngresosServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_3__providers_lotes_service_lotes_service__["a" /* LotesServiceProvider */]])
+    ], IngresosList);
+    return IngresosList;
+}());
+
+//# sourceMappingURL=ingresos-list.js.map
+
+/***/ }),
+
+/***/ 168:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LotesServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var LotesServiceProvider = (function () {
+    function LotesServiceProvider(http) {
+        this.http = http;
+        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/lote';
+    }
+    LotesServiceProvider.prototype.getAllLotes = function () {
         return this.http.get(this.urlAPI)
             .map(this.extractData)
             .do(function (res) { return console.log(res); })
             .catch(this.catchError);
     };
-    IngresosServiceProvider.prototype.addNewIngreso = function (ingreso) {
+    LotesServiceProvider.prototype.addNewLote = function (lote) {
         var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
             'Content-Type': 'application/json'
         });
         var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
             headers: headers
         });
-        return this.http.post(this.urlAPI, ingreso, options)
+        return this.http.post(this.urlAPI, lote, options)
             .do(function (res) { return console.log(res); })
             .catch(this.catchError);
     };
-    IngresosServiceProvider.prototype.catchError = function (error) {
+    LotesServiceProvider.prototype.editLote = function (lote) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.put(this.urlAPI + '/' + lote.id, lote, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    LotesServiceProvider.prototype.deleteLote = function (loteId) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.delete(this.urlAPI + '/' + loteId, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    LotesServiceProvider.prototype.catchError = function (error) {
         return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || "Server Error");
     };
-    IngresosServiceProvider.prototype.extractData = function (res) {
+    LotesServiceProvider.prototype.extractData = function (res) {
         return res.json().data;
     };
-    IngresosServiceProvider = __decorate([
+    LotesServiceProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]])
-    ], IngresosServiceProvider);
-    return IngresosServiceProvider;
+    ], LotesServiceProvider);
+    return LotesServiceProvider;
 }());
 
-//# sourceMappingURL=ingresos-service.js.map
+//# sourceMappingURL=lotes-service.js.map
 
 /***/ }),
 
-/***/ 176:
+/***/ 169:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CalidadesServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var CalidadesServiceProvider = (function () {
+    function CalidadesServiceProvider(http) {
+        this.http = http;
+        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/calidad';
+    }
+    CalidadesServiceProvider.prototype.getAllCalidades = function () {
+        return this.http.get(this.urlAPI)
+            .map(this.extractData)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    CalidadesServiceProvider.prototype.catchError = function (error) {
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || "Server Error");
+    };
+    CalidadesServiceProvider.prototype.extractData = function (res) {
+        return res.json().data;
+    };
+    CalidadesServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]])
+    ], CalidadesServiceProvider);
+    return CalidadesServiceProvider;
+}());
+
+//# sourceMappingURL=calidades-service.js.map
+
+/***/ }),
+
+/***/ 170:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EspecieServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var EspecieServiceProvider = (function () {
+    function EspecieServiceProvider(http) {
+        this.http = http;
+        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/especie';
+    }
+    EspecieServiceProvider.prototype.getAllEmpecies = function () {
+        return this.http.get(this.urlAPI)
+            .map(this.extractData)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    EspecieServiceProvider.prototype.catchError = function (error) {
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || "Server Error");
+    };
+    EspecieServiceProvider.prototype.extractData = function (res) {
+        return res.json().data;
+    };
+    EspecieServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]])
+    ], EspecieServiceProvider);
+    return EspecieServiceProvider;
+}());
+
+//# sourceMappingURL=especie-service.js.map
+
+/***/ }),
+
+/***/ 171:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewIngreso; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_ingresos_list_ingresos_list__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_calidad_model__ = __webpack_require__(746);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_especie_model__ = __webpack_require__(747);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_variedad_model__ = __webpack_require__(748);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_institucion_model__ = __webpack_require__(749);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__models_camion_model__ = __webpack_require__(750);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__models_chacra_model__ = __webpack_require__(751);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_calidades_service_calidades_service__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_especie_service_especie_service__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_instituciones_service_instituciones_service__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_camiones_service_camiones_service__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_ingresos_service_ingresos_service__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_auth_service_auth_service__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_chacras_service_chacras_service__ = __webpack_require__(46);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var NewIngreso = (function () {
+    function NewIngreso(navCtrl, navParams, CalidadesServiceProvider, EspecieServiceProvider, InstitucionesServiceProvider, CamionesServiceProvider, IngresosServiceProvider, AuthServiceProvider, ChacrasServiceProvider, AlertController) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.CalidadesServiceProvider = CalidadesServiceProvider;
+        this.EspecieServiceProvider = EspecieServiceProvider;
+        this.InstitucionesServiceProvider = InstitucionesServiceProvider;
+        this.CamionesServiceProvider = CamionesServiceProvider;
+        this.IngresosServiceProvider = IngresosServiceProvider;
+        this.AuthServiceProvider = AuthServiceProvider;
+        this.ChacrasServiceProvider = ChacrasServiceProvider;
+        this.AlertController = AlertController;
+        this.ingreso = { nroRemito: null, fechaIngreso: this.formatDate(), institucionId: 0, camionId: 0, chacraId: 0, createdFor: '', lotes: [] };
+        this.calidades = [];
+        this.calidad = __WEBPACK_IMPORTED_MODULE_3__models_calidad_model__["a" /* CalidadModel */];
+        this.especie = __WEBPACK_IMPORTED_MODULE_4__models_especie_model__["a" /* EspecieModel */];
+        this.especies = [];
+        this.variedad = __WEBPACK_IMPORTED_MODULE_5__models_variedad_model__["a" /* VariedadModel */];
+        this.variedades = [];
+        this.institucion = __WEBPACK_IMPORTED_MODULE_6__models_institucion_model__["a" /* InstitucionModel */];
+        this.instituciones = [];
+        this.camion = __WEBPACK_IMPORTED_MODULE_7__models_camion_model__["a" /* CamionModel */];
+        this.camiones = [];
+        this.chacra = __WEBPACK_IMPORTED_MODULE_8__models_chacra_model__["a" /* ChacraModel */];
+        this.chacras = [];
+        this.lotes = [];
+        this.agregarLoteList();
+        this.CalidadesServiceProvider.getAllCalidades().subscribe(function (data) { return _this.calidades = _this.lotes[0].calidades = Object.assign([], data); });
+        this.EspecieServiceProvider.getAllEmpecies().subscribe(function (data) { return _this.especies = _this.lotes[0].especies = Object.assign([], data); });
+        this.InstitucionesServiceProvider.getAllInstituciones().subscribe(function (data) { return _this.instituciones = _this.lotes[0].instituciones = Object.assign([], data); });
+        this.CamionesServiceProvider.getAllCamiones().subscribe(function (data) { return _this.camiones = data; });
+        this.ChacrasServiceProvider.getAllChacras().subscribe(function (data) { return _this.chacras = data; });
+    }
+    NewIngreso.prototype.agregarLoteList = function () {
+        this.lotes.push({ peso: null, nroLote: null, cantBins: null, calidadId: null, especieId: null, variedadId: null,
+            calidades: Object.assign([], this.calidades), especies: Object.assign([], this.especies), variedades: Object.assign([], this.variedades),
+            especie: Object.assign({}, this.especie), variedad: Object.assign({}, this.variedad), calidad: Object.assign({}, this.calidad) });
+    };
+    NewIngreso.prototype.deleteLoteList = function (lote) {
+        var index = this.lotes.indexOf(lote, 0);
+        this.lotes.splice(index, 1);
+    };
+    NewIngreso.prototype.calidadChange = function (event, lote) {
+        lote.calidadId = event.value.id;
+    };
+    NewIngreso.prototype.especieChange = function (event, lote) {
+        lote.especieId = event.value.id;
+        var currentVariedades = this.especies[this.especies.indexOf(event.value, 0)].variedads;
+        lote.variedades = Object.assign([], currentVariedades);
+    };
+    NewIngreso.prototype.variedadChange = function (event, lote) {
+        lote.variedadId = event.value.id;
+    };
+    NewIngreso.prototype.institucionChange = function (event) {
+        this.ingreso.institucionId = event.value.id;
+    };
+    NewIngreso.prototype.camionChange = function (event) {
+        this.ingreso.camionId = event.value.id;
+    };
+    NewIngreso.prototype.chacraChange = function (event) {
+        this.ingreso.chacraId = event.value.id;
+    };
+    NewIngreso.prototype.addNewIngreso = function () {
+        var _this = this;
+        this.ingreso.lotes = this.lotes;
+        this.ingreso.createdFor = this.AuthServiceProvider.getCurrentUser().email;
+        this.IngresosServiceProvider.addNewIngreso(this.ingreso).subscribe(function (data) { return _this.alertNewIngreso(data.error); });
+    };
+    NewIngreso.prototype.alertNewIngreso = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Creacion exitosa',
+                message: 'Se ha creado correctamente el nuevo ingreso.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar ingresar el nuevo ingreso.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
+    };
+    NewIngreso.prototype.destroyView = function () {
+        this.navCtrl.pop();
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__pages_ingresos_list_ingresos_list__["a" /* IngresosList */]);
+    };
+    NewIngreso.prototype.formatDate = function () {
+        var fecha = new Date();
+        return fecha.getFullYear() + "-" + fecha.getMonth() + 1 + "-" + fecha.getDate();
+    };
+    NewIngreso = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-new-ingreso',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-ingreso\new-ingreso.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Nuevo Ingreso</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n    <ion-grid>\n        <ion-row>\n            <ion-col col-sm-12 col-md-12 padding>\n              <h1 text-center>Nuevo Ingresos</h1>\n              <p text-center>Ingrese los datos necesarios para generar un nuevo ingreso de fruta.</p>\n            </ion-col>\n            <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n                <h3 padding-top no-margin>Datos generales del Ingreso</h3>\n            	<form (ngSubmit)="addNewIngreso()">\n            	    <ion-grid>\n                        <ion-row>\n                            <ion-col col-sm-12 col-md-12 padding-bottom>\n                                <ion-row>\n                                    <ion-item col-sm-12 col-md-6 class="no-border">\n                                      <ion-label stacked>Nro Remito</ion-label>\n                                      <ion-input type="text" [(ngModel)]="ingreso.nroRemito" name="nroRemito"></ion-input>\n                                    </ion-item>\n                                    <ion-item col-sm-12 col-md-6 class="no-border">\n                                      <ion-label stacked>Fecha de Ingreso</ion-label>\n                                      <ion-input type="date" [value]="ingreso.fechaIngreso" (input)="ingreso.fechaIngreso = $event.target.value" name="fechaIngreso"></ion-input>\n                                    </ion-item>\n                                </ion-row>\n                                <ion-item class="no-border">\n                                    <select-searchable\n                                        [(ngModel)]="institucion"\n                                        name="institucion"\n                                        title="Instituciones"\n                                        itemValueField="id"\n                                        itemTextField="nombre"\n                                        [items]="instituciones"\n                                        [canSearch]="true"\n                                        (onChange)="institucionChange($event)">\n                                    </select-searchable>\n                                </ion-item>\n                                <ion-item class="no-border">\n                                    <select-searchable\n                                        [(ngModel)]="camion"\n                                        name="camion"\n                                        title="Camiones"\n                                        itemValueField="id"\n                                        itemTextField="nombreChofer"\n                                        [items]="camiones"\n                                        [canSearch]="true"\n                                        (onChange)="camionChange($event)">\n                                    </select-searchable>\n                                </ion-item>\n                                <ion-item class="no-border">\n                                    <select-searchable\n                                        [(ngModel)]="chacra"\n                                        name="chacra"\n                                        title="Chacras"\n                                        itemValueField="id"\n                                        itemTextField="nombre"\n                                        [items]="chacras"\n                                        [canSearch]="true"\n                                        (onChange)="chacraChange($event)">\n                                    </select-searchable>\n                                </ion-item>\n                            </ion-col>\n                            <ion-col *ngFor="let lote of lotes; let i = index" col-sm-12 col-md-12 padding class="back-color">\n                                <ion-row>\n                                    <h3 padding>Datos generales del nuevo Lote</h3>\n                                    <ion-col col-sm-12 col-md-12 no-padding>\n                                        <ion-row>\n                                            <ion-item class="no-border" col-sm-12 col-md-4>\n                                              <ion-label stacked>Numero Lote</ion-label>\n                                              <ion-input type="number" [value]="lote.nroLote" (input)="lote.nroLote = $event.target.value" name="nroLote"></ion-input>\n                                            </ion-item>\n                                            <ion-item class="no-border" col-sm-12 col-md-4>\n                                              <ion-label stacked>Cantidad Bins</ion-label>\n                                              <ion-input type="number" [value]="lote.cantBins" (input)="lote.cantBins = $event.target.value" name="cantBins"></ion-input>\n                                            </ion-item>\n                                            <ion-item class="no-border" col-sm-12 col-md-4>\n                                              <ion-label stacked>Peso</ion-label>\n                                              <ion-input type="number" [value]="lote.peso" (input)="lote.peso = $event.target.value" name="peso"></ion-input>\n                                            </ion-item>\n                                        </ion-row>\n                                    </ion-col>\n                                    <ion-col col-sm-12 col-md-12 no-padding>\n                                        <ion-item class="no-border">\n                                            <select-searchable\n                                                [(ngModel)]="lote.calidad"\n                                                name="calidad"\n                                                title="Calidades"\n                                                itemValueField="id"\n                                                itemTextField="tipo"\n                                                [items]="lote.calidades"\n                                                [canSearch]="true"\n                                                (onChange)="calidadChange($event,lote)">\n                                            </select-searchable>\n                                        </ion-item>\n                                    </ion-col>\n                                    <ion-col col-sm-12 col-md-12 no-padding>\n                                        <ion-item class="no-border">\n                                            <select-searchable\n                                                [(ngModel)]="lote.especie"\n                                                name="especie"\n                                                title="Especies"\n                                                itemValueField="id"\n                                                itemTextField="tipo"\n                                                [items]="lote.especies"\n                                                [canSearch]="true"\n                                                (onChange)="especieChange($event,lote)">\n                                            </select-searchable>\n                                        </ion-item>\n                                    </ion-col>\n                                    <ion-col col-sm-12 col-md-12 no-padding>\n                                        <ion-item class="no-border">\n                                            <select-searchable\n                                                [(ngModel)]="lote.variedad"\n                                                name="variedad"\n                                                title="Variedades"\n                                                itemValueField="id"\n                                                itemTextField="tipo"\n                                                [items]="lote.variedades"\n                                                [canSearch]="true"\n                                                (onChange)="variedadChange($event,lote)">\n                                            </select-searchable>\n                                        </ion-item>\n                                    </ion-col>\n                                    <ion-col col-sm-12 col-md-12 no-padding>\n                                        <ion-buttons right>\n                                            <button ion-button color="semiDark" (click)="deleteLoteList(lote)">Eliminar Lote</button>\n                                        </ion-buttons>\n                                    </ion-col>\n                                </ion-row>\n                            </ion-col>\n                            <ion-col col-sm-12 col-md-12 padding>\n                                    <ion-buttons left>\n                                        <button ion-button color="semiDark" type="submit">Aceptar Ingreso</button>\n                                    </ion-buttons>\n                            </ion-col>\n                        </ion-row>\n                    </ion-grid>\n            	</form>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n    <ion-fab bottom right padding margin>\n        <button ion-fab color="semiDark" (click)="agregarLoteList()"><ion-icon name="crop"></ion-icon></button>\n    </ion-fab>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-ingreso\new-ingreso.html"*/,
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_9__providers_calidades_service_calidades_service__["a" /* CalidadesServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__providers_calidades_service_calidades_service__["a" /* CalidadesServiceProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_10__providers_especie_service_especie_service__["a" /* EspecieServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__providers_especie_service_especie_service__["a" /* EspecieServiceProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_11__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_12__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_12__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_13__providers_ingresos_service_ingresos_service__["a" /* IngresosServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_13__providers_ingresos_service_ingresos_service__["a" /* IngresosServiceProvider */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_14__providers_auth_service_auth_service__["a" /* AuthServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_14__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_15__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_15__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _k || Object])
+    ], NewIngreso);
+    return NewIngreso;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+}());
+
+//# sourceMappingURL=new-ingreso.js.map
+
+/***/ }),
+
+/***/ 184:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -191,11 +946,11 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 176;
+webpackEmptyAsyncContext.id = 184;
 
 /***/ }),
 
-/***/ 220:
+/***/ 229:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -208,18 +963,18 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 220;
+webpackEmptyAsyncContext.id = 229;
 
 /***/ }),
 
-/***/ 260:
+/***/ 269:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SideMenuContentComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_side_menu_redirect_events__ = __webpack_require__(432);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_side_menu_redirect_events__ = __webpack_require__(435);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -528,7 +1283,7 @@ var SideMenuContentComponent = (function () {
 
 /***/ }),
 
-/***/ 261:
+/***/ 270:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -692,92 +1447,24 @@ var SelectSearchablePage = (function () {
 
 /***/ }),
 
-/***/ 281:
+/***/ 28:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductoresList; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_productor_edit_productor__ = __webpack_require__(371);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var ProductoresList = (function () {
-    function ProductoresList(navCtrl, navParams, ProductoresServiceProvider, AlertController) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.ProductoresServiceProvider = ProductoresServiceProvider;
-        this.AlertController = AlertController;
-        this.productoresList = [];
-        this.getProductores();
-    }
-    ProductoresList.prototype.getProductores = function () {
-        var _this = this;
-        this.ProductoresServiceProvider.getAllProductores().subscribe(function (data) { return _this.productoresList = data; });
-    };
-    ProductoresList.prototype.goToEdit = function (productor) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pages_edit_productor_edit_productor__["a" /* EditProductor */], {
-            productor: productor
-        });
-    };
-    ProductoresList.prototype.deleteProductor = function (productorId) {
-        var _this = this;
-        this.ProductoresServiceProvider.deleteProductor(productorId).subscribe(function (data) { return _this.getProductores(); });
-    };
-    ProductoresList.prototype.alertDeleteProductor = function (productorId) {
-        var _this = this;
-        var alert = this.AlertController.create({
-            title: 'Confirmar eliminacion',
-            message: 'Esta seguro que desea eliminar el productor de la lista?',
-            buttons: [
-                {
-                    text: 'Cancelar',
-                    role: 'cancel',
-                    handler: function () { }
-                },
-                {
-                    text: 'Eliminar',
-                    handler: function () {
-                        _this.deleteProductor(productorId);
-                    }
-                }
-            ]
-        });
-        alert.present();
-    };
-    ProductoresList = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\productoresList\productoresList.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Productores</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <div class="back-black-color" padding>\n    <h3 padding>Listado de Productores:</h3>\n    <ion-list>\n      <ion-item ion-item *ngFor="let prod of productoresList">\n        <ion-avatar item-left>\n          <img src="assets/img/user.png">\n        </ion-avatar>\n        <h2>{{prod.nombre}}</h2>\n        <p>Dni: {{prod.dni}}</p>\n        <p>Telefono: {{prod.telefono}}</p>\n        <button ion-button (click)="goToEdit(prod)">\n         Editar\n        </button>\n        <button ion-button (click)="alertDeleteProductor(prod.id)">\n         Eliminar\n        </button>\n      </ion-item>\n    </ion-list>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\productoresList\productoresList.html"*/
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__["a" /* ProductoresServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
-    ], ProductoresList);
-    return ProductoresList;
-}());
-
-//# sourceMappingURL=productoresList.js.map
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return urlAPI; });
+var urlAPI = 'http://localhost:3000';
+//# sourceMappingURL=api-service.js.map
 
 /***/ }),
 
-/***/ 371:
+/***/ 378:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditProductor; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__ = __webpack_require__(83);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -791,42 +1478,319 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var EditProductor = (function () {
-    function EditProductor(navCtrl, navParams, ProductoresServiceProvider) {
+    function EditProductor(navCtrl, navParams, ProductoresServiceProvider, AlertController) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.ProductoresServiceProvider = ProductoresServiceProvider;
+        this.AlertController = AlertController;
         this.productor = [];
         this.productor = this.navParams.get('productor');
     }
     EditProductor.prototype.editProductor = function () {
-        this.ProductoresServiceProvider.editProductor(this.productor).subscribe(function (data) { return console.log(data); });
-        this.destroyView();
+        var _this = this;
+        this.ProductoresServiceProvider.editProductor(this.productor).subscribe(function (data) { return _this.alertEditLote(data.error); });
+    };
+    EditProductor.prototype.alertEditLote = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Edicion exitosa',
+                message: 'Se ha editado correctamente el productor.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar editar el productor.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
     };
     EditProductor.prototype.destroyView = function () {
         this.navCtrl.pop();
     };
     EditProductor = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-edit-productor',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-productor\edit-productor.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Productor</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <form (ngSubmit)="editProductor()">\n      <ion-item>\n        <ion-label>Nombre</ion-label>\n        <ion-input type="text" [(ngModel)]="productor.nombre" name="name"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label>DNI</ion-label>\n        <ion-input type="text" [(ngModel)]="productor.dni" name="dni"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label>Telefono</ion-label>\n        <ion-input type="number" [(ngModel)]="productor.telefono" name="telefono"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label>Chacra</ion-label>\n        <ion-select [(ngModel)]="productor.chacras_ids" multiple="true" cancelText="Cancelar" okText="Aceptar" name="chacras_ids">\n          <ion-option *ngFor="let chacra of chacras" [value] = "chacra.id" >{{chacra.nombre}}</ion-option>\n        </ion-select>\n      </ion-item>\n      <button ion-button type="submit" block>Editar</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-productor\edit-productor.html"*/,
+            selector: 'page-edit-productor',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-productor\edit-productor.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Productor</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Editar Productor</h1>\n        <p text-center>Ingrese los datos necesarios para editar un productor existente.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales del productor</h3>\n        <form (ngSubmit)="editProductor()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="productor.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>DNI</ion-label>\n                    <ion-input type="text" [(ngModel)]="productor.dni" name="dni"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Telefono</ion-label>\n                    <ion-input type="number" [(ngModel)]="productor.telefono" name="telefono"></ion-input>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Editar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-productor\edit-productor.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__["a" /* ProductoresServiceProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__["a" /* ProductoresServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__["a" /* ProductoresServiceProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object])
     ], EditProductor);
     return EditProductor;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=edit-productor.js.map
 
 /***/ }),
 
-/***/ 372:
+/***/ 379:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewProductor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditCamion; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_chacras_service_chacras_service__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_camiones_service_camiones_service__ = __webpack_require__(48);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var EditCamion = (function () {
+    function EditCamion(navCtrl, navParams, CamionesServiceProvider, AlertController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.CamionesServiceProvider = CamionesServiceProvider;
+        this.AlertController = AlertController;
+        this.camion = [];
+        this.camion = this.navParams.get('camion');
+    }
+    EditCamion.prototype.editCamion = function (camion) {
+        var _this = this;
+        this.CamionesServiceProvider.editCamion(this.camion).subscribe(function (data) { return _this.alertEditCamion(data.error); });
+    };
+    EditCamion.prototype.alertEditCamion = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Edicion exitosa',
+                message: 'Se ha editado correctamente el camion.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar editar el camion.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
+    };
+    EditCamion.prototype.destroyView = function () {
+        this.navCtrl.pop();
+    };
+    EditCamion = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-edit-camion',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-camion\edit-camion.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Camion</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Editar Camion</h1>\n        <p text-center>Ingrese los datos necesarios para editar un camion existente.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales del camion</h3>\n        <form (ngSubmit)="editCamion()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-12 class="no-border">\n                    <ion-label stacked>Nombre Chofer</ion-label>\n                    <ion-input type="text" [(ngModel)]="camion.nombreChofer" name="nombreChofer"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Patente Acoplado</ion-label>\n                    <ion-input type="text" [(ngModel)]="camion.patenteAcoplado" name="patenteAcoplado"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Patente Chasis</ion-label>\n                    <ion-input type="text" [(ngModel)]="camion.patenteChasis" name="patenteChasis"></ion-input>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Editar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-camion\edit-camion.html"*/,
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object])
+    ], EditCamion);
+    return EditCamion;
+    var _a, _b, _c, _d;
+}());
+
+//# sourceMappingURL=edit-camion.js.map
+
+/***/ }),
+
+/***/ 380:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditEmpresa; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_empresas_service_empresas_service__ = __webpack_require__(91);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var EditEmpresa = (function () {
+    function EditEmpresa(navCtrl, navParams, EmpresasServiceProvider, AlertController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.EmpresasServiceProvider = EmpresasServiceProvider;
+        this.AlertController = AlertController;
+        this.empresa = [];
+        this.empresa = this.navParams.get('empresa');
+    }
+    EditEmpresa.prototype.editEmpresa = function (chacra) {
+        var _this = this;
+        this.EmpresasServiceProvider.editEmpresa(this.empresa).subscribe(function (data) { return _this.alertEditEmpresa(data.error); });
+    };
+    EditEmpresa.prototype.alertEditEmpresa = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Edicion exitosa',
+                message: 'Se ha editado correctamente la empresa.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar editar la empresa.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
+    };
+    EditEmpresa.prototype.destroyView = function () {
+        this.navCtrl.pop();
+    };
+    EditEmpresa = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-edit-empresa',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-empresa\edit-empresa.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Empresa</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Editar Empresa</h1>\n        <p text-center>Ingrese los datos necesarios para generar una empresa existente.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales de la empresa</h3>\n        <form (ngSubmit)="editEmpresa()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="empresa.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Direccion</ion-label>\n                    <ion-input type="text" [(ngModel)]="empresa.direccion" name="direccion"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Telefono</ion-label>\n                    <ion-input type="number" [(ngModel)]="empresa.telefono" name="telefono"></ion-input>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Editar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-empresa\edit-empresa.html"*/,
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_empresas_service_empresas_service__["a" /* EmpresasServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_empresas_service_empresas_service__["a" /* EmpresasServiceProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object])
+    ], EditEmpresa);
+    return EditEmpresa;
+    var _a, _b, _c, _d;
+}());
+
+//# sourceMappingURL=edit-empresa.js.map
+
+/***/ }),
+
+/***/ 381:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditInstitucion; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_instituciones_service_instituciones_service__ = __webpack_require__(49);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var EditInstitucion = (function () {
+    function EditInstitucion(navCtrl, navParams, InstitucionesServiceProvider, AlertController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.InstitucionesServiceProvider = InstitucionesServiceProvider;
+        this.AlertController = AlertController;
+        this.institucion = [];
+        this.institucion = this.navParams.get('institucion');
+    }
+    EditInstitucion.prototype.editInstitucion = function (institucion) {
+        var _this = this;
+        this.InstitucionesServiceProvider.editInstitucion(this.institucion).subscribe(function (data) { return _this.alertEditInstitucion(data.error); });
+    };
+    EditInstitucion.prototype.alertEditInstitucion = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Edicion exitosa',
+                message: 'Se ha editado correctamente la institucion.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar editar la institucion.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
+    };
+    EditInstitucion.prototype.destroyView = function () {
+        this.navCtrl.pop();
+    };
+    EditInstitucion = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-edit-institucion',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-institucion\edit-institucion.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Institucion</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Editar Institucion</h1>\n        <p text-center>Ingrese los datos necesarios para editar una institucion existente.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales de la institucion</h3>\n        <form (ngSubmit)="editInstitucion()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="institucion.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Direccion</ion-label>\n                    <ion-input type="text" [(ngModel)]="institucion.direccion" name="direccion"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Telefono</ion-label>\n                    <ion-input type="number" [(ngModel)]="institucion.telefono" name="telefono"></ion-input>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Editar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-institucion\edit-institucion.html"*/,
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object])
+    ], EditInstitucion);
+    return EditInstitucion;
+    var _a, _b, _c, _d;
+}());
+
+//# sourceMappingURL=edit-institucion.js.map
+
+/***/ }),
+
+/***/ 382:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditIngreso; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_ingresos_service_ingresos_service__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_instituciones_service_instituciones_service__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_chacras_service_chacras_service__ = __webpack_require__(46);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -840,38 +1804,297 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+var EditIngreso = (function () {
+    function EditIngreso(navCtrl, navParams, IngresosServiceProvider, InstitucionesServiceProvider, ChacrasServiceProvider) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.IngresosServiceProvider = IngresosServiceProvider;
+        this.InstitucionesServiceProvider = InstitucionesServiceProvider;
+        this.ChacrasServiceProvider = ChacrasServiceProvider;
+        this.ingreso = [];
+        this.chacras = [];
+        this.instituciones = [];
+        this.InstitucionesServiceProvider.getAllInstituciones().subscribe(function (data) { return _this.instituciones = data; });
+        this.ChacrasServiceProvider.getAllChacras().subscribe(function (data) { return _this.chacras = data; });
+        this.ingreso = this.navParams.get('ingreso');
+    }
+    EditIngreso.prototype.editIngreso = function (ingreso) {
+        this.IngresosServiceProvider.editIngreso(this.ingreso).subscribe(function (data) { return console.log(data); });
+        this.destroyView();
+    };
+    EditIngreso.prototype.destroyView = function () {
+        this.navCtrl.pop();
+    };
+    EditIngreso = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-edit-ingreso',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-ingreso\edit-ingreso.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Ingreso</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n    <ion-grid>\n        <ion-row>\n            <ion-col col-sm-12 col-md-12 padding>\n              <h1 text-center>Editar Ingreso</h1>\n              <p text-center>Ingrese los datos necesarios para editar un ingreso de fruta existente.</p>\n            </ion-col>\n            <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n                <h3 padding-top no-margin>Datos generales del Ingreso</h3>\n            	<form (ngSubmit)="editIngreso()">\n            	    <ion-grid>\n                        <ion-row>\n                            <ion-col col-sm-12 col-md-12 padding-bottom>\n                                <ion-row>\n                                    <ion-item col-sm-12 col-md-6 class="no-border">\n                                      <ion-label stacked>Nro Remito</ion-label>\n                                      <ion-input type="text" [(ngModel)]="ingreso.nroRemito" name="nroRemito"></ion-input>\n                                    </ion-item>\n                                    <ion-item col-sm-12 col-md-6 class="no-border">\n                                      <ion-label stacked>Fecha de Ingreso</ion-label>\n                                      <ion-input type="date" [value]="ingreso.fechaIngreso" (input)="ingreso.fechaIngreso = $event.target.value" name="fechaIngreso"></ion-input>\n                                    </ion-item>\n                                </ion-row>\n                            </ion-col>\n                            <ion-col col-sm-12 col-md-12 padding>\n                                    <ion-buttons right>\n                                        <button ion-button color="semiDark" type="submit">Editar</button>\n                                    </ion-buttons>\n                            </ion-col>\n                        </ion-row>\n                    </ion-grid>\n            	</form>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-ingreso\edit-ingreso.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_ingresos_service_ingresos_service__["a" /* IngresosServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */]])
+    ], EditIngreso);
+    return EditIngreso;
+}());
+
+//# sourceMappingURL=edit-ingreso.js.map
+
+/***/ }),
+
+/***/ 383:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditLote; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_lotes_service_lotes_service__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_calidades_service_calidades_service__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_especie_service_especie_service__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_variedades_service_variedades_service__ = __webpack_require__(384);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var EditLote = (function () {
+    function EditLote(navCtrl, navParams, LotesServiceProvider, CalidadesServiceProvider, EspecieServiceProvider, VariedadesServiceProvider, AlertController) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.LotesServiceProvider = LotesServiceProvider;
+        this.CalidadesServiceProvider = CalidadesServiceProvider;
+        this.EspecieServiceProvider = EspecieServiceProvider;
+        this.VariedadesServiceProvider = VariedadesServiceProvider;
+        this.AlertController = AlertController;
+        this.lote = [];
+        this.calidades = [];
+        this.variedades = [];
+        this.especies = [];
+        this.lote = this.navParams.get('lote');
+        this.CalidadesServiceProvider.getAllCalidades().subscribe(function (data) { return _this.calidades = data; });
+        this.EspecieServiceProvider.getAllEmpecies().subscribe(function (data) { return _this.especies = data; });
+        var especieId = this.lote['especy'].id;
+        this.VariedadesServiceProvider.getAllVariedades(especieId).subscribe(function (data) { return _this.variedades = data; });
+    }
+    EditLote.prototype.editLote = function () {
+        var _this = this;
+        this.LotesServiceProvider.editLote(this.lote).subscribe(function (data) { return _this.alertEditLote(data.error); });
+    };
+    EditLote.prototype.destroyView = function () {
+        this.navCtrl.pop();
+    };
+    EditLote.prototype.calidadChange = function (event, lote) {
+        lote.calidadId = event.value.id;
+    };
+    EditLote.prototype.especieChange = function (event, lote) {
+        var _this = this;
+        lote.especieId = event.value.id;
+        this.VariedadesServiceProvider.getAllVariedades(lote.especieId).subscribe(function (data) { return _this.variedades = data; });
+        this.lote['variedad'] = [];
+    };
+    EditLote.prototype.variedadChange = function (event, lote) {
+        lote.variedadId = event.value.id;
+    };
+    EditLote.prototype.alertEditLote = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Edicion exitosa',
+                message: 'Se ha editado correctamente el lote.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar editar el lote.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
+    };
+    EditLote = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-edit-lote',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-lote\edit-lote.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Lote</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n    <ion-grid>\n        <ion-row>\n            <ion-col col-sm-12 col-md-12 padding>\n              <h1 text-center>Editar Lote</h1>\n              <p text-center>Ingrese los datos necesarios para editar un lote de fruta existente.</p>\n            </ion-col>\n            <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n                <h3 padding-top no-margin>Datos generales del Lote</h3>\n            	<form (ngSubmit)="editLote()">\n            	    <ion-grid>\n                        <ion-row>\n                            <ion-col col-sm-12 col-md-12 padding-bottom>\n                                <ion-row>\n                                    <ion-item col-sm-12 col-md-4 class="no-border">\n                                      <ion-label stacked>Numero Lote</ion-label>\n                                      <ion-input type="text" [(ngModel)]="lote.nroLote" name="nroRemito"></ion-input>\n                                    </ion-item>\n                                    <ion-item col-sm-12 col-md-4 class="no-border">\n                                      <ion-label stacked>Cantidad Bins</ion-label>\n                                      <ion-input type="number" [value]="lote.cantBins" (input)="lote.cantBins = $event.target.value" name="cantBins"></ion-input>\n                                    </ion-item>\n                                    <ion-item col-sm-12 col-md-4 class="no-border">\n                                      <ion-label stacked>Peso</ion-label>\n                                      <ion-input type="number" [value]="lote.pesoNeto" (input)="lote.pesoNeto = $event.target.value" name="pesoNeto"></ion-input>\n                                    </ion-item>\n                                </ion-row>\n                                <ion-col col-sm-12 col-md-12 no-padding>\n                                    <ion-item class="no-border">\n                                        <select-searchable\n                                            [(ngModel)]="lote.calidad"\n                                            name="calidad"\n                                            title="Calidades"\n                                            itemValueField="id"\n                                            itemTextField="tipo"\n                                            [items]="calidades"\n                                            [canSearch]="true"\n                                            (onChange)="calidadChange($event,lote)">\n                                        </select-searchable>\n                                    </ion-item>\n                                </ion-col>\n                                <ion-col col-sm-12 col-md-12 no-padding>\n                                    <ion-item class="no-border">\n                                        <select-searchable\n                                            [(ngModel)]="lote.especy"\n                                            name="especie"\n                                            title="Especies"\n                                            itemValueField="id"\n                                            itemTextField="tipo"\n                                            [items]="especies"\n                                            [canSearch]="true"\n                                            (onChange)="especieChange($event,lote)">\n                                        </select-searchable>\n                                    </ion-item>\n                                </ion-col>\n                                <ion-col col-sm-12 col-md-12 no-padding>\n                                    <ion-item class="no-border">\n                                        <select-searchable\n                                            [(ngModel)]="lote.variedad"\n                                            name="variedad"\n                                            title="Variedades"\n                                            itemValueField="id"\n                                            itemTextField="tipo"\n                                            [items]="variedades"\n                                            [canSearch]="true"\n                                            (onChange)="variedadChange($event,lote)">\n                                        </select-searchable>\n                                    </ion-item>\n                                </ion-col>\n                            </ion-col>\n                            <ion-col col-sm-12 col-md-12 padding>\n                                <ion-buttons left>\n                                    <button ion-button color="semiDark" type="submit">Editar</button>\n                                </ion-buttons>\n                            </ion-col>\n                        </ion-row>\n                    </ion-grid>\n            	</form>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-lote\edit-lote.html"*/,
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_lotes_service_lotes_service__["a" /* LotesServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_lotes_service_lotes_service__["a" /* LotesServiceProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_calidades_service_calidades_service__["a" /* CalidadesServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_calidades_service_calidades_service__["a" /* CalidadesServiceProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__providers_especie_service_especie_service__["a" /* EspecieServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_especie_service_especie_service__["a" /* EspecieServiceProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__providers_variedades_service_variedades_service__["a" /* VariedadesServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_variedades_service_variedades_service__["a" /* VariedadesServiceProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _g || Object])
+    ], EditLote);
+    return EditLote;
+    var _a, _b, _c, _d, _e, _f, _g;
+}());
+
+//# sourceMappingURL=edit-lote.js.map
+
+/***/ }),
+
+/***/ 384:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VariedadesServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var VariedadesServiceProvider = (function () {
+    function VariedadesServiceProvider(http) {
+        this.http = http;
+        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/variedad';
+    }
+    VariedadesServiceProvider.prototype.getAllVariedades = function (especieId) {
+        return this.http.get(this.urlAPI + '/' + especieId)
+            .map(this.extractData)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    VariedadesServiceProvider.prototype.catchError = function (error) {
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || "Server Error");
+    };
+    VariedadesServiceProvider.prototype.extractData = function (res) {
+        return res.json().data;
+    };
+    VariedadesServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
+    ], VariedadesServiceProvider);
+    return VariedadesServiceProvider;
+}());
+
+//# sourceMappingURL=variedades-service.js.map
+
+/***/ }),
+
+/***/ 385:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewProductor; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_chacras_service_chacras_service__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_productoresList_productoresList__ = __webpack_require__(150);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
 var NewProductor = (function () {
-    function NewProductor(navCtrl, navParams, ProductoresServiceProvider, ChacrasServiceProvider) {
+    function NewProductor(navCtrl, navParams, ProductoresServiceProvider, ChacrasServiceProvider, AlertController) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.ProductoresServiceProvider = ProductoresServiceProvider;
         this.ChacrasServiceProvider = ChacrasServiceProvider;
+        this.AlertController = AlertController;
         this.productor = { nombre: '', dni: '', telefono: '', chacras_ids: [] };
         this.chacras = [];
         this.ChacrasServiceProvider.getAllChacras().subscribe(function (data) { return _this.chacras = data; });
     }
     NewProductor.prototype.addNewProductor = function () {
-        this.ProductoresServiceProvider.addNewProductor(this.productor).subscribe(function (data) { return console.log(data); });
-        this.destroyView();
+        var _this = this;
+        this.ProductoresServiceProvider.addNewProductor(this.productor).subscribe(function (data) { return _this.alertNewProductor(data.error); });
+    };
+    NewProductor.prototype.alertNewProductor = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Creacion exitosa',
+                message: 'Se ha creado correctamente el nuevo productor.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar ingresar el nuevo productor.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
     };
     NewProductor.prototype.destroyView = function () {
         this.navCtrl.pop();
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__pages_productoresList_productoresList__["a" /* ProductoresList */]);
     };
     NewProductor = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-new-productor',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-productor\new-productor.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Nuevo Productor</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Nuevo Productor</h1>\n        <p text-center>Ingrese los datos necesarios para generar un nuevo productor.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales del productor</h3>\n        <form (ngSubmit)="addNewProductor()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="productor.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>DNI</ion-label>\n                    <ion-input type="text" [(ngModel)]="productor.dni" name="dni"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Telefono</ion-label>\n                    <ion-input type="number" [(ngModel)]="productor.telefono" name="telefono"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Chacras</ion-label>\n                    <ion-select [(ngModel)]="productor.chacras_ids" multiple="true" cancelText="Cancelar" okText="Aceptar" name="chacras_ids">\n                      <ion-option *ngFor="let chacra of chacras" [value] = "chacra.id" >{{chacra.nombre}}</ion-option>\n                    </ion-select>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Agregar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-productor\new-productor.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__["a" /* ProductoresServiceProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__["a" /* ProductoresServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__["a" /* ProductoresServiceProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _e || Object])
     ], NewProductor);
     return NewProductor;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=new-productor.js.map
 
 /***/ }),
 
-/***/ 373:
+/***/ 386:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -879,8 +2102,8 @@ var NewProductor = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_cuadros_service_cuadros_service__ = __webpack_require__(374);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_edit_chacra_edit_chacra__ = __webpack_require__(375);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_cuadros_service_cuadros_service__ = __webpack_require__(387);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_edit_chacra_edit_chacra__ = __webpack_require__(388);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -944,7 +2167,7 @@ var ChacrasList = (function () {
     ChacrasList.prototype.alertNewCuadro = function (chacraId) {
         var _this = this;
         var alert = this.AlertController.create({
-            title: 'Editar Cuadro',
+            title: 'Agregar Cuadro',
             inputs: [
                 {
                     name: 'Up',
@@ -1033,7 +2256,7 @@ var ChacrasList = (function () {
     };
     ChacrasList = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-chacras-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\chacras-list\chacras-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Chacras</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <div class="back-black-color" padding>\n    <h3 padding>Listado de Chacras:</h3>\n      <ion-list>\n        <ion-item ion-item *ngFor="let chacra of chacrasList">\n          <ion-avatar item-left>\n            <img src="assets/img/user.png">\n          </ion-avatar>\n          <h2>{{chacra.nombre}}</h2>\n          <p>Renspa: {{chacra.renspa}}</p>\n          <div padding>\n            <h3 padding>Cuadros: </h3>\n            <ion-list>\n              <ion-item ion-item *ngFor="let cuadro of chacra.cuadros">\n                <p>UP: {{cuadro.up}}</p>\n                <button ion-button (click)="alertEditCuadro(cuadro)">\n                 Editar\n                </button>\n                <button ion-button (click)="alertDeleteCuadro(cuadro.id)">\n                 Eliminar\n                </button>\n              </ion-item>\n            </ion-list>\n            <button ion-button (click)="alertNewCuadro(chacra.id)">\n             Agregar Cuadro\n            </button>\n          </div>\n          <button ion-button (click)="goToEdit(chacra)">\n           Editar\n          </button>\n          <button ion-button (click)="alertDeleteChacra(chacra.id)">\n           Eliminar\n          </button>\n        </ion-item>\n      </ion-list>\n    </div>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\chacras-list\chacras-list.html"*/,
+            selector: 'page-chacras-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\chacras-list\chacras-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Chacras</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Listado de Chacras</h1>\n        <p text-center>Presentacion en forma de lista de chacras donde se obtiene la produccion</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h4 padding-top no-margin>Chacras</h4>\n        <ion-row padding>\n          <ion-col col-sm-12 col-md-10 offset-md-1>\n            <ion-list>\n              <ion-item ion-item *ngFor="let chacra of chacrasList" class="no-border">\n                <ion-avatar item-left>\n                  <img src="assets/imgs/chacra-icon.png">\n                </ion-avatar>\n                <ion-row>\n                  <ion-col col-sm-12 col-md-5>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Chacra</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{chacra.nombre}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-5>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Renspa</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{chacra.renspa}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-2> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-4>\n                        <button ion-button color="semiDark" round icon-only small (click)="alertNewCuadro(chacra.id)">\n                          <ion-icon name="add"></ion-icon>\n                        </button>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-4>\n                        <button ion-button color="semiDark" round icon-only small (click)="goToEdit(chacra)">\n                          <ion-icon name="create"></ion-icon>\n                        </button>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-4>\n                        <button ion-button color="semiDark" round icon-only small \n                          (click)="alertDeleteChacra(chacra.id)">\n                          <ion-icon name="trash"></ion-icon>\n                        </button>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-12>\n                    <h2>Cuadros</h2>\n                  </ion-col>\n                  <ion-col *ngFor="let cuadro of chacra.cuadros; let i = \'index\'" no-padding margin col-sm-12 col-md-2>\n                    <ion-row>\n                      <ion-list>\n                        <ion-item class="no-border" class="back-color">\n                          <ion-row>\n                            <ion-col col-sm-12 col-md-12>\n                              <ion-row>\n                                <ion-col col-sm-12 col-md-12>\n                                  <h2 text-center>UP</h2>\n                                </ion-col>\n                                <ion-col col-sm-12 col-md-12>\n                                  <p text-center>{{cuadro.up}}</p>\n                                </ion-col>\n                              </ion-row>\n                            </ion-col>\n                            <ion-col col-sm-12 col-md-12> \n                              <ion-row>\n                                <ion-col col-sm-12 col-md-6>\n                                  <button ion-button color="semiDark" round icon-only small (click)="alertEditCuadro(cuadro)">\n                                    <ion-icon name="create"></ion-icon>\n                                  </button>\n                                </ion-col>\n                                <ion-col col-sm-12 col-md-6>\n                                  <button ion-button color="semiDark" round icon-only small \n                                    (click)="alertDeleteCuadro(cuadro.id)">\n                                    <ion-icon name="trash"></ion-icon>\n                                  </button>\n                                </ion-col>\n                              </ion-row>\n                            </ion-col>\n                          </ion-row>\n                        </ion-item>\n                      </ion-list>\n                    </ion-row>    \n                  </ion-col>\n                </ion-row>\n              </ion-item>\n            </ion-list>\n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n<!--ion-content padding class="back-color">\n  <div class="back-black-color" padding>\n    <h3 padding>Listado de Chacras:</h3>\n      <ion-list>\n        <ion-item ion-item *ngFor="let chacra of chacrasList">\n          <ion-avatar item-left>\n            <img src="assets/img/user.png">\n          </ion-avatar>\n          <h2>{{chacra.nombre}}</h2>\n          <p>Renspa: {{chacra.renspa}}</p>\n          <div padding>\n            <h3 padding>Cuadros: </h3>\n            <ion-list>\n              <ion-item ion-item *ngFor="let cuadro of chacra.cuadros">\n                <p>UP: {{cuadro.up}}</p>\n                <button ion-button (click)="alertEditCuadro(cuadro)">\n                 Editar\n                </button>\n                <button ion-button (click)="alertDeleteCuadro(cuadro.id)">\n                 Eliminar\n                </button>\n              </ion-item>\n            </ion-list>\n            <button ion-button (click)="alertNewCuadro(chacra.id)">\n             Agregar Cuadro\n            </button>\n          </div>\n          <button ion-button (click)="goToEdit(chacra)">\n           Editar\n          </button>\n          <button ion-button (click)="alertDeleteChacra(chacra.id)">\n           Eliminar\n          </button>\n        </ion-item>\n      </ion-list>\n    </div>\n</ion-content-->\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\chacras-list\chacras-list.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_cuadros_service_cuadros_service__["a" /* CuadrosServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], ChacrasList);
@@ -1044,17 +2267,18 @@ var ChacrasList = (function () {
 
 /***/ }),
 
-/***/ 374:
+/***/ 387:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CuadrosServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1068,10 +2292,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var CuadrosServiceProvider = (function () {
     function CuadrosServiceProvider(http) {
         this.http = http;
-        this.urlAPI = 'http://localhost:3000/cuadro';
+        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/cuadro';
     }
     CuadrosServiceProvider.prototype.getAllCuadros = function () {
         return this.http.get(this.urlAPI)
@@ -1129,7 +2354,7 @@ var CuadrosServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 375:
+/***/ 388:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1150,847 +2375,63 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var EditChacra = (function () {
-    function EditChacra(navCtrl, navParams, ChacrasServiceProvider) {
+    function EditChacra(navCtrl, navParams, ChacrasServiceProvider, AlertController) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.ChacrasServiceProvider = ChacrasServiceProvider;
+        this.AlertController = AlertController;
         this.chacra = [];
         this.chacra = this.navParams.get('chacra');
     }
     EditChacra.prototype.editChacra = function (chacra) {
-        this.ChacrasServiceProvider.editChacra(this.chacra).subscribe(function (data) { return console.log(data); });
-        this.destroyView();
+        var _this = this;
+        this.ChacrasServiceProvider.editChacra(this.chacra).subscribe(function (data) { return _this.alertEditChacra(data.error); });
+    };
+    EditChacra.prototype.alertEditChacra = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Edicion exitosa',
+                message: 'Se ha editado correctamente la chacra.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar editar la chacra.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
     };
     EditChacra.prototype.destroyView = function () {
         this.navCtrl.pop();
     };
     EditChacra = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-edit-chacra',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-chacra\edit-chacra.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Chacra</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <form (ngSubmit)="editChacra()">\n      <ion-item>\n        <ion-label>Nombre</ion-label>\n        <ion-input type="text" [(ngModel)]="chacra.nombre" name="name"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label>Renspa</ion-label>\n        <ion-input type="text" [(ngModel)]="chacra.renspa" name="dni"></ion-input>\n      </ion-item>\n      <button ion-button type="submit" block>Editar</button>\n  </form>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-chacra\edit-chacra.html"*/,
+            selector: 'page-edit-chacra',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-chacra\edit-chacra.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Chacra</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Editar Chacra</h1>\n        <p text-center>Ingrese los datos necesarios para editar una chacra existente.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales de la Chacra</h3>\n        <form (ngSubmit)="editChacra()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="chacra.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Renspa</ion-label>\n                    <ion-input type="text" [(ngModel)]="chacra.renspa" name="renspa"></ion-input>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Editar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-chacra\edit-chacra.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object])
     ], EditChacra);
     return EditChacra;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=edit-chacra.js.map
-
-/***/ }),
-
-/***/ 376:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewChacra; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__ = __webpack_require__(46);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var NewChacra = (function () {
-    function NewChacra(navCtrl, navParams, ChacrasServiceProvider) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.ChacrasServiceProvider = ChacrasServiceProvider;
-        this.chacra = { nombre: '', renspa: '' };
-    }
-    NewChacra.prototype.addNewChacra = function () {
-        this.ChacrasServiceProvider.addNewChacra(this.chacra).subscribe(function (data) { return console.log(data); });
-    };
-    NewChacra.prototype.destroyView = function () {
-        this.navCtrl.pop();
-    };
-    NewChacra = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-new-chacra',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-chacra\new-chacra.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Nueva Chacra</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n<form (ngSubmit)="addNewChacra()">\n    <ion-item>\n      <ion-label>Nombre</ion-label>\n      <ion-input type="text" [(ngModel)]="chacra.nombre" name="nombre"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Renspa</ion-label>\n      <ion-input type="text" [(ngModel)]="chacra.renspa" name="renspa"></ion-input>\n    </ion-item>\n    <button ion-button type="submit" block>Agregar</button>\n</form>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-chacra\new-chacra.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */]])
-    ], NewChacra);
-    return NewChacra;
-}());
-
-//# sourceMappingURL=new-chacra.js.map
-
-/***/ }),
-
-/***/ 377:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CamionesList; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_camiones_service_camiones_service__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_camion_edit_camion__ = __webpack_require__(378);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var CamionesList = (function () {
-    function CamionesList(navCtrl, navParams, CamionesServiceProvider, AlertController) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.CamionesServiceProvider = CamionesServiceProvider;
-        this.AlertController = AlertController;
-        this.camionesList = [];
-        this.getAllCamiones();
-    }
-    CamionesList.prototype.getAllCamiones = function () {
-        var _this = this;
-        this.CamionesServiceProvider.getAllCamiones().subscribe(function (data) { return _this.camionesList = data; });
-    };
-    CamionesList.prototype.goToEdit = function (camion) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pages_edit_camion_edit_camion__["a" /* EditCamion */], {
-            camion: camion
-        });
-    };
-    CamionesList.prototype.deleteCamion = function (camionId) {
-        var _this = this;
-        this.CamionesServiceProvider.deleteCamion(camionId).subscribe(function (data) { return _this.getAllCamiones(); });
-    };
-    CamionesList.prototype.alertDeleteCamion = function (camionId) {
-        var _this = this;
-        var alert = this.AlertController.create({
-            title: 'Confirmar eliminacion',
-            message: 'Esta seguro que desea eliminar el camion de la lista?',
-            buttons: [
-                {
-                    text: 'Cancelar',
-                    role: 'cancel',
-                    handler: function () { }
-                },
-                {
-                    text: 'Eliminar',
-                    handler: function () {
-                        _this.deleteCamion(camionId);
-                    }
-                }
-            ]
-        });
-        alert.present();
-    };
-    CamionesList = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-camiones-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\camiones-list\camiones-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Camiones</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <div class="back-black-color" padding>\n    <h3 padding>Listado de Camiones:</h3>\n      <ion-list>\n        <ion-item ion-item *ngFor="let camion of camionesList">\n          <ion-avatar item-left>\n            <img src="assets/img/user.png">\n          </ion-avatar>\n          <h2>{{camion.nombreChofer}}</h2>\n          <p>Patente Chasis: {{camion.patenteChasis}}</p>\n          <p>Patente Acoplado: {{camion.patenteAcoplado}}</p>\n          <button ion-button (click)="goToEdit(camion)">\n           Editar\n          </button>\n          <button ion-button (click)="alertDeleteCamion(camion.id)">\n           Eliminar\n          </button>\n        </ion-item>\n      </ion-list>\n    </div>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\camiones-list\camiones-list.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
-    ], CamionesList);
-    return CamionesList;
-}());
-
-//# sourceMappingURL=camiones-list.js.map
-
-/***/ }),
-
-/***/ 378:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditCamion; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_camiones_service_camiones_service__ = __webpack_require__(47);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var EditCamion = (function () {
-    function EditCamion(navCtrl, navParams, CamionesServiceProvider) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.CamionesServiceProvider = CamionesServiceProvider;
-        this.camion = [];
-        this.camion = this.navParams.get('camion');
-    }
-    EditCamion.prototype.editCamion = function (camion) {
-        this.CamionesServiceProvider.editCamion(this.camion).subscribe(function (data) { return console.log(data); });
-        this.destroyView();
-    };
-    EditCamion.prototype.destroyView = function () {
-        this.navCtrl.pop();
-    };
-    EditCamion = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-edit-camion',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-camion\edit-camion.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Camion</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <form (ngSubmit)="editCamion()">\n      <ion-item>\n      <ion-label>Nombre Chofer</ion-label>\n      <ion-input type="text" [(ngModel)]="camion.nombreChofer" name="nombre"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Patente Acoplado</ion-label>\n      <ion-input type="text" [(ngModel)]="camion.patenteAcoplado" name="renspa"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Patente Chasis</ion-label>\n      <ion-input type="text" [(ngModel)]="camion.patenteChasis" name="renspa"></ion-input>\n    </ion-item>\n      <button ion-button type="submit" block>Editar</button>\n  </form>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-camion\edit-camion.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */]])
-    ], EditCamion);
-    return EditCamion;
-}());
-
-//# sourceMappingURL=edit-camion.js.map
-
-/***/ }),
-
-/***/ 379:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewCamion; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_camiones_service_camiones_service__ = __webpack_require__(47);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var NewCamion = (function () {
-    function NewCamion(navCtrl, navParams, CamionesServiceProvider) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.CamionesServiceProvider = CamionesServiceProvider;
-        this.camion = { patenteChasis: '', patenteAcoplado: '', nombreChofer: '' };
-    }
-    NewCamion.prototype.addNewCamion = function () {
-        this.CamionesServiceProvider.addNewCamion(this.camion).subscribe(function (data) { return console.log(data); });
-    };
-    NewCamion.prototype.destroyView = function () {
-        this.navCtrl.pop();
-    };
-    NewCamion = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-new-camion',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-camion\new-camion.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Nuevo Camion</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n<form (ngSubmit)="addNewCamion()">\n    <ion-item>\n      <ion-label>Nombre Chofer</ion-label>\n      <ion-input type="text" [(ngModel)]="camion.nombreChofer" name="nombre"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Patente Acoplado</ion-label>\n      <ion-input type="text" [(ngModel)]="camion.patenteAcoplado" name="renspa"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Patente Chasis</ion-label>\n      <ion-input type="text" [(ngModel)]="camion.patenteChasis" name="renspa"></ion-input>\n    </ion-item>\n    <button ion-button type="submit" block>Agregar</button>\n</form>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-camion\new-camion.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */]])
-    ], NewCamion);
-    return NewCamion;
-}());
-
-//# sourceMappingURL=new-camion.js.map
-
-/***/ }),
-
-/***/ 380:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmpresasList; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_empresas_service_empresas_service__ = __webpack_require__(90);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_empresa_edit_empresa__ = __webpack_require__(381);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var EmpresasList = (function () {
-    function EmpresasList(navCtrl, navParams, EmpresasServiceProvider, AlertController) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.EmpresasServiceProvider = EmpresasServiceProvider;
-        this.AlertController = AlertController;
-        this.empresasList = [];
-        this.getAllEmpresas();
-    }
-    EmpresasList.prototype.getAllEmpresas = function () {
-        var _this = this;
-        this.EmpresasServiceProvider.getAllEmpresas().subscribe(function (data) { return _this.empresasList = data; });
-    };
-    EmpresasList.prototype.goToEdit = function (empresa) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pages_edit_empresa_edit_empresa__["a" /* EditEmpresa */], {
-            empresa: empresa
-        });
-    };
-    EmpresasList.prototype.deleteEmpresa = function (empresaId) {
-        var _this = this;
-        this.EmpresasServiceProvider.deleteEmpresa(empresaId).subscribe(function (data) { return _this.getAllEmpresas(); });
-    };
-    EmpresasList.prototype.alertDeleteEmpresa = function (empresaId) {
-        var _this = this;
-        var alert = this.AlertController.create({
-            title: 'Confirmar eliminacion',
-            message: 'Esta seguro que desea eliminar la empresa de la lista?',
-            buttons: [
-                {
-                    text: 'Cancelar',
-                    role: 'cancel',
-                    handler: function () { }
-                },
-                {
-                    text: 'Eliminar',
-                    handler: function () {
-                        _this.deleteEmpresa(empresaId);
-                    }
-                }
-            ]
-        });
-        alert.present();
-    };
-    EmpresasList = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-empresas-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\empresas-list\empresas-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Empresas</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <div class="back-black-color" padding>\n    <h3 padding>Listado de Empresas:</h3>\n      <ion-list>\n        <ion-item ion-item *ngFor="let empresa of empresasList">\n          <ion-avatar item-left>\n            <img src="assets/img/user.png">\n          </ion-avatar>\n          <h2>{{empresa.nombre}}</h2>\n          <p>Direccion: {{empresa.direccion}}</p>\n          <p>Telefono: {{empresa.telefono}}</p>\n          <button ion-button (click)="goToEdit(empresa)">\n           Editar\n          </button>\n          <button ion-button (click)="alertDeleteEmpresa(empresa.id)">\n           Eliminar\n          </button>\n        </ion-item>\n      </ion-list>\n    </div>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\empresas-list\empresas-list.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_empresas_service_empresas_service__["a" /* EmpresasServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
-    ], EmpresasList);
-    return EmpresasList;
-}());
-
-//# sourceMappingURL=empresas-list.js.map
-
-/***/ }),
-
-/***/ 381:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditEmpresa; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_empresas_service_empresas_service__ = __webpack_require__(90);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var EditEmpresa = (function () {
-    function EditEmpresa(navCtrl, navParams, EmpresasServiceProvider) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.EmpresasServiceProvider = EmpresasServiceProvider;
-        this.empresa = [];
-        this.empresa = this.navParams.get('empresa');
-    }
-    EditEmpresa.prototype.editEmpresa = function (chacra) {
-        this.EmpresasServiceProvider.editEmpresa(this.empresa).subscribe(function (data) { return console.log(data); });
-        this.destroyView();
-    };
-    EditEmpresa.prototype.destroyView = function () {
-        this.navCtrl.pop();
-    };
-    EditEmpresa = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-edit-empresa',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-empresa\edit-empresa.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Empresa</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <form (ngSubmit)="editEmpresa()">\n      <ion-item>\n        <ion-label>Nombre</ion-label>\n        <ion-input type="text" [(ngModel)]="empresa.nombre" name="name"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label>Direccion</ion-label>\n        <ion-input type="text" [(ngModel)]="empresa.direccion" name="direccion"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label>Telefono</ion-label>\n        <ion-input type="number" [(ngModel)]="empresa.telefono" name="telefono"></ion-input>\n      </ion-item>\n      <button ion-button type="submit" block>Editar</button>\n  </form>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-empresa\edit-empresa.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_empresas_service_empresas_service__["a" /* EmpresasServiceProvider */]])
-    ], EditEmpresa);
-    return EditEmpresa;
-}());
-
-//# sourceMappingURL=edit-empresa.js.map
-
-/***/ }),
-
-/***/ 382:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewEmpresa; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_empresas_service_empresas_service__ = __webpack_require__(90);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_camiones_service_camiones_service__ = __webpack_require__(47);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var NewEmpresa = (function () {
-    function NewEmpresa(navCtrl, navParams, CamionesServiceProvider, EmpresasServiceProvider) {
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.CamionesServiceProvider = CamionesServiceProvider;
-        this.EmpresasServiceProvider = EmpresasServiceProvider;
-        this.empresa = { nombre: '', direcccion: '', telefono: '', camiones_ids: [] };
-        this.camiones = [];
-        this.CamionesServiceProvider.getAllCamiones().subscribe(function (data) { return _this.camiones = data; });
-    }
-    NewEmpresa.prototype.addNewEmpresa = function () {
-        this.EmpresasServiceProvider.addNewEmpresa(this.empresa).subscribe(function (data) { return console.log(data); });
-        this.destroyView();
-    };
-    NewEmpresa.prototype.destroyView = function () {
-        this.navCtrl.pop();
-    };
-    NewEmpresa = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-new-empresa',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-empresa\new-empresa.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Nuevo Empresa</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n<form (ngSubmit)="addNewEmpresa()">\n    <ion-item>\n      <ion-label>Nombre</ion-label>\n      <ion-input type="text" [(ngModel)]="empresa.nombre" name="name"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Direccion</ion-label>\n      <ion-input type="text" [(ngModel)]="empresa.direccion" name="dni"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Telefono</ion-label>\n      <ion-input type="number" [(ngModel)]="empresa.telefono" name="telefono"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Camiones</ion-label>\n      <ion-select [(ngModel)]="empresa.camiones_ids" multiple="true" cancelText="Cancelar" okText="Aceptar" name="camiones_ids">\n        <ion-option *ngFor="let camion of camiones" [value] = "camion.id" >{{camion.nombreChofer}}</ion-option>\n      </ion-select>\n    </ion-item>\n    <button ion-button type="submit" block>Agregar</button>\n</form>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-empresa\new-empresa.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */], __WEBPACK_IMPORTED_MODULE_2__providers_empresas_service_empresas_service__["a" /* EmpresasServiceProvider */]])
-    ], NewEmpresa);
-    return NewEmpresa;
-}());
-
-//# sourceMappingURL=new-empresa.js.map
-
-/***/ }),
-
-/***/ 383:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InstitucionesList; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_instituciones_service_instituciones_service__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_institucion_edit_institucion__ = __webpack_require__(384);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var InstitucionesList = (function () {
-    function InstitucionesList(navCtrl, navParams, InstitucionesServiceProvider, AlertController) {
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.InstitucionesServiceProvider = InstitucionesServiceProvider;
-        this.AlertController = AlertController;
-        this.institucionesList = [];
-        this.InstitucionesServiceProvider.getAllInstituciones().subscribe(function (data) { return _this.institucionesList = data; });
-    }
-    InstitucionesList.prototype.getAllInstituciones = function () {
-        var _this = this;
-        this.InstitucionesServiceProvider.getAllInstituciones().subscribe(function (data) { return _this.institucionesList = data; });
-    };
-    InstitucionesList.prototype.goToEdit = function (institucion) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pages_edit_institucion_edit_institucion__["a" /* EditInstitucion */], {
-            institucion: institucion
-        });
-    };
-    InstitucionesList.prototype.deleteInstitucion = function (institucionId) {
-        var _this = this;
-        this.InstitucionesServiceProvider.deleteInstitucion(institucionId).subscribe(function (data) { return _this.getAllInstituciones(); });
-    };
-    InstitucionesList.prototype.alertDeleteInstitucion = function (institucionId) {
-        var _this = this;
-        var alert = this.AlertController.create({
-            title: 'Confirmar eliminacion',
-            message: 'Esta seguro que desea eliminar el camion de la lista?',
-            buttons: [
-                {
-                    text: 'Cancelar',
-                    role: 'cancel',
-                    handler: function () { }
-                },
-                {
-                    text: 'Eliminar',
-                    handler: function () {
-                        _this.deleteInstitucion(institucionId);
-                    }
-                }
-            ]
-        });
-        alert.present();
-    };
-    InstitucionesList = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-instituciones-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\instituciones-list\instituciones-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Instituciones</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <div class="back-black-color" padding>\n    <h3 padding>Listado de Instituciones:</h3>\n      <ion-list>\n        <ion-item ion-item *ngFor="let institucion of institucionesList">\n          <ion-avatar item-left>\n            <img src="assets/img/user.png">\n          </ion-avatar>\n          <h2>{{institucion.nombre}}</h2>\n          <p>Direccion: {{institucion.direccion}}</p>\n          <p>Telefono: {{institucion.telefono}}</p>\n          <button ion-button (click)="goToEdit(institucion)">\n           Editar\n          </button>\n          <button ion-button (click)="alertDeleteInstitucion(institucion.id)">\n           Eliminar\n          </button>\n        </ion-item>\n      </ion-list>\n    </div>\n</ion-content>\n\n\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\instituciones-list\instituciones-list.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
-    ], InstitucionesList);
-    return InstitucionesList;
-}());
-
-//# sourceMappingURL=instituciones-list.js.map
-
-/***/ }),
-
-/***/ 384:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditInstitucion; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_instituciones_service_instituciones_service__ = __webpack_require__(66);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var EditInstitucion = (function () {
-    function EditInstitucion(navCtrl, navParams, InstitucionesServiceProvider) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.InstitucionesServiceProvider = InstitucionesServiceProvider;
-        this.institucion = [];
-        this.institucion = this.navParams.get('institucion');
-    }
-    EditInstitucion.prototype.editInstitucion = function (institucion) {
-        this.InstitucionesServiceProvider.editInstitucion(this.institucion).subscribe(function (data) { return console.log(data); });
-        this.destroyView();
-    };
-    EditInstitucion.prototype.destroyView = function () {
-        this.navCtrl.pop();
-    };
-    EditInstitucion = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-edit-institucion',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-institucion\edit-institucion.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Institucion</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <form (ngSubmit)="editInstitucion()">\n      <ion-item>\n        <ion-label>Nombre</ion-label>\n        <ion-input type="text" [(ngModel)]="institucion.nombre" name="name"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label>Direccion</ion-label>\n        <ion-input type="text" [(ngModel)]="institucion.direccion" name="direccion"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label>Telefono</ion-label>\n        <ion-input type="number" [(ngModel)]="institucion.telefono" name="telefono"></ion-input>\n      </ion-item>\n      <button ion-button type="submit" block>Editar</button>\n  </form>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-institucion\edit-institucion.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */]])
-    ], EditInstitucion);
-    return EditInstitucion;
-}());
-
-//# sourceMappingURL=edit-institucion.js.map
-
-/***/ }),
-
-/***/ 385:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewInstitucion; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_instituciones_service_instituciones_service__ = __webpack_require__(66);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var NewInstitucion = (function () {
-    function NewInstitucion(navCtrl, navParams, InstitucionesServiceProvider) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.InstitucionesServiceProvider = InstitucionesServiceProvider;
-        this.institucion = { nombre: '', direccion: '', telefono: '' };
-    }
-    NewInstitucion.prototype.addNewInstitucion = function () {
-        this.InstitucionesServiceProvider.addNewInstitucion(this.institucion).subscribe(function (data) { return console.log(data); });
-        this.destroyView();
-    };
-    NewInstitucion.prototype.destroyView = function () {
-        this.navCtrl.pop();
-    };
-    NewInstitucion = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-new-institucion',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-institucion\new-institucion.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Nueva Institucion</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n<form (ngSubmit)="addNewInstitucion()">\n    <ion-item>\n      <ion-label>Nombre</ion-label>\n      <ion-input type="text" [(ngModel)]="institucion.nombre" name="name"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Direccion</ion-label>\n      <ion-input type="text" [(ngModel)]="institucion.direccion" name="direccion"></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-label>Telefono</ion-label>\n      <ion-input type="number" [(ngModel)]="institucion.telefono" name="telefono"></ion-input>\n    </ion-item>\n    <button ion-button type="submit" block>Agregar</button>\n</form>\n</ion-content>\n\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-institucion\new-institucion.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */]])
-    ], NewInstitucion);
-    return NewInstitucion;
-}());
-
-//# sourceMappingURL=new-institucion.js.map
-
-/***/ }),
-
-/***/ 386:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IngresosList; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_ingresos_service_ingresos_service__ = __webpack_require__(163);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var IngresosList = (function () {
-    function IngresosList(navCtrl, navParams, IngresosServiceProvider) {
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.IngresosServiceProvider = IngresosServiceProvider;
-        this.ingresosList = [];
-        this.itemExpandHeight = 100;
-        this.IngresosServiceProvider.getAllIngresos().subscribe(function (data) { _this.ingresosList = data; });
-    }
-    IngresosList.prototype.toggleIngreso = function (index) {
-        this.ingresosList[index].open = !this.ingresosList[index].open;
-    };
-    IngresosList = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-ingresos-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\ingresos-list\ingresos-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Ingresos</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12>\n        <h1 padding text-center>Listado de Ingresos</h1>\n        <p text-center>Listado de de todos los ingresos de fruta con sus correspondientes lotes</p>\n      </ion-col>\n      <ion-col padding col-sm-12 col-md-12 class="accordion-list" *ngFor=" let ingreso of ingresosList; let i = index">\n        <button ion-item class="no-border-cards" (click)="toggleIngreso(i)" detail-none [ngClass]="{ \'section-active\': ingreso.open, \'section\': !ingreso.open }">\n          <ion-icon item-left name="arrow-forward" *ngIf="!ingreso.open"></ion-icon>\n          <ion-icon item-left name="arrow-down" *ngIf="ingreso.open"></ion-icon>\n          Ingreso Remito {{ingreso.nroRemito}}\n        </button>\n        <ion-grid *ngIf="ingreso.open" class="back-black-color">\n          <ion-row>\n            <ion-col padding col-sm-12 col-md-12>\n              <ion-list no-padding no-margin>\n                <ion-item class="no-border">\n                  <ion-icon name="calendar" item-start></ion-icon>\n                    Fecha Ingreso {{ingreso.fechaIngreso}}\n                </ion-item>\n                <ion-item class="no-border">\n                  <ion-icon name="contact" item-start></ion-icon>\n                    Ingresado por {{ingreso.createdFor}}\n                </ion-item>\n              </ion-list>\n            </ion-col>\n            <ion-col *ngFor="let lote of ingreso.lotes" padding col-sm-12 col-md-4>\n              <ion-list>\n                <ion-item class="no-border">\n                  <ion-card>\n                    <ion-card-header text-center class="card-hearder-color no-border">\n                      Lote Nro {{lote.nroLote}}\n                    </ion-card-header>\n                    <ion-card-content>\n                      <ion-list no-padding no-margin>\n                        <ion-item class="no-border">\n                          <ion-icon name="cube" item-start></ion-icon>\n                          {{lote.cantBins}} Bins\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="podium" item-start></ion-icon>\n                          Peso Neto {{lote.pesoNeto}} Kgs\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="rose" item-start></ion-icon>\n                          Especie {{lote.especy.tipo}}\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="flower" item-start></ion-icon>\n                          Variedad {{lote.variedad.tipo}}\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="star-half" item-start></ion-icon>\n                          Calidad {{lote.calidad.tipo}}\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="home" item-start></ion-icon>\n                          Lugar Actual {{lote.institucion.nombre}}\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="leaf" item-start></ion-icon>\n                          Chacra {{lote.chacra.nombre}}\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="bus" item-start></ion-icon>\n                          Chofer Camion {{lote.camion.nombreChofer}}\n                        </ion-item>\n                      </ion-list>\n                      <ion-row>\n                        <ion-col col-6> \n                          <ion-buttons left>\n                            <button ion-button color="semiDark" (click)="alertEditCuadro(cuadro)">Editar Lote</button>\n                          </ion-buttons>\n                        </ion-col>\n                        <ion-col col-6>\n                          <ion-buttons right>\n                            <button ion-button color="semiDark" (click)="alertDeleteCuadro(cuadro.id)">Eliminar Lote</button>\n                          </ion-buttons>\n                        </ion-col>\n                      </ion-row>\n                    </ion-card-content>\n                  </ion-card>\n                </ion-item>\n              </ion-list>    \n            </ion-col>\n            <ion-col col-md-12> \n              <ion-buttons right>\n                <button ion-button color="semiDark" (click)="goToEdit(chacra)">Editar Ingreso</button>\n              </ion-buttons>\n              <ion-buttons right>\n                <button ion-button color="semiDark" (click)="alertDeleteChacra(chacra.id)">Eliminar Ingreso</button>\n              </ion-buttons>\n            </ion-col>\n          </ion-row>\n        </ion-grid>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\ingresos-list\ingresos-list.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_ingresos_service_ingresos_service__["a" /* IngresosServiceProvider */]])
-    ], IngresosList);
-    return IngresosList;
-}());
-
-//# sourceMappingURL=ingresos-list.js.map
-
-/***/ }),
-
-/***/ 387:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewIngreso; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_calidad_model__ = __webpack_require__(741);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_especie_model__ = __webpack_require__(742);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_variedad_model__ = __webpack_require__(743);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_institucion_model__ = __webpack_require__(744);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_camion_model__ = __webpack_require__(745);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__models_chacra_model__ = __webpack_require__(746);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_calidades_service_calidades_service__ = __webpack_require__(388);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_especie_service_especie_service__ = __webpack_require__(389);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_instituciones_service_instituciones_service__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_camiones_service_camiones_service__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_ingresos_service_ingresos_service__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_auth_service_auth_service__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_chacras_service_chacras_service__ = __webpack_require__(46);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var NewIngreso = (function () {
-    function NewIngreso(navCtrl, navParams, CalidadesServiceProvider, EspecieServiceProvider, InstitucionesServiceProvider, CamionesServiceProvider, IngresosServiceProvider, AuthServiceProvider, ChacrasServiceProvider, AlertController) {
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.CalidadesServiceProvider = CalidadesServiceProvider;
-        this.EspecieServiceProvider = EspecieServiceProvider;
-        this.InstitucionesServiceProvider = InstitucionesServiceProvider;
-        this.CamionesServiceProvider = CamionesServiceProvider;
-        this.IngresosServiceProvider = IngresosServiceProvider;
-        this.AuthServiceProvider = AuthServiceProvider;
-        this.ChacrasServiceProvider = ChacrasServiceProvider;
-        this.AlertController = AlertController;
-        this.ingreso = { nroRemito: null, fechaIngreso: this.formatDate(), institucionId: 0, camionId: 0, chacraId: 0, createdFor: '', lotes: [] };
-        this.calidades = [];
-        this.calidad = __WEBPACK_IMPORTED_MODULE_2__models_calidad_model__["a" /* CalidadModel */];
-        this.especie = __WEBPACK_IMPORTED_MODULE_3__models_especie_model__["a" /* EspecieModel */];
-        this.especies = [];
-        this.variedad = __WEBPACK_IMPORTED_MODULE_4__models_variedad_model__["a" /* VariedadModel */];
-        this.variedades = [];
-        this.institucion = __WEBPACK_IMPORTED_MODULE_5__models_institucion_model__["a" /* InstitucionModel */];
-        this.instituciones = [];
-        this.camion = __WEBPACK_IMPORTED_MODULE_6__models_camion_model__["a" /* CamionModel */];
-        this.camiones = [];
-        this.chacra = __WEBPACK_IMPORTED_MODULE_7__models_chacra_model__["a" /* ChacraModel */];
-        this.chacras = [];
-        this.lotes = [];
-        this.agregarLoteList();
-        this.CalidadesServiceProvider.getAllCalidades().subscribe(function (data) { return _this.calidades = _this.lotes[0].calidades = Object.assign([], data); });
-        this.EspecieServiceProvider.getAllEmpecies().subscribe(function (data) { return _this.especies = _this.lotes[0].especies = Object.assign([], data); });
-        this.InstitucionesServiceProvider.getAllInstituciones().subscribe(function (data) { return _this.instituciones = _this.lotes[0].instituciones = Object.assign([], data); });
-        this.CamionesServiceProvider.getAllCamiones().subscribe(function (data) { return _this.camiones = data; });
-        this.ChacrasServiceProvider.getAllChacras().subscribe(function (data) { return _this.chacras = data; });
-    }
-    NewIngreso.prototype.agregarLoteList = function () {
-        this.lotes.push({ peso: null, nroLote: null, cantBins: null, calidadId: null, especieId: null, variedadId: null,
-            calidades: Object.assign([], this.calidades), especies: Object.assign([], this.especies), variedades: Object.assign([], this.variedades),
-            especie: Object.assign({}, this.especie), variedad: Object.assign({}, this.variedad), calidad: Object.assign({}, this.calidad) });
-    };
-    NewIngreso.prototype.deleteLoteList = function (lote) {
-        var index = this.lotes.indexOf(lote, 0);
-        this.lotes.splice(index, 1);
-    };
-    NewIngreso.prototype.calidadChange = function (event, lote) {
-        lote.calidadId = event.value.id;
-    };
-    NewIngreso.prototype.especieChange = function (event, lote) {
-        lote.especieId = event.value.id;
-        var currentVariedades = this.especies[this.especies.indexOf(event.value, 0)].variedads;
-        lote.variedades = Object.assign([], currentVariedades);
-    };
-    NewIngreso.prototype.variedadChange = function (event, lote) {
-        lote.variedadId = event.value.id;
-    };
-    NewIngreso.prototype.institucionChange = function (event) {
-        this.ingreso.institucionId = event.value.id;
-    };
-    NewIngreso.prototype.camionChange = function (event) {
-        this.ingreso.camionId = event.value.id;
-    };
-    NewIngreso.prototype.chacraChange = function (event) {
-        this.ingreso.chacraId = event.value.id;
-    };
-    NewIngreso.prototype.addNewIngreso = function () {
-        var _this = this;
-        this.ingreso.lotes = this.lotes;
-        this.ingreso.createdFor = this.AuthServiceProvider.getCurrentUser().email;
-        this.IngresosServiceProvider.addNewIngreso(this.ingreso).subscribe(function (data) {
-            if (data.error) {
-                var alert = _this.AlertController.create({
-                    title: 'Error al crear el nuevo ingreso',
-                    subTitle: 'Por favor revise los datos ingresados.',
-                    buttons: ['Aceptar']
-                });
-                alert.present();
-            }
-            else {
-                var alert = _this.AlertController.create({
-                    title: 'Ingreso creado correctamente',
-                    subTitle: 'Se ha ingresado exitosamente el nuevo ingreso',
-                    buttons: ['Aceptar']
-                });
-                alert.present();
-            }
-        });
-    };
-    NewIngreso.prototype.formatDate = function () {
-        var fecha = new Date();
-        return fecha.getFullYear() + "-" + fecha.getMonth() + 1 + "-" + fecha.getDate();
-    };
-    NewIngreso = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-new-ingreso',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-ingreso\new-ingreso.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Nuevo Ingreso</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n    <ion-grid>\n        <ion-row>\n            <ion-col col-sm-12 col-md-12 padding>\n              <h1 text-center>Nuevo Ingresos</h1>\n              <p text-center>Ingrese los datos necesarios para generar un nuevo ingreso de fruta.</p>\n            </ion-col>\n            <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n                <h3 padding-top no-margin>Datos generales del Ingreso</h3>\n            	<form (ngSubmit)="addNewIngreso()">\n            	    <ion-grid>\n                        <ion-row>\n                            <ion-col col-sm-12 col-md-12 padding-bottom>\n                                <ion-row>\n                                    <ion-item col-sm-12 col-md-6 class="no-border">\n                                      <ion-label stacked>Nro Remito</ion-label>\n                                      <ion-input type="text" [(ngModel)]="ingreso.nroRemito" name="nroRemito"></ion-input>\n                                    </ion-item>\n                                    <ion-item col-sm-12 col-md-6 class="no-border">\n                                      <ion-label stacked>Fecha de Ingreso</ion-label>\n                                      <ion-input type="date" [value]="ingreso.fechaIngreso" (input)="ingreso.fechaIngreso = $event.target.value" name="fechaIngreso"></ion-input>\n                                    </ion-item>\n                                </ion-row>\n                                <ion-item class="no-border">\n                                    <select-searchable\n                                        [(ngModel)]="institucion"\n                                        name="institucion"\n                                        title="Instituciones"\n                                        itemValueField="id"\n                                        itemTextField="nombre"\n                                        [items]="instituciones"\n                                        [canSearch]="true"\n                                        (onChange)="institucionChange($event)">\n                                    </select-searchable>\n                                </ion-item>\n                                <ion-item class="no-border">\n                                    <select-searchable\n                                        [(ngModel)]="camion"\n                                        name="camion"\n                                        title="Camiones"\n                                        itemValueField="id"\n                                        itemTextField="nombreChofer"\n                                        [items]="camiones"\n                                        [canSearch]="true"\n                                        (onChange)="camionChange($event)">\n                                    </select-searchable>\n                                </ion-item>\n                                <ion-item class="no-border">\n                                    <select-searchable\n                                        [(ngModel)]="chacra"\n                                        name="chacra"\n                                        title="Chacras"\n                                        itemValueField="id"\n                                        itemTextField="nombre"\n                                        [items]="chacras"\n                                        [canSearch]="true"\n                                        (onChange)="chacraChange($event)">\n                                    </select-searchable>\n                                </ion-item>\n                            </ion-col>\n                            <ion-col *ngFor="let lote of lotes; let i = index" col-sm-12 col-md-12 padding class="back-color">\n                                <ion-row>\n                                    <h3 padding>Datos generales del nuevo Lote</h3>\n                                    <ion-col col-sm-12 col-md-12 no-padding>\n                                        <ion-row>\n                                            <ion-item class="no-border" col-sm-12 col-md-4>\n                                              <ion-label stacked>Numero Lote</ion-label>\n                                              <ion-input type="number" [value]="lote.nroLote" (input)="lote.nroLote = $event.target.value" name="nroLote"></ion-input>\n                                            </ion-item>\n                                            <ion-item class="no-border" col-sm-12 col-md-4>\n                                              <ion-label stacked>Cantidad Bins</ion-label>\n                                              <ion-input type="number" [value]="lote.cantBins" (input)="lote.cantBins = $event.target.value" name="cantBins"></ion-input>\n                                            </ion-item>\n                                            <ion-item class="no-border" col-sm-12 col-md-4>\n                                              <ion-label stacked>Peso</ion-label>\n                                              <ion-input type="number" [value]="lote.peso" (input)="lote.peso = $event.target.value" name="peso"></ion-input>\n                                            </ion-item>\n                                        </ion-row>\n                                    </ion-col>\n                                    <ion-col col-sm-12 col-md-12 no-padding>\n                                        <ion-item class="no-border">\n                                            <select-searchable\n                                                [(ngModel)]="lote.calidad"\n                                                name="calidad"\n                                                title="Calidades"\n                                                itemValueField="id"\n                                                itemTextField="tipo"\n                                                [items]="lote.calidades"\n                                                [canSearch]="true"\n                                                (onChange)="calidadChange($event,lote)">\n                                            </select-searchable>\n                                        </ion-item>\n                                    </ion-col>\n                                    <ion-col col-sm-12 col-md-12 no-padding>\n                                        <ion-item class="no-border">\n                                            <select-searchable\n                                                [(ngModel)]="lote.especie"\n                                                name="especie"\n                                                title="Especies"\n                                                itemValueField="id"\n                                                itemTextField="tipo"\n                                                [items]="lote.especies"\n                                                [canSearch]="true"\n                                                (onChange)="especieChange($event,lote)">\n                                            </select-searchable>\n                                        </ion-item>\n                                    </ion-col>\n                                    <ion-col col-sm-12 col-md-12 no-padding>\n                                        <ion-item class="no-border">\n                                            <select-searchable\n                                                [(ngModel)]="lote.variedad"\n                                                name="variedad"\n                                                title="Variedades"\n                                                itemValueField="id"\n                                                itemTextField="tipo"\n                                                [items]="lote.variedades"\n                                                [canSearch]="true"\n                                                (onChange)="variedadChange($event,lote)">\n                                            </select-searchable>\n                                        </ion-item>\n                                    </ion-col>\n                                    <ion-col col-sm-12 col-md-12 no-padding>\n                                        <ion-buttons right>\n                                            <button ion-button color="semiDark" (click)="deleteLoteList(lote)">Eliminar Lote</button>\n                                        </ion-buttons>\n                                    </ion-col>\n                                </ion-row>\n                            </ion-col>\n                            <ion-col col-sm-12 col-md-12 padding>\n                                    <ion-buttons left>\n                                        <button ion-button color="semiDark" type="submit">Aceptar Ingreso</button>\n                                    </ion-buttons>\n                            </ion-col>\n                        </ion-row>\n                    </ion-grid>\n            	</form>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n    <ion-fab bottom right padding margin>\n        <button ion-fab color="semiDark" (click)="agregarLoteList()"><ion-icon name="crop"></ion-icon></button>\n    </ion-fab>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-ingreso\new-ingreso.html"*/,
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_8__providers_calidades_service_calidades_service__["a" /* CalidadesServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__providers_calidades_service_calidades_service__["a" /* CalidadesServiceProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_9__providers_especie_service_especie_service__["a" /* EspecieServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__providers_especie_service_especie_service__["a" /* EspecieServiceProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_10__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_11__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_12__providers_ingresos_service_ingresos_service__["a" /* IngresosServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_12__providers_ingresos_service_ingresos_service__["a" /* IngresosServiceProvider */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_13__providers_auth_service_auth_service__["a" /* AuthServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_13__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_14__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_14__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _k || Object])
-    ], NewIngreso);
-    return NewIngreso;
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
-}());
-
-//# sourceMappingURL=new-ingreso.js.map
-
-/***/ }),
-
-/***/ 388:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CalidadesServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var CalidadesServiceProvider = (function () {
-    function CalidadesServiceProvider(http) {
-        this.http = http;
-        this.urlAPI = 'http://localhost:3000/calidad';
-    }
-    CalidadesServiceProvider.prototype.getAllCalidades = function () {
-        return this.http.get(this.urlAPI)
-            .map(this.extractData)
-            .do(function (res) { return console.log(res); })
-            .catch(this.catchError);
-    };
-    CalidadesServiceProvider.prototype.catchError = function (error) {
-        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || "Server Error");
-    };
-    CalidadesServiceProvider.prototype.extractData = function (res) {
-        return res.json().data;
-    };
-    CalidadesServiceProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]])
-    ], CalidadesServiceProvider);
-    return CalidadesServiceProvider;
-}());
-
-//# sourceMappingURL=calidades-service.js.map
 
 /***/ }),
 
@@ -1998,13 +2439,11 @@ var CalidadesServiceProvider = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EspecieServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewChacra; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_chacras_list_chacras_list__ = __webpack_require__(386);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2018,31 +2457,64 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var EspecieServiceProvider = (function () {
-    function EspecieServiceProvider(http) {
-        this.http = http;
-        this.urlAPI = 'http://localhost:3000/especie';
+var NewChacra = (function () {
+    function NewChacra(navCtrl, navParams, ChacrasServiceProvider, AlertController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.ChacrasServiceProvider = ChacrasServiceProvider;
+        this.AlertController = AlertController;
+        this.chacra = { nombre: '', renspa: '' };
     }
-    EspecieServiceProvider.prototype.getAllEmpecies = function () {
-        return this.http.get(this.urlAPI)
-            .map(this.extractData)
-            .do(function (res) { return console.log(res); })
-            .catch(this.catchError);
+    NewChacra.prototype.addNewChacra = function () {
+        var _this = this;
+        this.ChacrasServiceProvider.addNewChacra(this.chacra).subscribe(function (data) { return _this.alertNewChacra(data.error); });
     };
-    EspecieServiceProvider.prototype.catchError = function (error) {
-        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || "Server Error");
+    NewChacra.prototype.alertNewChacra = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Creacion exitosa',
+                message: 'Se ha creado correctamente la nueva chacra.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar ingresar la nueva chacra.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
     };
-    EspecieServiceProvider.prototype.extractData = function (res) {
-        return res.json().data;
+    NewChacra.prototype.destroyView = function () {
+        this.navCtrl.pop();
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pages_chacras_list_chacras_list__["a" /* ChacrasList */]);
     };
-    EspecieServiceProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]])
-    ], EspecieServiceProvider);
-    return EspecieServiceProvider;
+    NewChacra = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-new-chacra',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-chacra\new-chacra.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Nueva Chacra</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Nueva Chacra</h1>\n        <p text-center>Ingrese los datos necesarios para generar una nueva chacra.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales de la Chacra</h3>\n        <form (ngSubmit)="addNewChacra()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="chacra.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Renspa</ion-label>\n                    <ion-input type="text" [(ngModel)]="chacra.renspa" name="renspa"></ion-input>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Agregar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-chacra\new-chacra.html"*/,
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object])
+    ], NewChacra);
+    return NewChacra;
+    var _a, _b, _c, _d;
 }());
 
-//# sourceMappingURL=especie-service.js.map
+//# sourceMappingURL=new-chacra.js.map
 
 /***/ }),
 
@@ -2050,9 +2522,264 @@ var EspecieServiceProvider = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewCamion; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_camiones_service_camiones_service__ = __webpack_require__(48);
+throw new Error("Cannot find module \"../../pages/camion-list/camion-list\"");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var NewCamion = (function () {
+    function NewCamion(navCtrl, navParams, CamionesServiceProvider, AlertController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.CamionesServiceProvider = CamionesServiceProvider;
+        this.AlertController = AlertController;
+        this.camion = { patenteChasis: '', patenteAcoplado: '', nombreChofer: '' };
+    }
+    NewCamion.prototype.addNewCamion = function () {
+        var _this = this;
+        this.CamionesServiceProvider.addNewCamion(this.camion).subscribe(function (data) { return _this.alertNewCamion(data.error); });
+    };
+    NewCamion.prototype.alertNewCamion = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Creacion exitosa',
+                message: 'Se ha creado correctamente el nuevo camion.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar ingresar el nuevo camion.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
+    };
+    NewCamion.prototype.destroyView = function () {
+        this.navCtrl.pop();
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pages_camion_list_camion_list__["CamionList"]);
+    };
+    NewCamion = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-new-camion',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-camion\new-camion.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Nuevo Camion</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Nuevo Camion</h1>\n        <p text-center>Ingrese los datos necesarios para generar un nuevo camion.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales del camion</h3>\n        <form (ngSubmit)="addNewCamion()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-12 class="no-border">\n                    <ion-label stacked>Nombre Chofer</ion-label>\n                    <ion-input type="text" [(ngModel)]="camion.nombreChofer" name="nombreChofer"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Patente Acoplado</ion-label>\n                    <ion-input type="text" [(ngModel)]="camion.patenteAcoplado" name="patenteAcoplado"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Patente Chasis</ion-label>\n                    <ion-input type="text" [(ngModel)]="camion.patenteChasis" name="patenteChasis"></ion-input>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Agregar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-camion\new-camion.html"*/,
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object])
+    ], NewCamion);
+    return NewCamion;
+    var _a, _b, _c, _d;
+}());
+
+//# sourceMappingURL=new-camion.js.map
+
+/***/ }),
+
+/***/ 391:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewEmpresa; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_empresas_list_empresas_list__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_empresas_service_empresas_service__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_camiones_service_camiones_service__ = __webpack_require__(48);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var NewEmpresa = (function () {
+    function NewEmpresa(navCtrl, navParams, CamionesServiceProvider, EmpresasServiceProvider, AlertController) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.CamionesServiceProvider = CamionesServiceProvider;
+        this.EmpresasServiceProvider = EmpresasServiceProvider;
+        this.AlertController = AlertController;
+        this.empresa = { nombre: '', direcccion: '', telefono: '', camiones_ids: [] };
+        this.camiones = [];
+        this.CamionesServiceProvider.getAllCamiones().subscribe(function (data) { return _this.camiones = data; });
+    }
+    NewEmpresa.prototype.addNewEmpresa = function () {
+        var _this = this;
+        this.EmpresasServiceProvider.addNewEmpresa(this.empresa).subscribe(function (data) { return _this.alertNewEmpresa(data.error); });
+    };
+    NewEmpresa.prototype.alertNewEmpresa = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Creacion exitosa',
+                message: 'Se ha creado correctamente la nueva empresa.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar ingresar la nueva empresa.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
+    };
+    NewEmpresa.prototype.destroyView = function () {
+        this.navCtrl.pop();
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__pages_empresas_list_empresas_list__["a" /* EmpresasList */]);
+    };
+    NewEmpresa = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-new-empresa',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-empresa\new-empresa.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Nuevo Empresa</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Nueva Empresa</h1>\n        <p text-center>Ingrese los datos necesarios para generar una nueva empresa.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales de la empresa</h3>\n        <form (ngSubmit)="addNewEmpresa()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="empresa.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Direccion</ion-label>\n                    <ion-input type="text" [(ngModel)]="empresa.direccion" name="direccion"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Telefono</ion-label>\n                    <ion-input type="number" [(ngModel)]="empresa.telefono" name="telefono"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Camiones</ion-label>\n                    <ion-select [(ngModel)]="empresa.camiones_ids" multiple="true" cancelText="Cancelar" okText="Aceptar" name="camiones_ids">\n                      <ion-option *ngFor="let camion of camiones" [value] = "camion.id" >{{camion.nombreChofer}}</ion-option>\n                    </ion-select>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Agregar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-empresa\new-empresa.html"*/,
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_empresas_service_empresas_service__["a" /* EmpresasServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_empresas_service_empresas_service__["a" /* EmpresasServiceProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _e || Object])
+    ], NewEmpresa);
+    return NewEmpresa;
+    var _a, _b, _c, _d, _e;
+}());
+
+//# sourceMappingURL=new-empresa.js.map
+
+/***/ }),
+
+/***/ 392:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewInstitucion; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_instituciones_service_instituciones_service__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_instituciones_list_instituciones_list__ = __webpack_require__(166);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var NewInstitucion = (function () {
+    function NewInstitucion(navCtrl, navParams, InstitucionesServiceProvider, AlertController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.InstitucionesServiceProvider = InstitucionesServiceProvider;
+        this.AlertController = AlertController;
+        this.institucion = { nombre: '', direccion: '', telefono: '' };
+    }
+    NewInstitucion.prototype.addNewInstitucion = function () {
+        var _this = this;
+        this.InstitucionesServiceProvider.addNewInstitucion(this.institucion).subscribe(function (data) { return _this.alertNewInstitucion(data.error); });
+    };
+    NewInstitucion.prototype.alertNewInstitucion = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Creacion exitosa',
+                message: 'Se ha creado correctamente la nueva institucion.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar ingresar la nueva institucion.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
+    };
+    NewInstitucion.prototype.destroyView = function () {
+        this.navCtrl.pop();
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pages_instituciones_list_instituciones_list__["a" /* InstitucionesList */]);
+    };
+    NewInstitucion = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-new-institucion',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-institucion\new-institucion.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Nueva Institucion</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Nueva Institucion</h1>\n        <p text-center>Ingrese los datos necesarios para generar una nueva institucion.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales de la institucion</h3>\n        <form (ngSubmit)="addNewInstitucion()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="institucion.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Direccion</ion-label>\n                    <ion-input type="text" [(ngModel)]="institucion.direccion" name="direccion"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Telefono</ion-label>\n                    <ion-input type="number" [(ngModel)]="institucion.telefono" name="telefono"></ion-input>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Agregar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-institucion\new-institucion.html"*/,
+        }),
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object])
+    ], NewInstitucion);
+    return NewInstitucion;
+    var _a, _b, _c, _d;
+}());
+
+//# sourceMappingURL=new-institucion.js.map
+
+/***/ }),
+
+/***/ 393:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(391);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(395);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(394);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(398);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -2060,59 +2787,65 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 395:
+/***/ 398:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export firebaseConfig */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_side_menu_content_side_menu_content_component__ = __webpack_require__(260);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_select_select_module__ = __webpack_require__(433);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(435);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_side_menu_content_side_menu_content_component__ = __webpack_require__(269);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_select_select_module__ = __webpack_require__(436);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(438);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(143);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_productoresList_productoresList__ = __webpack_require__(281);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_new_productor_new_productor__ = __webpack_require__(372);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_edit_productor_edit_productor__ = __webpack_require__(371);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_chacras_list_chacras_list__ = __webpack_require__(373);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_new_chacra_new_chacra__ = __webpack_require__(376);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_edit_chacra_edit_chacra__ = __webpack_require__(375);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_camiones_list_camiones_list__ = __webpack_require__(377);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_new_camion_new_camion__ = __webpack_require__(379);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_edit_camion_edit_camion__ = __webpack_require__(378);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_empresas_list_empresas_list__ = __webpack_require__(380);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_new_empresa_new_empresa__ = __webpack_require__(382);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_edit_empresa_edit_empresa__ = __webpack_require__(381);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_instituciones_list_instituciones_list__ = __webpack_require__(383);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_new_institucion_new_institucion__ = __webpack_require__(385);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_edit_institucion_edit_institucion__ = __webpack_require__(384);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_new_ingreso_new_ingreso__ = __webpack_require__(387);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_ingresos_list_ingresos_list__ = __webpack_require__(386);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_native_status_bar__ = __webpack_require__(262);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__ionic_native_splash_screen__ = __webpack_require__(267);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__angular_http__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_angularfire2__ = __webpack_require__(144);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_angularfire2_auth__ = __webpack_require__(268);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__providers_auth_service_auth_service__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__providers_camiones_service_camiones_service__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__providers_empresas_service_empresas_service__ = __webpack_require__(90);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__providers_instituciones_service_instituciones_service__ = __webpack_require__(66);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__providers_cuadros_service_cuadros_service__ = __webpack_require__(374);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__providers_ingresos_service_ingresos_service__ = __webpack_require__(163);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__providers_especie_service_especie_service__ = __webpack_require__(389);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__providers_calidades_service_calidades_service__ = __webpack_require__(388);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__providers_variedades_service_variedades_service__ = __webpack_require__(747);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__providers_chacras_service_chacras_service__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__providers_productores_service_productores_service__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_productoresList_productoresList__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_new_productor_new_productor__ = __webpack_require__(385);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_edit_productor_edit_productor__ = __webpack_require__(378);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_chacras_list_chacras_list__ = __webpack_require__(386);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_new_chacra_new_chacra__ = __webpack_require__(389);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_edit_chacra_edit_chacra__ = __webpack_require__(388);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_camiones_list_camiones_list__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_new_camion_new_camion__ = __webpack_require__(390);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_edit_camion_edit_camion__ = __webpack_require__(379);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_empresas_list_empresas_list__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_new_empresa_new_empresa__ = __webpack_require__(391);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_edit_empresa_edit_empresa__ = __webpack_require__(380);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_instituciones_list_instituciones_list__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_new_institucion_new_institucion__ = __webpack_require__(392);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_edit_institucion_edit_institucion__ = __webpack_require__(381);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_new_ingreso_new_ingreso__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_ingresos_list_ingresos_list__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_edit_ingreso_edit_ingreso__ = __webpack_require__(382);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_edit_lote_edit_lote__ = __webpack_require__(383);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_status_bar__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ionic_native_splash_screen__ = __webpack_require__(276);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__angular_http__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_angularfire2__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_angularfire2_auth__ = __webpack_require__(277);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__providers_auth_service_auth_service__ = __webpack_require__(60);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__providers_camiones_service_camiones_service__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__providers_empresas_service_empresas_service__ = __webpack_require__(91);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__providers_instituciones_service_instituciones_service__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__providers_cuadros_service_cuadros_service__ = __webpack_require__(387);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__providers_ingresos_service_ingresos_service__ = __webpack_require__(92);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__providers_especie_service_especie_service__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__providers_calidades_service_calidades_service__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__providers_variedades_service_variedades_service__ = __webpack_require__(384);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__providers_chacras_service_chacras_service__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__providers_productores_service_productores_service__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__providers_lotes_service_lotes_service__ = __webpack_require__(168);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
 
 
 
@@ -2188,16 +2921,18 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_21__pages_new_institucion_new_institucion__["a" /* NewInstitucion */],
                 __WEBPACK_IMPORTED_MODULE_22__pages_edit_institucion_edit_institucion__["a" /* EditInstitucion */],
                 __WEBPACK_IMPORTED_MODULE_24__pages_ingresos_list_ingresos_list__["a" /* IngresosList */],
-                __WEBPACK_IMPORTED_MODULE_23__pages_new_ingreso_new_ingreso__["a" /* NewIngreso */]
+                __WEBPACK_IMPORTED_MODULE_23__pages_new_ingreso_new_ingreso__["a" /* NewIngreso */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_edit_ingreso_edit_ingreso__["a" /* EditIngreso */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_edit_lote_edit_lote__["a" /* EditLote */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
                     links: []
                 }),
-                __WEBPACK_IMPORTED_MODULE_28_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
-                __WEBPACK_IMPORTED_MODULE_29_angularfire2_auth__["b" /* AngularFireAuthModule */],
-                __WEBPACK_IMPORTED_MODULE_27__angular_http__["c" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_30_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
+                __WEBPACK_IMPORTED_MODULE_31_angularfire2_auth__["b" /* AngularFireAuthModule */],
+                __WEBPACK_IMPORTED_MODULE_29__angular_http__["c" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_4__shared_select_select_module__["a" /* SelectSearchableModule */]
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicApp */]],
@@ -2221,23 +2956,26 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_21__pages_new_institucion_new_institucion__["a" /* NewInstitucion */],
                 __WEBPACK_IMPORTED_MODULE_22__pages_edit_institucion_edit_institucion__["a" /* EditInstitucion */],
                 __WEBPACK_IMPORTED_MODULE_24__pages_ingresos_list_ingresos_list__["a" /* IngresosList */],
-                __WEBPACK_IMPORTED_MODULE_23__pages_new_ingreso_new_ingreso__["a" /* NewIngreso */]
+                __WEBPACK_IMPORTED_MODULE_23__pages_new_ingreso_new_ingreso__["a" /* NewIngreso */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_edit_ingreso_edit_ingreso__["a" /* EditIngreso */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_edit_lote_edit_lote__["a" /* EditLote */]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_25__ionic_native_status_bar__["a" /* StatusBar */],
-                __WEBPACK_IMPORTED_MODULE_26__ionic_native_splash_screen__["a" /* SplashScreen */],
+                __WEBPACK_IMPORTED_MODULE_27__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_28__ionic_native_splash_screen__["a" /* SplashScreen */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_40__providers_productores_service_productores_service__["a" /* ProductoresServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_39__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_30__providers_auth_service_auth_service__["a" /* AuthServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_31__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_32__providers_empresas_service_empresas_service__["a" /* EmpresasServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_33__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_34__providers_cuadros_service_cuadros_service__["a" /* CuadrosServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_35__providers_ingresos_service_ingresos_service__["a" /* IngresosServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_36__providers_especie_service_especie_service__["a" /* EspecieServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_37__providers_calidades_service_calidades_service__["a" /* CalidadesServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_38__providers_variedades_service_variedades_service__["a" /* VariedadesServiceProvider */]
+                __WEBPACK_IMPORTED_MODULE_42__providers_productores_service_productores_service__["a" /* ProductoresServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_41__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_32__providers_auth_service_auth_service__["a" /* AuthServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_33__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_34__providers_empresas_service_empresas_service__["a" /* EmpresasServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_35__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_36__providers_cuadros_service_cuadros_service__["a" /* CuadrosServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_37__providers_ingresos_service_ingresos_service__["a" /* IngresosServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_38__providers_especie_service_especie_service__["a" /* EspecieServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_39__providers_calidades_service_calidades_service__["a" /* CalidadesServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_40__providers_variedades_service_variedades_service__["a" /* VariedadesServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_43__providers_lotes_service_lotes_service__["a" /* LotesServiceProvider */]
             ]
         })
     ], AppModule);
@@ -2248,7 +2986,7 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 432:
+/***/ 435:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2259,15 +2997,15 @@ var SideMenuRedirectEvent = 'sidemenu:redirect';
 
 /***/ }),
 
-/***/ 433:
+/***/ 436:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SelectSearchableModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__select__ = __webpack_require__(434);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__select_page__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__select__ = __webpack_require__(437);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__select_page__ = __webpack_require__(270);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2308,15 +3046,15 @@ var SelectSearchableModule = (function () {
 
 /***/ }),
 
-/***/ 434:
+/***/ 437:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SelectSearchable; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__select_page__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__select_page__ = __webpack_require__(270);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2558,31 +3296,31 @@ var SelectSearchable = (function () {
 
 /***/ }),
 
-/***/ 435:
+/***/ 438:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(262);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(267);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_side_menu_content_side_menu_content_component__ = __webpack_require__(260);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home__ = __webpack_require__(142);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(276);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_side_menu_content_side_menu_content_component__ = __webpack_require__(269);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home__ = __webpack_require__(143);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_productoresList_productoresList__ = __webpack_require__(281);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_new_productor_new_productor__ = __webpack_require__(372);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_chacras_list_chacras_list__ = __webpack_require__(373);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_new_chacra_new_chacra__ = __webpack_require__(376);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_camiones_list_camiones_list__ = __webpack_require__(377);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_new_camion_new_camion__ = __webpack_require__(379);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_empresas_list_empresas_list__ = __webpack_require__(380);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_new_empresa_new_empresa__ = __webpack_require__(382);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_instituciones_list_instituciones_list__ = __webpack_require__(383);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_new_institucion_new_institucion__ = __webpack_require__(385);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_ingresos_list_ingresos_list__ = __webpack_require__(386);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_new_ingreso_new_ingreso__ = __webpack_require__(387);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_auth_service_auth_service__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_productoresList_productoresList__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_new_productor_new_productor__ = __webpack_require__(385);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_chacras_list_chacras_list__ = __webpack_require__(386);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_new_chacra_new_chacra__ = __webpack_require__(389);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_camiones_list_camiones_list__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_new_camion_new_camion__ = __webpack_require__(390);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_empresas_list_empresas_list__ = __webpack_require__(165);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_new_empresa_new_empresa__ = __webpack_require__(391);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_instituciones_list_instituciones_list__ = __webpack_require__(166);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_new_institucion_new_institucion__ = __webpack_require__(392);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_ingresos_list_ingresos_list__ = __webpack_require__(167);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_new_ingreso_new_ingreso__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_auth_service_auth_service__ = __webpack_require__(60);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2619,36 +3357,23 @@ var MyApp = (function () {
         this.splashScreen = splashScreen;
         this.authService = authService;
         this.menuCtrl = menuCtrl;
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_6__pages_login_login__["a" /* Login */];
         this.sideMenuSettings = {
             accordionMode: false,
             showSelectedOption: false
         };
-        if (authService.authenticated) {
-            this.rootPage = __WEBPACK_IMPORTED_MODULE_6__pages_login_login__["a" /* Login */];
-        }
-        else {
-            this.rootPage = __WEBPACK_IMPORTED_MODULE_5__pages_home_home__["a" /* HomePage */];
-        }
         this.initializeApp();
-        // used for an example of ngFor and navigation
-        /*this.pages = [
-          { title: 'Inicio', component: HomePage },
-          { title: 'Productores', component: ProductoresList },
-          { title: 'Nuevo Productor', component: NewProductor },
-          { title: 'Chacras', component: ChacrasList },
-          { title: 'Nueva Chacra', component: NewChacra },
-          { title: 'Camiones', component: CamionesList },
-          { title: 'Nuevo Camion', component: NewCamion },
-          { title: 'Empresas', component: EmpresasList },
-          { title: 'Nuevo Empresa', component: NewEmpresa }
-        ];*/
     }
     MyApp.prototype.initializeApp = function () {
         var _this = this;
         this.platform.ready().then(function () {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
+            if (_this.authService.authenticated) {
+                _this.rootPage = __WEBPACK_IMPORTED_MODULE_5__pages_home_home__["a" /* HomePage */];
+            }
+            else {
+                _this.rootPage = __WEBPACK_IMPORTED_MODULE_6__pages_login_login__["a" /* Login */];
+            }
             _this.statusBar.styleDefault();
             _this.splashScreen.hide();
             // Create the options
@@ -2659,6 +3384,9 @@ var MyApp = (function () {
         // Reset the content nav to have just this page
         // we wouldn't want the back button to show in this scenario
         this.nav.setRoot(page.component);
+    };
+    MyApp.prototype.getCurrentUser = function () {
+        this.currentUser = this.authService.getCurrentUser();
     };
     // Initialize the side menu options
     MyApp.prototype.getSideMenuOptions = function () {
@@ -2775,19 +3503,18 @@ var MyApp = (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Nav */]),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Nav */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_4__shared_side_menu_content_side_menu_content_component__["a" /* SideMenuContentComponent */]),
-        __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__shared_side_menu_content_side_menu_content_component__["a" /* SideMenuContentComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__shared_side_menu_content_side_menu_content_component__["a" /* SideMenuContentComponent */]) === "function" && _b || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_4__shared_side_menu_content_side_menu_content_component__["a" /* SideMenuContentComponent */])
     ], MyApp.prototype, "sideMenu", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\app\app.html"*/'<ion-menu persistent="true" [content]="content" (ionClose)="collapseMenuOptions()">\n  <ion-header>\n    <ion-toolbar color="cultivos">\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <side-menu-content [settings]="sideMenuSettings" [options]="options" (selectOption)="selectOption($event)" style="padding: 0"></side-menu-content>\n  </ion-content>\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_19__providers_auth_service_auth_service__["a" /* AuthServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_19__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* MenuController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* MenuController */]) === "function" && _g || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_19__providers_auth_service_auth_service__["a" /* AuthServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* MenuController */]])
     ], MyApp);
     return MyApp;
-    var _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=app.component.js.map
@@ -2799,12 +3526,13 @@ var MyApp = (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChacrasServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2818,16 +3546,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/*
-  Generated class for the ChacrasServiceProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 var ChacrasServiceProvider = (function () {
     function ChacrasServiceProvider(http) {
         this.http = http;
-        this.urlAPI = 'http://localhost:3000/chacra';
+        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/chacra';
     }
     ChacrasServiceProvider.prototype.getAllChacras = function () {
         return this.http.get(this.urlAPI)
@@ -2885,17 +3608,33 @@ var ChacrasServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 47:
+/***/ 476:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserModel; });
+var UserModel = (function () {
+    function UserModel() {
+    }
+    return UserModel;
+}());
+
+//# sourceMappingURL=user-model.js.map
+
+/***/ }),
+
+/***/ 48:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CamionesServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2909,10 +3648,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var CamionesServiceProvider = (function () {
     function CamionesServiceProvider(http) {
         this.http = http;
-        this.urlAPI = 'http://localhost:3000/camion';
+        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/camion';
     }
     CamionesServiceProvider.prototype.getAllCamiones = function () {
         return this.http.get(this.urlAPI)
@@ -2970,88 +3710,18 @@ var CamionesServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 473:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserModel; });
-var UserModel = (function () {
-    function UserModel() {
-    }
-    return UserModel;
-}());
-
-//# sourceMappingURL=user-model.js.map
-
-/***/ }),
-
-/***/ 59:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__ = __webpack_require__(268);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var AuthServiceProvider = (function () {
-    function AuthServiceProvider(angularFireAuth) {
-        var _this = this;
-        this.angularFireAuth = angularFireAuth;
-        angularFireAuth.authState.subscribe(function (user) {
-            _this.user = user;
-        });
-    }
-    Object.defineProperty(AuthServiceProvider.prototype, "authenticated", {
-        get: function () {
-            return this.user != null;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    AuthServiceProvider.prototype.signInWithEmailAndPassword = function (userModel) {
-        return this.angularFireAuth.auth.signInWithEmailAndPassword(userModel.email, userModel.password);
-    };
-    AuthServiceProvider.prototype.createUserWithEmailAndPassword = function (userModel) {
-        return this.angularFireAuth.auth.createUserWithEmailAndPassword(userModel.email, userModel.password);
-    };
-    AuthServiceProvider.prototype.signOut = function () {
-        return this.angularFireAuth.auth.signOut();
-    };
-    AuthServiceProvider.prototype.getCurrentUser = function () {
-        return this.angularFireAuth.auth.currentUser;
-    };
-    AuthServiceProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */]])
-    ], AuthServiceProvider);
-    return AuthServiceProvider;
-}());
-
-//# sourceMappingURL=auth-service.js.map
-
-/***/ }),
-
-/***/ 66:
+/***/ 49:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InstitucionesServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3061,6 +3731,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -3068,7 +3739,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var InstitucionesServiceProvider = (function () {
     function InstitucionesServiceProvider(http) {
         this.http = http;
-        this.urlAPI = 'http://localhost:3000/institucion';
+        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/institucion';
     }
     InstitucionesServiceProvider.prototype.getAllInstituciones = function () {
         return this.http.get(this.urlAPI)
@@ -3126,7 +3797,64 @@ var InstitucionesServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 741:
+/***/ 60:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__ = __webpack_require__(277);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AuthServiceProvider = (function () {
+    function AuthServiceProvider(angularFireAuth) {
+        var _this = this;
+        this.angularFireAuth = angularFireAuth;
+        this.angularFireAuth.authState.subscribe(function (user) {
+            _this.user = user;
+        });
+    }
+    Object.defineProperty(AuthServiceProvider.prototype, "authenticated", {
+        get: function () {
+            console.log('distinto: ' + this.user !== null);
+            return this.user !== null;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    AuthServiceProvider.prototype.signInWithEmailAndPassword = function (userModel) {
+        return this.angularFireAuth.auth.signInWithEmailAndPassword(userModel.email, userModel.password);
+    };
+    AuthServiceProvider.prototype.createUserWithEmailAndPassword = function (userModel) {
+        return this.angularFireAuth.auth.createUserWithEmailAndPassword(userModel.email, userModel.password);
+    };
+    AuthServiceProvider.prototype.signOut = function () {
+        return this.angularFireAuth.auth.signOut();
+    };
+    AuthServiceProvider.prototype.getCurrentUser = function () {
+        return this.angularFireAuth.auth.currentUser;
+    };
+    AuthServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */]])
+    ], AuthServiceProvider);
+    return AuthServiceProvider;
+}());
+
+//# sourceMappingURL=auth-service.js.map
+
+/***/ }),
+
+/***/ 746:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3141,7 +3869,7 @@ var CalidadModel = (function () {
 
 /***/ }),
 
-/***/ 742:
+/***/ 747:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3156,7 +3884,7 @@ var EspecieModel = (function () {
 
 /***/ }),
 
-/***/ 743:
+/***/ 748:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3171,7 +3899,7 @@ var VariedadModel = (function () {
 
 /***/ }),
 
-/***/ 744:
+/***/ 749:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3186,7 +3914,7 @@ var InstitucionModel = (function () {
 
 /***/ }),
 
-/***/ 745:
+/***/ 750:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3201,7 +3929,7 @@ var CamionModel = (function () {
 
 /***/ }),
 
-/***/ 746:
+/***/ 751:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3216,57 +3944,18 @@ var ChacraModel = (function () {
 
 /***/ }),
 
-/***/ 747:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VariedadesServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(748);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-/*
-  Generated class for the VariedadesServiceProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
-var VariedadesServiceProvider = (function () {
-    function VariedadesServiceProvider(http) {
-        this.http = http;
-        console.log('Hello VariedadesServiceProvider Provider');
-    }
-    VariedadesServiceProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]])
-    ], VariedadesServiceProvider);
-    return VariedadesServiceProvider;
-}());
-
-//# sourceMappingURL=variedades-service.js.map
-
-/***/ }),
-
-/***/ 82:
+/***/ 83:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductoresServiceProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3276,6 +3965,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -3283,7 +3973,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var ProductoresServiceProvider = (function () {
     function ProductoresServiceProvider(http) {
         this.http = http;
-        this.urlAPI = 'http://localhost:3000/productor';
+        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/productor';
     }
     ProductoresServiceProvider.prototype.getAllProductores = function () {
         return this.http.get(this.urlAPI)
@@ -3341,17 +4031,18 @@ var ProductoresServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 90:
+/***/ 91:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmpresasServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__(33);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3365,10 +4056,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var EmpresasServiceProvider = (function () {
     function EmpresasServiceProvider(http) {
         this.http = http;
-        this.urlAPI = 'http://localhost:3000/empresa';
+        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/empresa';
     }
     EmpresasServiceProvider.prototype.getAllEmpresas = function () {
         return this.http.get(this.urlAPI)
@@ -3424,7 +4116,94 @@ var EmpresasServiceProvider = (function () {
 
 //# sourceMappingURL=empresas-service.js.map
 
+/***/ }),
+
+/***/ 92:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IngresosServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var IngresosServiceProvider = (function () {
+    function IngresosServiceProvider(http) {
+        this.http = http;
+        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/ingreso';
+    }
+    IngresosServiceProvider.prototype.getAllIngresos = function () {
+        return this.http.get(this.urlAPI)
+            .map(this.extractData)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    IngresosServiceProvider.prototype.addNewIngreso = function (ingreso) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.post(this.urlAPI, ingreso, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    IngresosServiceProvider.prototype.editIngreso = function (ingreso) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.put(this.urlAPI + '/' + ingreso.id, ingreso, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    IngresosServiceProvider.prototype.deleteIngreso = function (ingresoId) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.delete(this.urlAPI + '/' + ingresoId, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    IngresosServiceProvider.prototype.catchError = function (error) {
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || "Server Error");
+    };
+    IngresosServiceProvider.prototype.extractData = function (res) {
+        return res.json().data;
+    };
+    IngresosServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]])
+    ], IngresosServiceProvider);
+    return IngresosServiceProvider;
+}());
+
+//# sourceMappingURL=ingresos-service.js.map
+
 /***/ })
 
-},[390]);
+},[393]);
 //# sourceMappingURL=main.js.map

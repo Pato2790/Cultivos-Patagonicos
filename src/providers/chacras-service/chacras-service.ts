@@ -1,18 +1,13 @@
 import { Http, RequestOptions, Headers, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import * as Constants from '../api-service/api-service';
 import 'rxjs/Rx';
 
-/*
-  Generated class for the ChacrasServiceProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class ChacrasServiceProvider {
 
-	private urlAPI = 'http://localhost:3000/chacra';
+	private urlAPI = Constants.urlAPI + '/chacra';
 
 	constructor(public http: Http) {
 	}

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController  } from 'ionic-angular';
 import { SelectSearchable } from '../../shared/select/select';
 
+import { IngresosList } from '../../pages/ingresos-list/ingresos-list';
+
 import { CalidadModel } from '../../models/calidad-model';
 import { EspecieModel } from '../../models/especie-model';
 import { VariedadModel } from '../../models/variedad-model';
@@ -101,24 +103,46 @@ export class NewIngreso {
     addNewIngreso(){
     	this.ingreso.lotes = this.lotes;
     	this.ingreso.createdFor = this.AuthServiceProvider.getCurrentUser().email;
-    	this.IngresosServiceProvider.addNewIngreso(this.ingreso).subscribe(data => {
-    		if(data.error) {
-    			let alert = this.AlertController.create({
-    			    title: 'Error al crear el nuevo ingreso',
-    			    subTitle: 'Por favor revise los datos ingresados.',
-    			    buttons: ['Aceptar']
-    			  });
-    			  alert.present();
-    		}
-    		else {
-    			let alert = this.AlertController.create({
-    			    title: 'Ingreso creado correctamente',
-    			    subTitle: 'Se ha ingresado exitosamente el nuevo ingreso',
-    			    buttons: ['Aceptar']
-    			  });
-    			  alert.present();
-    		}
-    	});
+    	this.IngresosServiceProvider.addNewIngreso(this.ingreso).subscribe(data => this.alertNewIngreso(data.error));
+    }
+
+    alertNewIngreso(error) {
+      let alert;
+
+      if(!error)
+      {
+        alert = this.AlertController.create({
+          title: 'Creacion exitosa',
+          message: 'Se ha creado correctamente el nuevo ingreso.',
+          buttons: [
+            {
+              text: 'Aceptar',
+              handler: () => {
+                this.destroyView();
+              }
+            }
+          ]
+        });
+      }
+      else {
+        alert = this.AlertController.create({
+          title: 'Error',
+          message: 'Se ha producido un error al intentar ingresar el nuevo ingreso.',
+          buttons: [
+            {
+              text: 'Aceptar',
+              handler: () => {}
+            }
+          ]
+        });
+      }
+      
+      alert.present();
+    }
+
+    destroyView(){
+      this.navCtrl.pop();
+      this.navCtrl.push(IngresosList);
     }
 
     formatDate()

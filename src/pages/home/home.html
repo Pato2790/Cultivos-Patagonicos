@@ -12,6 +12,19 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  
+<ion-content padding class="backImg">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-10 offset-2>
+        <ion-row>
+          <ion-col col-3 *ngFor="let page of pages" padding margin> 
+            <button (click)="goToPage(page)" ion-item detail-none color="semiDark" class="no-border-cards">
+              <ion-icon item-left style="zoom:1.35;" name="{{page.icon}}"></ion-icon>
+              {{page.title}}
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
