@@ -16,7 +16,7 @@ export class EditIngreso {
 	instituciones = [];
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, public IngresosServiceProvider: IngresosServiceProvider,
-		public InstitucionesServiceProvider: InstitucionesServiceProvider, public ChacrasServiceProvider: ChacrasServiceProvider
+		public InstitucionesServiceProvider: InstitucionesServiceProvider, public ChacrasServiceProvider: ChacrasServiceProvider,
 		public AlertController: AlertController) {
 		this.InstitucionesServiceProvider.getAllInstituciones().subscribe(data => this.instituciones = data);
 		this.ChacrasServiceProvider.getAllChacras().subscribe(data => this.chacras = data);

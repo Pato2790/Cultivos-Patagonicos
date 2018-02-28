@@ -1,0 +1,159 @@
+<ion-header>
+  <ion-navbar color="cultivos">
+    <ion-title>Lotes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="back-color">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 padding>
+        <h1 text-center>Listado de Lotes</h1>
+        <p text-center>Presentacion en forma de lista de los lotes para el ingreso seleccionado<p>
+      </ion-col>
+      <ion-col col-12 padding class="back-black-color">
+        <h4 padding-top no-margin>Lotes</h4>
+        <ion-row padding>
+          <!-- Formato lista-->
+          <ion-col col-sm-12 col-md-10 offset-md-1 class="hidden-md-down">
+            <ion-list>
+              <ion-item ion-item col-12 class="no-border">
+                <ion-row>
+                  <ion-col col-1 class="vertical-align-icon">
+                    <ion-icon class="size-icon" name="information-circle"></ion-icon>
+                  </ion-col>
+                  <ion-col col-1 class="vertical-align-icon">
+                    <ion-icon class="size-icon" name="cube"></ion-icon>
+                  </ion-col>
+                  <ion-col col-1 class="vertical-align-icon"> 
+                    <ion-icon class="size-icon" name="podium"></ion-icon>
+                  </ion-col>
+                  <ion-col col-2 class="vertical-align-icon"> 
+                    <ion-icon class="size-icon" name="rose"></ion-icon>
+                  </ion-col>
+                  <ion-col col-2 class="vertical-align-icon">
+                    <ion-icon class="size-icon" name="flower"></ion-icon>
+                  </ion-col>
+                  <ion-col col-1 class="vertical-align-icon">
+                    <ion-icon class="size-icon" name="star-half"></ion-icon>
+                  </ion-col>
+                  <ion-col col-2 class="vertical-align-icon">
+                    <ion-icon class="size-icon" name="color-fill"></ion-icon>
+                  </ion-col>
+                  <ion-col col-1 class="vertical-align-icon">
+                    <ion-icon class="size-icon" name="grid"></ion-icon>
+                  </ion-col>
+                  <ion-col col-1 class="vertical-align-icon">
+                    <ion-icon class="size-icon" name="more"></ion-icon>
+                  </ion-col>
+                </ion-row>
+              </ion-item>
+              <ion-item ion-item *ngFor="let lote of lotes" col-12 class="no-border">
+                <ion-row align-items-center>
+                  <ion-col col-1>
+                    <p text-center>{{lote.nroLote}}</p>
+                  </ion-col>
+                  <ion-col col-1>
+                    <p text-center>{{lote.cantBins}} Bins</p>
+                  </ion-col>
+                  <ion-col col-1> 
+                    <p text-center>{{lote.pesoNeto}} Kg</p>
+                  </ion-col>
+                  <ion-col col-2> 
+                    <p text-center>{{lote.especy.tipo}}</p>
+                  </ion-col>
+                  <ion-col col-2>
+                    <p text-center>{{lote.variedad.tipo}}</p>
+                  </ion-col>
+                  <ion-col col-1>
+                    <p text-center>{{lote.calidad.tipo}}</p>
+                  </ion-col>
+                  <ion-col col-2>
+                    <p text-center>{{lote.tratamiento.tipo}}</p>
+                  </ion-col>
+                  <ion-col col-1>
+                    <p text-center>{{lote.cuadro.up}}</p>
+                  </ion-col>
+                  <ion-col col-1>
+                    <ion-row>
+                      <ion-col col-12 class="vertical-align-icon">
+                        <button ion-button color="semiDark" round icon-only small (click)="goToEditLote(lote)">
+                          <ion-icon name="create"></ion-icon>
+                        </button>
+                      </ion-col>
+                      <ion-col col-12 class="vertical-align-icon">
+                        <button ion-button color="semiDark" round icon-only small 
+                          (click)="alertDeleteLote(lote.id)">
+                          <ion-icon name="trash"></ion-icon>
+                        </button>
+                      </ion-col>
+                    </ion-row>
+                  </ion-col>
+                </ion-row>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+
+          <!-- Formato Card-->
+          <ion-col *ngFor="let lote of lotes" offset-sm-1 col-sm-10 col-12 col-md-6 offset-md-0 no-padding class="hidden-lg-up">
+            <ion-list>
+              <ion-item class="no-border">
+                <ion-card>
+                  <ion-card-header no-padding no-margin class="card-hearder-color no-border">
+                    <ion-row align-items-center>
+                      <ion-col col-6 no-padding>
+                        <h2 margin text-center style="color: white">Lote Nro {{lote.nroLote}}</h2>
+                      </ion-col>
+                      <ion-col col-6 no-padding> 
+                        <ion-buttons right>
+                          <button ion-button clear color="white" icon-only small (click)="goToEditLote(lote)">
+                            <ion-icon name="create"></ion-icon>
+                          </button>
+                          <button ion-button clear color="white" icon-only small (click)="alertDeleteLote(lote.id)">
+                            <ion-icon name="trash"></ion-icon>
+                          </button>
+                        </ion-buttons>
+                      </ion-col>
+                    </ion-row>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <ion-list no-padding no-margin>
+                      <ion-item class="no-border">
+                        <ion-icon name="cube" item-start></ion-icon>
+                        {{lote.cantBins}} Bins
+                      </ion-item>
+                      <ion-item class="no-border">
+                        <ion-icon name="podium" item-start></ion-icon>
+                        {{lote.pesoNeto}} Kgs
+                      </ion-item>
+                      <ion-item class="no-border">
+                        <ion-icon name="rose" item-start></ion-icon>
+                        {{lote.especy.tipo}}
+                      </ion-item>
+                      <ion-item class="no-border">
+                        <ion-icon name="flower" item-start></ion-icon>
+                        {{lote.variedad.tipo}}
+                      </ion-item>
+                      <ion-item class="no-border">
+                        <ion-icon name="star-half" item-start></ion-icon>
+                        {{lote.calidad.tipo}}
+                      </ion-item>
+                      <ion-item class="no-border">
+                        <ion-icon name="color-fill" item-start></ion-icon>
+                        {{lote.tratamiento.tipo}}
+                      </ion-item>
+                      <ion-item class="no-border">
+                        <ion-icon name="grid" item-start></ion-icon>
+                        {{lote.cuadro.up}}
+                      </ion-item>
+                    </ion-list>
+                  </ion-card-content>
+                </ion-card>
+              </ion-item>
+            </ion-list>    
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

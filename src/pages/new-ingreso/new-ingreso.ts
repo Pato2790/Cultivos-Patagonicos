@@ -3,6 +3,7 @@ import { NavController, NavParams, AlertController  } from 'ionic-angular';
 import { SelectSearchable } from '../../shared/select/select';
 
 import { IngresosList } from '../../pages/ingresos-list/ingresos-list';
+import { NewViaje } from '../../pages/new-viaje/new-viaje';
 
 import { CalidadModel } from '../../models/calidad-model';
 import { EspecieModel } from '../../models/especie-model';
@@ -10,11 +11,15 @@ import { VariedadModel } from '../../models/variedad-model';
 import { InstitucionModel } from '../../models/institucion-model';
 import { CamionModel } from '../../models/camion-model';
 import { ChacraModel } from '../../models/chacra-model';
+import { TratamientoModel } from '../../models/tratamiento-model';
+import { CuadroModel } from '../../models/cuadro-model';
+import { IngresoModel } from '../../models/ingreso-model';
+import { LoteModel } from '../../models/lote-model';
 
 import { CalidadesServiceProvider } from '../../providers/calidades-service/calidades-service';
 import { EspecieServiceProvider } from '../../providers/especie-service/especie-service';
-import { InstitucionesServiceProvider } from '../../providers/instituciones-service/instituciones-service';
-import { CamionesServiceProvider } from '../../providers/camiones-service/camiones-service';
+import { CuadrosServiceProvider } from '../../providers/cuadros-service/cuadros-service';
+import { TratamientosServiceProvider } from '../../providers/tratamientos-service/tratamientos-service';
 import { IngresosServiceProvider } from '../../providers/ingresos-service/ingresos-service';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { ChacrasServiceProvider } from '../../providers/chacras-service/chacras-service';
@@ -25,129 +30,160 @@ import { ChacrasServiceProvider } from '../../providers/chacras-service/chacras-
 })
 export class NewIngreso {
 
-	ingreso = { nroRemito: null, fechaIngreso: this.formatDate(), institucionId: 0, camionId: 0, chacraId: 0, createdFor: '', lotes: []};
+  indexLote = 0;
+  indexIngreso = 0;
 
+	ingresos : Array<IngresoModel> = new Array<IngresoModel>();
+
+  calidad : CalidadModel[];
 	calidades = [];
-	calidad = CalidadModel;
 
-	especie = EspecieModel;
+	especie : EspecieModel[];
 	especies = [];
 
-	variedad = VariedadModel;
+	variedad : VariedadModel[];
 	variedades = [];
 
-	institucion = InstitucionModel;
-	instituciones = [];
-
-	camion = CamionModel;
-	camiones = [];
-
-	chacra = ChacraModel;
+	chacra : ChacraModel[];
 	chacras = [];
 
-	lotes = []; 
+  tratamiento : TratamientoModel[];
+  tratamientos = [];
+
+  cuadro : CuadroModel[];
+  cuadros = [];
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, public CalidadesServiceProvider: CalidadesServiceProvider,
-	 public EspecieServiceProvider: EspecieServiceProvider, public InstitucionesServiceProvider: InstitucionesServiceProvider,
-	 public CamionesServiceProvider: CamionesServiceProvider, public IngresosServiceProvider: IngresosServiceProvider,
-	 public AuthServiceProvider: AuthServiceProvider, public ChacrasServiceProvider: ChacrasServiceProvider,
-	 public AlertController: AlertController) {
+	  public EspecieServiceProvider: EspecieServiceProvider, public IngresosServiceProvider: IngresosServiceProvider,
+    public AuthServiceProvider: AuthServiceProvider, public ChacrasServiceProvider: ChacrasServiceProvider, public CuadrosServiceProvider: CuadrosServiceProvider,
+    public TratamientosServiceProvider: TratamientosServiceProvider, public AlertController: AlertController) {
 		
-		this.agregarLoteList();
-		this.CalidadesServiceProvider.getAllCalidades().subscribe(data => this.calidades = this.lotes[0].calidades = Object.assign([], data) );
-		this.EspecieServiceProvider.getAllEmpecies().subscribe(data => this.especies = this.lotes[0].especies = Object.assign([], data));
-		this.InstitucionesServiceProvider.getAllInstituciones().subscribe(data => this.instituciones = this.lotes[0].instituciones = Object.assign([], data));
-		this.CamionesServiceProvider.getAllCamiones().subscribe(data => this.camiones = data);
-		this.ChacrasServiceProvider.getAllChacras().subscribe(data => this.chacras = data);
+    this.agregarIngresoList();
+		this.CalidadesServiceProvider.getAllCalidades().subscribe(data => 
+      {
+        this.calidades = Object.assign([], data);
+        this.ingresos[0].lotes[0].calidades = Object.assign([], data);
+      });
+		this.EspecieServiceProvider.getAllEmpecies().subscribe(data => 
+      { 
+        this.especies = Object.assign([], data);
+        this.ingresos[0].lotes[0].especies = Object.assign([], data);
+      });
+		this.TratamientosServiceProvider.getAllTratamientos().subscribe(data => 
+      {
+        this.tratamientos = Object.assign([], data);
+        this.ingresos[0].lotes[0].tratamientos = Object.assign([], data);
+      });
+    this.ChacrasServiceProvider.getAllChacras().subscribe(data => 
+    {
+      this.chacras = Object.assign([], data);
+      this.ingresos[0].chacras = Object.assign([], data);
+    });
+  }
+
+  agregarIngresoList()
+  {
+    this.ingresos.push(new IngresoModel(this.indexIngreso ,0, this.formatDate(),  0,  0,  this.AuthServiceProvider.getCurrentUser().email, 
+      new Array<LoteModel>(new LoteModel( this.indexLote, 0, 0,  0,  0,  0,  0,  0,  0, Object.assign([], this.calidades), new CalidadModel(),  Object.assign([], this.especies), new EspecieModel(),
+        new Array<VariedadModel>(), new VariedadModel(), Object.assign([], this.tratamientos), new TratamientoModel(), new Array<CuadroModel>(), new CuadroModel())), 
+      Object.assign([], this.chacras), new ChacraModel()));
+    this.indexLote++;
+    this.indexIngreso++;
+  }
+
+	agregarLoteList(ingreso : IngresoModel)
+	{
+    var index: number = this.ingresos.indexOf(ingreso, 0);
+
+    this.ingresos[index].lotes.push(
+        new LoteModel( this.indexLote, 0, 0,  0,  0,  0,  0,  0,  0, Object.assign([], this.calidades), new CalidadModel(),  Object.assign([], this.especies), new EspecieModel(),
+        new Array<VariedadModel>(), new VariedadModel(), Object.assign([], this.tratamientos), new TratamientoModel(), new Array<CuadroModel>(), new CuadroModel())
+      );
+    this.indexLote++;
 	}
 
-	agregarLoteList()
-	{
-		this.lotes.push({ peso: null, nroLote: null, cantBins: null, calidadId: null, especieId: null, variedadId: null, 
-			calidades: Object.assign([], this.calidades), especies: Object.assign([], this.especies), variedades: Object.assign([], this.variedades),
-			especie: Object.assign({}, this.especie), variedad: Object.assign({}, this.variedad), calidad: Object.assign({}, this.calidad) });
-	}
+  deleteIngresoList(ingreso)
+  {
+    var index: number = this.ingresos.indexOf(ingreso, 0);
+    this.ingresos.splice(index,1);
+  }
 
-	deleteLoteList(lote)
+	deleteLoteList(ingreso, lote)
 	{
-		var index: number = this.lotes.indexOf(lote, 0);
-		this.lotes.splice(index,1);
+		var index: number = ingreso.lotes.indexOf(lote, 0);
+		ingreso.lotes.splice(index,1);
 	}
 
 	calidadChange(event: { component: SelectSearchable, value: any }, lote) {
-        lote.calidadId = event.value.id;
+      lote.calidadId = event.value.id;
     }
 
-    especieChange(event: { component: SelectSearchable, value: any }, lote) {
-        lote.especieId = event.value.id;
-        var currentVariedades = this.especies[this.especies.indexOf(event.value,0)].variedads;
-        lote.variedades = Object.assign([], currentVariedades);
-    }
+  especieChange(event: { component: SelectSearchable, value: any }, lote) {
+      lote.especieId = event.value.id;
+      var currentVariedades = this.especies[this.especies.indexOf(event.value,0)].variedads;
+      lote.variedades = Object.assign([], currentVariedades);
+  }
 
-    variedadChange(event: { component: SelectSearchable, value: any }, lote) {
-        lote.variedadId = event.value.id;
-    }
+  variedadChange(event: { component: SelectSearchable, value: any }, lote) {
+      lote.variedadId = event.value.id;
+  }
 
-    institucionChange(event: { component: SelectSearchable, value: any }) {
-        this.ingreso.institucionId = event.value.id;
-    }
+  tratamientoChange(event: { component: SelectSearchable, value: any }, lote) {
+      lote.tratamientoId = event.value.id;
+  }
 
-    camionChange(event: { component: SelectSearchable, value: any }) {
-        this.ingreso.camionId = event.value.id;
-    }
-
-    chacraChange(event: { component: SelectSearchable, value: any }) {
-        this.ingreso.chacraId = event.value.id;
-    }
-
-    addNewIngreso(){
-    	this.ingreso.lotes = this.lotes;
-    	this.ingreso.createdFor = this.AuthServiceProvider.getCurrentUser().email;
-    	this.IngresosServiceProvider.addNewIngreso(this.ingreso).subscribe(data => this.alertNewIngreso(data.error));
-    }
-
-    alertNewIngreso(error) {
-      let alert;
-
-      if(!error)
+  chacraChange(event: { component: SelectSearchable, value: any }, ingreso) {
+      ingreso.chacraId = event.value.id;
+      var currentCuadros = this.chacras[this.chacras.indexOf(event.value,0)].cuadros;
+      for(let lote of ingreso.lotes)
       {
-        alert = this.AlertController.create({
-          title: 'Creacion exitosa',
-          message: 'Se ha creado correctamente el nuevo ingreso.',
-          buttons: [
-            {
-              text: 'Aceptar',
-              handler: () => {
-                this.destroyView();
-              }
-            }
-          ]
-        });
+        lote.cuadros = Object.assign([], currentCuadros);
       }
-      else {
-        alert = this.AlertController.create({
-          title: 'Error',
-          message: 'Se ha producido un error al intentar ingresar el nuevo ingreso.',
-          buttons: [
-            {
-              text: 'Aceptar',
-              handler: () => {}
+  }
+
+  cuadroChange(event: { component: SelectSearchable, value: any }, lote) {
+      lote.cuadroId = event.value.id;
+  }
+
+  addNewIngreso(){
+    this.navCtrl.push(NewViaje, {
+      ingresos : this.ingresos
+    });
+  }
+
+  alertNewIngreso() {
+    let alert = this.AlertController.create({
+        title: 'Revise los datos ingresados',
+        message: 'Se procedera a realizar la carga del viaje. Desea continuar?',
+        buttons: [
+          {
+            text: 'Aceptar',
+            handler: () => {
+              this.addNewIngreso();
             }
-          ]
-        });
-      }
-      
-      alert.present();
-    }
+          },
+          {
+            text: 'Cancelar',
+            handler: () => {}
+          }
+        ]
+      });
+    
+    alert.present();
+  }
 
-    destroyView(){
-      this.navCtrl.pop();
-      this.navCtrl.push(IngresosList);
-    }
+  destroyView(){
+    this.navCtrl.pop();
+    this.navCtrl.push(IngresosList);
+  }
 
-    formatDate()
+  formatDate()
 	{
 		var fecha = new Date();
 	    return fecha.getFullYear()  + "-" + fecha.getMonth() + 1 + "-" + fecha.getDate();
 	}
+
+  trackByFn(index,value){
+    return value.id;
+  }
 }

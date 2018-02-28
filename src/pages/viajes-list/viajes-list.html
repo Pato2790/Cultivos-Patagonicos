@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-navbar color="cultivos">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Viajes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="back-color">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-sm-12 col-md-12 padding>
+        <h1 text-center>Listado de Viajes</h1>
+        <p text-center>Presentacion en forma de lista de los viajes para el ingreso seleccionado<p>
+      </ion-col>
+      <ion-col col-sm-12 col-md-12 padding class="back-black-color">
+        <h4 padding-top no-margin>Viajes</h4>
+        <ion-row padding>
+          <ion-col col-sm-12 col-md-8 offset-md-2>
+            <ion-list>
+              <ion-item ion-item *ngFor="let viaje of viajes" class="no-border">
+                <ion-avatar item-left>
+                  <img src="assets/imgs/camion-icon.png">
+                </ion-avatar>
+                <ion-row>
+                  <ion-col col-sm-12 col-md-2>
+                    <ion-row>
+                      <ion-col col-sm-12 col-md-12>
+                        <h2 text-center>Fecha</h2>
+                      </ion-col>
+                      <ion-col col-sm-12 col-md-12>
+                        <p text-center>{{viaje.fecha}}</p>
+                      </ion-col>
+                    </ion-row>
+                  </ion-col>
+                  <ion-col col-sm-12 col-md-3>
+                    <ion-row>
+                      <ion-col col-sm-12 col-md-12>
+                        <h2 text-center>Costo</h2>
+                      </ion-col>
+                      <ion-col col-sm-12 col-md-12>
+                        <p text-center>{{viaje.costo}}</p>
+                      </ion-col>
+                    </ion-row>
+                  </ion-col>
+                  <ion-col col-sm-12 col-md-3> 
+                    <ion-row>
+                      <ion-col col-sm-12 col-md-12>
+                        <h2 text-center>Chofer</h2>
+                      </ion-col>
+                      <ion-col col-sm-12 col-md-12>
+                        <p text-center>{{viaje.camion.nombreChofer}}</p>
+                      </ion-col>
+                    </ion-row>
+                  </ion-col>
+                  <ion-col col-sm-12 col-md-3> 
+                    <ion-row>
+                      <ion-col col-sm-12 col-md-12>
+                        <h2 text-center>Lugar</h2>
+                      </ion-col>
+                      <ion-col col-sm-12 col-md-12>
+                        <p text-center>{{viaje.institucion.nombre}}</p>
+                      </ion-col>
+                    </ion-row>
+                  </ion-col>
+                </ion-row>
+              </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+

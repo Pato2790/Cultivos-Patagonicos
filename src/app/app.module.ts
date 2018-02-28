@@ -26,6 +26,9 @@ import { NewIngreso } from '../pages/new-ingreso/new-ingreso';
 import { IngresosList } from '../pages/ingresos-list/ingresos-list';
 import { EditIngreso } from '../pages/edit-ingreso/edit-ingreso';
 import { EditLote } from '../pages/edit-lote/edit-lote';
+import { NewViaje } from '../pages/new-viaje/new-viaje';
+import { ViajesList } from '../pages/viajes-list/viajes-list';
+import { LotesList } from '../pages/lotes-list/lotes-list';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -46,6 +49,8 @@ import { VariedadesServiceProvider } from '../providers/variedades-service/varie
 import { ChacrasServiceProvider } from '../providers/chacras-service/chacras-service';
 import { ProductoresServiceProvider } from '../providers/productores-service/productores-service';
 import { LotesServiceProvider } from '../providers/lotes-service/lotes-service';
+import { TratamientosServiceProvider } from '../providers/tratamientos-service/tratamientos-service';
+import { ViajesServiceProvider } from '../providers/viajes-service/viajes-service';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyAlCvR3L2sO5B8GFSaRvPRMWD1uU498VgE",
@@ -80,7 +85,10 @@ export const firebaseConfig = {
     IngresosList,
     NewIngreso,
     EditIngreso,
-    EditLote
+    EditLote,
+    NewViaje,
+    ViajesList,
+    LotesList
   ],
   imports: [
     BrowserModule,
@@ -113,7 +121,10 @@ export const firebaseConfig = {
     IngresosList,
     NewIngreso,
     EditIngreso,
-    EditLote
+    EditLote,
+    NewViaje,
+    ViajesList,
+    LotesList
   ],
   providers: [
     StatusBar,
@@ -130,7 +141,9 @@ export const firebaseConfig = {
     EspecieServiceProvider,
     CalidadesServiceProvider,
     VariedadesServiceProvider,
-    LotesServiceProvider
+    LotesServiceProvider,
+    TratamientosServiceProvider,
+    ViajesServiceProvider
   ]
 })
 export class AppModule {}

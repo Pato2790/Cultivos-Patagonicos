@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController } from 'ionic-angular';
 
 import { IngresosServiceProvider } from '../../providers/ingresos-service/ingresos-service';
-import { LotesServiceProvider } from '../../providers/lotes-service/lotes-service';
 
 import { EditIngreso } from '../../pages/edit-ingreso/edit-ingreso';
-import { EditLote } from '../../pages/edit-lote/edit-lote';
+import { ViajesList } from '../../pages/viajes-list/viajes-list';
+import { LotesList } from '../../pages/lotes-list/lotes-list';
 
 @Component({
   selector: 'page-ingresos-list',
@@ -17,7 +17,7 @@ export class IngresosList {
   itemExpandHeight: number = 100;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public IngresosServiceProvider: IngresosServiceProvider, 
-    public AlertController:AlertController, public LotesServiceProvider: LotesServiceProvider) {
+    public AlertController:AlertController) {
   	this.getAllIngresos();
   }
 
@@ -62,35 +62,17 @@ export class IngresosList {
     this.IngresosServiceProvider.deleteIngreso(ingresoId).subscribe(data => this.getAllIngresos());
   }
 
-  goToEditLote(lote: any)
+  goToViajes(ingreso)
   {
-    this.navCtrl.push(EditLote, {
-      lote : lote
+    this.navCtrl.push(ViajesList, {
+      viajes : ingreso.ingresos_viajes
     })
   }
 
-  alertDeleteLote(loteId) {
-    let alert = this.AlertController.create({
-      title: 'Confirmar eliminacion',
-      message: 'Esta seguro que desea eliminar el lote de la lista?',
-      buttons: [
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-          handler: () => {}
-        },
-        {
-          text: 'Eliminar',
-          handler: () => {
-            this.deleteLote(loteId);
-          }
-        }
-      ]
-    });
-    alert.present();
-  }
-
-  deleteLote(loteId) {
-    this.LotesServiceProvider.deleteLote(loteId).subscribe(data => this.getAllIngresos());
+  goToLotes(ingreso)
+  {
+    this.navCtrl.push(LotesList, {
+      lotes : ingreso.lotes
+    })
   }
 }

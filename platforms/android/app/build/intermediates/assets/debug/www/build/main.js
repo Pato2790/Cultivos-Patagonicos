@@ -1,1 +1,4689 @@
-webpackJsonp([0],{202:function(l,n){function u(l){return Promise.resolve().then(function(){throw new Error("Cannot find module '"+l+"'.")})}u.keys=function(){return[]},u.resolve=u,l.exports=u,u.id=202},227:function(l,n){function u(l){return Promise.resolve().then(function(){throw new Error("Cannot find module '"+l+"'.")})}u.keys=function(){return[]},u.resolve=u,l.exports=u,u.id=227},353:function(l,n,u){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var e=u(62),t=u(0),a=u(1),o=(u(29),"sidemenu:redirect"),i=function(){function l(){}return l.fromMenuOptionModel=function(n,u){var e=new l;return e.id=this.counter++,e.iconName=n.iconName,e.displayName=n.displayName,e.badge=n.badge,e.targetOption=n,e.parent=u||null,e.selected=n.selected,n.subItems&&(e.expanded=!1,e.subItemsCount=n.subItems.length,e.subOptions=[],n.subItems.forEach(function(n){var u=l.fromMenuOptionModel(n,e);e.subOptions.push(u),n.selected&&(u.parent.selected=!0,u.parent.expanded=!0)})),e},l.counter=1,l}(),s=function(){function l(l,n,u){var e=this;this.platform=l,this.eventsCtrl=n,this.cdRef=u,this.collapsableItems=[],this.selectOption=new t.l,this.eventsCtrl.subscribe(o,function(l){e.updateSelectedOption(l)})}return Object.defineProperty(l.prototype,"options",{set:function(l){var n=this;l&&(this.menuOptions=l,this.collapsableItems=new Array,this.menuOptions.forEach(function(l){var u=i.fromMenuOptionModel(l);n.collapsableItems.push(u),l.selected?n.selectedOption=u:u.subItemsCount&&u.subOptions.forEach(function(l){l.selected&&(n.selectedOption=l)})}))},enumerable:!0,configurable:!0}),Object.defineProperty(l.prototype,"settings",{set:function(l){l&&(this.menuSettings=l,this.mergeSettings())},enumerable:!0,configurable:!0}),l.prototype.ngOnDestroy=function(){this.eventsCtrl.unsubscribe(o)},l.prototype.select=function(l){this.menuSettings.showSelectedOption&&this.setSelectedOption(l),this.selectOption.emit(l.targetOption)},l.prototype.toggleItemOptions=function(l){l&&(this.menuSettings.accordionMode&&this.collapsableItems.forEach(function(n){n.id!==l.id&&(n.expanded=!1)}),l.expanded=!l.expanded)},l.prototype.collapseAllOptions=function(){this.collapsableItems.forEach(function(l){l.selected||(l.expanded=!1),l.subItemsCount&&l.subOptions.forEach(function(l){l.selected&&(l.parent.expanded=!0)})}),this.cdRef.detectChanges()},Object.defineProperty(l.prototype,"subOptionIndentation",{get:function(){return this.platform.is("ios")?this.menuSettings.subOptionIndentation.ios:this.platform.is("windows")?this.menuSettings.subOptionIndentation.wp:this.menuSettings.subOptionIndentation.md},enumerable:!0,configurable:!0}),Object.defineProperty(l.prototype,"itemHeight",{get:function(){return this.platform.is("ios")?this.menuSettings.itemHeight.ios:this.platform.is("windows")?this.menuSettings.itemHeight.wp:this.menuSettings.itemHeight.md},enumerable:!0,configurable:!0}),l.prototype.setSelectedOption=function(l){l.targetOption.component&&(this.selectedOption&&(this.selectedOption.selected=!1,this.selectedOption.targetOption.selected=!1,this.selectedOption.parent&&(this.selectedOption.parent.selected=!1,this.selectedOption.parent.expanded=!1),this.selectedOption=null),l.selected=!0,l.targetOption.selected=!0,l.parent&&(l.parent.selected=!0,l.parent.expanded=!0),this.selectedOption=l,this.cdRef.detectChanges())},l.prototype.updateSelectedOption=function(l){var n;l.displayName&&(this.collapsableItems.forEach(function(u){u.displayName.toLowerCase()===l.displayName.toLowerCase()?n=u:u.subItemsCount&&u.subOptions.forEach(function(u){u.displayName.toLowerCase()===l.displayName.toLowerCase()&&(n=u)})}),n&&this.setSelectedOption(n))},l.prototype.mergeSettings=function(){var l={accordionMode:!1,itemHeight:{ios:50,md:50,wp:50},arrowIcon:"ios-arrow-down",showSelectedOption:!1,selectedOptionClass:"selected-option",indentSubOptionsWithoutIcons:!1,subOptionIndentation:{ios:"16px",md:"16px",wp:"16px"}};this.menuSettings?(this.menuSettings.itemHeight?(this.menuSettings.itemHeight.ios=this.isDefinedAndPositive(this.menuSettings.itemHeight.ios)?this.menuSettings.itemHeight.ios:l.itemHeight.ios,this.menuSettings.itemHeight.md=this.isDefinedAndPositive(this.menuSettings.itemHeight.md)?this.menuSettings.itemHeight.md:l.itemHeight.md,this.menuSettings.itemHeight.wp=this.isDefinedAndPositive(this.menuSettings.itemHeight.wp)?this.menuSettings.itemHeight.wp:l.itemHeight.wp):this.menuSettings.itemHeight=l.itemHeight,this.menuSettings.showSelectedOption=this.isDefined(this.menuSettings.showSelectedOption)?this.menuSettings.showSelectedOption:l.showSelectedOption,this.menuSettings.accordionMode=this.isDefined(this.menuSettings.accordionMode)?this.menuSettings.accordionMode:l.accordionMode,this.menuSettings.arrowIcon=this.isDefined(this.menuSettings.arrowIcon)?this.menuSettings.arrowIcon:l.arrowIcon,this.menuSettings.selectedOptionClass=this.isDefined(this.menuSettings.selectedOptionClass)?this.menuSettings.selectedOptionClass:l.selectedOptionClass,this.menuSettings.subOptionIndentation=this.isDefined(this.menuSettings.subOptionIndentation)?this.menuSettings.subOptionIndentation:l.subOptionIndentation,this.menuSettings.indentSubOptionsWithoutIcons=this.isDefined(this.menuSettings.indentSubOptionsWithoutIcons)?this.menuSettings.indentSubOptionsWithoutIcons:l.indentSubOptionsWithoutIcons,this.menuSettings.subOptionIndentation?(this.menuSettings.subOptionIndentation.ios=this.isDefined(this.menuSettings.subOptionIndentation.ios)?this.menuSettings.subOptionIndentation.ios:l.subOptionIndentation.ios,this.menuSettings.subOptionIndentation.md=this.isDefined(this.menuSettings.subOptionIndentation.md)?this.menuSettings.subOptionIndentation.md:l.subOptionIndentation.md,this.menuSettings.subOptionIndentation.wp=this.isDefined(this.menuSettings.subOptionIndentation.wp)?this.menuSettings.subOptionIndentation.wp:l.subOptionIndentation.wp):this.menuSettings.subOptionIndentation=l.subOptionIndentation):this.menuSettings=l},l.prototype.isDefined=function(l){return null!==l&&void 0!==l},l.prototype.isDefinedAndPositive=function(l){return this.isDefined(l)&&!isNaN(l)&&l>0},l}(),c=u(19),r=function(){function l(l){var n=this;this.navParams=l,this.selectedItems=[],this.selectComponent=this.navParams.get("selectComponent"),this.navController=this.navParams.get("navController"),this.filteredItems=this.selectComponent.items,this.filterItems(),this.selectComponent.value&&(this.selectComponent.multiple?this.selectComponent.value.forEach(function(l){n.selectedItems.push(l)}):this.selectedItems.push(this.selectComponent.value))}return l.prototype.ngAfterViewInit=function(){var l=this;this.searchbarComponent&&setTimeout(function(){l.searchbarComponent.setFocus()},1e3)},l.prototype.isItemSelected=function(l){var n=this;return void 0!==this.selectedItems.find(function(u){return n.selectComponent.itemValueField?l[n.selectComponent.itemValueField]===u[n.selectComponent.itemValueField]:l===u})},l.prototype.deleteSelectedItem=function(l){var n,u=this;this.selectedItems.forEach(function(e,t){u.selectComponent.itemValueField?l[u.selectComponent.itemValueField]===e[u.selectComponent.itemValueField]&&(n=t):l===e&&(n=t)}),this.selectedItems.splice(n,1)},l.prototype.addSelectedItem=function(l){this.selectedItems.push(l)},l.prototype.select=function(l){this.selectComponent.multiple?this.isItemSelected(l)?this.deleteSelectedItem(l):this.addSelectedItem(l):(this.isItemSelected(l)||(this.selectedItems=[],this.addSelectedItem(l),this.selectComponent.select(l)),this.close())},l.prototype.ok=function(){this.selectComponent.select(this.selectedItems.length?this.selectedItems:null),this.close()},l.prototype.close=function(){var l=this;this.searchbarComponent&&this.searchbarComponent._fireBlur(),setTimeout(function(){l.navController.pop(),l.selectComponent.hasSearchEvent||(l.selectComponent.filterText="")})},l.prototype.reset=function(){this.navController.pop(),this.selectComponent.reset()},l.prototype.filterItems=function(){var l=this;if(this.selectComponent.hasSearchEvent)this.selectComponent.emitSearch();else{var n=[];if(this.selectComponent.filterText&&this.selectComponent.filterText.trim()){var u=this.selectComponent.filterText.trim().toLowerCase();n=this.selectComponent.items.filter(function(n){return-1!==(l.selectComponent.itemTextField?n[l.selectComponent.itemTextField]:n).toLowerCase().indexOf(u)})}else n=this.selectComponent.items;this.filteredItems=n}},l.prototype.getMoreItems=function(l){this.selectComponent.onInfiniteScroll.emit({component:this.selectComponent,infiniteScroll:l})},l}(),d=function(){function l(l,n,u,e){this.navController=l,this.ionForm=n,this.platform=u,this.ionItem=e,this._items=[],this.filterText="",this.value=null,this.canSearch=!1,this.canReset=!1,this.hasInfiniteScroll=!1,this.searchPlaceholder="Enter 3 or more characters",this.onChange=new t.l,this.onSearch=new t.l,this.onInfiniteScroll=new t.l,this.propagateChange=function(l){}}return l,Object.defineProperty(l.prototype,"items",{get:function(){return this._items},set:function(l){this._items.splice(0,this._items.length),Array.prototype.push.apply(this._items,l)},enumerable:!0,configurable:!0}),l.prototype.isNullOrWhiteSpace=function(l){return null===l||void 0===l||l.toString().replace(/\s/g,"").length<1},l.prototype.ngOnInit=function(){this.isIos=this.platform.is("ios"),this.isMd=this.platform.is("android"),this.hasSearchEvent=this.onSearch.observers.length>0&&!this.hasInfiniteScroll,this.ionForm.register(this),this.ionItem&&this.ionItem.setElementClass("item-select-searchable",!0)},l.prototype.initFocus=function(){},l.prototype._click=function(l){0!==l.detail&&(l.preventDefault(),l.stopPropagation(),this.open())},l.prototype.select=function(l){this.value=l,this.emitChange()},l.prototype.emitChange=function(){this.propagateChange(this.value),this.onChange.emit({component:this,value:this.value})},l.prototype.emitSearch=function(){this.onSearch.emit({component:this,text:this.filterText})},l.prototype.open=function(){this.navController.push(r,{selectComponent:this,navController:this.navController})},l.prototype.reset=function(){this.setValue(null),this.emitChange()},l.prototype.formatItem=function(l){return this.itemTemplate?this.itemTemplate(l):this.isNullOrWhiteSpace(l)?null:this.itemTextField?l[this.itemTextField]:l.toString()},l.prototype.formatValue=function(){var l=this;return this.value?this.multiple?this.value.map(function(n){return l.formatItem(n)}).join(", "):this.formatItem(this.value):null},l.prototype.writeValue=function(l){this.setValue(l)},l.prototype.registerOnChange=function(l){this.propagateChange=l},l.prototype.registerOnTouched=function(l){},l.prototype.setDisabledState=function(l){},l.prototype.ngOnDestroy=function(){this.ionForm.deregister(this)},l.prototype.setValue=function(l){var n=this;if(this.value=l,this.value&&!this.isNullOrWhiteSpace(this.value[this.itemValueField])){var u=this.items.find(function(l){return l[n.itemValueField]===n.value[n.itemValueField]});u&&(this.value=u)}},l.prototype.ngOnChanges=function(l){l.items&&this.items.length>0&&this.setValue(this.value)},l=Object(a.__decorate)([Object(a.__param)(3,Object(t.v)())],l)}(),_=function(){return function(){}}(),m=u(121),g=u(122),p=u(171),h=function(){function l(l){var n=this;this.angularFireAuth=l,this.angularFireAuth.authState.subscribe(function(l){n.user=l})}return Object.defineProperty(l.prototype,"authenticated",{get:function(){return console.log("distinto: "+this.user!==null),null!==this.user},enumerable:!0,configurable:!0}),l.prototype.signInWithEmailAndPassword=function(l){return this.angularFireAuth.auth.signInWithEmailAndPassword(l.email,l.password)},l.prototype.createUserWithEmailAndPassword=function(l){return this.angularFireAuth.auth.createUserWithEmailAndPassword(l.email,l.password)},l.prototype.signOut=function(){return this.angularFireAuth.auth.signOut()},l.prototype.getCurrentUser=function(){return this.angularFireAuth.auth.currentUser},l}(),b=function(){return function(){}}(),f=function(){function l(l,n,u,e){this.navCtrl=l,this.loadingCtrl=n,this.alertCtrl=u,this.authService=e,this.userModel=new b}return l.prototype.signIn=function(){var l=this,n=this.loadingCtrl.create({content:"Iniciando sesión. Por favor, espere..."});n.present(),this.authService.signInWithEmailAndPassword(this.userModel).then(function(u){n.dismiss(),l.navCtrl.setRoot(G)}).catch(function(u){n.dismiss(),l.alert("Error",u)})},l.prototype.alert=function(l,n){this.alertCtrl.create({title:l,subTitle:n,buttons:["OK"]}).present()},l}(),C=u(54),Y=u(2),v="http://190.175.56.201:3000",Z=(u(58),function(){function l(l){this.http=l,this.urlAPI=v+"/productor"}return l.prototype.getAllProductores=function(){return this.http.get(this.urlAPI).map(this.extractData).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.addNewProductor=function(l){var n=new C.d({"Content-Type":"application/json"}),u=new C.g({headers:n});return this.http.post(this.urlAPI,l,u).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.editProductor=function(l){var n=new C.d({"Content-Type":"application/json"}),u=new C.g({headers:n});return this.http.put(this.urlAPI+"/"+l.id,l,u).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.deleteProductor=function(l){var n=new C.d({"Content-Type":"application/json"}),u=new C.g({headers:n});return this.http.delete(this.urlAPI+"/"+l,u).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.catchError=function(l){return Y.Observable.throw(l.json().error||"Server Error")},l.prototype.extractData=function(l){return l.json().data},l}()),y=function(){function l(l,n,u){this.navCtrl=l,this.navParams=n,this.ProductoresServiceProvider=u,this.productor=[],this.productor=this.navParams.get("productor")}return l.prototype.editProductor=function(){this.ProductoresServiceProvider.editProductor(this.productor).subscribe(function(l){return console.log(l)}),this.destroyView()},l.prototype.destroyView=function(){this.navCtrl.pop()},l}(),j=function(){function l(l,n,u,e){this.navCtrl=l,this.navParams=n,this.ProductoresServiceProvider=u,this.AlertController=e,this.productoresList=[],this.getProductores()}return l.prototype.getProductores=function(){var l=this;this.ProductoresServiceProvider.getAllProductores().subscribe(function(n){return l.productoresList=n})},l.prototype.goToEdit=function(l){this.navCtrl.push(y,{productor:l})},l.prototype.deleteProductor=function(l){var n=this;this.ProductoresServiceProvider.deleteProductor(l).subscribe(function(l){return n.getProductores()})},l.prototype.alertDeleteProductor=function(l){var n=this;this.AlertController.create({title:"Confirmar eliminacion",message:"Esta seguro que desea eliminar el productor de la lista?",buttons:[{text:"Cancelar",role:"cancel",handler:function(){}},{text:"Eliminar",handler:function(){n.deleteProductor(l)}}]}).present()},l}(),k=function(){function l(l){this.http=l,this.urlAPI=v+"/camion"}return l.prototype.getAllCamiones=function(){return this.http.get(this.urlAPI).map(this.extractData).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.addNewCamion=function(l){var n=new C.d({"Content-Type":"application/json"}),u=new C.g({headers:n});return this.http.post(this.urlAPI,l,u).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.editCamion=function(l){var n=new C.d({"Content-Type":"application/json"}),u=new C.g({headers:n});return this.http.put(this.urlAPI+"/"+l.id,l,u).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.deleteCamion=function(l){var n=new C.d({"Content-Type":"application/json"}),u=new C.g({headers:n});return this.http.delete(this.urlAPI+"/"+l,u).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.catchError=function(l){return Y.Observable.throw(l.json().error||"Server Error")},l.prototype.extractData=function(l){return l.json().data},l}(),I=function(){function l(l,n,u){this.navCtrl=l,this.navParams=n,this.CamionesServiceProvider=u,this.camion=[],this.camion=this.navParams.get("camion")}return l.prototype.editCamion=function(l){this.CamionesServiceProvider.editCamion(this.camion).subscribe(function(l){return console.log(l)}),this.destroyView()},l.prototype.destroyView=function(){this.navCtrl.pop()},l}(),z=function(){function l(l,n,u,e){this.navCtrl=l,this.navParams=n,this.CamionesServiceProvider=u,this.AlertController=e,this.camionesList=[],this.getAllCamiones()}return l.prototype.getAllCamiones=function(){var l=this;this.CamionesServiceProvider.getAllCamiones().subscribe(function(n){return l.camionesList=n})},l.prototype.goToEdit=function(l){this.navCtrl.push(I,{camion:l})},l.prototype.deleteCamion=function(l){var n=this;this.CamionesServiceProvider.deleteCamion(l).subscribe(function(l){return n.getAllCamiones()})},l.prototype.alertDeleteCamion=function(l){var n=this;this.AlertController.create({title:"Confirmar eliminacion",message:"Esta seguro que desea eliminar el camion de la lista?",buttons:[{text:"Cancelar",role:"cancel",handler:function(){}},{text:"Eliminar",handler:function(){n.deleteCamion(l)}}]}).present()},l}(),P=function(){function l(l){this.http=l,this.urlAPI=v+"/empresa"}return l.prototype.getAllEmpresas=function(){return this.http.get(this.urlAPI).map(this.extractData).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.addNewEmpresa=function(l){var n=new C.d({"Content-Type":"application/json"}),u=new C.g({headers:n});return this.http.post(this.urlAPI,l,u).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.editEmpresa=function(l){var n=new C.d({"Content-Type":"application/json"}),u=new C.g({headers:n});return this.http.put(this.urlAPI+"/"+l.id,l,u).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.deleteEmpresa=function(l){var n=new C.d({"Content-Type":"application/json"}),u=new C.g({headers:n});return this.http.delete(this.urlAPI+"/"+l,u).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.catchError=function(l){return Y.Observable.throw(l.json().error||"Server Error")},l.prototype.extractData=function(l){return l.json().data},l}(),w=function(){function l(l,n,u){this.navCtrl=l,this.navParams=n,this.EmpresasServiceProvider=u,this.empresa=[],this.empresa=this.navParams.get("empresa")}return l.prototype.editEmpresa=function(l){this.EmpresasServiceProvider.editEmpresa(this.empresa).subscribe(function(l){return console.log(l)}),this.destroyView()},l.prototype.destroyView=function(){this.navCtrl.pop()},l}(),x=function(){function l(l,n,u,e){this.navCtrl=l,this.navParams=n,this.EmpresasServiceProvider=u,this.AlertController=e,this.empresasList=[],this.getAllEmpresas()}return l.prototype.getAllEmpresas=function(){var l=this;this.EmpresasServiceProvider.getAllEmpresas().subscribe(function(n){return l.empresasList=n})},l.prototype.goToEdit=function(l){this.navCtrl.push(w,{empresa:l})},l.prototype.deleteEmpresa=function(l){var n=this;this.EmpresasServiceProvider.deleteEmpresa(l).subscribe(function(l){return n.getAllEmpresas()})},l.prototype.alertDeleteEmpresa=function(l){var n=this;this.AlertController.create({title:"Confirmar eliminacion",message:"Esta seguro que desea eliminar la empresa de la lista?",buttons:[{text:"Cancelar",role:"cancel",handler:function(){}},{text:"Eliminar",handler:function(){n.deleteEmpresa(l)}}]}).present()},l}(),S=function(){function l(l){this.http=l,this.urlAPI=v+"/institucion"}return l.prototype.getAllInstituciones=function(){return this.http.get(this.urlAPI).map(this.extractData).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.addNewInstitucion=function(l){var n=new C.d({"Content-Type":"application/json"}),u=new C.g({headers:n});return this.http.post(this.urlAPI,l,u).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.editInstitucion=function(l){var n=new C.d({"Content-Type":"application/json"}),u=new C.g({headers:n});return this.http.put(this.urlAPI+"/"+l.id,l,u).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.deleteInstitucion=function(l){var n=new C.d({"Content-Type":"application/json"}),u=new C.g({headers:n});return this.http.delete(this.urlAPI+"/"+l,u).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.catchError=function(l){return Y.Observable.throw(l.json().error||"Server Error")},l.prototype.extractData=function(l){return l.json().data},l}(),T=function(){function l(l,n,u){this.navCtrl=l,this.navParams=n,this.InstitucionesServiceProvider=u,this.institucion=[],this.institucion=this.navParams.get("institucion")}return l.prototype.editInstitucion=function(l){this.InstitucionesServiceProvider.editInstitucion(this.institucion).subscribe(function(l){return console.log(l)}),this.destroyView()},l.prototype.destroyView=function(){this.navCtrl.pop()},l}(),D=function(){function l(l,n,u,e){var t=this;this.navCtrl=l,this.navParams=n,this.InstitucionesServiceProvider=u,this.AlertController=e,this.institucionesList=[],this.InstitucionesServiceProvider.getAllInstituciones().subscribe(function(l){return t.institucionesList=l})}return l.prototype.getAllInstituciones=function(){var l=this;this.InstitucionesServiceProvider.getAllInstituciones().subscribe(function(n){return l.institucionesList=n})},l.prototype.goToEdit=function(l){this.navCtrl.push(T,{institucion:l})},l.prototype.deleteInstitucion=function(l){var n=this;this.InstitucionesServiceProvider.deleteInstitucion(l).subscribe(function(l){return n.getAllInstituciones()})},l.prototype.alertDeleteInstitucion=function(l){var n=this;this.AlertController.create({title:"Confirmar eliminacion",message:"Esta seguro que desea eliminar el camion de la lista?",buttons:[{text:"Cancelar",role:"cancel",handler:function(){}},{text:"Eliminar",handler:function(){n.deleteInstitucion(l)}}]}).present()},l}(),E=function(){function l(l){this.http=l,this.urlAPI=v+"/ingreso"}return l.prototype.getAllIngresos=function(){return this.http.get(this.urlAPI).map(this.extractData).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.addNewIngreso=function(l){var n=new C.d({"Content-Type":"application/json"}),u=new C.g({headers:n});return this.http.post(this.urlAPI,l,u).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.editIngreso=function(l){var n=new C.d({"Content-Type":"application/json"}),u=new C.g({headers:n});return this.http.put(this.urlAPI+"/"+l.id,l,u).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.deleteIngreso=function(l){var n=new C.d({"Content-Type":"application/json"}),u=new C.g({headers:n});return this.http.delete(this.urlAPI+"/"+l,u).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.catchError=function(l){return Y.Observable.throw(l.json().error||"Server Error")},l.prototype.extractData=function(l){return l.json().data},l}(),M=function(){function l(l){this.http=l,this.urlAPI=v+"/lote"}return l.prototype.getAllLotes=function(){return this.http.get(this.urlAPI).map(this.extractData).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.addNewLote=function(l){var n=new C.d({"Content-Type":"application/json"}),u=new C.g({headers:n});return this.http.post(this.urlAPI,l,u).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.editLote=function(l){var n=new C.d({"Content-Type":"application/json"}),u=new C.g({headers:n});return this.http.put(this.urlAPI+"/"+l.id,l,u).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.deleteLote=function(l){var n=new C.d({"Content-Type":"application/json"}),u=new C.g({headers:n});return this.http.delete(this.urlAPI+"/"+l,u).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.catchError=function(l){return Y.Observable.throw(l.json().error||"Server Error")},l.prototype.extractData=function(l){return l.json().data},l}(),O=function(){function l(l){this.http=l,this.urlAPI=v+"/chacra"}return l.prototype.getAllChacras=function(){return this.http.get(this.urlAPI).map(this.extractData).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.addNewChacra=function(l){var n=new C.d({"Content-Type":"application/json"}),u=new C.g({headers:n});return this.http.post(this.urlAPI,l,u).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.editChacra=function(l){var n=new C.d({"Content-Type":"application/json"}),u=new C.g({headers:n});return this.http.put(this.urlAPI+"/"+l.id,l,u).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.deleteChacra=function(l){var n=new C.d({"Content-Type":"application/json"}),u=new C.g({headers:n});return this.http.delete(this.urlAPI+"/"+l,u).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.catchError=function(l){return Y.Observable.throw(l.json().error||"Server Error")},l.prototype.extractData=function(l){return l.json().data},l}(),A=function(){function l(l,n,u,e,t){var a=this;this.navCtrl=l,this.navParams=n,this.IngresosServiceProvider=u,this.InstitucionesServiceProvider=e,this.ChacrasServiceProvider=t,this.ingreso=[],this.chacras=[],this.instituciones=[],this.InstitucionesServiceProvider.getAllInstituciones().subscribe(function(l){return a.instituciones=l}),this.ChacrasServiceProvider.getAllChacras().subscribe(function(l){return a.chacras=l}),this.ingreso=this.navParams.get("ingreso")}return l.prototype.editIngreso=function(l){this.IngresosServiceProvider.editIngreso(this.ingreso).subscribe(function(l){return console.log(l)}),this.destroyView()},l.prototype.destroyView=function(){this.navCtrl.pop()},l}(),V=function(){function l(l){this.http=l,this.urlAPI=v+"/calidad"}return l.prototype.getAllCalidades=function(){return this.http.get(this.urlAPI).map(this.extractData).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.catchError=function(l){return Y.Observable.throw(l.json().error||"Server Error")},l.prototype.extractData=function(l){return l.json().data},l}(),L=function(){function l(l){this.http=l,this.urlAPI=v+"/especie"}return l.prototype.getAllEmpecies=function(){return this.http.get(this.urlAPI).map(this.extractData).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.catchError=function(l){return Y.Observable.throw(l.json().error||"Server Error")},l.prototype.extractData=function(l){return l.json().data},l}(),F=function(){function l(l){this.http=l,this.urlAPI=v+"/variedad"}return l.prototype.getAllVariedades=function(l){return this.http.get(this.urlAPI+"/"+l).map(this.extractData).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.catchError=function(l){return Y.Observable.throw(l.json().error||"Server Error")},l.prototype.extractData=function(l){return l.json().data},l}(),N=function(){function l(l,n,u,e,t,a){var o=this;this.navCtrl=l,this.navParams=n,this.LotesServiceProvider=u,this.CalidadesServiceProvider=e,this.EspecieServiceProvider=t,this.VariedadesServiceProvider=a,this.lote=[],this.calidades=[],this.variedades=[],this.especies=[],this.lote=this.navParams.get("lote"),this.CalidadesServiceProvider.getAllCalidades().subscribe(function(l){return o.calidades=l}),this.EspecieServiceProvider.getAllEmpecies().subscribe(function(l){return o.especies=l}),this.VariedadesServiceProvider.getAllVariedades(this.lote.especy.id).subscribe(function(l){return o.variedades=l})}return l.prototype.editLote=function(){this.LotesServiceProvider.editLote(this.lote).subscribe(function(l){return console.log(l)}),this.destroyView()},l.prototype.destroyView=function(){this.navCtrl.pop()},l.prototype.calidadChange=function(l,n){n.calidadId=l.value.id},l.prototype.especieChange=function(l,n){var u=this;n.especieId=l.value.id,this.VariedadesServiceProvider.getAllVariedades(n.especieId).subscribe(function(l){return u.variedades=l}),this.lote.variedad=[]},l.prototype.variedadChange=function(l,n){n.variedadId=l.value.id},l}(),B=function(){function l(l,n,u,e,t){this.navCtrl=l,this.navParams=n,this.IngresosServiceProvider=u,this.AlertController=e,this.LotesServiceProvider=t,this.ingresosList=[],this.itemExpandHeight=100,this.getAllIngresos()}return l.prototype.getAllIngresos=function(){var l=this;this.IngresosServiceProvider.getAllIngresos().subscribe(function(n){return l.ingresosList=n})},l.prototype.toggleIngreso=function(l){this.ingresosList[l].open=!this.ingresosList[l].open},l.prototype.goToEditIngreso=function(l){this.navCtrl.push(A,{ingreso:l})},l.prototype.alertDeleteIngreso=function(l){var n=this;this.AlertController.create({title:"Confirmar eliminacion",message:"Esta seguro que desea eliminar el ingreso de la lista?",buttons:[{text:"Cancelar",role:"cancel",handler:function(){}},{text:"Eliminar",handler:function(){n.deleteIngreso(l)}}]}).present()},l.prototype.deleteIngreso=function(l){var n=this;this.IngresosServiceProvider.deleteIngreso(l).subscribe(function(l){return n.getAllIngresos()})},l.prototype.goToEditLote=function(l){this.navCtrl.push(N,{lote:l})},l.prototype.alertDeleteLote=function(l){var n=this;this.AlertController.create({title:"Confirmar eliminacion",message:"Esta seguro que desea eliminar el lote de la lista?",buttons:[{text:"Cancelar",role:"cancel",handler:function(){}},{text:"Eliminar",handler:function(){n.deleteLote(l)}}]}).present()},l.prototype.deleteLote=function(l){var n=this;this.LotesServiceProvider.deleteLote(l).subscribe(function(l){return n.getAllIngresos()})},l}(),U=function(){return function(){}}(),$=function(){return function(){}}(),R=function(){return function(){}}(),H=function(){return function(){}}(),q=function(){return function(){}}(),X=function(){return function(){}}(),W=function(){function l(l,n,u,e,t,a,o,i,s,c){var r=this;this.navCtrl=l,this.navParams=n,this.CalidadesServiceProvider=u,this.EspecieServiceProvider=e,this.InstitucionesServiceProvider=t,this.CamionesServiceProvider=a,this.IngresosServiceProvider=o,this.AuthServiceProvider=i,this.ChacrasServiceProvider=s,this.AlertController=c,this.ingreso={nroRemito:null,fechaIngreso:this.formatDate(),institucionId:0,camionId:0,chacraId:0,createdFor:"",lotes:[]},this.calidades=[],this.calidad=U,this.especie=$,this.especies=[],this.variedad=R,this.variedades=[],this.institucion=H,this.instituciones=[],this.camion=q,this.camiones=[],this.chacra=X,this.chacras=[],this.lotes=[],this.agregarLoteList(),this.CalidadesServiceProvider.getAllCalidades().subscribe(function(l){return r.calidades=r.lotes[0].calidades=Object.assign([],l)}),this.EspecieServiceProvider.getAllEmpecies().subscribe(function(l){return r.especies=r.lotes[0].especies=Object.assign([],l)}),this.InstitucionesServiceProvider.getAllInstituciones().subscribe(function(l){return r.instituciones=r.lotes[0].instituciones=Object.assign([],l)}),this.CamionesServiceProvider.getAllCamiones().subscribe(function(l){return r.camiones=l}),this.ChacrasServiceProvider.getAllChacras().subscribe(function(l){return r.chacras=l})}return l.prototype.agregarLoteList=function(){this.lotes.push({peso:null,nroLote:null,cantBins:null,calidadId:null,especieId:null,variedadId:null,calidades:Object.assign([],this.calidades),especies:Object.assign([],this.especies),variedades:Object.assign([],this.variedades),especie:Object.assign({},this.especie),variedad:Object.assign({},this.variedad),calidad:Object.assign({},this.calidad)})},l.prototype.deleteLoteList=function(l){var n=this.lotes.indexOf(l,0);this.lotes.splice(n,1)},l.prototype.calidadChange=function(l,n){n.calidadId=l.value.id},l.prototype.especieChange=function(l,n){n.especieId=l.value.id;var u=this.especies[this.especies.indexOf(l.value,0)].variedads;n.variedades=Object.assign([],u)},l.prototype.variedadChange=function(l,n){n.variedadId=l.value.id},l.prototype.institucionChange=function(l){this.ingreso.institucionId=l.value.id},l.prototype.camionChange=function(l){this.ingreso.camionId=l.value.id},l.prototype.chacraChange=function(l){this.ingreso.chacraId=l.value.id},l.prototype.addNewIngreso=function(){var l=this;this.ingreso.lotes=this.lotes,this.ingreso.createdFor=this.AuthServiceProvider.getCurrentUser().email,this.IngresosServiceProvider.addNewIngreso(this.ingreso).subscribe(function(n){n.error?l.AlertController.create({title:"Error al crear el nuevo ingreso",subTitle:"Por favor revise los datos ingresados.",buttons:["Aceptar"]}).present():l.AlertController.create({title:"Ingreso creado correctamente",subTitle:"Se ha ingresado exitosamente el nuevo ingreso",buttons:["Aceptar"]}).present()})},l.prototype.formatDate=function(){var l=new Date;return l.getFullYear()+"-"+l.getMonth()+"1-"+l.getDate()},l}(),G=function(){function l(l,n){this.navCtrl=l,this.AuthServiceProvider=n,this.pages=[{title:"Ingreso",icon:"crop",component:B},{title:"Nuevo Ingreso",icon:"add",component:W},{title:"Productores",icon:"contact",component:j},{title:"Camiones",icon:"bus",component:z},{title:"Empresas",icon:"briefcase",component:x},{title:"Instituciones",icon:"home",component:D}]}return l.prototype.signOut=function(){this.AuthServiceProvider.signOut(),this.navCtrl.setRoot(f)},l.prototype.goToPage=function(l){this.navCtrl.push(l.component)},l}(),K=function(){function l(l,n,u,e){var t=this;this.navCtrl=l,this.navParams=n,this.ProductoresServiceProvider=u,this.ChacrasServiceProvider=e,this.productor={nombre:"",dni:"",telefono:"",chacras_ids:[]},this.chacras=[],this.ChacrasServiceProvider.getAllChacras().subscribe(function(l){return t.chacras=l})}return l.prototype.addNewProductor=function(){this.ProductoresServiceProvider.addNewProductor(this.productor).subscribe(function(l){return console.log(l)}),this.destroyView()},l.prototype.destroyView=function(){this.navCtrl.pop()},l}(),J=function(){function l(l){this.http=l,this.urlAPI=v+"/cuadro"}return l.prototype.getAllCuadros=function(){return this.http.get(this.urlAPI).map(this.extractData).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.addNewCuadro=function(l){var n=new C.d({"Content-Type":"application/json"}),u=new C.g({headers:n});return this.http.post(this.urlAPI,l,u).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.editCuadro=function(l){var n=new C.d({"Content-Type":"application/json"}),u=new C.g({headers:n});return this.http.put(this.urlAPI+"/"+l.id,l,u).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.deleteCuadro=function(l){var n=new C.d({"Content-Type":"application/json"}),u=new C.g({headers:n});return this.http.delete(this.urlAPI+"/"+l,u).do(function(l){return console.log(l)}).catch(this.catchError)},l.prototype.catchError=function(l){return Y.Observable.throw(l.json().error||"Server Error")},l.prototype.extractData=function(l){return l.json().data},l}(),Q=function(){function l(l,n,u){this.navCtrl=l,this.navParams=n,this.ChacrasServiceProvider=u,this.chacra=[],this.chacra=this.navParams.get("chacra")}return l.prototype.editChacra=function(l){this.ChacrasServiceProvider.editChacra(this.chacra).subscribe(function(l){return console.log(l)}),this.destroyView()},l.prototype.destroyView=function(){this.navCtrl.pop()},l}(),ll=function(){function l(l,n,u,e,t){this.navCtrl=l,this.navParams=n,this.ChacrasServiceProvider=u,this.CuadrosServiceProvider=e,this.AlertController=t,this.chacrasList=[],this.newCuadro={up:"",chacraId:""},this.getAllChacras()}return l.prototype.getAllChacras=function(){var l=this;this.ChacrasServiceProvider.getAllChacras().subscribe(function(n){return l.chacrasList=n})},l.prototype.goToEdit=function(l){this.navCtrl.push(Q,{chacra:l})},l.prototype.deleteChacra=function(l){var n=this;this.ChacrasServiceProvider.deleteChacra(l).subscribe(function(l){return n.getAllChacras()})},l.prototype.alertDeleteChacra=function(l){var n=this;this.AlertController.create({title:"Confirmar eliminacion",message:"Esta seguro que desea eliminar la chacra de la lista?",buttons:[{text:"Cancelar",role:"cancel",handler:function(){}},{text:"Eliminar",handler:function(){n.deleteChacra(l)}}]}).present()},l.prototype.alertNewCuadro=function(l){var n=this;this.AlertController.create({title:"Agregar Cuadro",inputs:[{name:"Up",placeholder:"Up"}],buttons:[{text:"Cancel",role:"cancel",handler:function(l){}},{text:"Crear",handler:function(u){n.newCuadro.up=u.Up,n.newCuadro.chacraId=l,n.addNewCuadro()}}]}).present()},l.prototype.addNewCuadro=function(){var l=this;this.CuadrosServiceProvider.addNewCuadro(this.newCuadro).subscribe(function(n){return l.getAllChacras()}),this.newCuadro={up:"",chacraId:""}},l.prototype.alertEditCuadro=function(l){var n=this;this.AlertController.create({title:"Editar Cuadro",inputs:[{name:"Up",placeholder:"Up",value:l.up}],buttons:[{text:"Cancel",role:"cancel",handler:function(l){}},{text:"Editar",handler:function(u){l.up=u.Up,n.editCuadro(l)}}]}).present()},l.prototype.editCuadro=function(l){var n=this;this.CuadrosServiceProvider.editCuadro(l).subscribe(function(l){return n.getAllChacras()})},l.prototype.alertDeleteCuadro=function(l){var n=this;this.AlertController.create({title:"Confirmar eliminacion",message:"Esta seguro que desea eliminar el cuadro de la lista?",buttons:[{text:"Cancelar",role:"cancel",handler:function(){}},{text:"Eliminar",handler:function(){n.deleteCuadro(l)}}]}).present()},l.prototype.deleteCuadro=function(l){var n=this;this.CuadrosServiceProvider.deleteCuadro(l).subscribe(function(l){return n.getAllChacras()})},l}(),nl=function(){function l(l,n,u){this.navCtrl=l,this.navParams=n,this.ChacrasServiceProvider=u,this.chacra={nombre:"",renspa:""}}return l.prototype.addNewChacra=function(){this.ChacrasServiceProvider.addNewChacra(this.chacra).subscribe(function(l){return console.log(l)})},l.prototype.destroyView=function(){this.navCtrl.pop()},l}(),ul=function(){function l(l,n,u){this.navCtrl=l,this.navParams=n,this.CamionesServiceProvider=u,this.camion={patenteChasis:"",patenteAcoplado:"",nombreChofer:""}}return l.prototype.addNewCamion=function(){this.CamionesServiceProvider.addNewCamion(this.camion).subscribe(function(l){return console.log(l)})},l.prototype.destroyView=function(){this.navCtrl.pop()},l}(),el=function(){function l(l,n,u,e){var t=this;this.navCtrl=l,this.navParams=n,this.CamionesServiceProvider=u,this.EmpresasServiceProvider=e,this.empresa={nombre:"",direcccion:"",telefono:"",camiones_ids:[]},this.camiones=[],this.CamionesServiceProvider.getAllCamiones().subscribe(function(l){return t.camiones=l})}return l.prototype.addNewEmpresa=function(){this.EmpresasServiceProvider.addNewEmpresa(this.empresa).subscribe(function(l){return console.log(l)}),this.destroyView()},l.prototype.destroyView=function(){this.navCtrl.pop()},l}(),tl=function(){function l(l,n,u){this.navCtrl=l,this.navParams=n,this.InstitucionesServiceProvider=u,this.institucion={nombre:"",direccion:"",telefono:""}}return l.prototype.addNewInstitucion=function(){this.InstitucionesServiceProvider.addNewInstitucion(this.institucion).subscribe(function(l){return console.log(l)}),this.destroyView()},l.prototype.destroyView=function(){this.navCtrl.pop()},l}(),al=function(){function l(l,n,u,e,t){this.platform=l,this.statusBar=n,this.splashScreen=u,this.authService=e,this.menuCtrl=t,this.sideMenuSettings={accordionMode:!1,showSelectedOption:!1},this.initializeApp()}return l.prototype.initializeApp=function(){var l=this;this.platform.ready().then(function(){l.rootPage=l.authService.authenticated?G:f,l.statusBar.styleDefault(),l.splashScreen.hide(),l.options=l.getSideMenuOptions()})},l.prototype.openPage=function(l){this.nav.setRoot(l.component)},l.prototype.getCurrentUser=function(){this.currentUser=this.authService.getCurrentUser()},l.prototype.getSideMenuOptions=function(){var l=new Array;return l.push({displayName:"DashBoard",component:G}),l.push({displayName:"Ingresos",subItems:[{displayName:"Lista Ingresos",iconName:"crop",component:B},{displayName:"Nuevo Ingreso",iconName:"add",component:W}]}),l.push({displayName:"Productores",subItems:[{displayName:"Lista Productores",iconName:"contacts",component:j},{displayName:"Nuevo Productor",iconName:"add",component:K}]}),l.push({displayName:"Empresas",subItems:[{displayName:"Lista Empresas",iconName:"briefcase",component:x},{displayName:"Nueva Empresa",iconName:"add",component:el}]}),l.push({displayName:"Chacras",subItems:[{displayName:"Lista Chacras",iconName:"leaf",component:ll},{displayName:"Nueva Chacra",iconName:"add",component:nl}]}),l.push({displayName:"Camiones",subItems:[{displayName:"Lista Camiones",iconName:"bus",component:z},{displayName:"Nuevo Camion",iconName:"add",component:ul}]}),l.push({displayName:"Instituciones",subItems:[{displayName:"Lista Instituciones",iconName:"home",component:D},{displayName:"Nueva Institucion",iconName:"add",component:tl}]}),l},l.prototype.selectOption=function(l){var n=this;this.menuCtrl.close().then(function(){n.sideMenu.collapseAllOptions(),n.nav.push(l.component)})},l.prototype.collapseMenuOptions=function(){this.sideMenu.collapseAllOptions()},l}(),ol=u(124),il=function(){return function(){}}(),sl=u(81),cl=u(656),rl=u(657),dl=u(658),_l=u(659),ml=u(660),gl=u(661),pl=u(662),hl=u(663),bl=u(664),fl=u(21),Cl=u(14),Yl=u(3),vl=u(17),Zl=u(11),yl=u(4),jl=u(13),kl=t.X({encapsulation:2,styles:[],data:{}});function Il(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"div",[["class","select-searchable-label"]],null,null,null,null,null)),(l()(),t._19(1,null,["",""])),(l()(),t._19(-1,null,["\n"])),(l()(),t.Z(3,0,null,null,1,"div",[["class","select-searchable-value"]],null,null,null,null,null)),(l()(),t._19(4,null,["",""])),(l()(),t._19(-1,null,["\n"])),(l()(),t.Z(6,0,null,null,3,"div",[["class","select-searchable-icon"]],null,null,null,null,null)),(l()(),t._19(-1,null,["\n    "])),(l()(),t.Z(8,0,null,null,0,"div",[["class","select-searchable-icon-inner"]],null,null,null,null,null)),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n"])),(l()(),t.Z(11,0,null,null,1,"button",[["aria-haspopup","true"],["class","item-cover"],["ion-button","item-cover"]],null,null,null,fl.b,fl.a)),t.Y(12,1097728,null,0,Cl.a,[[8,"item-cover"],Yl.a,t.j,t.z],null,null)],null,function(l,n){var u=n.component;l(n,1,0,u.title),l(n,4,0,u.formatValue())})}var zl=t.V("select-searchable",d,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,2,"select-searchable",[["class","select-searchable"]],[[2,"select-searchable-ios",null],[2,"select-searchable-md",null],[2,"select-searchable-can-reset",null]],[[null,"click"]],function(l,n,u){var e=!0;return"click"===n&&(e=!1!==t._13(l,2)._click(u)&&e),e},Il,kl)),t._16(5120,null,c.h,function(l){return[l]},[d]),t.Y(2,770048,null,0,d,[vl.a,Zl.a,yl.a,[2,jl.a]],null,null)],function(l,n){l(n,2,0)},function(l,n){l(n,0,0,t._13(n,2).isIos,t._13(n,2).isMd,t._13(n,2).canReset)})},{items:"items",isSearching:"isSearching",itemValueField:"itemValueField",itemTextField:"itemTextField",canSearch:"canSearch",canReset:"canReset",hasInfiniteScroll:"hasInfiniteScroll",title:"title",searchPlaceholder:"searchPlaceholder",itemTemplate:"itemTemplate",multiple:"multiple"},{onChange:"onChange",onSearch:"onSearch",onInfiniteScroll:"onInfiniteScroll"},[]),Pl=u(351),wl=u(27),xl=u(665),Sl=u(118),Tl=u(189),Dl=u(77),El=u(36),Ml=u(28),Ol=u(30),Al=u(25),Vl=u(55),Ll=u(10),Fl=u(9),Nl=u(22),Bl=u(34),Ul=u(163),$l=u(6),Rl=u(35),Hl=u(32),ql=u(42),Xl=u(26),Wl=u(7),Gl=u(38),Kl=u(31),Jl=u(39),Ql=u(18),ln=u(23),nn=u(86),un=u(666),en=u(110),tn=u(12),an=t.X({encapsulation:2,styles:[],data:{}});function on(l){return t._21(0,[(l()(),t.Z(0,0,null,null,9,"ion-toolbar",[["class","toolbar"]],[[2,"statusbar-padding",null]],null,null,Pl.b,Pl.a)),t.Y(1,49152,null,0,wl.a,[Yl.a,t.j,t.z],null,null),(l()(),t._19(-1,3,["\n        "])),(l()(),t.Z(3,0,null,3,5,"ion-searchbar",[],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null],[2,"searchbar-animated",null],[2,"searchbar-has-value",null],[2,"searchbar-active",null],[2,"searchbar-show-cancel",null],[2,"searchbar-left-aligned",null],[2,"searchbar-has-focus",null]],[[null,"ngModelChange"],[null,"ionInput"]],function(l,n,u){var e=!0,t=l.component;"ngModelChange"===n&&(e=!1!==(t.selectComponent.filterText=u)&&e);"ionInput"===n&&(e=!1!==t.filterItems()&&e);return e},xl.b,xl.a)),t.Y(4,671744,null,0,c.m,[[8,null],[8,null],[8,null],[8,null]],{model:[0,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(6,16384,null,0,c.j,[c.i],null,null),t.Y(7,1294336,[[1,4],["searchbarComponent",4]],0,Sl.a,[Yl.a,yl.a,t.j,t.z,[2,c.i]],{placeholder:[0,"placeholder"]},{ionInput:"ionInput"}),(l()(),t._19(-1,null,["\n        "])),(l()(),t._19(-1,3,["\n    "]))],function(l,n){var u=n.component;l(n,4,0,u.selectComponent.filterText),l(n,7,0,u.selectComponent.searchPlaceholder||"Search")},function(l,n){l(n,0,0,t._13(n,1)._sbPadding),l(n,3,1,[t._13(n,6).ngClassUntouched,t._13(n,6).ngClassTouched,t._13(n,6).ngClassPristine,t._13(n,6).ngClassDirty,t._13(n,6).ngClassValid,t._13(n,6).ngClassInvalid,t._13(n,6).ngClassPending,t._13(n,7)._animated,t._13(n,7)._value,t._13(n,7)._isActive,t._13(n,7)._showCancelButton,t._13(n,7)._shouldAlignLeft,t._13(n,7)._isFocus])})}function sn(l){return t._21(0,[(l()(),t.Z(0,0,null,null,6,"div",[["class","select-searchable-spinner"]],null,null,null,null,null)),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(2,0,null,null,0,"div",[["class","select-searchable-spinner-background"]],null,null,null,null,null)),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(4,0,null,null,1,"ion-spinner",[],[[2,"spinner-paused",null]],null,null,Tl.b,Tl.a)),t.Y(5,114688,null,0,Dl.a,[Yl.a,t.j,t.z],null,null),(l()(),t._19(-1,null,["\n    "]))],function(l,n){l(n,5,0)},function(l,n){l(n,4,0,t._13(n,5)._paused)})}function cn(l){return t._21(0,[(l()(),t.Z(0,0,null,null,13,"button",[["class","item item-block"],["detail-none",""],["ion-item",""]],null,[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==l.component.select(l.context.$implicit)&&e);return e},El.b,El.a)),t.Y(1,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,2,{contentLabel:0}),t._17(603979776,3,{_buttons:1}),t._17(603979776,4,{_icons:1}),t.Y(5,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n            "])),(l()(),t.Z(7,0,null,0,2,"ion-icon",[["item-left",""],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(8,147456,[[4,4]],0,Al.a,[Yl.a,t.j,t.z],{color:[0,"color"],name:[1,"name"]},null),(l()(),t._19(-1,null,["\n            "])),(l()(),t._19(-1,2,["\n            "])),(l()(),t.Z(11,0,null,2,1,"h2",[],null,null,null,null,null)),(l()(),t._19(12,null,["",""])),(l()(),t._19(-1,2,["\n        "]))],function(l,n){var u=n.component;l(n,8,0,u.isItemSelected(n.context.$implicit)?"primary":"daek",u.isItemSelected(n.context.$implicit)?"checkmark-circle":"radio-button-off")},function(l,n){var u=n.component;l(n,7,0,t._13(n,8)._hidden),l(n,12,0,u.selectComponent.formatItem(n.context.$implicit))})}function rn(l){return t._21(0,[(l()(),t.Z(0,0,null,null,5,"ion-list",[["no-margin",""]],null,null,null,null,null)),t.Y(1,16384,null,0,Vl.a,[Yl.a,t.j,t.z,yl.a,Ll.l,Fl.a],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.U(16777216,null,null,1,null,cn)),t.Y(4,802816,null,0,Nl.i,[t.I,t.F,t.p],{ngForOf:[0,"ngForOf"]},null),(l()(),t._19(-1,null,["\n    "]))],function(l,n){l(n,4,0,n.component.filteredItems)},null)}function dn(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"div",[["margin",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["No items found."]))],null,null)}function _n(l){return t._21(0,[(l()(),t.Z(0,0,null,null,6,"ion-col",[["class","col"],["no-padding",""]],[[1,"col-6",0],[1,"col-12",0]],null,null,null,null)),t.Y(1,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                "])),(l()(),t.Z(3,0,null,null,2,"button",[["full",""],["ion-button",""],["no-margin",""]],[[8,"disabled",0]],[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==l.component.reset()&&e);return e},fl.b,fl.a)),t.Y(4,1097728,null,0,Cl.a,[[8,""],Yl.a,t.j,t.z],{full:[0,"full"]},null),(l()(),t._19(-1,0,["\n                    Clear\n                "])),(l()(),t._19(-1,null,["\n            "]))],function(l,n){l(n,4,0,"")},function(l,n){var u=n.component;l(n,0,0,u.selectComponent.canReset&&u.selectComponent.multiple?"":null,u.selectComponent.canReset&&!u.selectComponent.multiple?"":null),l(n,3,0,!u.selectedItems.length)})}function mn(l){return t._21(0,[(l()(),t.Z(0,0,null,null,6,"ion-col",[["class","col"],["no-padding",""]],[[1,"col-6",0],[1,"col-12",0]],null,null,null,null)),t.Y(1,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                "])),(l()(),t.Z(3,0,null,null,2,"button",[["full",""],["ion-button",""],["no-margin",""]],null,[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==l.component.ok()&&e);return e},fl.b,fl.a)),t.Y(4,1097728,null,0,Cl.a,[[8,""],Yl.a,t.j,t.z],{full:[0,"full"]},null),(l()(),t._19(-1,0,["\n                    OK\n                "])),(l()(),t._19(-1,null,["\n            "]))],function(l,n){l(n,4,0,"")},function(l,n){var u=n.component;l(n,0,0,u.selectComponent.canReset&&u.selectComponent.multiple?"":null,!u.selectComponent.canReset&&u.selectComponent.multiple?"":null)})}function gn(l){return t._21(0,[(l()(),t.Z(0,0,null,null,16,"ion-footer",[],null,null,null,null,null)),t.Y(1,16384,null,0,Ul.a,[Yl.a,t.j,t.z,[2,$l.a]],null,null),(l()(),t._19(-1,null,["\n    "])),(l()(),t.Z(3,0,null,null,12,"ion-toolbar",[["class","toolbar"],["padding",""]],[[2,"statusbar-padding",null]],null,null,Pl.b,Pl.a)),t.Y(4,49152,null,0,wl.a,[Yl.a,t.j,t.z],null,null),(l()(),t._19(-1,3,["\n        "])),(l()(),t.Z(6,0,null,3,8,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(7,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n            "])),(l()(),t.U(16777216,null,null,1,null,_n)),t.Y(10,16384,null,0,Nl.j,[t.I,t.F],{ngIf:[0,"ngIf"]},null),(l()(),t._19(-1,null,["\n            "])),(l()(),t.U(16777216,null,null,1,null,mn)),t.Y(13,16384,null,0,Nl.j,[t.I,t.F],{ngIf:[0,"ngIf"]},null),(l()(),t._19(-1,null,["\n        "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t._19(-1,null,["\n"]))],function(l,n){var u=n.component;l(n,10,0,u.selectComponent.canReset),l(n,13,0,u.selectComponent.multiple)},function(l,n){l(n,3,0,t._13(n,4)._sbPadding)})}function pn(l){return t._21(0,[t._17(671088640,1,{searchbarComponent:0}),(l()(),t.Z(1,0,null,null,13,"ion-header",[],null,null,null,null,null)),t.Y(2,16384,null,0,Hl.a,[Yl.a,t.j,t.z,[2,$l.a]],null,null),(l()(),t._19(-1,null,["\n    "])),(l()(),t.Z(4,0,null,null,6,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,ql.b,ql.a)),t.Y(5,49152,null,0,Xl.a,[Wl.a,[2,$l.a],[2,vl.a],Yl.a,t.j,t.z],null,null),(l()(),t._19(-1,3,["\n        "])),(l()(),t.Z(7,0,null,3,2,"ion-title",[],null,null,null,Gl.b,Gl.a)),t.Y(8,49152,null,0,Kl.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),(l()(),t._19(9,0,["",""])),(l()(),t._19(-1,3,["\n    "])),(l()(),t._19(-1,null,["\n    "])),(l()(),t.U(16777216,null,null,1,null,on)),t.Y(13,16384,null,0,Nl.j,[t.I,t.F],{ngIf:[0,"ngIf"]},null),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n"])),(l()(),t.Z(16,0,null,null,18,"ion-content",[],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Jl.b,Jl.a)),t.Y(17,4374528,null,0,Ql.a,[Yl.a,yl.a,Fl.a,t.j,t.z,Wl.a,ln.a,t.u,[2,$l.a],[2,vl.a]],null,null),(l()(),t._19(-1,1,["\n    "])),(l()(),t.U(16777216,null,1,1,null,sn)),t.Y(20,16384,null,0,Nl.j,[t.I,t.F],{ngIf:[0,"ngIf"]},null),(l()(),t._19(-1,1,["\n    "])),(l()(),t.U(16777216,null,1,1,null,rn)),t.Y(23,16384,null,0,Nl.j,[t.I,t.F],{ngIf:[0,"ngIf"]},null),(l()(),t._19(-1,1,["\n    "])),(l()(),t.Z(25,0,null,1,5,"ion-infinite-scroll",[],null,[[null,"ionInfinite"]],function(l,n,u){var e=!0;"ionInfinite"===n&&(e=!1!==l.component.getMoreItems(u)&&e);return e},null,null)),t.Y(26,1196032,null,0,nn.a,[Ql.a,t.u,t.j,Fl.a],{enabled:[0,"enabled"]},{ionInfinite:"ionInfinite"}),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(28,0,null,null,1,"ion-infinite-scroll-content",[],[[1,"state",0]],null,null,un.b,un.a)),t.Y(29,114688,null,0,en.a,[nn.a,Yl.a],null,null),(l()(),t._19(-1,null,["\n    "])),(l()(),t._19(-1,1,["\n    "])),(l()(),t.U(16777216,null,1,1,null,dn)),t.Y(33,16384,null,0,Nl.j,[t.I,t.F],{ngIf:[0,"ngIf"]},null),(l()(),t._19(-1,1,["\n"])),(l()(),t._19(-1,null,["\n"])),(l()(),t.U(16777216,null,null,1,null,gn)),t.Y(37,16384,null,0,Nl.j,[t.I,t.F],{ngIf:[0,"ngIf"]},null),(l()(),t._19(-1,null,["\n"]))],function(l,n){var u=n.component;l(n,13,0,u.selectComponent.canSearch),l(n,20,0,u.selectComponent.isSearching),l(n,23,0,u.filteredItems.length),l(n,26,0,u.selectComponent.hasInfiniteScroll),l(n,29,0),l(n,33,0,!u.filteredItems.length),l(n,37,0,u.selectComponent.canReset||u.selectComponent.multiple)},function(l,n){var u=n.component;l(n,4,0,t._13(n,5)._hidden,t._13(n,5)._sbPadding),l(n,9,0,u.selectComponent.title),l(n,16,0,t._13(n,17).statusbarPadding,t._13(n,17)._hasRefresher),l(n,28,0,t._13(n,29).inf.state)})}var hn=t.V("select-searchable-page",r,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"select-searchable-page",[["class","select-searchable-page"]],[[2,"select-searchable-page-can-reset",null],[2,"select-searchable-page-multiple",null]],null,null,pn,an)),t.Y(1,4243456,null,0,r,[tn.a],null,null)],null,function(l,n){l(n,0,0,t._13(n,1).selectComponent.canReset,t._13(n,1).selectComponent.multiple)})},{},{},[]),bn=u(667),fn=u(70),Cn=u(114),Yn=u(24),vn=u(142),Zn=u(91),yn=t.X({encapsulation:2,styles:[],data:{}});function jn(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"ion-icon",[["item-left",""],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(1,147456,[[3,4]],0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null)],function(l,n){l(n,1,0,n.parent.parent.context.$implicit.iconName)},function(l,n){l(n,0,0,t._13(n,1)._hidden)})}function kn(l){return t._21(0,[(l()(),t.Z(0,0,null,null,2,"ion-badge",[["item-right",""]],null,null,null,null,null)),t.Y(1,16384,null,0,vn.a,[Yl.a,t.j,t.z],null,null),(l()(),t._19(2,null,["",""]))],null,function(l,n){l(n,2,0,n.context.ngIf)})}function In(l){return t._21(0,[(l()(),t._19(-1,null,["\n            "])),(l()(),t.Z(1,0,null,null,14,"ion-item",[["class","option item item-block"],["tappable",""]],null,[[null,"tap"]],function(l,n,u){var e=!0;"tap"===n&&(e=!1!==l.component.select(l.parent.context.$implicit)&&e);return e},El.b,El.a)),t.Y(2,278528,null,0,Nl.h,[t.p,t.q,t.j,t.A],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),t.Y(3,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,1,{contentLabel:0}),t._17(603979776,2,{_buttons:1}),t._17(603979776,3,{_icons:1}),t.Y(7,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                "])),(l()(),t.U(16777216,null,0,1,null,jn)),t.Y(10,16384,null,0,Nl.j,[t.I,t.F],{ngIf:[0,"ngIf"]},null),(l()(),t._19(11,2,["\n                "," "])),(l()(),t.U(16777216,null,4,2,null,kn)),t.Y(13,16384,null,0,Nl.j,[t.I,t.F],{ngIf:[0,"ngIf"]},null),t._14(131072,Nl.b,[t.g]),(l()(),t._19(-1,2,["\n            "])),(l()(),t._19(-1,null,["\n        "]))],function(l,n){var u=n.component;l(n,2,0,"option",null!=u.menuSettings&&u.menuSettings.showSelectedOption&&n.parent.context.$implicit.selected?u.menuSettings.selectedOptionClass:null),l(n,10,0,n.parent.context.$implicit.iconName),l(n,13,0,t._20(n,13,0,t._13(n,14).transform(n.parent.context.$implicit.badge)))},function(l,n){l(n,11,0,n.parent.context.$implicit.displayName)})}function zn(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"ion-icon",[["item-left",""],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(1,147456,[[9,4]],0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null)],function(l,n){l(n,1,0,n.parent.context.$implicit.iconName)},function(l,n){l(n,0,0,t._13(n,1)._hidden)})}function Pn(l){return t._21(0,[(l()(),t.Z(0,0,null,null,2,"ion-badge",[["item-right",""]],null,null,null,null,null)),t.Y(1,16384,null,0,vn.a,[Yl.a,t.j,t.z],null,null),(l()(),t._19(2,null,["",""]))],null,function(l,n){l(n,2,0,n.context.ngIf)})}function wn(l){return t._21(0,[(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(1,0,null,null,14,"ion-item",[["class","sub-option item item-block"],["tappable",""]],[[4,"padding-left",null],[2,"no-icon",null]],[[null,"tap"]],function(l,n,u){var e=!0;"tap"===n&&(e=!1!==l.component.select(l.context.$implicit)&&e);return e},El.b,El.a)),t.Y(2,278528,null,0,Nl.h,[t.p,t.q,t.j,t.A],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),t.Y(3,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,7,{contentLabel:0}),t._17(603979776,8,{_buttons:1}),t._17(603979776,9,{_icons:1}),t.Y(7,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                            "])),(l()(),t.U(16777216,null,0,1,null,zn)),t.Y(10,16384,null,0,Nl.j,[t.I,t.F],{ngIf:[0,"ngIf"]},null),(l()(),t._19(11,2,["\n                            ","  "])),(l()(),t.U(16777216,null,4,2,null,Pn)),t.Y(13,16384,null,0,Nl.j,[t.I,t.F],{ngIf:[0,"ngIf"]},null),t._14(131072,Nl.b,[t.g]),(l()(),t._19(-1,2,["\n                        "])),(l()(),t._19(-1,null,["\n                    "]))],function(l,n){var u=n.component;l(n,2,0,"sub-option",null!=u.menuSettings&&u.menuSettings.showSelectedOption&&n.context.$implicit.selected?u.menuSettings.selectedOptionClass:null),l(n,10,0,n.context.$implicit.iconName),l(n,13,0,t._20(n,13,0,t._13(n,14).transform(n.context.$implicit.badge)))},function(l,n){var u=n.component;l(n,1,0,u.subOptionIndentation,(null==u.menuSettings?null:u.menuSettings.indentSubOptionsWithoutIcons)&&!n.context.$implicit.iconName),l(n,11,0,n.context.$implicit.displayName)})}function xn(l){return t._21(0,[(l()(),t._19(-1,null,["\n\n            "])),(l()(),t.Z(1,0,null,null,22,"ion-list",[["class","accordion-menu"],["no-margin",""]],null,null,null,null,null)),t.Y(2,16384,null,0,Vl.a,[Yl.a,t.j,t.z,yl.a,Ll.l,Fl.a],null,null),(l()(),t._19(-1,null,["\n\n                "])),(l()(),t._19(-1,null,["\n                "])),(l()(),t.Z(5,0,null,null,10,"ion-item",[["class","header item item-block"],["tappable",""]],null,[[null,"tap"]],function(l,n,u){var e=!0;"tap"===n&&(e=!1!==l.component.toggleItemOptions(l.parent.context.$implicit)&&e);return e},El.b,El.a)),t.Y(6,278528,null,0,Nl.h,[t.p,t.q,t.j,t.A],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),t.Y(7,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,4,{contentLabel:0}),t._17(603979776,5,{_buttons:1}),t._17(603979776,6,{_icons:1}),t.Y(11,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(13,0,null,0,1,"ion-icon",[["class","header-icon"],["item-left",""],["role","img"]],[[2,"rotate",null],[2,"hide",null]],null,null,null,null)),t.Y(14,147456,[[6,4]],0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(15,2,["\n                    ","\n                "])),(l()(),t._19(-1,null,["\n\n                "])),(l()(),t._19(-1,null,["\n                "])),(l()(),t.Z(18,0,null,null,4,"div",[["class","options"]],[[4,"height",null]],null,null,null,null)),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.U(16777216,null,null,1,null,wn)),t.Y(21,802816,null,0,Nl.i,[t.I,t.F,t.p],{ngForOf:[0,"ngForOf"]},null),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,null,["\n            "])),(l()(),t._19(-1,null,["\n\n        "]))],function(l,n){var u=n.component;l(n,6,0,"header",null!=u.menuSettings&&u.menuSettings.showSelectedOption&&n.parent.context.$implicit.selected?u.menuSettings.selectedOptionClass:null),l(n,14,0,n.parent.context.$implicit.iconName||u.menuSettings.arrowIcon),l(n,21,0,n.parent.context.$implicit.subOptions)},function(l,n){var u=n.component;l(n,13,0,n.parent.context.$implicit.expanded,t._13(n,14)._hidden),l(n,15,0,n.parent.context.$implicit.displayName),l(n,18,0,n.parent.context.$implicit.expanded?(u.itemHeight+1)*n.parent.context.$implicit.subItemsCount+"px":"0px")})}function Sn(l){return t._21(0,[(l()(),t._19(-1,null,["\n\n        "])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.U(16777216,null,null,1,null,In)),t.Y(3,16384,null,0,Nl.j,[t.I,t.F],{ngIf:[0,"ngIf"]},null),(l()(),t._19(-1,null,["\n\n        "])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.U(16777216,null,null,1,null,xn)),t.Y(7,16384,null,0,Nl.j,[t.I,t.F],{ngIf:[0,"ngIf"]},null),(l()(),t._19(-1,null,["\n\n    "]))],function(l,n){l(n,3,0,!n.context.$implicit.subItemsCount),l(n,7,0,n.context.$implicit.subItemsCount)},null)}function Tn(l){return t._21(2,[(l()(),t.Z(0,0,null,null,5,"ion-list",[["no-lines",""],["no-margin",""]],null,null,null,null,null)),t.Y(1,16384,null,0,Vl.a,[Yl.a,t.j,t.z,yl.a,Ll.l,Fl.a],null,null),(l()(),t._19(-1,null,["\n    "])),(l()(),t.U(16777216,null,null,1,null,Sn)),t.Y(4,802816,null,0,Nl.i,[t.I,t.F,t.p],{ngForOf:[0,"ngForOf"]},null),(l()(),t._19(-1,null,["\n"]))],function(l,n){l(n,4,0,n.component.collapsableItems)},null)}var Dn=u(668),En=u(87),Mn=u(67),On=u(46),An=t.X({encapsulation:2,styles:[],data:{}});function Vn(l){return t._21(0,[t._17(402653184,1,{nav:0}),t._17(402653184,2,{sideMenu:0}),(l()(),t.Z(2,0,null,null,24,"ion-menu",[["persistent","true"],["role","navigation"]],null,[[null,"ionClose"]],function(l,n,u){var e=!0;"ionClose"===n&&(e=!1!==l.component.collapseMenuOptions()&&e);return e},bn.b,bn.a)),t._16(6144,null,fn.a,null,[Cn.a]),t.Y(4,245760,null,2,Cn.a,[Yn.a,t.j,Yl.a,yl.a,t.z,ln.a,Ll.l,Fl.a,Wl.a],{content:[0,"content"],persistent:[1,"persistent"]},{ionClose:"ionClose"}),t._17(335544320,3,{menuContent:0}),t._17(335544320,4,{menuNav:0}),(l()(),t._19(-1,0,["\n  "])),(l()(),t.Z(8,0,null,0,10,"ion-header",[],null,null,null,null,null)),t.Y(9,16384,null,0,Hl.a,[Yl.a,t.j,t.z,[2,$l.a]],null,null),(l()(),t._19(-1,null,["\n    "])),(l()(),t.Z(11,0,null,null,6,"ion-toolbar",[["class","toolbar"],["color","cultivos"]],[[2,"statusbar-padding",null]],null,null,Pl.b,Pl.a)),t.Y(12,49152,null,0,wl.a,[Yl.a,t.j,t.z],{color:[0,"color"]},null),(l()(),t._19(-1,3,["\n      "])),(l()(),t.Z(14,0,null,3,2,"ion-title",[],null,null,null,Gl.b,Gl.a)),t.Y(15,49152,null,0,Kl.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),(l()(),t._19(-1,0,["Menu"])),(l()(),t._19(-1,3,["\n    "])),(l()(),t._19(-1,null,["\n  "])),(l()(),t._19(-1,0,["\n\n  "])),(l()(),t.Z(20,0,null,0,5,"ion-content",[],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Jl.b,Jl.a)),t.Y(21,4374528,[[3,4]],0,Ql.a,[Yl.a,yl.a,Fl.a,t.j,t.z,Wl.a,ln.a,t.u,[2,$l.a],[2,vl.a]],null,null),(l()(),t._19(-1,1,["\n    "])),(l()(),t.Z(23,0,null,1,1,"side-menu-content",[["style","padding: 0"]],null,[[null,"selectOption"]],function(l,n,u){var e=!0;"selectOption"===n&&(e=!1!==l.component.selectOption(u)&&e);return e},Tn,yn)),t.Y(24,180224,[[2,4]],0,s,[yl.a,Zn.a,t.g],{options:[0,"options"],settings:[1,"settings"]},{selectOption:"selectOption"}),(l()(),t._19(-1,1,["\n  "])),(l()(),t._19(-1,0,["\n"])),(l()(),t._19(-1,null,["\n\n"])),(l()(),t._19(-1,null,["\n"])),(l()(),t.Z(29,0,null,null,2,"ion-nav",[["swipeBackEnabled","false"]],null,null,null,Dn.b,Dn.a)),t._16(6144,null,fn.a,null,[En.a]),t.Y(31,4374528,[[1,4],["content",4]],0,En.a,[[2,$l.a],[2,vl.a],Wl.a,Yl.a,yl.a,t.j,t.u,t.z,t.i,Ll.l,Mn.a,[2,On.a],Fl.a,t.k],{swipeBackEnabled:[0,"swipeBackEnabled"],root:[1,"root"]},null)],function(l,n){var u=n.component;l(n,4,0,t._13(n,31),"true");l(n,12,0,"cultivos"),l(n,24,0,u.options,u.sideMenuSettings);l(n,31,0,"false",u.rootPage)},function(l,n){l(n,11,0,t._13(n,12)._sbPadding),l(n,20,0,t._13(n,21).statusbarPadding,t._13(n,21)._hasRefresher)})}var Ln=t.V("ng-component",al,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"ng-component",[],null,null,null,Vn,An)),t.Y(1,49152,null,0,al,[yl.a,m.a,g.a,h,Yn.a],null,null)],null,null)},{},{},[]),Fn=u(37),Nn=u(44),Bn=u(53),Un=u(48),$n=u(113),Rn=u(57),Hn=t.X({encapsulation:2,styles:[],data:{}});function qn(l){return t._21(0,[(l()(),t.Z(0,0,null,null,10,"ion-header",[],null,null,null,null,null)),t.Y(1,16384,null,0,Hl.a,[Yl.a,t.j,t.z,[2,$l.a]],null,null),(l()(),t._19(-1,null,["\n    "])),(l()(),t.Z(3,0,null,null,6,"ion-navbar",[["class","toolbar"],["color","cultivos"],["hideBackButton","true"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,ql.b,ql.a)),t.Y(4,49152,null,0,Xl.a,[Wl.a,[2,$l.a],[2,vl.a],Yl.a,t.j,t.z],{color:[0,"color"],hideBackButton:[1,"hideBackButton"]},null),(l()(),t._19(-1,3,["\n        "])),(l()(),t.Z(6,0,null,3,2,"ion-title",[],null,null,null,Gl.b,Gl.a)),t.Y(7,49152,null,0,Kl.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),(l()(),t._19(-1,0,["Iniciar Sesión"])),(l()(),t._19(-1,3,["\n    "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n\n"])),(l()(),t.Z(12,0,null,null,96,"ion-content",[["class","back-color"],["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Jl.b,Jl.a)),t.Y(13,4374528,null,0,Ql.a,[Yl.a,yl.a,Fl.a,t.j,t.z,Wl.a,ln.a,t.u,[2,$l.a],[2,vl.a]],null,null),(l()(),t._19(-1,1,["\n    "])),(l()(),t.Z(15,0,null,1,92,"form",[["novalidate",""]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"submit"],[null,"reset"]],function(l,n,u){var e=!0,a=l.component;"submit"===n&&(e=!1!==t._13(l,17).onSubmit(u)&&e);"reset"===n&&(e=!1!==t._13(l,17).onReset()&&e);"submit"===n&&(e=!1!==a.signIn()&&e);return e},null,null)),t.Y(16,16384,null,0,c.r,[],null,null),t.Y(17,4210688,[["signInForm",4]],0,c.l,[[8,null],[8,null]],null,null),t._16(2048,null,c.b,null,[c.l]),t.Y(19,16384,null,0,c.k,[c.b],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(21,0,null,null,85,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(22,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n            "])),(l()(),t.Z(24,0,null,null,81,"ion-row",[["class","back-black-color row"],["col-4",""],["offset-4",""],["padding",""],["padding-top",""]],null,null,null,null,null)),t.Y(25,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                "])),(l()(),t.Z(27,0,null,null,4,"ion-col",[["class","col"],["col-8",""],["offset-2",""]],null,null,null,null,null)),t.Y(28,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(30,0,null,null,0,"img",[["src","assets/imgs/cultivosTexto.png"]],null,null,null,null,null)),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,null,["\n                "])),(l()(),t.Z(33,0,null,null,63,"ion-col",[["class","col"],["col-12",""]],null,null,null,null,null)),t.Y(34,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(36,0,null,null,59,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(37,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(39,0,null,null,5,"ion-col",[["class","col"],["col-12",""],["padding",""]],null,null,null,null,null)),t.Y(40,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                            "])),(l()(),t.Z(42,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Inicia sesion en Cultivos Patagonicos con tu cuenta de Google"])),(l()(),t._19(-1,null,["\n                        "])),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(46,0,null,null,23,"ion-col",[["class","col"],["col-10",""],["offset-1",""]],null,null,null,null,null)),t.Y(47,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                            "])),(l()(),t.Z(49,0,null,null,19,"ion-item",[["class","no-border item item-block"]],null,null,null,El.b,El.a)),t.Y(50,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,1,{contentLabel:0}),t._17(603979776,2,{_buttons:1}),t._17(603979776,3,{_icons:1}),t.Y(54,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                                "])),(l()(),t.Z(56,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(57,16384,[[1,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Correo electrónico"])),(l()(),t._19(-1,2,["\n                                "])),(l()(),t.Z(60,0,null,3,7,"ion-input",[["autocapitalize","none"],["autocorrect","off"],["name","email"],["pattern","[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$"],["required",""],["type","email"]],[[1,"required",0],[1,"pattern",0],[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.userModel.email=u)&&e);return e},Bn.b,Bn.a)),t.Y(61,16384,null,0,c.p,[],{required:[0,"required"]},null),t.Y(62,540672,null,0,c.n,[],{pattern:[0,"pattern"]},null),t._16(1024,null,c.g,function(l,n){return[l,n]},[c.p,c.n]),t.Y(64,671744,null,0,c.m,[[2,c.b],[2,c.g],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(66,16384,null,0,c.j,[c.i],null,null),t.Y(67,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"],autocorrect:[1,"autocorrect"]},null),(l()(),t._19(-1,2,["\n                            "])),(l()(),t._19(-1,null,["\n                        "])),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(71,0,null,null,23,"ion-col",[["class","col"],["col-10",""],["offset-1",""]],null,null,null,null,null)),t.Y(72,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,[" \n                            "])),(l()(),t.Z(74,0,null,null,19,"ion-item",[["class","no-border item item-block"]],null,null,null,El.b,El.a)),t.Y(75,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,4,{contentLabel:0}),t._17(603979776,5,{_buttons:1}),t._17(603979776,6,{_icons:1}),t.Y(79,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                                "])),(l()(),t.Z(81,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(82,16384,[[4,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Contraseña"])),(l()(),t._19(-1,2,["\n                                "])),(l()(),t.Z(85,0,null,3,7,"ion-input",[["minlength","6"],["name","password"],["required",""],["type","password"]],[[1,"required",0],[1,"minlength",0],[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.userModel.password=u)&&e);return e},Bn.b,Bn.a)),t.Y(86,16384,null,0,c.p,[],{required:[0,"required"]},null),t.Y(87,540672,null,0,c.f,[],{minlength:[0,"minlength"]},null),t._16(1024,null,c.g,function(l,n){return[l,n]},[c.p,c.f]),t.Y(89,671744,null,0,c.m,[[2,c.b],[2,c.g],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(91,16384,null,0,c.j,[c.i],null,null),t.Y(92,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                            "])),(l()(),t._19(-1,null,["\n                        "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,null,["\n                "])),(l()(),t.Z(98,0,null,null,6,"ion-col",[["class","col"],["col-8",""],["offset-2",""]],null,null,null,null,null)),t.Y(99,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(101,0,null,null,2,"button",[["block",""],["color","semiDark"],["ion-button",""],["type","submit"]],[[8,"disabled",0]],null,null,fl.b,fl.a)),t.Y(102,1097728,null,0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"],block:[1,"block"]},null),(l()(),t._19(-1,0,["Ingresar"])),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,null,["\n            "])),(l()(),t._19(-1,null,["\n        "])),(l()(),t._19(-1,null,["\n    "])),(l()(),t._19(-1,1,["\n"])),(l()(),t._19(-1,null,["\n\n"]))],function(l,n){var u=n.component;l(n,4,0,"cultivos","true");l(n,61,0,"");l(n,62,0,"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$");l(n,64,0,"email",u.userModel.email);l(n,67,0,"email","off");l(n,86,0,"");l(n,87,0,"6");l(n,89,0,"password",u.userModel.password);l(n,92,0,"password");l(n,102,0,"semiDark","")},function(l,n){l(n,3,0,t._13(n,4)._hidden,t._13(n,4)._sbPadding),l(n,12,0,t._13(n,13).statusbarPadding,t._13(n,13)._hasRefresher),l(n,15,0,t._13(n,19).ngClassUntouched,t._13(n,19).ngClassTouched,t._13(n,19).ngClassPristine,t._13(n,19).ngClassDirty,t._13(n,19).ngClassValid,t._13(n,19).ngClassInvalid,t._13(n,19).ngClassPending),l(n,60,0,t._13(n,61).required?"":null,t._13(n,62).pattern?t._13(n,62).pattern:null,t._13(n,66).ngClassUntouched,t._13(n,66).ngClassTouched,t._13(n,66).ngClassPristine,t._13(n,66).ngClassDirty,t._13(n,66).ngClassValid,t._13(n,66).ngClassInvalid,t._13(n,66).ngClassPending),l(n,85,0,t._13(n,86).required?"":null,t._13(n,87).minlength?t._13(n,87).minlength:null,t._13(n,91).ngClassUntouched,t._13(n,91).ngClassTouched,t._13(n,91).ngClassPristine,t._13(n,91).ngClassDirty,t._13(n,91).ngClassValid,t._13(n,91).ngClassInvalid,t._13(n,91).ngClassPending),l(n,101,0,!t._13(n,17).form.valid)})}var Xn=t.V("page-login",f,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-login",[],null,null,null,qn,Hn)),t.Y(1,49152,null,0,f,[vl.a,$n.a,Rn.a,h],null,null)],null,null)},{},{},[]),Wn=u(40),Gn=u(41),Kn=t.X({encapsulation:2,styles:[],data:{}});function Jn(l){return t._21(0,[(l()(),t.Z(0,0,null,null,13,"ion-col",[["class","col"],["col-3",""],["margin",""],["padding",""]],null,null,null,null,null)),t.Y(1,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,[" \n            "])),(l()(),t.Z(3,0,null,null,9,"button",[["class","no-border-cards item item-block"],["color","semiDark"],["detail-none",""],["ion-item",""]],null,[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==l.component.goToPage(l.context.$implicit)&&e);return e},El.b,El.a)),t.Y(4,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],{color:[0,"color"]},null),t._17(335544320,3,{contentLabel:0}),t._17(603979776,4,{_buttons:1}),t._17(603979776,5,{_icons:1}),t.Y(8,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n              "])),(l()(),t.Z(10,0,null,0,1,"ion-icon",[["item-left",""],["role","img"],["style","zoom:1.35;"]],[[2,"hide",null]],null,null,null,null)),t.Y(11,147456,[[5,4]],0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(12,2,["\n              ","\n            "])),(l()(),t._19(-1,null,["\n          "]))],function(l,n){l(n,4,0,"semiDark"),l(n,11,0,t._2(1,"",n.context.$implicit.icon,""))},function(l,n){l(n,10,0,t._13(n,11)._hidden),l(n,12,0,n.context.$implicit.title)})}function Qn(l){return t._21(0,[(l()(),t.Z(0,0,null,null,29,"ion-header",[],null,null,null,null,null)),t.Y(1,16384,null,0,Hl.a,[Yl.a,t.j,t.z,[2,$l.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,25,"ion-navbar",[["class","toolbar"],["color","cultivos"],["hideBackButton","true"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,ql.b,ql.a)),t.Y(4,49152,null,0,Xl.a,[Wl.a,[2,$l.a],[2,vl.a],Yl.a,t.j,t.z],{color:[0,"color"],hideBackButton:[1,"hideBackButton"]},null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==t._13(l,8).toggle()&&e);return e},fl.b,fl.a)),t.Y(7,1097728,[[1,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,Wn.a,[Yn.a,[2,$l.a],[2,Cl.a],[2,Xl.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,Gl.b,Gl.a)),t.Y(17,49152,null,0,Kl.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),(l()(),t._19(-1,0,["Inicio"])),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(20,0,null,2,7,"ion-buttons",[["end",""]],null,null,null,null,null)),t.Y(21,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,2,{_buttons:1}),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(24,0,null,null,2,"button",[["icon-only",""],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==l.component.signOut()&&e);return e},fl.b,fl.a)),t.Y(25,1097728,[[2,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],null,null),(l()(),t._19(-1,0,["\n        Cerrar Sesion\n      "])),(l()(),t._19(-1,null,["\n    "])),(l()(),t._19(-1,3,["\n  "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n\n"])),(l()(),t.Z(31,0,null,null,21,"ion-content",[["class","backImg"],["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Jl.b,Jl.a)),t.Y(32,4374528,null,0,Ql.a,[Yl.a,yl.a,Fl.a,t.j,t.z,Wl.a,ln.a,t.u,[2,$l.a],[2,vl.a]],null,null),(l()(),t._19(-1,1,["\n  "])),(l()(),t.Z(34,0,null,1,17,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(35,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n    "])),(l()(),t.Z(37,0,null,null,13,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(38,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(40,0,null,null,9,"ion-col",[["class","col"],["col-10",""],["offset-2",""]],null,null,null,null,null)),t.Y(41,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(43,0,null,null,5,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(44,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n          "])),(l()(),t.U(16777216,null,null,1,null,Jn)),t.Y(47,802816,null,0,Nl.i,[t.I,t.F,t.p],{ngForOf:[0,"ngForOf"]},null),(l()(),t._19(-1,null,["\n        "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n    "])),(l()(),t._19(-1,null,["\n  "])),(l()(),t._19(-1,1,["\n"])),(l()(),t._19(-1,null,["\n"]))],function(l,n){var u=n.component;l(n,4,0,"cultivos","true");l(n,8,0,"");l(n,13,0,"menu"),l(n,47,0,u.pages)},function(l,n){l(n,3,0,t._13(n,4)._hidden,t._13(n,4)._sbPadding),l(n,6,0,t._13(n,8).isHidden),l(n,12,0,t._13(n,13)._hidden),l(n,31,0,t._13(n,32).statusbarPadding,t._13(n,32)._hasRefresher)})}var lu=t.V("page-home",G,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-home",[],null,null,null,Qn,Kn)),t.Y(1,49152,null,0,G,[vl.a,h],null,null)],null,null)},{},{},[]),nu=u(73),uu=t.X({encapsulation:2,styles:[],data:{}});function eu(l){return t._21(0,[(l()(),t.Z(0,0,null,null,112,"ion-item",[["class","no-border item item-block"],["ion-item",""]],null,null,null,El.b,El.a)),t.Y(1,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,2,{contentLabel:0}),t._17(603979776,3,{_buttons:1}),t._17(603979776,4,{_icons:1}),t.Y(5,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                "])),(l()(),t.Z(7,0,null,0,4,"ion-avatar",[["item-left",""]],null,null,null,null,null)),t.Y(8,16384,null,0,nu.a,[],null,null),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(10,0,null,null,0,"img",[["src","assets/imgs/user.png"]],null,null,null,null,null)),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,2,["\n                "])),(l()(),t.Z(13,0,null,2,98,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(14,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(16,0,null,null,20,"ion-col",[["class","col"],["col-md-3",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(17,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(19,0,null,null,16,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(20,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(22,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(23,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(25,0,null,null,1,"h2",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Productor"])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(29,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(30,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(32,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(33,null,["",""])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(38,0,null,null,20,"ion-col",[["class","col"],["col-md-3",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(39,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(41,0,null,null,16,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(42,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(44,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(45,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(47,0,null,null,1,"h2",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Dni"])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(51,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(52,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(54,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(55,null,["",""])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(60,0,null,null,20,"ion-col",[["class","col"],["col-md-3",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(61,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,[" \n                    "])),(l()(),t.Z(63,0,null,null,16,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(64,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(66,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(67,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(69,0,null,null,1,"h2",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Telefono"])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(73,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(74,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(76,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(77,null,["",""])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(82,0,null,null,28,"ion-col",[["class","col"],["col-md-3",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(83,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,[" \n                    "])),(l()(),t.Z(85,0,null,null,24,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(86,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(88,0,null,null,9,"ion-col",[["class","col"],["col-md-6",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(89,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(91,0,null,null,5,"button",[["color","semiDark"],["icon-only",""],["ion-button",""],["round",""],["small",""]],null,[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==l.component.goToEdit(l.context.$implicit)&&e);return e},fl.b,fl.a)),t.Y(92,1097728,null,0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"],small:[1,"small"],round:[2,"round"]},null),(l()(),t._19(-1,0,["\n                          "])),(l()(),t.Z(94,0,null,0,1,"ion-icon",[["name","create"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(95,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n                        "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(99,0,null,null,9,"ion-col",[["class","col"],["col-md-6",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(100,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(102,0,null,null,5,"button",[["color","semiDark"],["icon-only",""],["ion-button",""],["round",""],["small",""]],null,[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==l.component.alertDeleteProductor(l.context.$implicit.id)&&e);return e},fl.b,fl.a)),t.Y(103,1097728,null,0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"],small:[1,"small"],round:[2,"round"]},null),(l()(),t._19(-1,0,["\n                          "])),(l()(),t.Z(105,0,null,0,1,"ion-icon",[["name","trash"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(106,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n                        "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,2,["\n              "]))],function(l,n){l(n,92,0,"semiDark","","");l(n,95,0,"create");l(n,103,0,"semiDark","","");l(n,106,0,"trash")},function(l,n){l(n,33,0,n.context.$implicit.nombre),l(n,55,0,n.context.$implicit.dni),l(n,77,0,n.context.$implicit.telefono),l(n,94,0,t._13(n,95)._hidden),l(n,105,0,t._13(n,106)._hidden)})}function tu(l){return t._21(0,[(l()(),t.Z(0,0,null,null,20,"ion-header",[],null,null,null,null,null)),t.Y(1,16384,null,0,Hl.a,[Yl.a,t.j,t.z,[2,$l.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,16,"ion-navbar",[["class","toolbar"],["color","cultivos"],["hideBackButton","true"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,ql.b,ql.a)),t.Y(4,49152,null,0,Xl.a,[Wl.a,[2,$l.a],[2,vl.a],Yl.a,t.j,t.z],{color:[0,"color"],hideBackButton:[1,"hideBackButton"]},null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==t._13(l,8).toggle()&&e);return e},fl.b,fl.a)),t.Y(7,1097728,[[1,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,Wn.a,[Yn.a,[2,$l.a],[2,Cl.a],[2,Xl.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,Gl.b,Gl.a)),t.Y(17,49152,null,0,Kl.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),(l()(),t._19(-1,0,["Productores"])),(l()(),t._19(-1,3,["\n  "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n\n"])),(l()(),t.Z(22,0,null,null,42,"ion-content",[["class","back-color"],["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Jl.b,Jl.a)),t.Y(23,4374528,null,0,Ql.a,[Yl.a,yl.a,Fl.a,t.j,t.z,Wl.a,ln.a,t.u,[2,$l.a],[2,vl.a]],null,null),(l()(),t._19(-1,1,["\n  "])),(l()(),t.Z(25,0,null,1,38,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(26,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n    "])),(l()(),t.Z(28,0,null,null,34,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(29,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(31,0,null,null,8,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(32,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(34,0,null,null,1,"h1",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Listado de Productores"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(37,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Presentacion en forma de lista de los productores con los que se trabaja"])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(41,0,null,null,20,"ion-col",[["class","back-black-color col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(42,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(44,0,null,null,1,"h4",[["no-margin",""],["padding-top",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Datos generales de los productores"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(47,0,null,null,13,"ion-row",[["class","row"],["padding",""]],null,null,null,null,null)),t.Y(48,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n          "])),(l()(),t.Z(50,0,null,null,9,"ion-col",[["class","col"],["col-md-8",""],["col-sm-12",""],["offset-md-2",""]],null,null,null,null,null)),t.Y(51,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n            "])),(l()(),t.Z(53,0,null,null,5,"ion-list",[],null,null,null,null,null)),t.Y(54,16384,null,0,Vl.a,[Yl.a,t.j,t.z,yl.a,Ll.l,Fl.a],null,null),(l()(),t._19(-1,null,["\n              "])),(l()(),t.U(16777216,null,null,1,null,eu)),t.Y(57,802816,null,0,Nl.i,[t.I,t.F,t.p],{ngForOf:[0,"ngForOf"]},null),(l()(),t._19(-1,null,["\n            "])),(l()(),t._19(-1,null,["\n          "])),(l()(),t._19(-1,null,["\n        "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n    "])),(l()(),t._19(-1,null,["\n  "])),(l()(),t._19(-1,1,["\n"])),(l()(),t._19(-1,null,["\n"]))],function(l,n){var u=n.component;l(n,4,0,"cultivos","true");l(n,8,0,"");l(n,13,0,"menu"),l(n,57,0,u.productoresList)},function(l,n){l(n,3,0,t._13(n,4)._hidden,t._13(n,4)._sbPadding),l(n,6,0,t._13(n,8).isHidden),l(n,12,0,t._13(n,13)._hidden),l(n,22,0,t._13(n,23).statusbarPadding,t._13(n,23)._hasRefresher)})}var au=t.V("page-list",j,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-list",[],null,null,null,tu,uu)),t.Y(1,49152,null,0,j,[vl.a,tn.a,Z,Rn.a],null,null)],null,null)},{},{},[]),ou=u(88),iu=u(352),su=u(90),cu=t.X({encapsulation:2,styles:[],data:{}});function ru(l){return t._21(0,[(l()(),t.Z(0,0,null,null,2,"ion-option",[],null,null,null,null,null)),t.Y(1,16384,[[14,4]],0,ou.a,[t.j],{value:[0,"value"]},null),(l()(),t._19(2,null,["",""]))],function(l,n){l(n,1,0,n.context.$implicit.id)},function(l,n){l(n,2,0,n.context.$implicit.nombre)})}function du(l){return t._21(0,[(l()(),t.Z(0,0,null,null,20,"ion-header",[],null,null,null,null,null)),t.Y(1,16384,null,0,Hl.a,[Yl.a,t.j,t.z,[2,$l.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,16,"ion-navbar",[["class","toolbar"],["color","cultivos"],["hideBackButton","true"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,ql.b,ql.a)),t.Y(4,49152,null,0,Xl.a,[Wl.a,[2,$l.a],[2,vl.a],Yl.a,t.j,t.z],{color:[0,"color"],hideBackButton:[1,"hideBackButton"]},null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==t._13(l,8).toggle()&&e);return e},fl.b,fl.a)),t.Y(7,1097728,[[1,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,Wn.a,[Yn.a,[2,$l.a],[2,Cl.a],[2,Xl.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,Gl.b,Gl.a)),t.Y(17,49152,null,0,Kl.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),(l()(),t._19(-1,0,["Nuevo Productor"])),(l()(),t._19(-1,3,["\n  "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n\n\n"])),(l()(),t.Z(22,0,null,null,141,"ion-content",[["class","back-color"],["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Jl.b,Jl.a)),t.Y(23,4374528,null,0,Ql.a,[Yl.a,yl.a,Fl.a,t.j,t.z,Wl.a,ln.a,t.u,[2,$l.a],[2,vl.a]],null,null),(l()(),t._19(-1,1,["\n  "])),(l()(),t.Z(25,0,null,1,137,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(26,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n    "])),(l()(),t.Z(28,0,null,null,133,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(29,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(31,0,null,null,8,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(32,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(34,0,null,null,1,"h1",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Nuevo Productor"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(37,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Ingrese los datos necesarios para generar un nuevo productor."])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(41,0,null,null,119,"ion-col",[["class","back-black-color col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(42,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(44,0,null,null,1,"h3",[["no-margin",""],["padding-top",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Datos generales del productor"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(47,0,null,null,112,"form",[["novalidate",""]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngSubmit"],[null,"submit"],[null,"reset"]],function(l,n,u){var e=!0,a=l.component;"submit"===n&&(e=!1!==t._13(l,49).onSubmit(u)&&e);"reset"===n&&(e=!1!==t._13(l,49).onReset()&&e);"ngSubmit"===n&&(e=!1!==a.addNewProductor()&&e);return e},null,null)),t.Y(48,16384,null,0,c.r,[],null,null),t.Y(49,4210688,null,0,c.l,[[8,null],[8,null]],null,{ngSubmit:"ngSubmit"}),t._16(2048,null,c.b,null,[c.l]),t.Y(51,16384,null,0,c.k,[c.b],null,null),(l()(),t._19(-1,null,["\n          "])),(l()(),t.Z(53,0,null,null,105,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(54,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n            "])),(l()(),t.Z(56,0,null,null,101,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(57,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n              "])),(l()(),t.Z(59,0,null,null,97,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding-bottom",""]],null,null,null,null,null)),t.Y(60,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                "])),(l()(),t.Z(62,0,null,null,93,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(63,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(65,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(66,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,2,{contentLabel:0}),t._17(603979776,3,{_buttons:1}),t._17(603979776,4,{_icons:1}),t.Y(70,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(72,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(73,16384,[[2,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Nombre"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(76,0,null,3,4,"ion-input",[["name","name"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.productor.nombre=u)&&e);return e},Bn.b,Bn.a)),t.Y(77,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(79,16384,null,0,c.j,[c.i],null,null),t.Y(80,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(83,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(84,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,5,{contentLabel:0}),t._17(603979776,6,{_buttons:1}),t._17(603979776,7,{_icons:1}),t.Y(88,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(90,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(91,16384,[[5,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["DNI"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(94,0,null,3,4,"ion-input",[["name","dni"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.productor.dni=u)&&e);return e},Bn.b,Bn.a)),t.Y(95,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(97,16384,null,0,c.j,[c.i],null,null),t.Y(98,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(101,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(102,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,8,{contentLabel:0}),t._17(603979776,9,{_buttons:1}),t._17(603979776,10,{_icons:1}),t.Y(106,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(108,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(109,16384,[[8,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Telefono"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(112,0,null,3,4,"ion-input",[["name","telefono"],["type","number"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.productor.telefono=u)&&e);return e},Bn.b,Bn.a)),t.Y(113,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(115,16384,null,0,c.j,[c.i],null,null),t.Y(116,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(119,0,null,null,22,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(120,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,11,{contentLabel:0}),t._17(603979776,12,{_buttons:1}),t._17(603979776,13,{_icons:1}),t.Y(124,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(126,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(127,16384,[[11,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Chacras"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(130,0,null,3,10,"ion-select",[["cancelText","Cancelar"],["multiple","true"],["name","chacras_ids"],["okText","Aceptar"]],[[2,"select-disabled",null],[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"],[null,"click"],[null,"keyup.space"]],function(l,n,u){var e=!0,a=l.component;"click"===n&&(e=!1!==t._13(l,131)._click(u)&&e);"keyup.space"===n&&(e=!1!==t._13(l,131)._keyup()&&e);"ngModelChange"===n&&(e=!1!==(a.productor.chacras_ids=u)&&e);return e},iu.b,iu.a)),t.Y(131,1228800,null,1,su.a,[Wl.a,Zl.a,Yl.a,t.j,t.z,[2,jl.a],On.a],{cancelText:[0,"cancelText"],okText:[1,"okText"],multiple:[2,"multiple"]},null),t._17(603979776,14,{options:1}),t._16(1024,null,c.h,function(l){return[l]},[su.a]),t.Y(134,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[2,c.h]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(136,16384,null,0,c.j,[c.i],null,null),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.U(16777216,null,null,1,null,ru)),t.Y(139,802816,null,0,Nl.i,[t.I,t.F,t.p],{ngForOf:[0,"ngForOf"]},null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(143,0,null,null,11,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(144,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(146,0,null,null,7,"ion-buttons",[["right",""]],null,null,null,null,null)),t.Y(147,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,15,{_buttons:1}),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(150,0,null,null,2,"button",[["color","semiDark"],["ion-button",""],["type","submit"]],null,null,null,fl.b,fl.a)),t.Y(151,1097728,[[15,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"]},null),(l()(),t._19(-1,0,["Agregar"])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,null,["\n              "])),(l()(),t._19(-1,null,["\n            "])),(l()(),t._19(-1,null,["\n          "])),(l()(),t._19(-1,null,["\n        "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n    "])),(l()(),t._19(-1,null,["\n  "])),(l()(),t._19(-1,1,["\n"])),(l()(),t._19(-1,null,["\n"]))],function(l,n){var u=n.component;l(n,4,0,"cultivos","true");l(n,8,0,"");l(n,13,0,"menu");l(n,77,0,"name",u.productor.nombre);l(n,80,0,"text");l(n,95,0,"dni",u.productor.dni);l(n,98,0,"text");l(n,113,0,"telefono",u.productor.telefono);l(n,116,0,"number");l(n,131,0,"Cancelar","Aceptar","true");l(n,134,0,"chacras_ids",u.productor.chacras_ids),l(n,139,0,u.chacras);l(n,151,0,"semiDark")},function(l,n){l(n,3,0,t._13(n,4)._hidden,t._13(n,4)._sbPadding),l(n,6,0,t._13(n,8).isHidden),l(n,12,0,t._13(n,13)._hidden),l(n,22,0,t._13(n,23).statusbarPadding,t._13(n,23)._hasRefresher),l(n,47,0,t._13(n,51).ngClassUntouched,t._13(n,51).ngClassTouched,t._13(n,51).ngClassPristine,t._13(n,51).ngClassDirty,t._13(n,51).ngClassValid,t._13(n,51).ngClassInvalid,t._13(n,51).ngClassPending),l(n,76,0,t._13(n,79).ngClassUntouched,t._13(n,79).ngClassTouched,t._13(n,79).ngClassPristine,t._13(n,79).ngClassDirty,t._13(n,79).ngClassValid,t._13(n,79).ngClassInvalid,t._13(n,79).ngClassPending),l(n,94,0,t._13(n,97).ngClassUntouched,t._13(n,97).ngClassTouched,t._13(n,97).ngClassPristine,t._13(n,97).ngClassDirty,t._13(n,97).ngClassValid,t._13(n,97).ngClassInvalid,t._13(n,97).ngClassPending),l(n,112,0,t._13(n,115).ngClassUntouched,t._13(n,115).ngClassTouched,t._13(n,115).ngClassPristine,t._13(n,115).ngClassDirty,t._13(n,115).ngClassValid,t._13(n,115).ngClassInvalid,t._13(n,115).ngClassPending),l(n,130,0,t._13(n,131)._disabled,t._13(n,136).ngClassUntouched,t._13(n,136).ngClassTouched,t._13(n,136).ngClassPristine,t._13(n,136).ngClassDirty,t._13(n,136).ngClassValid,t._13(n,136).ngClassInvalid,t._13(n,136).ngClassPending)})}var _u=t.V("page-new-productor",K,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-new-productor",[],null,null,null,du,cu)),t.Y(1,49152,null,0,K,[vl.a,tn.a,Z,O],null,null)],null,null)},{},{},[]),mu=t.X({encapsulation:2,styles:[],data:{}});function gu(l){return t._21(0,[(l()(),t.Z(0,0,null,null,20,"ion-header",[],null,null,null,null,null)),t.Y(1,16384,null,0,Hl.a,[Yl.a,t.j,t.z,[2,$l.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,16,"ion-navbar",[["class","toolbar"],["color","cultivos"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,ql.b,ql.a)),t.Y(4,49152,null,0,Xl.a,[Wl.a,[2,$l.a],[2,vl.a],Yl.a,t.j,t.z],{color:[0,"color"]},null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==t._13(l,8).toggle()&&e);return e},fl.b,fl.a)),t.Y(7,1097728,[[1,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,Wn.a,[Yn.a,[2,$l.a],[2,Cl.a],[2,Xl.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,Gl.b,Gl.a)),t.Y(17,49152,null,0,Kl.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),(l()(),t._19(-1,0,["Editar Productor"])),(l()(),t._19(-1,3,["\n  "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n\n"])),(l()(),t.Z(22,0,null,null,117,"ion-content",[["class","back-color"],["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Jl.b,Jl.a)),t.Y(23,4374528,null,0,Ql.a,[Yl.a,yl.a,Fl.a,t.j,t.z,Wl.a,ln.a,t.u,[2,$l.a],[2,vl.a]],null,null),(l()(),t._19(-1,1,["\n  "])),(l()(),t.Z(25,0,null,1,113,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(26,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n    "])),(l()(),t.Z(28,0,null,null,109,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(29,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(31,0,null,null,8,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(32,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(34,0,null,null,1,"h1",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Editar Productor"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(37,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Ingrese los datos necesarios para editar un productor existente."])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(41,0,null,null,95,"ion-col",[["class","back-black-color col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(42,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(44,0,null,null,1,"h3",[["no-margin",""],["padding-top",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Datos generales del productor"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(47,0,null,null,88,"form",[["novalidate",""]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngSubmit"],[null,"submit"],[null,"reset"]],function(l,n,u){var e=!0,a=l.component;"submit"===n&&(e=!1!==t._13(l,49).onSubmit(u)&&e);"reset"===n&&(e=!1!==t._13(l,49).onReset()&&e);"ngSubmit"===n&&(e=!1!==a.editProductor()&&e);return e},null,null)),t.Y(48,16384,null,0,c.r,[],null,null),t.Y(49,4210688,null,0,c.l,[[8,null],[8,null]],null,{ngSubmit:"ngSubmit"}),t._16(2048,null,c.b,null,[c.l]),t.Y(51,16384,null,0,c.k,[c.b],null,null),(l()(),t._19(-1,null,["\n          "])),(l()(),t.Z(53,0,null,null,81,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(54,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n            "])),(l()(),t.Z(56,0,null,null,77,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(57,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n              "])),(l()(),t.Z(59,0,null,null,73,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding-bottom",""]],null,null,null,null,null)),t.Y(60,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                "])),(l()(),t.Z(62,0,null,null,69,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(63,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(65,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(66,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,2,{contentLabel:0}),t._17(603979776,3,{_buttons:1}),t._17(603979776,4,{_icons:1}),t.Y(70,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(72,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(73,16384,[[2,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Nombre"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(76,0,null,3,4,"ion-input",[["name","name"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.productor.nombre=u)&&e);return e},Bn.b,Bn.a)),t.Y(77,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(79,16384,null,0,c.j,[c.i],null,null),t.Y(80,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(83,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(84,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,5,{contentLabel:0}),t._17(603979776,6,{_buttons:1}),t._17(603979776,7,{_icons:1}),t.Y(88,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(90,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(91,16384,[[5,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["DNI"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(94,0,null,3,4,"ion-input",[["name","dni"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.productor.dni=u)&&e);return e},Bn.b,Bn.a)),t.Y(95,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(97,16384,null,0,c.j,[c.i],null,null),t.Y(98,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(101,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(102,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,8,{contentLabel:0}),t._17(603979776,9,{_buttons:1}),t._17(603979776,10,{_icons:1}),t.Y(106,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(108,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(109,16384,[[8,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Telefono"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(112,0,null,3,4,"ion-input",[["name","telefono"],["type","number"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.productor.telefono=u)&&e);return e},Bn.b,Bn.a)),t.Y(113,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(115,16384,null,0,c.j,[c.i],null,null),t.Y(116,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(119,0,null,null,11,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(120,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(122,0,null,null,7,"ion-buttons",[["right",""]],null,null,null,null,null)),t.Y(123,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,11,{_buttons:1}),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(126,0,null,null,2,"button",[["color","semiDark"],["ion-button",""],["type","submit"]],null,null,null,fl.b,fl.a)),t.Y(127,1097728,[[11,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"]},null),(l()(),t._19(-1,0,["Editar"])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,null,["\n              "])),(l()(),t._19(-1,null,["\n            "])),(l()(),t._19(-1,null,["\n          "])),(l()(),t._19(-1,null,["\n        "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n    "])),(l()(),t._19(-1,null,["\n  "])),(l()(),t._19(-1,1,["\n"]))],function(l,n){var u=n.component;l(n,4,0,"cultivos");l(n,8,0,"");l(n,13,0,"menu");l(n,77,0,"name",u.productor.nombre);l(n,80,0,"text");l(n,95,0,"dni",u.productor.dni);l(n,98,0,"text");l(n,113,0,"telefono",u.productor.telefono);l(n,116,0,"number");l(n,127,0,"semiDark")},function(l,n){l(n,3,0,t._13(n,4)._hidden,t._13(n,4)._sbPadding),l(n,6,0,t._13(n,8).isHidden),l(n,12,0,t._13(n,13)._hidden),l(n,22,0,t._13(n,23).statusbarPadding,t._13(n,23)._hasRefresher),l(n,47,0,t._13(n,51).ngClassUntouched,t._13(n,51).ngClassTouched,t._13(n,51).ngClassPristine,t._13(n,51).ngClassDirty,t._13(n,51).ngClassValid,t._13(n,51).ngClassInvalid,t._13(n,51).ngClassPending),l(n,76,0,t._13(n,79).ngClassUntouched,t._13(n,79).ngClassTouched,t._13(n,79).ngClassPristine,t._13(n,79).ngClassDirty,t._13(n,79).ngClassValid,t._13(n,79).ngClassInvalid,t._13(n,79).ngClassPending),l(n,94,0,t._13(n,97).ngClassUntouched,t._13(n,97).ngClassTouched,t._13(n,97).ngClassPristine,t._13(n,97).ngClassDirty,t._13(n,97).ngClassValid,t._13(n,97).ngClassInvalid,t._13(n,97).ngClassPending),l(n,112,0,t._13(n,115).ngClassUntouched,t._13(n,115).ngClassTouched,t._13(n,115).ngClassPristine,t._13(n,115).ngClassDirty,t._13(n,115).ngClassValid,t._13(n,115).ngClassInvalid,t._13(n,115).ngClassPending)})}var pu=t.V("page-edit-productor",y,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-edit-productor",[],null,null,null,gu,mu)),t.Y(1,49152,null,0,y,[vl.a,tn.a,Z],null,null)],null,null)},{},{},[]),hu=t.X({encapsulation:2,styles:[],data:{}});function bu(l){return t._21(0,[(l()(),t.Z(0,0,null,null,74,"ion-col",[["class","col"],["col-md-2",""],["col-sm-12",""],["margin",""],["no-padding",""]],null,null,null,null,null)),t.Y(1,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(3,0,null,null,70,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(4,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(6,0,null,null,66,"ion-list",[],null,null,null,null,null)),t.Y(7,16384,null,0,Vl.a,[Yl.a,t.j,t.z,yl.a,Ll.l,Fl.a],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(9,0,null,null,62,"ion-item",[["class","back-color item item-block"]],null,null,null,El.b,El.a)),t.Y(10,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,5,{contentLabel:0}),t._17(603979776,6,{_buttons:1}),t._17(603979776,7,{_icons:1}),t.Y(14,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                          "])),(l()(),t.Z(16,0,null,2,54,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(17,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                            "])),(l()(),t.Z(19,0,null,null,20,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(20,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                              "])),(l()(),t.Z(22,0,null,null,16,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(23,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                                "])),(l()(),t.Z(25,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(26,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                                  "])),(l()(),t.Z(28,0,null,null,1,"h2",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["UP"])),(l()(),t._19(-1,null,["\n                                "])),(l()(),t._19(-1,null,["\n                                "])),(l()(),t.Z(32,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(33,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                                  "])),(l()(),t.Z(35,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(36,null,["",""])),(l()(),t._19(-1,null,["\n                                "])),(l()(),t._19(-1,null,["\n                              "])),(l()(),t._19(-1,null,["\n                            "])),(l()(),t._19(-1,null,["\n                            "])),(l()(),t.Z(41,0,null,null,28,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(42,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,[" \n                              "])),(l()(),t.Z(44,0,null,null,24,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(45,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                                "])),(l()(),t.Z(47,0,null,null,9,"ion-col",[["class","col"],["col-md-6",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(48,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                                  "])),(l()(),t.Z(50,0,null,null,5,"button",[["color","semiDark"],["icon-only",""],["ion-button",""],["round",""],["small",""]],null,[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==l.component.alertEditCuadro(l.context.$implicit)&&e);return e},fl.b,fl.a)),t.Y(51,1097728,null,0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"],small:[1,"small"],round:[2,"round"]},null),(l()(),t._19(-1,0,["\n                                    "])),(l()(),t.Z(53,0,null,0,1,"ion-icon",[["name","create"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(54,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n                                  "])),(l()(),t._19(-1,null,["\n                                "])),(l()(),t._19(-1,null,["\n                                "])),(l()(),t.Z(58,0,null,null,9,"ion-col",[["class","col"],["col-md-6",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(59,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                                  "])),(l()(),t.Z(61,0,null,null,5,"button",[["color","semiDark"],["icon-only",""],["ion-button",""],["round",""],["small",""]],null,[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==l.component.alertDeleteCuadro(l.context.$implicit.id)&&e);return e},fl.b,fl.a)),t.Y(62,1097728,null,0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"],small:[1,"small"],round:[2,"round"]},null),(l()(),t._19(-1,0,["\n                                    "])),(l()(),t.Z(64,0,null,0,1,"ion-icon",[["name","trash"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(65,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n                                  "])),(l()(),t._19(-1,null,["\n                                "])),(l()(),t._19(-1,null,["\n                              "])),(l()(),t._19(-1,null,["\n                            "])),(l()(),t._19(-1,null,["\n                          "])),(l()(),t._19(-1,2,["\n                        "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["    \n                  "]))],function(l,n){l(n,51,0,"semiDark","","");l(n,54,0,"create");l(n,62,0,"semiDark","","");l(n,65,0,"trash")},function(l,n){l(n,36,0,n.context.$implicit.up),l(n,53,0,t._13(n,54)._hidden),l(n,64,0,t._13(n,65)._hidden)})}function fu(l){return t._21(0,[(l()(),t.Z(0,0,null,null,111,"ion-item",[["class","no-border item item-block"],["ion-item",""]],null,null,null,El.b,El.a)),t.Y(1,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,2,{contentLabel:0}),t._17(603979776,3,{_buttons:1}),t._17(603979776,4,{_icons:1}),t.Y(5,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                "])),(l()(),t.Z(7,0,null,0,4,"ion-avatar",[["item-left",""]],null,null,null,null,null)),t.Y(8,16384,null,0,nu.a,[],null,null),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(10,0,null,null,0,"img",[["src","assets/imgs/chacra-icon.png"]],null,null,null,null,null)),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,2,["\n                "])),(l()(),t.Z(13,0,null,2,97,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(14,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(16,0,null,null,20,"ion-col",[["class","col"],["col-md-5",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(17,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(19,0,null,null,16,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(20,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(22,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(23,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(25,0,null,null,1,"h2",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Chacra"])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(29,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(30,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(32,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(33,null,["",""])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(38,0,null,null,20,"ion-col",[["class","col"],["col-md-5",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(39,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(41,0,null,null,16,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(42,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(44,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(45,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(47,0,null,null,1,"h2",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Renspa"])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(51,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(52,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(54,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(55,null,["",""])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(60,0,null,null,39,"ion-col",[["class","col"],["col-md-2",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(61,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,[" \n                    "])),(l()(),t.Z(63,0,null,null,35,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(64,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(66,0,null,null,9,"ion-col",[["class","col"],["col-md-4",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(67,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(69,0,null,null,5,"button",[["color","semiDark"],["icon-only",""],["ion-button",""],["round",""],["small",""]],null,[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==l.component.alertNewCuadro(l.context.$implicit.id)&&e);return e},fl.b,fl.a)),t.Y(70,1097728,null,0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"],small:[1,"small"],round:[2,"round"]},null),(l()(),t._19(-1,0,["\n                          "])),(l()(),t.Z(72,0,null,0,1,"ion-icon",[["name","add"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(73,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n                        "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(77,0,null,null,9,"ion-col",[["class","col"],["col-md-4",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(78,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(80,0,null,null,5,"button",[["color","semiDark"],["icon-only",""],["ion-button",""],["round",""],["small",""]],null,[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==l.component.goToEdit(l.context.$implicit)&&e);return e},fl.b,fl.a)),t.Y(81,1097728,null,0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"],small:[1,"small"],round:[2,"round"]},null),(l()(),t._19(-1,0,["\n                          "])),(l()(),t.Z(83,0,null,0,1,"ion-icon",[["name","create"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(84,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n                        "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(88,0,null,null,9,"ion-col",[["class","col"],["col-md-4",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(89,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(91,0,null,null,5,"button",[["color","semiDark"],["icon-only",""],["ion-button",""],["round",""],["small",""]],null,[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==l.component.alertDeleteChacra(l.context.$implicit.id)&&e);return e},fl.b,fl.a)),t.Y(92,1097728,null,0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"],small:[1,"small"],round:[2,"round"]},null),(l()(),t._19(-1,0,["\n                          "])),(l()(),t.Z(94,0,null,0,1,"ion-icon",[["name","trash"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(95,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n                        "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(101,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(102,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(104,0,null,null,1,"h2",[],null,null,null,null,null)),(l()(),t._19(-1,null,["Cuadros"])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.U(16777216,null,null,1,null,bu)),t.Y(109,802816,null,0,Nl.i,[t.I,t.F,t.p],{ngForOf:[0,"ngForOf"]},null),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,2,["\n              "]))],function(l,n){l(n,70,0,"semiDark","","");l(n,73,0,"add");l(n,81,0,"semiDark","","");l(n,84,0,"create");l(n,92,0,"semiDark","","");l(n,95,0,"trash"),l(n,109,0,n.context.$implicit.cuadros)},function(l,n){l(n,33,0,n.context.$implicit.nombre),l(n,55,0,n.context.$implicit.renspa),l(n,72,0,t._13(n,73)._hidden),l(n,83,0,t._13(n,84)._hidden),l(n,94,0,t._13(n,95)._hidden)})}function Cu(l){return t._21(0,[(l()(),t.Z(0,0,null,null,20,"ion-header",[],null,null,null,null,null)),t.Y(1,16384,null,0,Hl.a,[Yl.a,t.j,t.z,[2,$l.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,16,"ion-navbar",[["class","toolbar"],["color","cultivos"],["hideBackButton","true"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,ql.b,ql.a)),t.Y(4,49152,null,0,Xl.a,[Wl.a,[2,$l.a],[2,vl.a],Yl.a,t.j,t.z],{color:[0,"color"],hideBackButton:[1,"hideBackButton"]},null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==t._13(l,8).toggle()&&e);return e},fl.b,fl.a)),t.Y(7,1097728,[[1,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,Wn.a,[Yn.a,[2,$l.a],[2,Cl.a],[2,Xl.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,Gl.b,Gl.a)),t.Y(17,49152,null,0,Kl.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),(l()(),t._19(-1,0,["Chacras"])),(l()(),t._19(-1,3,["\n  "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n\n\n"])),(l()(),t.Z(22,0,null,null,42,"ion-content",[["class","back-color"],["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Jl.b,Jl.a)),t.Y(23,4374528,null,0,Ql.a,[Yl.a,yl.a,Fl.a,t.j,t.z,Wl.a,ln.a,t.u,[2,$l.a],[2,vl.a]],null,null),(l()(),t._19(-1,1,["\n  "])),(l()(),t.Z(25,0,null,1,38,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(26,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n    "])),(l()(),t.Z(28,0,null,null,34,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(29,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(31,0,null,null,8,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(32,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(34,0,null,null,1,"h1",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Listado de Chacras"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(37,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Presentacion en forma de lista de chacras donde se obtiene la produccion"])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(41,0,null,null,20,"ion-col",[["class","back-black-color col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(42,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(44,0,null,null,1,"h4",[["no-margin",""],["padding-top",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Chacras"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(47,0,null,null,13,"ion-row",[["class","row"],["padding",""]],null,null,null,null,null)),t.Y(48,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n          "])),(l()(),t.Z(50,0,null,null,9,"ion-col",[["class","col"],["col-md-10",""],["col-sm-12",""],["offset-md-1",""]],null,null,null,null,null)),t.Y(51,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n            "])),(l()(),t.Z(53,0,null,null,5,"ion-list",[],null,null,null,null,null)),t.Y(54,16384,null,0,Vl.a,[Yl.a,t.j,t.z,yl.a,Ll.l,Fl.a],null,null),(l()(),t._19(-1,null,["\n              "])),(l()(),t.U(16777216,null,null,1,null,fu)),t.Y(57,802816,null,0,Nl.i,[t.I,t.F,t.p],{ngForOf:[0,"ngForOf"]},null),(l()(),t._19(-1,null,["\n            "])),(l()(),t._19(-1,null,["\n          "])),(l()(),t._19(-1,null,["\n        "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n    "])),(l()(),t._19(-1,null,["\n  "])),(l()(),t._19(-1,1,["\n"])),(l()(),t._19(-1,null,["\n\n"])),(l()(),t._19(-1,null,["\n\n"]))],function(l,n){var u=n.component;l(n,4,0,"cultivos","true");l(n,8,0,"");l(n,13,0,"menu"),l(n,57,0,u.chacrasList)},function(l,n){l(n,3,0,t._13(n,4)._hidden,t._13(n,4)._sbPadding),l(n,6,0,t._13(n,8).isHidden),l(n,12,0,t._13(n,13)._hidden),l(n,22,0,t._13(n,23).statusbarPadding,t._13(n,23)._hasRefresher)})}var Yu=t.V("page-chacras-list",ll,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-chacras-list",[],null,null,null,Cu,hu)),t.Y(1,49152,null,0,ll,[vl.a,tn.a,O,J,Rn.a],null,null)],null,null)},{},{},[]),vu=t.X({encapsulation:2,styles:[],data:{}});function Zu(l){return t._21(0,[(l()(),t.Z(0,0,null,null,20,"ion-header",[],null,null,null,null,null)),t.Y(1,16384,null,0,Hl.a,[Yl.a,t.j,t.z,[2,$l.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,16,"ion-navbar",[["class","toolbar"],["color","cultivos"],["hideBackButton","true"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,ql.b,ql.a)),t.Y(4,49152,null,0,Xl.a,[Wl.a,[2,$l.a],[2,vl.a],Yl.a,t.j,t.z],{color:[0,"color"],hideBackButton:[1,"hideBackButton"]},null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==t._13(l,8).toggle()&&e);return e},fl.b,fl.a)),t.Y(7,1097728,[[1,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,Wn.a,[Yn.a,[2,$l.a],[2,Cl.a],[2,Xl.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,Gl.b,Gl.a)),t.Y(17,49152,null,0,Kl.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),(l()(),t._19(-1,0,["Nueva Chacra"])),(l()(),t._19(-1,3,["\n  "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n\n\n"])),(l()(),t.Z(22,0,null,null,99,"ion-content",[["class","back-color"],["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Jl.b,Jl.a)),t.Y(23,4374528,null,0,Ql.a,[Yl.a,yl.a,Fl.a,t.j,t.z,Wl.a,ln.a,t.u,[2,$l.a],[2,vl.a]],null,null),(l()(),t._19(-1,1,["\n  "])),(l()(),t.Z(25,0,null,1,95,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(26,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n    "])),(l()(),t.Z(28,0,null,null,91,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(29,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(31,0,null,null,8,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(32,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(34,0,null,null,1,"h1",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Nueva Chacra"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(37,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Ingrese los datos necesarios para generar una nueva chacra."])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(41,0,null,null,77,"ion-col",[["class","back-black-color col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(42,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(44,0,null,null,1,"h3",[["no-margin",""],["padding-top",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Datos generales de la Chacra"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(47,0,null,null,70,"form",[["novalidate",""]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngSubmit"],[null,"submit"],[null,"reset"]],function(l,n,u){var e=!0,a=l.component;"submit"===n&&(e=!1!==t._13(l,49).onSubmit(u)&&e);"reset"===n&&(e=!1!==t._13(l,49).onReset()&&e);"ngSubmit"===n&&(e=!1!==a.addNewChacra()&&e);return e},null,null)),t.Y(48,16384,null,0,c.r,[],null,null),t.Y(49,4210688,null,0,c.l,[[8,null],[8,null]],null,{ngSubmit:"ngSubmit"}),t._16(2048,null,c.b,null,[c.l]),t.Y(51,16384,null,0,c.k,[c.b],null,null),(l()(),t._19(-1,null,["\n          "])),(l()(),t.Z(53,0,null,null,63,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(54,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n            "])),(l()(),t.Z(56,0,null,null,59,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(57,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n              "])),(l()(),t.Z(59,0,null,null,55,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding-bottom",""]],null,null,null,null,null)),t.Y(60,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                "])),(l()(),t.Z(62,0,null,null,51,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(63,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(65,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(66,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,2,{contentLabel:0}),t._17(603979776,3,{_buttons:1}),t._17(603979776,4,{_icons:1}),t.Y(70,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(72,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(73,16384,[[2,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Nombre"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(76,0,null,3,4,"ion-input",[["name","name"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.chacra.nombre=u)&&e);return e},Bn.b,Bn.a)),t.Y(77,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(79,16384,null,0,c.j,[c.i],null,null),t.Y(80,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(83,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(84,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,5,{contentLabel:0}),t._17(603979776,6,{_buttons:1}),t._17(603979776,7,{_icons:1}),t.Y(88,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(90,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(91,16384,[[5,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Renspa"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(94,0,null,3,4,"ion-input",[["name","renspa"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.chacra.renspa=u)&&e);return e},Bn.b,Bn.a)),t.Y(95,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(97,16384,null,0,c.j,[c.i],null,null),t.Y(98,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(101,0,null,null,11,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(102,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(104,0,null,null,7,"ion-buttons",[["right",""]],null,null,null,null,null)),t.Y(105,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,8,{_buttons:1}),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(108,0,null,null,2,"button",[["color","semiDark"],["ion-button",""],["type","submit"]],null,null,null,fl.b,fl.a)),t.Y(109,1097728,[[8,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"]},null),(l()(),t._19(-1,0,["Agregar"])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,null,["\n              "])),(l()(),t._19(-1,null,["\n            "])),(l()(),t._19(-1,null,["\n          "])),(l()(),t._19(-1,null,["\n        "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n    "])),(l()(),t._19(-1,null,["\n  "])),(l()(),t._19(-1,1,["\n"])),(l()(),t._19(-1,null,["\n\n"]))],function(l,n){var u=n.component;l(n,4,0,"cultivos","true");l(n,8,0,"");l(n,13,0,"menu");l(n,77,0,"name",u.chacra.nombre);l(n,80,0,"text");l(n,95,0,"renspa",u.chacra.renspa);l(n,98,0,"text");l(n,109,0,"semiDark")},function(l,n){l(n,3,0,t._13(n,4)._hidden,t._13(n,4)._sbPadding),l(n,6,0,t._13(n,8).isHidden),l(n,12,0,t._13(n,13)._hidden),l(n,22,0,t._13(n,23).statusbarPadding,t._13(n,23)._hasRefresher),l(n,47,0,t._13(n,51).ngClassUntouched,t._13(n,51).ngClassTouched,t._13(n,51).ngClassPristine,t._13(n,51).ngClassDirty,t._13(n,51).ngClassValid,t._13(n,51).ngClassInvalid,t._13(n,51).ngClassPending),l(n,76,0,t._13(n,79).ngClassUntouched,t._13(n,79).ngClassTouched,t._13(n,79).ngClassPristine,t._13(n,79).ngClassDirty,t._13(n,79).ngClassValid,t._13(n,79).ngClassInvalid,t._13(n,79).ngClassPending),l(n,94,0,t._13(n,97).ngClassUntouched,t._13(n,97).ngClassTouched,t._13(n,97).ngClassPristine,t._13(n,97).ngClassDirty,t._13(n,97).ngClassValid,t._13(n,97).ngClassInvalid,t._13(n,97).ngClassPending)})}var yu=t.V("page-new-chacra",nl,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-new-chacra",[],null,null,null,Zu,vu)),t.Y(1,49152,null,0,nl,[vl.a,tn.a,O],null,null)],null,null)},{},{},[]),ju=t.X({encapsulation:2,styles:[],data:{}});function ku(l){return t._21(0,[(l()(),t.Z(0,0,null,null,20,"ion-header",[],null,null,null,null,null)),t.Y(1,16384,null,0,Hl.a,[Yl.a,t.j,t.z,[2,$l.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,16,"ion-navbar",[["class","toolbar"],["color","cultivos"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,ql.b,ql.a)),t.Y(4,49152,null,0,Xl.a,[Wl.a,[2,$l.a],[2,vl.a],Yl.a,t.j,t.z],{color:[0,"color"]},null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==t._13(l,8).toggle()&&e);return e},fl.b,fl.a)),t.Y(7,1097728,[[1,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,Wn.a,[Yn.a,[2,$l.a],[2,Cl.a],[2,Xl.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,Gl.b,Gl.a)),t.Y(17,49152,null,0,Kl.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),(l()(),t._19(-1,0,["Editar Chacra"])),(l()(),t._19(-1,3,["\n  "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n\n"])),(l()(),t.Z(22,0,null,null,99,"ion-content",[["class","back-color"],["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Jl.b,Jl.a)),t.Y(23,4374528,null,0,Ql.a,[Yl.a,yl.a,Fl.a,t.j,t.z,Wl.a,ln.a,t.u,[2,$l.a],[2,vl.a]],null,null),(l()(),t._19(-1,1,["\n  "])),(l()(),t.Z(25,0,null,1,95,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(26,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n    "])),(l()(),t.Z(28,0,null,null,91,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(29,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(31,0,null,null,8,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(32,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(34,0,null,null,1,"h1",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Editar Chacra"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(37,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Ingrese los datos necesarios para editar una chacra existente."])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(41,0,null,null,77,"ion-col",[["class","back-black-color col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(42,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(44,0,null,null,1,"h3",[["no-margin",""],["padding-top",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Datos generales de la Chacra"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(47,0,null,null,70,"form",[["novalidate",""]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngSubmit"],[null,"submit"],[null,"reset"]],function(l,n,u){var e=!0,a=l.component;"submit"===n&&(e=!1!==t._13(l,49).onSubmit(u)&&e);"reset"===n&&(e=!1!==t._13(l,49).onReset()&&e);"ngSubmit"===n&&(e=!1!==a.editChacra()&&e);return e},null,null)),t.Y(48,16384,null,0,c.r,[],null,null),t.Y(49,4210688,null,0,c.l,[[8,null],[8,null]],null,{ngSubmit:"ngSubmit"}),t._16(2048,null,c.b,null,[c.l]),t.Y(51,16384,null,0,c.k,[c.b],null,null),(l()(),t._19(-1,null,["\n          "])),(l()(),t.Z(53,0,null,null,63,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(54,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n            "])),(l()(),t.Z(56,0,null,null,59,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(57,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n              "])),(l()(),t.Z(59,0,null,null,55,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding-bottom",""]],null,null,null,null,null)),t.Y(60,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                "])),(l()(),t.Z(62,0,null,null,51,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(63,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(65,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(66,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,2,{contentLabel:0}),t._17(603979776,3,{_buttons:1}),t._17(603979776,4,{_icons:1}),t.Y(70,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(72,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(73,16384,[[2,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Nombre"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(76,0,null,3,4,"ion-input",[["name","name"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.chacra.nombre=u)&&e);return e},Bn.b,Bn.a)),t.Y(77,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(79,16384,null,0,c.j,[c.i],null,null),t.Y(80,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(83,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(84,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,5,{contentLabel:0}),t._17(603979776,6,{_buttons:1}),t._17(603979776,7,{_icons:1}),t.Y(88,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(90,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(91,16384,[[5,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Renspa"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(94,0,null,3,4,"ion-input",[["name","renspa"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.chacra.renspa=u)&&e);return e},Bn.b,Bn.a)),t.Y(95,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(97,16384,null,0,c.j,[c.i],null,null),t.Y(98,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(101,0,null,null,11,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(102,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(104,0,null,null,7,"ion-buttons",[["right",""]],null,null,null,null,null)),t.Y(105,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,8,{_buttons:1}),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(108,0,null,null,2,"button",[["color","semiDark"],["ion-button",""],["type","submit"]],null,null,null,fl.b,fl.a)),t.Y(109,1097728,[[8,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"]},null),(l()(),t._19(-1,0,["Editar"])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,null,["\n              "])),(l()(),t._19(-1,null,["\n            "])),(l()(),t._19(-1,null,["\n          "])),(l()(),t._19(-1,null,["\n        "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n    "])),(l()(),t._19(-1,null,["\n  "])),(l()(),t._19(-1,1,["\n"])),(l()(),t._19(-1,null,["\n"]))],function(l,n){var u=n.component;l(n,4,0,"cultivos");l(n,8,0,"");l(n,13,0,"menu");l(n,77,0,"name",u.chacra.nombre);l(n,80,0,"text");l(n,95,0,"renspa",u.chacra.renspa);l(n,98,0,"text");l(n,109,0,"semiDark")},function(l,n){l(n,3,0,t._13(n,4)._hidden,t._13(n,4)._sbPadding),l(n,6,0,t._13(n,8).isHidden),l(n,12,0,t._13(n,13)._hidden),l(n,22,0,t._13(n,23).statusbarPadding,t._13(n,23)._hasRefresher),l(n,47,0,t._13(n,51).ngClassUntouched,t._13(n,51).ngClassTouched,t._13(n,51).ngClassPristine,t._13(n,51).ngClassDirty,t._13(n,51).ngClassValid,t._13(n,51).ngClassInvalid,t._13(n,51).ngClassPending),l(n,76,0,t._13(n,79).ngClassUntouched,t._13(n,79).ngClassTouched,t._13(n,79).ngClassPristine,t._13(n,79).ngClassDirty,t._13(n,79).ngClassValid,t._13(n,79).ngClassInvalid,t._13(n,79).ngClassPending),l(n,94,0,t._13(n,97).ngClassUntouched,t._13(n,97).ngClassTouched,t._13(n,97).ngClassPristine,t._13(n,97).ngClassDirty,t._13(n,97).ngClassValid,t._13(n,97).ngClassInvalid,t._13(n,97).ngClassPending)})}var Iu=t.V("page-edit-chacra",Q,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-edit-chacra",[],null,null,null,ku,ju)),t.Y(1,49152,null,0,Q,[vl.a,tn.a,O],null,null)],null,null)},{},{},[]),zu=t.X({encapsulation:2,styles:[],data:{}});function Pu(l){return t._21(0,[(l()(),t.Z(0,0,null,null,112,"ion-item",[["class","no-border item item-block"],["ion-item",""]],null,null,null,El.b,El.a)),t.Y(1,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,2,{contentLabel:0}),t._17(603979776,3,{_buttons:1}),t._17(603979776,4,{_icons:1}),t.Y(5,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                "])),(l()(),t.Z(7,0,null,0,4,"ion-avatar",[["item-left",""]],null,null,null,null,null)),t.Y(8,16384,null,0,nu.a,[],null,null),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(10,0,null,null,0,"img",[["src","assets/imgs/camion-icon.png"]],null,null,null,null,null)),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,2,["\n                "])),(l()(),t.Z(13,0,null,2,98,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(14,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(16,0,null,null,20,"ion-col",[["class","col"],["col-md-3",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(17,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(19,0,null,null,16,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(20,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(22,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(23,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(25,0,null,null,1,"h2",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Chofer"])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(29,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(30,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(32,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(33,null,["",""])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(38,0,null,null,20,"ion-col",[["class","col"],["col-md-3",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(39,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(41,0,null,null,16,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(42,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(44,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(45,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(47,0,null,null,1,"h2",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Patente Chasis"])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(51,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(52,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(54,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(55,null,["",""])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(60,0,null,null,20,"ion-col",[["class","col"],["col-md-3",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(61,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,[" \n                    "])),(l()(),t.Z(63,0,null,null,16,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(64,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(66,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(67,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(69,0,null,null,1,"h2",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Patente Acoplado"])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(73,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(74,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(76,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(77,null,["",""])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(82,0,null,null,28,"ion-col",[["class","col"],["col-md-3",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(83,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,[" \n                    "])),(l()(),t.Z(85,0,null,null,24,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(86,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(88,0,null,null,9,"ion-col",[["class","col"],["col-md-6",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(89,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(91,0,null,null,5,"button",[["color","semiDark"],["icon-only",""],["ion-button",""],["round",""],["small",""]],null,[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==l.component.goToEdit(l.context.$implicit)&&e);return e},fl.b,fl.a)),t.Y(92,1097728,null,0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"],small:[1,"small"],round:[2,"round"]},null),(l()(),t._19(-1,0,["\n                          "])),(l()(),t.Z(94,0,null,0,1,"ion-icon",[["name","create"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(95,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n                        "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(99,0,null,null,9,"ion-col",[["class","col"],["col-md-6",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(100,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(102,0,null,null,5,"button",[["color","semiDark"],["icon-only",""],["ion-button",""],["round",""],["small",""]],null,[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==l.component.alertDeleteCamion(l.context.$implicit.id)&&e);return e},fl.b,fl.a)),t.Y(103,1097728,null,0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"],small:[1,"small"],round:[2,"round"]},null),(l()(),t._19(-1,0,["\n                          "])),(l()(),t.Z(105,0,null,0,1,"ion-icon",[["name","trash"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(106,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n                        "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,2,["\n              "]))],function(l,n){l(n,92,0,"semiDark","","");l(n,95,0,"create");l(n,103,0,"semiDark","","");l(n,106,0,"trash")},function(l,n){l(n,33,0,n.context.$implicit.nombreChofer),l(n,55,0,n.context.$implicit.patenteChasis),l(n,77,0,n.context.$implicit.patenteAcoplado),l(n,94,0,t._13(n,95)._hidden),l(n,105,0,t._13(n,106)._hidden)})}function wu(l){return t._21(0,[(l()(),t.Z(0,0,null,null,20,"ion-header",[],null,null,null,null,null)),t.Y(1,16384,null,0,Hl.a,[Yl.a,t.j,t.z,[2,$l.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,16,"ion-navbar",[["class","toolbar"],["color","cultivos"],["hideBackButton","true"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,ql.b,ql.a)),t.Y(4,49152,null,0,Xl.a,[Wl.a,[2,$l.a],[2,vl.a],Yl.a,t.j,t.z],{color:[0,"color"],hideBackButton:[1,"hideBackButton"]},null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==t._13(l,8).toggle()&&e);return e},fl.b,fl.a)),t.Y(7,1097728,[[1,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,Wn.a,[Yn.a,[2,$l.a],[2,Cl.a],[2,Xl.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,Gl.b,Gl.a)),t.Y(17,49152,null,0,Kl.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),(l()(),t._19(-1,0,["Camiones"])),(l()(),t._19(-1,3,["\n  "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n\n"])),(l()(),t.Z(22,0,null,null,42,"ion-content",[["class","back-color"],["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Jl.b,Jl.a)),t.Y(23,4374528,null,0,Ql.a,[Yl.a,yl.a,Fl.a,t.j,t.z,Wl.a,ln.a,t.u,[2,$l.a],[2,vl.a]],null,null),(l()(),t._19(-1,1,["\n  "])),(l()(),t.Z(25,0,null,1,38,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(26,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n    "])),(l()(),t.Z(28,0,null,null,34,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(29,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(31,0,null,null,8,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(32,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(34,0,null,null,1,"h1",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Listado de Camiones"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(37,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Presentacion en forma de lista de los camiones con los que se transporta"])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(41,0,null,null,20,"ion-col",[["class","back-black-color col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(42,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(44,0,null,null,1,"h4",[["no-margin",""],["padding-top",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Camiones"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(47,0,null,null,13,"ion-row",[["class","row"],["padding",""]],null,null,null,null,null)),t.Y(48,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n          "])),(l()(),t.Z(50,0,null,null,9,"ion-col",[["class","col"],["col-md-8",""],["col-sm-12",""],["offset-md-2",""]],null,null,null,null,null)),t.Y(51,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n            "])),(l()(),t.Z(53,0,null,null,5,"ion-list",[],null,null,null,null,null)),t.Y(54,16384,null,0,Vl.a,[Yl.a,t.j,t.z,yl.a,Ll.l,Fl.a],null,null),(l()(),t._19(-1,null,["\n              "])),(l()(),t.U(16777216,null,null,1,null,Pu)),t.Y(57,802816,null,0,Nl.i,[t.I,t.F,t.p],{ngForOf:[0,"ngForOf"]},null),(l()(),t._19(-1,null,["\n            "])),(l()(),t._19(-1,null,["\n          "])),(l()(),t._19(-1,null,["\n        "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n    "])),(l()(),t._19(-1,null,["\n  "])),(l()(),t._19(-1,1,["\n"])),(l()(),t._19(-1,null,["\n"]))],function(l,n){var u=n.component;l(n,4,0,"cultivos","true");l(n,8,0,"");l(n,13,0,"menu"),l(n,57,0,u.camionesList)},function(l,n){l(n,3,0,t._13(n,4)._hidden,t._13(n,4)._sbPadding),l(n,6,0,t._13(n,8).isHidden),l(n,12,0,t._13(n,13)._hidden),l(n,22,0,t._13(n,23).statusbarPadding,t._13(n,23)._hasRefresher)})}var xu=t.V("page-camiones-list",z,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-camiones-list",[],null,null,null,wu,zu)),t.Y(1,49152,null,0,z,[vl.a,tn.a,k,Rn.a],null,null)],null,null)},{},{},[]),Su=t.X({encapsulation:2,styles:[],data:{}});function Tu(l){return t._21(0,[(l()(),t.Z(0,0,null,null,20,"ion-header",[],null,null,null,null,null)),t.Y(1,16384,null,0,Hl.a,[Yl.a,t.j,t.z,[2,$l.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,16,"ion-navbar",[["class","toolbar"],["color","cultivos"],["hideBackButton","true"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,ql.b,ql.a)),t.Y(4,49152,null,0,Xl.a,[Wl.a,[2,$l.a],[2,vl.a],Yl.a,t.j,t.z],{color:[0,"color"],hideBackButton:[1,"hideBackButton"]},null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==t._13(l,8).toggle()&&e);return e},fl.b,fl.a)),t.Y(7,1097728,[[1,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,Wn.a,[Yn.a,[2,$l.a],[2,Cl.a],[2,Xl.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,Gl.b,Gl.a)),t.Y(17,49152,null,0,Kl.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),(l()(),t._19(-1,0,["Nuevo Camion"])),(l()(),t._19(-1,3,["\n  "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n\n\n"])),(l()(),t.Z(22,0,null,null,117,"ion-content",[["class","back-color"],["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Jl.b,Jl.a)),t.Y(23,4374528,null,0,Ql.a,[Yl.a,yl.a,Fl.a,t.j,t.z,Wl.a,ln.a,t.u,[2,$l.a],[2,vl.a]],null,null),(l()(),t._19(-1,1,["\n  "])),(l()(),t.Z(25,0,null,1,113,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(26,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n    "])),(l()(),t.Z(28,0,null,null,109,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(29,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(31,0,null,null,8,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(32,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(34,0,null,null,1,"h1",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Nuevo Camion"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(37,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Ingrese los datos necesarios para generar un nuevo camion."])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(41,0,null,null,95,"ion-col",[["class","back-black-color col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(42,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(44,0,null,null,1,"h3",[["no-margin",""],["padding-top",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Datos generales del camion"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(47,0,null,null,88,"form",[["novalidate",""]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngSubmit"],[null,"submit"],[null,"reset"]],function(l,n,u){var e=!0,a=l.component;"submit"===n&&(e=!1!==t._13(l,49).onSubmit(u)&&e);"reset"===n&&(e=!1!==t._13(l,49).onReset()&&e);"ngSubmit"===n&&(e=!1!==a.addNewCamion()&&e);return e},null,null)),t.Y(48,16384,null,0,c.r,[],null,null),t.Y(49,4210688,null,0,c.l,[[8,null],[8,null]],null,{ngSubmit:"ngSubmit"}),t._16(2048,null,c.b,null,[c.l]),t.Y(51,16384,null,0,c.k,[c.b],null,null),(l()(),t._19(-1,null,["\n          "])),(l()(),t.Z(53,0,null,null,81,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(54,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n            "])),(l()(),t.Z(56,0,null,null,77,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(57,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n              "])),(l()(),t.Z(59,0,null,null,73,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding-bottom",""]],null,null,null,null,null)),t.Y(60,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                "])),(l()(),t.Z(62,0,null,null,69,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(63,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(65,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-12",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(66,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,2,{contentLabel:0}),t._17(603979776,3,{_buttons:1}),t._17(603979776,4,{_icons:1}),t.Y(70,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(72,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(73,16384,[[2,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Nombre Chofer"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(76,0,null,3,4,"ion-input",[["name","nombreChofer"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.camion.nombreChofer=u)&&e);return e},Bn.b,Bn.a)),t.Y(77,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(79,16384,null,0,c.j,[c.i],null,null),t.Y(80,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(83,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(84,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,5,{contentLabel:0}),t._17(603979776,6,{_buttons:1}),t._17(603979776,7,{_icons:1}),t.Y(88,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(90,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(91,16384,[[5,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Patente Acoplado"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(94,0,null,3,4,"ion-input",[["name","patenteAcoplado"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.camion.patenteAcoplado=u)&&e);return e},Bn.b,Bn.a)),t.Y(95,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(97,16384,null,0,c.j,[c.i],null,null),t.Y(98,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(101,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(102,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,8,{contentLabel:0}),t._17(603979776,9,{_buttons:1}),t._17(603979776,10,{_icons:1}),t.Y(106,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(108,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(109,16384,[[8,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Patente Chasis"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(112,0,null,3,4,"ion-input",[["name","patenteChasis"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.camion.patenteChasis=u)&&e);return e},Bn.b,Bn.a)),t.Y(113,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(115,16384,null,0,c.j,[c.i],null,null),t.Y(116,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(119,0,null,null,11,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(120,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(122,0,null,null,7,"ion-buttons",[["right",""]],null,null,null,null,null)),t.Y(123,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,11,{_buttons:1}),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(126,0,null,null,2,"button",[["color","semiDark"],["ion-button",""],["type","submit"]],null,null,null,fl.b,fl.a)),t.Y(127,1097728,[[11,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"]},null),(l()(),t._19(-1,0,["Agregar"])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,null,["\n              "])),(l()(),t._19(-1,null,["\n            "])),(l()(),t._19(-1,null,["\n          "])),(l()(),t._19(-1,null,["\n        "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n    "])),(l()(),t._19(-1,null,["\n  "])),(l()(),t._19(-1,1,["\n"])),(l()(),t._19(-1,null,["\n\n"]))],function(l,n){var u=n.component;l(n,4,0,"cultivos","true");l(n,8,0,"");l(n,13,0,"menu");l(n,77,0,"nombreChofer",u.camion.nombreChofer);l(n,80,0,"text");l(n,95,0,"patenteAcoplado",u.camion.patenteAcoplado);l(n,98,0,"text");l(n,113,0,"patenteChasis",u.camion.patenteChasis);l(n,116,0,"text");l(n,127,0,"semiDark")},function(l,n){l(n,3,0,t._13(n,4)._hidden,t._13(n,4)._sbPadding),l(n,6,0,t._13(n,8).isHidden),l(n,12,0,t._13(n,13)._hidden),l(n,22,0,t._13(n,23).statusbarPadding,t._13(n,23)._hasRefresher),l(n,47,0,t._13(n,51).ngClassUntouched,t._13(n,51).ngClassTouched,t._13(n,51).ngClassPristine,t._13(n,51).ngClassDirty,t._13(n,51).ngClassValid,t._13(n,51).ngClassInvalid,t._13(n,51).ngClassPending),l(n,76,0,t._13(n,79).ngClassUntouched,t._13(n,79).ngClassTouched,t._13(n,79).ngClassPristine,t._13(n,79).ngClassDirty,t._13(n,79).ngClassValid,t._13(n,79).ngClassInvalid,t._13(n,79).ngClassPending),l(n,94,0,t._13(n,97).ngClassUntouched,t._13(n,97).ngClassTouched,t._13(n,97).ngClassPristine,t._13(n,97).ngClassDirty,t._13(n,97).ngClassValid,t._13(n,97).ngClassInvalid,t._13(n,97).ngClassPending),l(n,112,0,t._13(n,115).ngClassUntouched,t._13(n,115).ngClassTouched,t._13(n,115).ngClassPristine,t._13(n,115).ngClassDirty,t._13(n,115).ngClassValid,t._13(n,115).ngClassInvalid,t._13(n,115).ngClassPending)})}var Du=t.V("page-new-camion",ul,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-new-camion",[],null,null,null,Tu,Su)),t.Y(1,49152,null,0,ul,[vl.a,tn.a,k],null,null)],null,null)},{},{},[]),Eu=t.X({encapsulation:2,styles:[],data:{}});function Mu(l){return t._21(0,[(l()(),t.Z(0,0,null,null,20,"ion-header",[],null,null,null,null,null)),t.Y(1,16384,null,0,Hl.a,[Yl.a,t.j,t.z,[2,$l.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,16,"ion-navbar",[["class","toolbar"],["color","cultivos"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,ql.b,ql.a)),t.Y(4,49152,null,0,Xl.a,[Wl.a,[2,$l.a],[2,vl.a],Yl.a,t.j,t.z],{color:[0,"color"]},null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==t._13(l,8).toggle()&&e);return e},fl.b,fl.a)),t.Y(7,1097728,[[1,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,Wn.a,[Yn.a,[2,$l.a],[2,Cl.a],[2,Xl.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,Gl.b,Gl.a)),t.Y(17,49152,null,0,Kl.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),(l()(),t._19(-1,0,["Editar Camion"])),(l()(),t._19(-1,3,["\n  "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n\n"])),(l()(),t.Z(22,0,null,null,117,"ion-content",[["class","back-color"],["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Jl.b,Jl.a)),t.Y(23,4374528,null,0,Ql.a,[Yl.a,yl.a,Fl.a,t.j,t.z,Wl.a,ln.a,t.u,[2,$l.a],[2,vl.a]],null,null),(l()(),t._19(-1,1,["\n  "])),(l()(),t.Z(25,0,null,1,113,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(26,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n    "])),(l()(),t.Z(28,0,null,null,109,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(29,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(31,0,null,null,8,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(32,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(34,0,null,null,1,"h1",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Editar Camion"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(37,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Ingrese los datos necesarios para editar un camion existente."])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(41,0,null,null,95,"ion-col",[["class","back-black-color col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(42,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(44,0,null,null,1,"h3",[["no-margin",""],["padding-top",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Datos generales del camion"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(47,0,null,null,88,"form",[["novalidate",""]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngSubmit"],[null,"submit"],[null,"reset"]],function(l,n,u){var e=!0,a=l.component;"submit"===n&&(e=!1!==t._13(l,49).onSubmit(u)&&e);"reset"===n&&(e=!1!==t._13(l,49).onReset()&&e);"ngSubmit"===n&&(e=!1!==a.editCamion()&&e);return e},null,null)),t.Y(48,16384,null,0,c.r,[],null,null),t.Y(49,4210688,null,0,c.l,[[8,null],[8,null]],null,{ngSubmit:"ngSubmit"}),t._16(2048,null,c.b,null,[c.l]),t.Y(51,16384,null,0,c.k,[c.b],null,null),(l()(),t._19(-1,null,["\n          "])),(l()(),t.Z(53,0,null,null,81,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(54,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n            "])),(l()(),t.Z(56,0,null,null,77,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(57,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n              "])),(l()(),t.Z(59,0,null,null,73,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding-bottom",""]],null,null,null,null,null)),t.Y(60,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                "])),(l()(),t.Z(62,0,null,null,69,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(63,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(65,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-12",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(66,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,2,{contentLabel:0}),t._17(603979776,3,{_buttons:1}),t._17(603979776,4,{_icons:1}),t.Y(70,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(72,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(73,16384,[[2,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Nombre Chofer"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(76,0,null,3,4,"ion-input",[["name","nombreChofer"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.camion.nombreChofer=u)&&e);return e},Bn.b,Bn.a)),t.Y(77,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(79,16384,null,0,c.j,[c.i],null,null),t.Y(80,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(83,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(84,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,5,{contentLabel:0}),t._17(603979776,6,{_buttons:1}),t._17(603979776,7,{_icons:1}),t.Y(88,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(90,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(91,16384,[[5,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Patente Acoplado"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(94,0,null,3,4,"ion-input",[["name","patenteAcoplado"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.camion.patenteAcoplado=u)&&e);return e},Bn.b,Bn.a)),t.Y(95,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(97,16384,null,0,c.j,[c.i],null,null),t.Y(98,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(101,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(102,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,8,{contentLabel:0}),t._17(603979776,9,{_buttons:1}),t._17(603979776,10,{_icons:1}),t.Y(106,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(108,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(109,16384,[[8,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Patente Chasis"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(112,0,null,3,4,"ion-input",[["name","patenteChasis"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.camion.patenteChasis=u)&&e);return e},Bn.b,Bn.a)),t.Y(113,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(115,16384,null,0,c.j,[c.i],null,null),t.Y(116,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(119,0,null,null,11,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(120,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(122,0,null,null,7,"ion-buttons",[["right",""]],null,null,null,null,null)),t.Y(123,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,11,{_buttons:1}),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(126,0,null,null,2,"button",[["color","semiDark"],["ion-button",""],["type","submit"]],null,null,null,fl.b,fl.a)),t.Y(127,1097728,[[11,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"]},null),(l()(),t._19(-1,0,["Editar"])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,null,["\n              "])),(l()(),t._19(-1,null,["\n            "])),(l()(),t._19(-1,null,["\n          "])),(l()(),t._19(-1,null,["\n        "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n    "])),(l()(),t._19(-1,null,["\n  "])),(l()(),t._19(-1,1,["\n"])),(l()(),t._19(-1,null,["\n\n"]))],function(l,n){var u=n.component;l(n,4,0,"cultivos");l(n,8,0,"");l(n,13,0,"menu");l(n,77,0,"nombreChofer",u.camion.nombreChofer);l(n,80,0,"text");l(n,95,0,"patenteAcoplado",u.camion.patenteAcoplado);l(n,98,0,"text");l(n,113,0,"patenteChasis",u.camion.patenteChasis);l(n,116,0,"text");l(n,127,0,"semiDark")},function(l,n){l(n,3,0,t._13(n,4)._hidden,t._13(n,4)._sbPadding),l(n,6,0,t._13(n,8).isHidden),l(n,12,0,t._13(n,13)._hidden),l(n,22,0,t._13(n,23).statusbarPadding,t._13(n,23)._hasRefresher),l(n,47,0,t._13(n,51).ngClassUntouched,t._13(n,51).ngClassTouched,t._13(n,51).ngClassPristine,t._13(n,51).ngClassDirty,t._13(n,51).ngClassValid,t._13(n,51).ngClassInvalid,t._13(n,51).ngClassPending),l(n,76,0,t._13(n,79).ngClassUntouched,t._13(n,79).ngClassTouched,t._13(n,79).ngClassPristine,t._13(n,79).ngClassDirty,t._13(n,79).ngClassValid,t._13(n,79).ngClassInvalid,t._13(n,79).ngClassPending),l(n,94,0,t._13(n,97).ngClassUntouched,t._13(n,97).ngClassTouched,t._13(n,97).ngClassPristine,t._13(n,97).ngClassDirty,t._13(n,97).ngClassValid,t._13(n,97).ngClassInvalid,t._13(n,97).ngClassPending),l(n,112,0,t._13(n,115).ngClassUntouched,t._13(n,115).ngClassTouched,t._13(n,115).ngClassPristine,t._13(n,115).ngClassDirty,t._13(n,115).ngClassValid,t._13(n,115).ngClassInvalid,t._13(n,115).ngClassPending)})}var Ou=t.V("page-edit-camion",I,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-edit-camion",[],null,null,null,Mu,Eu)),t.Y(1,49152,null,0,I,[vl.a,tn.a,k],null,null)],null,null)},{},{},[]),Au=t.X({encapsulation:2,styles:[],data:{}});function Vu(l){return t._21(0,[(l()(),t.Z(0,0,null,null,112,"ion-item",[["class","no-border item item-block"],["ion-item",""]],null,null,null,El.b,El.a)),t.Y(1,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,2,{contentLabel:0}),t._17(603979776,3,{_buttons:1}),t._17(603979776,4,{_icons:1}),t.Y(5,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                "])),(l()(),t.Z(7,0,null,0,4,"ion-avatar",[["item-left",""]],null,null,null,null,null)),t.Y(8,16384,null,0,nu.a,[],null,null),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(10,0,null,null,0,"img",[["src","assets/imgs/emperesa-icon.png"]],null,null,null,null,null)),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,2,["\n                "])),(l()(),t.Z(13,0,null,2,98,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(14,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(16,0,null,null,20,"ion-col",[["class","col"],["col-md-3",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(17,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(19,0,null,null,16,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(20,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(22,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(23,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(25,0,null,null,1,"h2",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Empresa"])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(29,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(30,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(32,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(33,null,["",""])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(38,0,null,null,20,"ion-col",[["class","col"],["col-md-3",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(39,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(41,0,null,null,16,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(42,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(44,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(45,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(47,0,null,null,1,"h2",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Direccion"])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(51,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(52,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(54,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(55,null,["",""])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(60,0,null,null,20,"ion-col",[["class","col"],["col-md-3",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(61,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,[" \n                    "])),(l()(),t.Z(63,0,null,null,16,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(64,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(66,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(67,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(69,0,null,null,1,"h2",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Telefono"])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(73,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(74,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(76,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(77,null,["",""])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(82,0,null,null,28,"ion-col",[["class","col"],["col-md-3",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(83,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,[" \n                    "])),(l()(),t.Z(85,0,null,null,24,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(86,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(88,0,null,null,9,"ion-col",[["class","col"],["col-md-6",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(89,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(91,0,null,null,5,"button",[["color","semiDark"],["icon-only",""],["ion-button",""],["round",""],["small",""]],null,[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==l.component.goToEdit(l.context.$implicit)&&e);return e},fl.b,fl.a)),t.Y(92,1097728,null,0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"],small:[1,"small"],round:[2,"round"]},null),(l()(),t._19(-1,0,["\n                          "])),(l()(),t.Z(94,0,null,0,1,"ion-icon",[["name","create"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(95,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n                        "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(99,0,null,null,9,"ion-col",[["class","col"],["col-md-6",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(100,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(102,0,null,null,5,"button",[["color","semiDark"],["icon-only",""],["ion-button",""],["round",""],["small",""]],null,[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==l.component.alertDeleteEmpresa(l.context.$implicit.id)&&e);return e},fl.b,fl.a)),t.Y(103,1097728,null,0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"],small:[1,"small"],round:[2,"round"]},null),(l()(),t._19(-1,0,["\n                          "])),(l()(),t.Z(105,0,null,0,1,"ion-icon",[["name","trash"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(106,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n                        "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,2,["\n              "]))],function(l,n){l(n,92,0,"semiDark","","");l(n,95,0,"create");l(n,103,0,"semiDark","","");l(n,106,0,"trash")},function(l,n){l(n,33,0,n.context.$implicit.nombre),l(n,55,0,n.context.$implicit.direccion),l(n,77,0,n.context.$implicit.telefono),l(n,94,0,t._13(n,95)._hidden),l(n,105,0,t._13(n,106)._hidden)})}function Lu(l){return t._21(0,[(l()(),t.Z(0,0,null,null,20,"ion-header",[],null,null,null,null,null)),t.Y(1,16384,null,0,Hl.a,[Yl.a,t.j,t.z,[2,$l.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,16,"ion-navbar",[["class","toolbar"],["color","cultivos"],["hideBackButton","true"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,ql.b,ql.a)),t.Y(4,49152,null,0,Xl.a,[Wl.a,[2,$l.a],[2,vl.a],Yl.a,t.j,t.z],{color:[0,"color"],hideBackButton:[1,"hideBackButton"]},null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==t._13(l,8).toggle()&&e);return e},fl.b,fl.a)),t.Y(7,1097728,[[1,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,Wn.a,[Yn.a,[2,$l.a],[2,Cl.a],[2,Xl.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,Gl.b,Gl.a)),t.Y(17,49152,null,0,Kl.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),(l()(),t._19(-1,0,["Empresas"])),(l()(),t._19(-1,3,["\n  "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n\n"])),(l()(),t.Z(22,0,null,null,42,"ion-content",[["class","back-color"],["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Jl.b,Jl.a)),t.Y(23,4374528,null,0,Ql.a,[Yl.a,yl.a,Fl.a,t.j,t.z,Wl.a,ln.a,t.u,[2,$l.a],[2,vl.a]],null,null),(l()(),t._19(-1,1,["\n  "])),(l()(),t.Z(25,0,null,1,38,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(26,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n    "])),(l()(),t.Z(28,0,null,null,34,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(29,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(31,0,null,null,8,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(32,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(34,0,null,null,1,"h1",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Listado de Empresas"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(37,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Presentacion en forma de lista de las empresas con los que se comercializa"])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(41,0,null,null,20,"ion-col",[["class","back-black-color col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(42,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(44,0,null,null,1,"h4",[["no-margin",""],["padding-top",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Empresas"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(47,0,null,null,13,"ion-row",[["class","row"],["padding",""]],null,null,null,null,null)),t.Y(48,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n          "])),(l()(),t.Z(50,0,null,null,9,"ion-col",[["class","col"],["col-md-8",""],["col-sm-12",""],["offset-md-2",""]],null,null,null,null,null)),t.Y(51,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n            "])),(l()(),t.Z(53,0,null,null,5,"ion-list",[],null,null,null,null,null)),t.Y(54,16384,null,0,Vl.a,[Yl.a,t.j,t.z,yl.a,Ll.l,Fl.a],null,null),(l()(),t._19(-1,null,["\n              "])),(l()(),t.U(16777216,null,null,1,null,Vu)),t.Y(57,802816,null,0,Nl.i,[t.I,t.F,t.p],{ngForOf:[0,"ngForOf"]},null),(l()(),t._19(-1,null,["\n            "])),(l()(),t._19(-1,null,["\n          "])),(l()(),t._19(-1,null,["\n        "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n    "])),(l()(),t._19(-1,null,["\n  "])),(l()(),t._19(-1,1,["\n"])),(l()(),t._19(-1,null,["\n\n"]))],function(l,n){var u=n.component;l(n,4,0,"cultivos","true");l(n,8,0,"");l(n,13,0,"menu"),l(n,57,0,u.empresasList)},function(l,n){l(n,3,0,t._13(n,4)._hidden,t._13(n,4)._sbPadding),l(n,6,0,t._13(n,8).isHidden),l(n,12,0,t._13(n,13)._hidden),l(n,22,0,t._13(n,23).statusbarPadding,t._13(n,23)._hasRefresher)})}var Fu=t.V("page-empresas-list",x,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-empresas-list",[],null,null,null,Lu,Au)),t.Y(1,49152,null,0,x,[vl.a,tn.a,P,Rn.a],null,null)],null,null)},{},{},[]),Nu=t.X({encapsulation:2,styles:[],data:{}});function Bu(l){return t._21(0,[(l()(),t.Z(0,0,null,null,2,"ion-option",[],null,null,null,null,null)),t.Y(1,16384,[[14,4]],0,ou.a,[t.j],{value:[0,"value"]},null),(l()(),t._19(2,null,["",""]))],function(l,n){l(n,1,0,n.context.$implicit.id)},function(l,n){l(n,2,0,n.context.$implicit.nombreChofer)})}function Uu(l){return t._21(0,[(l()(),t.Z(0,0,null,null,20,"ion-header",[],null,null,null,null,null)),t.Y(1,16384,null,0,Hl.a,[Yl.a,t.j,t.z,[2,$l.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,16,"ion-navbar",[["class","toolbar"],["color","cultivos"],["hideBackButton","true"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,ql.b,ql.a)),t.Y(4,49152,null,0,Xl.a,[Wl.a,[2,$l.a],[2,vl.a],Yl.a,t.j,t.z],{color:[0,"color"],hideBackButton:[1,"hideBackButton"]},null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==t._13(l,8).toggle()&&e);return e},fl.b,fl.a)),t.Y(7,1097728,[[1,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,Wn.a,[Yn.a,[2,$l.a],[2,Cl.a],[2,Xl.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,Gl.b,Gl.a)),t.Y(17,49152,null,0,Kl.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),(l()(),t._19(-1,0,["Nuevo Empresa"])),(l()(),t._19(-1,3,["\n  "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n\n\n"])),(l()(),t.Z(22,0,null,null,141,"ion-content",[["class","back-color"],["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Jl.b,Jl.a)),t.Y(23,4374528,null,0,Ql.a,[Yl.a,yl.a,Fl.a,t.j,t.z,Wl.a,ln.a,t.u,[2,$l.a],[2,vl.a]],null,null),(l()(),t._19(-1,1,["\n  "])),(l()(),t.Z(25,0,null,1,137,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(26,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n    "])),(l()(),t.Z(28,0,null,null,133,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(29,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(31,0,null,null,8,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(32,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(34,0,null,null,1,"h1",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Nueva Empresa"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(37,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Ingrese los datos necesarios para generar una nueva empresa."])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(41,0,null,null,119,"ion-col",[["class","back-black-color col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(42,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(44,0,null,null,1,"h3",[["no-margin",""],["padding-top",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Datos generales de la empresa"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(47,0,null,null,112,"form",[["novalidate",""]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngSubmit"],[null,"submit"],[null,"reset"]],function(l,n,u){var e=!0,a=l.component;"submit"===n&&(e=!1!==t._13(l,49).onSubmit(u)&&e);"reset"===n&&(e=!1!==t._13(l,49).onReset()&&e);"ngSubmit"===n&&(e=!1!==a.addNewEmpresa()&&e);return e},null,null)),t.Y(48,16384,null,0,c.r,[],null,null),t.Y(49,4210688,null,0,c.l,[[8,null],[8,null]],null,{ngSubmit:"ngSubmit"}),t._16(2048,null,c.b,null,[c.l]),t.Y(51,16384,null,0,c.k,[c.b],null,null),(l()(),t._19(-1,null,["\n          "])),(l()(),t.Z(53,0,null,null,105,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(54,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n            "])),(l()(),t.Z(56,0,null,null,101,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(57,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n              "])),(l()(),t.Z(59,0,null,null,97,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding-bottom",""]],null,null,null,null,null)),t.Y(60,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                "])),(l()(),t.Z(62,0,null,null,93,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(63,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(65,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(66,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,2,{contentLabel:0}),t._17(603979776,3,{_buttons:1}),t._17(603979776,4,{_icons:1}),t.Y(70,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(72,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(73,16384,[[2,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Nombre"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(76,0,null,3,4,"ion-input",[["name","name"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.empresa.nombre=u)&&e);return e},Bn.b,Bn.a)),t.Y(77,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(79,16384,null,0,c.j,[c.i],null,null),t.Y(80,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(83,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(84,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,5,{contentLabel:0}),t._17(603979776,6,{_buttons:1}),t._17(603979776,7,{_icons:1}),t.Y(88,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(90,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(91,16384,[[5,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Direccion"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(94,0,null,3,4,"ion-input",[["name","direccion"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.empresa.direccion=u)&&e);return e},Bn.b,Bn.a)),t.Y(95,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(97,16384,null,0,c.j,[c.i],null,null),t.Y(98,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(101,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(102,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,8,{contentLabel:0}),t._17(603979776,9,{_buttons:1}),t._17(603979776,10,{_icons:1}),t.Y(106,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(108,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(109,16384,[[8,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Telefono"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(112,0,null,3,4,"ion-input",[["name","telefono"],["type","number"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.empresa.telefono=u)&&e);return e},Bn.b,Bn.a)),t.Y(113,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(115,16384,null,0,c.j,[c.i],null,null),t.Y(116,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(119,0,null,null,22,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(120,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,11,{contentLabel:0}),t._17(603979776,12,{_buttons:1}),t._17(603979776,13,{_icons:1}),t.Y(124,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(126,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(127,16384,[[11,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Camiones"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(130,0,null,3,10,"ion-select",[["cancelText","Cancelar"],["multiple","true"],["name","camiones_ids"],["okText","Aceptar"]],[[2,"select-disabled",null],[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"],[null,"click"],[null,"keyup.space"]],function(l,n,u){var e=!0,a=l.component;"click"===n&&(e=!1!==t._13(l,131)._click(u)&&e);"keyup.space"===n&&(e=!1!==t._13(l,131)._keyup()&&e);"ngModelChange"===n&&(e=!1!==(a.empresa.camiones_ids=u)&&e);return e},iu.b,iu.a)),t.Y(131,1228800,null,1,su.a,[Wl.a,Zl.a,Yl.a,t.j,t.z,[2,jl.a],On.a],{cancelText:[0,"cancelText"],okText:[1,"okText"],multiple:[2,"multiple"]},null),t._17(603979776,14,{options:1}),t._16(1024,null,c.h,function(l){return[l]},[su.a]),t.Y(134,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[2,c.h]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(136,16384,null,0,c.j,[c.i],null,null),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.U(16777216,null,null,1,null,Bu)),t.Y(139,802816,null,0,Nl.i,[t.I,t.F,t.p],{ngForOf:[0,"ngForOf"]},null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(143,0,null,null,11,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(144,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(146,0,null,null,7,"ion-buttons",[["right",""]],null,null,null,null,null)),t.Y(147,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,15,{_buttons:1}),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(150,0,null,null,2,"button",[["color","semiDark"],["ion-button",""],["type","submit"]],null,null,null,fl.b,fl.a)),t.Y(151,1097728,[[15,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"]},null),(l()(),t._19(-1,0,["Agregar"])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,null,["\n              "])),(l()(),t._19(-1,null,["\n            "])),(l()(),t._19(-1,null,["\n          "])),(l()(),t._19(-1,null,["\n        "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n    "])),(l()(),t._19(-1,null,["\n  "])),(l()(),t._19(-1,1,["\n"])),(l()(),t._19(-1,null,["\n\n"]))],function(l,n){var u=n.component;l(n,4,0,"cultivos","true");l(n,8,0,"");l(n,13,0,"menu");l(n,77,0,"name",u.empresa.nombre);l(n,80,0,"text");l(n,95,0,"direccion",u.empresa.direccion);l(n,98,0,"text");l(n,113,0,"telefono",u.empresa.telefono);l(n,116,0,"number");l(n,131,0,"Cancelar","Aceptar","true");l(n,134,0,"camiones_ids",u.empresa.camiones_ids),l(n,139,0,u.camiones);l(n,151,0,"semiDark")},function(l,n){l(n,3,0,t._13(n,4)._hidden,t._13(n,4)._sbPadding),l(n,6,0,t._13(n,8).isHidden),l(n,12,0,t._13(n,13)._hidden),l(n,22,0,t._13(n,23).statusbarPadding,t._13(n,23)._hasRefresher),l(n,47,0,t._13(n,51).ngClassUntouched,t._13(n,51).ngClassTouched,t._13(n,51).ngClassPristine,t._13(n,51).ngClassDirty,t._13(n,51).ngClassValid,t._13(n,51).ngClassInvalid,t._13(n,51).ngClassPending),l(n,76,0,t._13(n,79).ngClassUntouched,t._13(n,79).ngClassTouched,t._13(n,79).ngClassPristine,t._13(n,79).ngClassDirty,t._13(n,79).ngClassValid,t._13(n,79).ngClassInvalid,t._13(n,79).ngClassPending),l(n,94,0,t._13(n,97).ngClassUntouched,t._13(n,97).ngClassTouched,t._13(n,97).ngClassPristine,t._13(n,97).ngClassDirty,t._13(n,97).ngClassValid,t._13(n,97).ngClassInvalid,t._13(n,97).ngClassPending),l(n,112,0,t._13(n,115).ngClassUntouched,t._13(n,115).ngClassTouched,t._13(n,115).ngClassPristine,t._13(n,115).ngClassDirty,t._13(n,115).ngClassValid,t._13(n,115).ngClassInvalid,t._13(n,115).ngClassPending),l(n,130,0,t._13(n,131)._disabled,t._13(n,136).ngClassUntouched,t._13(n,136).ngClassTouched,t._13(n,136).ngClassPristine,t._13(n,136).ngClassDirty,t._13(n,136).ngClassValid,t._13(n,136).ngClassInvalid,t._13(n,136).ngClassPending)})}var $u=t.V("page-new-empresa",el,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-new-empresa",[],null,null,null,Uu,Nu)),t.Y(1,49152,null,0,el,[vl.a,tn.a,k,P],null,null)],null,null)},{},{},[]),Ru=t.X({encapsulation:2,styles:[],data:{}});function Hu(l){return t._21(0,[(l()(),t.Z(0,0,null,null,20,"ion-header",[],null,null,null,null,null)),t.Y(1,16384,null,0,Hl.a,[Yl.a,t.j,t.z,[2,$l.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,16,"ion-navbar",[["class","toolbar"],["color","cultivos"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,ql.b,ql.a)),t.Y(4,49152,null,0,Xl.a,[Wl.a,[2,$l.a],[2,vl.a],Yl.a,t.j,t.z],{color:[0,"color"]},null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==t._13(l,8).toggle()&&e);return e},fl.b,fl.a)),t.Y(7,1097728,[[1,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,Wn.a,[Yn.a,[2,$l.a],[2,Cl.a],[2,Xl.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,Gl.b,Gl.a)),t.Y(17,49152,null,0,Kl.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),(l()(),t._19(-1,0,["Editar Empresa"])),(l()(),t._19(-1,3,["\n  "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n\n"])),(l()(),t.Z(22,0,null,null,117,"ion-content",[["class","back-color"],["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Jl.b,Jl.a)),t.Y(23,4374528,null,0,Ql.a,[Yl.a,yl.a,Fl.a,t.j,t.z,Wl.a,ln.a,t.u,[2,$l.a],[2,vl.a]],null,null),(l()(),t._19(-1,1,["\n  "])),(l()(),t.Z(25,0,null,1,113,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(26,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n    "])),(l()(),t.Z(28,0,null,null,109,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(29,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(31,0,null,null,8,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(32,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(34,0,null,null,1,"h1",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Editar Empresa"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(37,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Ingrese los datos necesarios para generar una empresa existente."])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(41,0,null,null,95,"ion-col",[["class","back-black-color col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(42,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(44,0,null,null,1,"h3",[["no-margin",""],["padding-top",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Datos generales de la empresa"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(47,0,null,null,88,"form",[["novalidate",""]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngSubmit"],[null,"submit"],[null,"reset"]],function(l,n,u){var e=!0,a=l.component;"submit"===n&&(e=!1!==t._13(l,49).onSubmit(u)&&e);"reset"===n&&(e=!1!==t._13(l,49).onReset()&&e);"ngSubmit"===n&&(e=!1!==a.editEmpresa()&&e);return e},null,null)),t.Y(48,16384,null,0,c.r,[],null,null),t.Y(49,4210688,null,0,c.l,[[8,null],[8,null]],null,{ngSubmit:"ngSubmit"}),t._16(2048,null,c.b,null,[c.l]),t.Y(51,16384,null,0,c.k,[c.b],null,null),(l()(),t._19(-1,null,["\n          "])),(l()(),t.Z(53,0,null,null,81,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(54,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n            "])),(l()(),t.Z(56,0,null,null,77,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(57,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n              "])),(l()(),t.Z(59,0,null,null,73,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding-bottom",""]],null,null,null,null,null)),t.Y(60,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                "])),(l()(),t.Z(62,0,null,null,69,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(63,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(65,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(66,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,2,{contentLabel:0}),t._17(603979776,3,{_buttons:1}),t._17(603979776,4,{_icons:1}),t.Y(70,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(72,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(73,16384,[[2,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Nombre"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(76,0,null,3,4,"ion-input",[["name","name"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.empresa.nombre=u)&&e);return e},Bn.b,Bn.a)),t.Y(77,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(79,16384,null,0,c.j,[c.i],null,null),t.Y(80,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(83,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(84,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,5,{contentLabel:0}),t._17(603979776,6,{_buttons:1}),t._17(603979776,7,{_icons:1}),t.Y(88,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(90,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(91,16384,[[5,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Direccion"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(94,0,null,3,4,"ion-input",[["name","direccion"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.empresa.direccion=u)&&e);return e},Bn.b,Bn.a)),t.Y(95,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(97,16384,null,0,c.j,[c.i],null,null),t.Y(98,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(101,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(102,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,8,{contentLabel:0}),t._17(603979776,9,{_buttons:1}),t._17(603979776,10,{_icons:1}),t.Y(106,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(108,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(109,16384,[[8,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Telefono"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(112,0,null,3,4,"ion-input",[["name","telefono"],["type","number"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.empresa.telefono=u)&&e);return e},Bn.b,Bn.a)),t.Y(113,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(115,16384,null,0,c.j,[c.i],null,null),t.Y(116,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(119,0,null,null,11,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(120,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(122,0,null,null,7,"ion-buttons",[["right",""]],null,null,null,null,null)),t.Y(123,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,11,{_buttons:1}),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(126,0,null,null,2,"button",[["color","semiDark"],["ion-button",""],["type","submit"]],null,null,null,fl.b,fl.a)),t.Y(127,1097728,[[11,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"]},null),(l()(),t._19(-1,0,["Editar"])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,null,["\n              "])),(l()(),t._19(-1,null,["\n            "])),(l()(),t._19(-1,null,["\n          "])),(l()(),t._19(-1,null,["\n        "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n    "])),(l()(),t._19(-1,null,["\n  "])),(l()(),t._19(-1,1,["\n"])),(l()(),t._19(-1,null,["\n\n"]))],function(l,n){var u=n.component;l(n,4,0,"cultivos");l(n,8,0,"");l(n,13,0,"menu");l(n,77,0,"name",u.empresa.nombre);l(n,80,0,"text");l(n,95,0,"direccion",u.empresa.direccion);l(n,98,0,"text");l(n,113,0,"telefono",u.empresa.telefono);l(n,116,0,"number");l(n,127,0,"semiDark")},function(l,n){l(n,3,0,t._13(n,4)._hidden,t._13(n,4)._sbPadding),l(n,6,0,t._13(n,8).isHidden),l(n,12,0,t._13(n,13)._hidden),l(n,22,0,t._13(n,23).statusbarPadding,t._13(n,23)._hasRefresher),l(n,47,0,t._13(n,51).ngClassUntouched,t._13(n,51).ngClassTouched,t._13(n,51).ngClassPristine,t._13(n,51).ngClassDirty,t._13(n,51).ngClassValid,t._13(n,51).ngClassInvalid,t._13(n,51).ngClassPending),l(n,76,0,t._13(n,79).ngClassUntouched,t._13(n,79).ngClassTouched,t._13(n,79).ngClassPristine,t._13(n,79).ngClassDirty,t._13(n,79).ngClassValid,t._13(n,79).ngClassInvalid,t._13(n,79).ngClassPending),l(n,94,0,t._13(n,97).ngClassUntouched,t._13(n,97).ngClassTouched,t._13(n,97).ngClassPristine,t._13(n,97).ngClassDirty,t._13(n,97).ngClassValid,t._13(n,97).ngClassInvalid,t._13(n,97).ngClassPending),l(n,112,0,t._13(n,115).ngClassUntouched,t._13(n,115).ngClassTouched,t._13(n,115).ngClassPristine,t._13(n,115).ngClassDirty,t._13(n,115).ngClassValid,t._13(n,115).ngClassInvalid,t._13(n,115).ngClassPending)})}var qu=t.V("page-edit-empresa",w,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-edit-empresa",[],null,null,null,Hu,Ru)),t.Y(1,49152,null,0,w,[vl.a,tn.a,P],null,null)],null,null)},{},{},[]),Xu=t.X({encapsulation:2,styles:[],data:{}});function Wu(l){return t._21(0,[(l()(),t.Z(0,0,null,null,112,"ion-item",[["class","no-border item item-block"],["ion-item",""]],null,null,null,El.b,El.a)),t.Y(1,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,2,{contentLabel:0}),t._17(603979776,3,{_buttons:1}),t._17(603979776,4,{_icons:1}),t.Y(5,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                "])),(l()(),t.Z(7,0,null,0,4,"ion-avatar",[["item-left",""]],null,null,null,null,null)),t.Y(8,16384,null,0,nu.a,[],null,null),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(10,0,null,null,0,"img",[["src","assets/imgs/institucion-icon.png"]],null,null,null,null,null)),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,2,["\n                "])),(l()(),t.Z(13,0,null,2,98,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(14,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(16,0,null,null,20,"ion-col",[["class","col"],["col-md-3",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(17,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(19,0,null,null,16,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(20,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(22,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(23,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(25,0,null,null,1,"h2",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Institucion"])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(29,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(30,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(32,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(33,null,["",""])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(38,0,null,null,20,"ion-col",[["class","col"],["col-md-3",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(39,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(41,0,null,null,16,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(42,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(44,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(45,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(47,0,null,null,1,"h2",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Direccion"])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(51,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(52,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(54,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(55,null,["",""])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(60,0,null,null,20,"ion-col",[["class","col"],["col-md-3",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(61,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,[" \n                    "])),(l()(),t.Z(63,0,null,null,16,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(64,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(66,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(67,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(69,0,null,null,1,"h2",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Telefono"])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(73,0,null,null,5,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(74,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(76,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(77,null,["",""])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(82,0,null,null,28,"ion-col",[["class","col"],["col-md-3",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(83,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,[" \n                    "])),(l()(),t.Z(85,0,null,null,24,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(86,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(88,0,null,null,9,"ion-col",[["class","col"],["col-md-6",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(89,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(91,0,null,null,5,"button",[["color","semiDark"],["icon-only",""],["ion-button",""],["round",""],["small",""]],null,[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==l.component.goToEdit(l.context.$implicit)&&e);return e},fl.b,fl.a)),t.Y(92,1097728,null,0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"],small:[1,"small"],round:[2,"round"]},null),(l()(),t._19(-1,0,["\n                          "])),(l()(),t.Z(94,0,null,0,1,"ion-icon",[["name","create"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(95,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n                        "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(99,0,null,null,9,"ion-col",[["class","col"],["col-md-6",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(100,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(102,0,null,null,5,"button",[["color","semiDark"],["icon-only",""],["ion-button",""],["round",""],["small",""]],null,[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==l.component.alertDeleteInstitucion(l.context.$implicit.id)&&e);return e},fl.b,fl.a)),t.Y(103,1097728,null,0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"],small:[1,"small"],round:[2,"round"]},null),(l()(),t._19(-1,0,["\n                          "])),(l()(),t.Z(105,0,null,0,1,"ion-icon",[["name","trash"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(106,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n                        "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,2,["\n              "]))],function(l,n){l(n,92,0,"semiDark","","");l(n,95,0,"create");l(n,103,0,"semiDark","","");l(n,106,0,"trash")},function(l,n){l(n,33,0,n.context.$implicit.nombre),l(n,55,0,n.context.$implicit.direccion),l(n,77,0,n.context.$implicit.telefono),l(n,94,0,t._13(n,95)._hidden),l(n,105,0,t._13(n,106)._hidden)})}function Gu(l){return t._21(0,[(l()(),t.Z(0,0,null,null,20,"ion-header",[],null,null,null,null,null)),t.Y(1,16384,null,0,Hl.a,[Yl.a,t.j,t.z,[2,$l.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,16,"ion-navbar",[["class","toolbar"],["color","cultivos"],["hideBackButton","true"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,ql.b,ql.a)),t.Y(4,49152,null,0,Xl.a,[Wl.a,[2,$l.a],[2,vl.a],Yl.a,t.j,t.z],{color:[0,"color"],hideBackButton:[1,"hideBackButton"]},null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==t._13(l,8).toggle()&&e);return e},fl.b,fl.a)),t.Y(7,1097728,[[1,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,Wn.a,[Yn.a,[2,$l.a],[2,Cl.a],[2,Xl.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,Gl.b,Gl.a)),t.Y(17,49152,null,0,Kl.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),(l()(),t._19(-1,0,["Instituciones"])),(l()(),t._19(-1,3,["\n  "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n\n"])),(l()(),t.Z(22,0,null,null,42,"ion-content",[["class","back-color"],["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Jl.b,Jl.a)),t.Y(23,4374528,null,0,Ql.a,[Yl.a,yl.a,Fl.a,t.j,t.z,Wl.a,ln.a,t.u,[2,$l.a],[2,vl.a]],null,null),(l()(),t._19(-1,1,["\n  "])),(l()(),t.Z(25,0,null,1,38,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(26,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n    "])),(l()(),t.Z(28,0,null,null,34,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(29,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(31,0,null,null,8,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(32,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(34,0,null,null,1,"h1",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Listado de Instituciones"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(37,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Presentacion en forma de lista de las intituciones donde se destina la fruta"])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(41,0,null,null,20,"ion-col",[["class","back-black-color col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(42,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(44,0,null,null,1,"h4",[["no-margin",""],["padding-top",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Instituciones"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(47,0,null,null,13,"ion-row",[["class","row"],["padding",""]],null,null,null,null,null)),t.Y(48,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n          "])),(l()(),t.Z(50,0,null,null,9,"ion-col",[["class","col"],["col-md-8",""],["col-sm-12",""],["offset-md-2",""]],null,null,null,null,null)),t.Y(51,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n            "])),(l()(),t.Z(53,0,null,null,5,"ion-list",[],null,null,null,null,null)),t.Y(54,16384,null,0,Vl.a,[Yl.a,t.j,t.z,yl.a,Ll.l,Fl.a],null,null),(l()(),t._19(-1,null,["\n              "])),(l()(),t.U(16777216,null,null,1,null,Wu)),t.Y(57,802816,null,0,Nl.i,[t.I,t.F,t.p],{ngForOf:[0,"ngForOf"]},null),(l()(),t._19(-1,null,["\n            "])),(l()(),t._19(-1,null,["\n          "])),(l()(),t._19(-1,null,["\n        "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n    "])),(l()(),t._19(-1,null,["\n  "])),(l()(),t._19(-1,1,["\n"])),(l()(),t._19(-1,null,["\n\n\n"]))],function(l,n){var u=n.component;l(n,4,0,"cultivos","true");l(n,8,0,"");l(n,13,0,"menu"),l(n,57,0,u.institucionesList)},function(l,n){l(n,3,0,t._13(n,4)._hidden,t._13(n,4)._sbPadding),l(n,6,0,t._13(n,8).isHidden),l(n,12,0,t._13(n,13)._hidden),l(n,22,0,t._13(n,23).statusbarPadding,t._13(n,23)._hasRefresher)})}var Ku=t.V("page-instituciones-list",D,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-instituciones-list",[],null,null,null,Gu,Xu)),t.Y(1,49152,null,0,D,[vl.a,tn.a,S,Rn.a],null,null)],null,null)},{},{},[]),Ju=t.X({encapsulation:2,styles:[],data:{}});function Qu(l){return t._21(0,[(l()(),t.Z(0,0,null,null,20,"ion-header",[],null,null,null,null,null)),t.Y(1,16384,null,0,Hl.a,[Yl.a,t.j,t.z,[2,$l.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,16,"ion-navbar",[["class","toolbar"],["color","cultivos"],["hideBackButton","true"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,ql.b,ql.a)),t.Y(4,49152,null,0,Xl.a,[Wl.a,[2,$l.a],[2,vl.a],Yl.a,t.j,t.z],{color:[0,"color"],hideBackButton:[1,"hideBackButton"]},null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==t._13(l,8).toggle()&&e);return e},fl.b,fl.a)),t.Y(7,1097728,[[1,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,Wn.a,[Yn.a,[2,$l.a],[2,Cl.a],[2,Xl.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,Gl.b,Gl.a)),t.Y(17,49152,null,0,Kl.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),(l()(),t._19(-1,0,["Nueva Institucion"])),(l()(),t._19(-1,3,["\n  "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n\n\n"])),(l()(),t.Z(22,0,null,null,117,"ion-content",[["class","back-color"],["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Jl.b,Jl.a)),t.Y(23,4374528,null,0,Ql.a,[Yl.a,yl.a,Fl.a,t.j,t.z,Wl.a,ln.a,t.u,[2,$l.a],[2,vl.a]],null,null),(l()(),t._19(-1,1,["\n  "])),(l()(),t.Z(25,0,null,1,113,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(26,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n    "])),(l()(),t.Z(28,0,null,null,109,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(29,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(31,0,null,null,8,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(32,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(34,0,null,null,1,"h1",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Nueva Institucion"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(37,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Ingrese los datos necesarios para generar una nueva institucion."])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(41,0,null,null,95,"ion-col",[["class","back-black-color col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(42,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(44,0,null,null,1,"h3",[["no-margin",""],["padding-top",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Datos generales de la institucion"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(47,0,null,null,88,"form",[["novalidate",""]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngSubmit"],[null,"submit"],[null,"reset"]],function(l,n,u){var e=!0,a=l.component;"submit"===n&&(e=!1!==t._13(l,49).onSubmit(u)&&e);"reset"===n&&(e=!1!==t._13(l,49).onReset()&&e);"ngSubmit"===n&&(e=!1!==a.addNewInstitucion()&&e);return e},null,null)),t.Y(48,16384,null,0,c.r,[],null,null),t.Y(49,4210688,null,0,c.l,[[8,null],[8,null]],null,{ngSubmit:"ngSubmit"}),t._16(2048,null,c.b,null,[c.l]),t.Y(51,16384,null,0,c.k,[c.b],null,null),(l()(),t._19(-1,null,["\n          "])),(l()(),t.Z(53,0,null,null,81,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(54,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n            "])),(l()(),t.Z(56,0,null,null,77,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(57,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n              "])),(l()(),t.Z(59,0,null,null,73,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding-bottom",""]],null,null,null,null,null)),t.Y(60,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                "])),(l()(),t.Z(62,0,null,null,69,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(63,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(65,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(66,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,2,{contentLabel:0}),t._17(603979776,3,{_buttons:1}),t._17(603979776,4,{_icons:1}),t.Y(70,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(72,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(73,16384,[[2,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Nombre"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(76,0,null,3,4,"ion-input",[["name","name"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.institucion.nombre=u)&&e);return e},Bn.b,Bn.a)),t.Y(77,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(79,16384,null,0,c.j,[c.i],null,null),t.Y(80,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(83,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(84,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,5,{contentLabel:0}),t._17(603979776,6,{_buttons:1}),t._17(603979776,7,{_icons:1}),t.Y(88,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(90,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(91,16384,[[5,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Direccion"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(94,0,null,3,4,"ion-input",[["name","direccion"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.institucion.direccion=u)&&e);return e},Bn.b,Bn.a)),t.Y(95,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(97,16384,null,0,c.j,[c.i],null,null),t.Y(98,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(101,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(102,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,8,{contentLabel:0}),t._17(603979776,9,{_buttons:1}),t._17(603979776,10,{_icons:1}),t.Y(106,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(108,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(109,16384,[[8,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Telefono"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(112,0,null,3,4,"ion-input",[["name","telefono"],["type","number"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.institucion.telefono=u)&&e);return e},Bn.b,Bn.a)),t.Y(113,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(115,16384,null,0,c.j,[c.i],null,null),t.Y(116,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(119,0,null,null,11,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(120,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(122,0,null,null,7,"ion-buttons",[["right",""]],null,null,null,null,null)),t.Y(123,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,11,{_buttons:1}),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(126,0,null,null,2,"button",[["color","semiDark"],["ion-button",""],["type","submit"]],null,null,null,fl.b,fl.a)),t.Y(127,1097728,[[11,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"]},null),(l()(),t._19(-1,0,["Agregar"])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,null,["\n              "])),(l()(),t._19(-1,null,["\n            "])),(l()(),t._19(-1,null,["\n          "])),(l()(),t._19(-1,null,["\n        "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n    "])),(l()(),t._19(-1,null,["\n  "])),(l()(),t._19(-1,1,["\n"])),(l()(),t._19(-1,null,["\n\n\n"]))],function(l,n){var u=n.component;l(n,4,0,"cultivos","true");l(n,8,0,"");l(n,13,0,"menu");l(n,77,0,"name",u.institucion.nombre);l(n,80,0,"text");l(n,95,0,"direccion",u.institucion.direccion);l(n,98,0,"text");l(n,113,0,"telefono",u.institucion.telefono);l(n,116,0,"number");l(n,127,0,"semiDark")},function(l,n){l(n,3,0,t._13(n,4)._hidden,t._13(n,4)._sbPadding),l(n,6,0,t._13(n,8).isHidden),l(n,12,0,t._13(n,13)._hidden),l(n,22,0,t._13(n,23).statusbarPadding,t._13(n,23)._hasRefresher),l(n,47,0,t._13(n,51).ngClassUntouched,t._13(n,51).ngClassTouched,t._13(n,51).ngClassPristine,t._13(n,51).ngClassDirty,t._13(n,51).ngClassValid,t._13(n,51).ngClassInvalid,t._13(n,51).ngClassPending),l(n,76,0,t._13(n,79).ngClassUntouched,t._13(n,79).ngClassTouched,t._13(n,79).ngClassPristine,t._13(n,79).ngClassDirty,t._13(n,79).ngClassValid,t._13(n,79).ngClassInvalid,t._13(n,79).ngClassPending),l(n,94,0,t._13(n,97).ngClassUntouched,t._13(n,97).ngClassTouched,t._13(n,97).ngClassPristine,t._13(n,97).ngClassDirty,t._13(n,97).ngClassValid,t._13(n,97).ngClassInvalid,t._13(n,97).ngClassPending),l(n,112,0,t._13(n,115).ngClassUntouched,t._13(n,115).ngClassTouched,t._13(n,115).ngClassPristine,t._13(n,115).ngClassDirty,t._13(n,115).ngClassValid,t._13(n,115).ngClassInvalid,t._13(n,115).ngClassPending)})}var le=t.V("page-new-institucion",tl,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-new-institucion",[],null,null,null,Qu,Ju)),t.Y(1,49152,null,0,tl,[vl.a,tn.a,S],null,null)],null,null)},{},{},[]),ne=t.X({encapsulation:2,styles:[],data:{}});function ue(l){return t._21(0,[(l()(),t.Z(0,0,null,null,20,"ion-header",[],null,null,null,null,null)),t.Y(1,16384,null,0,Hl.a,[Yl.a,t.j,t.z,[2,$l.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,16,"ion-navbar",[["class","toolbar"],["color","cultivos"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,ql.b,ql.a)),t.Y(4,49152,null,0,Xl.a,[Wl.a,[2,$l.a],[2,vl.a],Yl.a,t.j,t.z],{color:[0,"color"]},null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==t._13(l,8).toggle()&&e);return e},fl.b,fl.a)),t.Y(7,1097728,[[1,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,Wn.a,[Yn.a,[2,$l.a],[2,Cl.a],[2,Xl.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,Gl.b,Gl.a)),t.Y(17,49152,null,0,Kl.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),(l()(),t._19(-1,0,["Editar Institucion"])),(l()(),t._19(-1,3,["\n  "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n\n"])),(l()(),t.Z(22,0,null,null,117,"ion-content",[["class","back-color"],["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Jl.b,Jl.a)),t.Y(23,4374528,null,0,Ql.a,[Yl.a,yl.a,Fl.a,t.j,t.z,Wl.a,ln.a,t.u,[2,$l.a],[2,vl.a]],null,null),(l()(),t._19(-1,1,["\n  "])),(l()(),t.Z(25,0,null,1,113,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(26,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n    "])),(l()(),t.Z(28,0,null,null,109,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(29,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(31,0,null,null,8,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(32,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(34,0,null,null,1,"h1",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Editar Institucion"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(37,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Ingrese los datos necesarios para editar una institucion existente."])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(41,0,null,null,95,"ion-col",[["class","back-black-color col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(42,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(44,0,null,null,1,"h3",[["no-margin",""],["padding-top",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Datos generales de la institucion"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(47,0,null,null,88,"form",[["novalidate",""]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngSubmit"],[null,"submit"],[null,"reset"]],function(l,n,u){var e=!0,a=l.component;"submit"===n&&(e=!1!==t._13(l,49).onSubmit(u)&&e);"reset"===n&&(e=!1!==t._13(l,49).onReset()&&e);"ngSubmit"===n&&(e=!1!==a.editInstitucion()&&e);return e},null,null)),t.Y(48,16384,null,0,c.r,[],null,null),t.Y(49,4210688,null,0,c.l,[[8,null],[8,null]],null,{ngSubmit:"ngSubmit"}),t._16(2048,null,c.b,null,[c.l]),t.Y(51,16384,null,0,c.k,[c.b],null,null),(l()(),t._19(-1,null,["\n          "])),(l()(),t.Z(53,0,null,null,81,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(54,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n            "])),(l()(),t.Z(56,0,null,null,77,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(57,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n              "])),(l()(),t.Z(59,0,null,null,73,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding-bottom",""]],null,null,null,null,null)),t.Y(60,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                "])),(l()(),t.Z(62,0,null,null,69,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(63,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(65,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(66,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,2,{contentLabel:0}),t._17(603979776,3,{_buttons:1}),t._17(603979776,4,{_icons:1}),t.Y(70,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(72,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(73,16384,[[2,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Nombre"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(76,0,null,3,4,"ion-input",[["name","name"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.institucion.nombre=u)&&e);return e},Bn.b,Bn.a)),t.Y(77,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(79,16384,null,0,c.j,[c.i],null,null),t.Y(80,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(83,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(84,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,5,{contentLabel:0}),t._17(603979776,6,{_buttons:1}),t._17(603979776,7,{_icons:1}),t.Y(88,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(90,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(91,16384,[[5,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Direccion"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(94,0,null,3,4,"ion-input",[["name","direccion"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.institucion.direccion=u)&&e);return e},Bn.b,Bn.a)),t.Y(95,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(97,16384,null,0,c.j,[c.i],null,null),t.Y(98,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(101,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(102,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,8,{contentLabel:0}),t._17(603979776,9,{_buttons:1}),t._17(603979776,10,{_icons:1}),t.Y(106,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(108,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(109,16384,[[8,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Telefono"])),(l()(),t._19(-1,2,["\n                    "])),(l()(),t.Z(112,0,null,3,4,"ion-input",[["name","telefono"],["type","number"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.institucion.telefono=u)&&e);return e},Bn.b,Bn.a)),t.Y(113,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(115,16384,null,0,c.j,[c.i],null,null),t.Y(116,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(119,0,null,null,11,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(120,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(122,0,null,null,7,"ion-buttons",[["right",""]],null,null,null,null,null)),t.Y(123,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,11,{_buttons:1}),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(126,0,null,null,2,"button",[["color","semiDark"],["ion-button",""],["type","submit"]],null,null,null,fl.b,fl.a)),t.Y(127,1097728,[[11,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"]},null),(l()(),t._19(-1,0,["Editar"])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,null,["\n              "])),(l()(),t._19(-1,null,["\n            "])),(l()(),t._19(-1,null,["\n          "])),(l()(),t._19(-1,null,["\n        "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n    "])),(l()(),t._19(-1,null,["\n  "])),(l()(),t._19(-1,1,["\n"])),(l()(),t._19(-1,null,["\n"]))],function(l,n){var u=n.component;l(n,4,0,"cultivos");l(n,8,0,"");l(n,13,0,"menu");l(n,77,0,"name",u.institucion.nombre);l(n,80,0,"text");l(n,95,0,"direccion",u.institucion.direccion);l(n,98,0,"text");l(n,113,0,"telefono",u.institucion.telefono);l(n,116,0,"number");l(n,127,0,"semiDark")},function(l,n){l(n,3,0,t._13(n,4)._hidden,t._13(n,4)._sbPadding),l(n,6,0,t._13(n,8).isHidden),l(n,12,0,t._13(n,13)._hidden),l(n,22,0,t._13(n,23).statusbarPadding,t._13(n,23)._hasRefresher),l(n,47,0,t._13(n,51).ngClassUntouched,t._13(n,51).ngClassTouched,t._13(n,51).ngClassPristine,t._13(n,51).ngClassDirty,t._13(n,51).ngClassValid,t._13(n,51).ngClassInvalid,t._13(n,51).ngClassPending),l(n,76,0,t._13(n,79).ngClassUntouched,t._13(n,79).ngClassTouched,t._13(n,79).ngClassPristine,t._13(n,79).ngClassDirty,t._13(n,79).ngClassValid,t._13(n,79).ngClassInvalid,t._13(n,79).ngClassPending),l(n,94,0,t._13(n,97).ngClassUntouched,t._13(n,97).ngClassTouched,t._13(n,97).ngClassPristine,t._13(n,97).ngClassDirty,t._13(n,97).ngClassValid,t._13(n,97).ngClassInvalid,t._13(n,97).ngClassPending),l(n,112,0,t._13(n,115).ngClassUntouched,t._13(n,115).ngClassTouched,t._13(n,115).ngClassPristine,t._13(n,115).ngClassDirty,t._13(n,115).ngClassValid,t._13(n,115).ngClassInvalid,t._13(n,115).ngClassPending)})}var ee=t.V("page-edit-institucion",T,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-edit-institucion",[],null,null,null,ue,ne)),t.Y(1,49152,null,0,T,[vl.a,tn.a,S],null,null)],null,null)},{},{},[]),te=u(143),ae=u(145),oe=u(144),ie=t.X({encapsulation:2,styles:[],data:{}});function se(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"ion-icon",[["item-left",""],["name","arrow-forward"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(1,147456,[[4,4]],0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null)],function(l,n){l(n,1,0,"arrow-forward")},function(l,n){l(n,0,0,t._13(n,1)._hidden)})}function ce(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"ion-icon",[["item-left",""],["name","arrow-down"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(1,147456,[[4,4]],0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null)],function(l,n){l(n,1,0,"arrow-down")},function(l,n){l(n,0,0,t._13(n,1)._hidden)})}function re(l){return t._21(0,[(l()(),t.Z(0,0,null,null,154,"ion-col",[["class","col"],["col-md-4",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(1,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n              "])),(l()(),t.Z(3,0,null,null,150,"ion-list",[],null,null,null,null,null)),t.Y(4,16384,null,0,Vl.a,[Yl.a,t.j,t.z,yl.a,Ll.l,Fl.a],null,null),(l()(),t._19(-1,null,["\n                "])),(l()(),t.Z(6,0,null,null,146,"ion-item",[["class","no-border item item-block"]],null,null,null,El.b,El.a)),t.Y(7,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,11,{contentLabel:0}),t._17(603979776,12,{_buttons:1}),t._17(603979776,13,{_icons:1}),t.Y(11,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t.Z(13,0,null,2,138,"ion-card",[],null,null,null,null,null)),t.Y(14,16384,null,0,te.a,[Yl.a,t.j,t.z],null,null),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(16,0,null,null,2,"ion-card-header",[["class","card-hearder-color no-border"],["text-center",""]],null,null,null,null,null)),t.Y(17,16384,null,0,ae.a,[Yl.a,t.j,t.z],null,null),(l()(),t._19(18,null,["\n                      Lote Nro ","\n                    "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t.Z(20,0,null,null,130,"ion-card-content",[],null,null,null,null,null)),t.Y(21,16384,null,0,oe.a,[Yl.a,t.j,t.z],null,null),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(23,0,null,null,90,"ion-list",[["no-margin",""],["no-padding",""]],null,null,null,null,null)),t.Y(24,16384,null,0,Vl.a,[Yl.a,t.j,t.z,yl.a,Ll.l,Fl.a],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(26,0,null,null,9,"ion-item",[["class","no-border item item-block"]],null,null,null,El.b,El.a)),t.Y(27,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,14,{contentLabel:0}),t._17(603979776,15,{_buttons:1}),t._17(603979776,16,{_icons:1}),t.Y(31,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                          "])),(l()(),t.Z(33,0,null,0,1,"ion-icon",[["item-start",""],["name","cube"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(34,147456,[[16,4]],0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(35,2,["\n                          "," Bins\n                        "])),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(37,0,null,null,9,"ion-item",[["class","no-border item item-block"]],null,null,null,El.b,El.a)),t.Y(38,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,17,{contentLabel:0}),t._17(603979776,18,{_buttons:1}),t._17(603979776,19,{_icons:1}),t.Y(42,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                          "])),(l()(),t.Z(44,0,null,0,1,"ion-icon",[["item-start",""],["name","podium"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(45,147456,[[19,4]],0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(46,2,["\n                          Peso Neto "," Kgs\n                        "])),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(48,0,null,null,9,"ion-item",[["class","no-border item item-block"]],null,null,null,El.b,El.a)),t.Y(49,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,20,{contentLabel:0}),t._17(603979776,21,{_buttons:1}),t._17(603979776,22,{_icons:1}),t.Y(53,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                          "])),(l()(),t.Z(55,0,null,0,1,"ion-icon",[["item-start",""],["name","rose"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(56,147456,[[22,4]],0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(57,2,["\n                          Especie ","\n                        "])),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(59,0,null,null,9,"ion-item",[["class","no-border item item-block"]],null,null,null,El.b,El.a)),t.Y(60,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,23,{contentLabel:0}),t._17(603979776,24,{_buttons:1}),t._17(603979776,25,{_icons:1}),t.Y(64,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                          "])),(l()(),t.Z(66,0,null,0,1,"ion-icon",[["item-start",""],["name","flower"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(67,147456,[[25,4]],0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(68,2,["\n                          Variedad ","\n                        "])),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(70,0,null,null,9,"ion-item",[["class","no-border item item-block"]],null,null,null,El.b,El.a)),t.Y(71,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,26,{contentLabel:0}),t._17(603979776,27,{_buttons:1}),t._17(603979776,28,{_icons:1}),t.Y(75,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                          "])),(l()(),t.Z(77,0,null,0,1,"ion-icon",[["item-start",""],["name","star-half"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(78,147456,[[28,4]],0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(79,2,["\n                          Calidad ","\n                        "])),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(81,0,null,null,9,"ion-item",[["class","no-border item item-block"]],null,null,null,El.b,El.a)),t.Y(82,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,29,{contentLabel:0}),t._17(603979776,30,{_buttons:1}),t._17(603979776,31,{_icons:1}),t.Y(86,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                          "])),(l()(),t.Z(88,0,null,0,1,"ion-icon",[["item-start",""],["name","home"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(89,147456,[[31,4]],0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(90,2,["\n                          Lugar Actual ","\n                        "])),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(92,0,null,null,9,"ion-item",[["class","no-border item item-block"]],null,null,null,El.b,El.a)),t.Y(93,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,32,{contentLabel:0}),t._17(603979776,33,{_buttons:1}),t._17(603979776,34,{_icons:1}),t.Y(97,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                          "])),(l()(),t.Z(99,0,null,0,1,"ion-icon",[["item-start",""],["name","leaf"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(100,147456,[[34,4]],0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(101,2,["\n                          Chacra ","\n                        "])),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(103,0,null,null,9,"ion-item",[["class","no-border item item-block"]],null,null,null,El.b,El.a)),t.Y(104,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,35,{contentLabel:0}),t._17(603979776,36,{_buttons:1}),t._17(603979776,37,{_icons:1}),t.Y(108,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                          "])),(l()(),t.Z(110,0,null,0,1,"ion-icon",[["item-start",""],["name","bus"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(111,147456,[[37,4]],0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(112,2,["\n                          Chofer Camion ","\n                        "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t.Z(115,0,null,null,34,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(116,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(118,0,null,null,14,"ion-col",[["class","col"],["col-6",""]],null,null,null,null,null)),t.Y(119,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,[" \n                          "])),(l()(),t.Z(121,0,null,null,10,"ion-buttons",[["left",""]],null,null,null,null,null)),t.Y(122,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,38,{_buttons:1}),(l()(),t._19(-1,null,["\n                            "])),(l()(),t.Z(125,0,null,null,5,"button",[["color","semiDark"],["icon-only",""],["ion-button",""],["round",""],["small",""]],null,[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==l.component.goToEditLote(l.context.$implicit)&&e);return e},fl.b,fl.a)),t.Y(126,1097728,[[38,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"],small:[1,"small"],round:[2,"round"]},null),(l()(),t._19(-1,0,["\n                              "])),(l()(),t.Z(128,0,null,0,1,"ion-icon",[["name","create"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(129,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n                            "])),(l()(),t._19(-1,null,["\n                          "])),(l()(),t._19(-1,null,["\n                        "])),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(134,0,null,null,14,"ion-col",[["class","col"],["col-6",""]],null,null,null,null,null)),t.Y(135,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                          "])),(l()(),t.Z(137,0,null,null,10,"ion-buttons",[["right",""]],null,null,null,null,null)),t.Y(138,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,39,{_buttons:1}),(l()(),t._19(-1,null,["\n                            "])),(l()(),t.Z(141,0,null,null,5,"button",[["color","semiDark"],["icon-only",""],["ion-button",""],["round",""],["small",""]],null,[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==l.component.alertDeleteLote(l.context.$implicit.id)&&e);return e},fl.b,fl.a)),t.Y(142,1097728,[[39,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"],small:[1,"small"],round:[2,"round"]},null),(l()(),t._19(-1,0,["\n                              "])),(l()(),t.Z(144,0,null,0,1,"ion-icon",[["name","trash"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(145,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n                            "])),(l()(),t._19(-1,null,["\n                          "])),(l()(),t._19(-1,null,["\n                        "])),(l()(),t._19(-1,null,["\n                      "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n                  "])),(l()(),t._19(-1,2,["\n                "])),(l()(),t._19(-1,null,["\n              "])),(l()(),t._19(-1,null,["    \n            "]))],function(l,n){l(n,34,0,"cube");l(n,45,0,"podium");l(n,56,0,"rose");l(n,67,0,"flower");l(n,78,0,"star-half");l(n,89,0,"home");l(n,100,0,"leaf");l(n,111,0,"bus");l(n,126,0,"semiDark","","");l(n,129,0,"create");l(n,142,0,"semiDark","","");l(n,145,0,"trash")},function(l,n){l(n,18,0,n.context.$implicit.nroLote),l(n,33,0,t._13(n,34)._hidden),l(n,35,0,n.context.$implicit.cantBins),l(n,44,0,t._13(n,45)._hidden),l(n,46,0,n.context.$implicit.pesoNeto),l(n,55,0,t._13(n,56)._hidden),l(n,57,0,n.context.$implicit.especy.tipo),l(n,66,0,t._13(n,67)._hidden),l(n,68,0,n.context.$implicit.variedad.tipo),l(n,77,0,t._13(n,78)._hidden),l(n,79,0,n.context.$implicit.calidad.tipo),l(n,88,0,t._13(n,89)._hidden),l(n,90,0,n.context.$implicit.institucion.nombre),l(n,99,0,t._13(n,100)._hidden),l(n,101,0,n.context.$implicit.chacra.nombre),l(n,110,0,t._13(n,111)._hidden),l(n,112,0,n.context.$implicit.camion.nombreChofer),l(n,128,0,t._13(n,129)._hidden),l(n,144,0,t._13(n,145)._hidden)})}function de(l){return t._21(0,[(l()(),t.Z(0,0,null,null,65,"ion-grid",[["class","back-black-color grid"]],null,null,null,null,null)),t.Y(1,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n          "])),(l()(),t.Z(3,0,null,null,61,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(4,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n            "])),(l()(),t.Z(6,0,null,null,28,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(7,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n              "])),(l()(),t.Z(9,0,null,null,24,"ion-list",[["no-margin",""],["no-padding",""]],null,null,null,null,null)),t.Y(10,16384,null,0,Vl.a,[Yl.a,t.j,t.z,yl.a,Ll.l,Fl.a],null,null),(l()(),t._19(-1,null,["\n                "])),(l()(),t.Z(12,0,null,null,9,"ion-item",[["class","no-border item item-block"]],null,null,null,El.b,El.a)),t.Y(13,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,5,{contentLabel:0}),t._17(603979776,6,{_buttons:1}),t._17(603979776,7,{_icons:1}),t.Y(17,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t.Z(19,0,null,0,1,"ion-icon",[["item-start",""],["name","calendar"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(20,147456,[[7,4]],0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(21,2,["\n                    Fecha Ingreso ","\n                "])),(l()(),t._19(-1,null,["\n                "])),(l()(),t.Z(23,0,null,null,9,"ion-item",[["class","no-border item item-block"]],null,null,null,El.b,El.a)),t.Y(24,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,8,{contentLabel:0}),t._17(603979776,9,{_buttons:1}),t._17(603979776,10,{_icons:1}),t.Y(28,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                  "])),(l()(),t.Z(30,0,null,0,1,"ion-icon",[["item-start",""],["name","contact"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(31,147456,[[10,4]],0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(32,2,["\n                    Ingresado por ","\n                "])),(l()(),t._19(-1,null,["\n              "])),(l()(),t._19(-1,null,["\n            "])),(l()(),t._19(-1,null,["\n            "])),(l()(),t.U(16777216,null,null,1,null,re)),t.Y(37,802816,null,0,Nl.i,[t.I,t.F,t.p],{ngForOf:[0,"ngForOf"]},null),(l()(),t._19(-1,null,["\n            "])),(l()(),t.Z(39,0,null,null,24,"ion-col",[["class","col"],["col-md-12",""]],null,null,null,null,null)),t.Y(40,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n              "])),(l()(),t.Z(42,0,null,null,20,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(43,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                "])),(l()(),t.Z(45,0,null,null,7,"ion-buttons",[["right",""]],null,null,null,null,null)),t.Y(46,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,40,{_buttons:1}),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(49,0,null,null,2,"button",[["color","semiDark"],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==l.component.goToEditIngreso(l.parent.context.$implicit)&&e);return e},fl.b,fl.a)),t.Y(50,1097728,[[40,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"]},null),(l()(),t._19(-1,0,["Editar Ingreso"])),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,null,["\n                "])),(l()(),t.Z(54,0,null,null,7,"ion-buttons",[["right",""]],null,null,null,null,null)),t.Y(55,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,41,{_buttons:1}),(l()(),t._19(-1,null,["\n                  "])),(l()(),t.Z(58,0,null,null,2,"button",[["color","semiDark"],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==l.component.alertDeleteIngreso(l.parent.context.$implicit.id)&&e);return e},fl.b,fl.a)),t.Y(59,1097728,[[41,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"]},null),(l()(),t._19(-1,0,["Eliminar Ingreso"])),(l()(),t._19(-1,null,["\n                "])),(l()(),t._19(-1,null,["\n              "])),(l()(),t._19(-1,null,[" \n            "])),(l()(),t._19(-1,null,["\n          "])),(l()(),t._19(-1,null,["\n        "]))],function(l,n){l(n,20,0,"calendar");l(n,31,0,"contact"),l(n,37,0,n.parent.context.$implicit.lotes);l(n,50,0,"semiDark");l(n,59,0,"semiDark")},function(l,n){l(n,19,0,t._13(n,20)._hidden),l(n,21,0,n.parent.context.$implicit.fechaIngreso),l(n,30,0,t._13(n,31)._hidden),l(n,32,0,n.parent.context.$implicit.createdFor)})}function _e(l){return t._21(0,[(l()(),t.Z(0,0,null,null,21,"ion-col",[["class","accordion-list col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(1,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(3,0,null,null,14,"button",[["class","no-border-cards item item-block"],["detail-none",""],["ion-item",""]],null,[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==l.component.toggleIngreso(l.context.index)&&e);return e},El.b,El.a)),t.Y(4,278528,null,0,Nl.h,[t.p,t.q,t.j,t.A],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),t._15(5,{"section-active":0,section:1}),t.Y(6,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,2,{contentLabel:0}),t._17(603979776,3,{_buttons:1}),t._17(603979776,4,{_icons:1}),t.Y(10,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n          "])),(l()(),t.U(16777216,null,0,1,null,se)),t.Y(13,16384,null,0,Nl.j,[t.I,t.F],{ngIf:[0,"ngIf"]},null),(l()(),t._19(-1,2,["\n          "])),(l()(),t.U(16777216,null,0,1,null,ce)),t.Y(16,16384,null,0,Nl.j,[t.I,t.F],{ngIf:[0,"ngIf"]},null),(l()(),t._19(17,2,["\n          Ingreso Remito ","\n        "])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.U(16777216,null,null,1,null,de)),t.Y(20,16384,null,0,Nl.j,[t.I,t.F],{ngIf:[0,"ngIf"]},null),(l()(),t._19(-1,null,["\n      "]))],function(l,n){l(n,4,0,"no-border-cards",l(n,5,0,n.context.$implicit.open,!n.context.$implicit.open)),l(n,13,0,!n.context.$implicit.open),l(n,16,0,n.context.$implicit.open),l(n,20,0,n.context.$implicit.open)},function(l,n){l(n,17,0,n.context.$implicit.nroRemito)})}function me(l){return t._21(0,[(l()(),t.Z(0,0,null,null,20,"ion-header",[],null,null,null,null,null)),t.Y(1,16384,null,0,Hl.a,[Yl.a,t.j,t.z,[2,$l.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,16,"ion-navbar",[["class","toolbar"],["color","cultivos"],["hideBackButton","true"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,ql.b,ql.a)),t.Y(4,49152,null,0,Xl.a,[Wl.a,[2,$l.a],[2,vl.a],Yl.a,t.j,t.z],{color:[0,"color"],hideBackButton:[1,"hideBackButton"]},null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==t._13(l,8).toggle()&&e);return e},fl.b,fl.a)),t.Y(7,1097728,[[1,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,Wn.a,[Yn.a,[2,$l.a],[2,Cl.a],[2,Xl.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,Gl.b,Gl.a)),t.Y(17,49152,null,0,Kl.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),(l()(),t._19(-1,0,["Ingresos"])),(l()(),t._19(-1,3,["\n  "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n\n"])),(l()(),t.Z(22,0,null,null,23,"ion-content",[["class","back-color"],["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Jl.b,Jl.a)),t.Y(23,4374528,null,0,Ql.a,[Yl.a,yl.a,Fl.a,t.j,t.z,Wl.a,ln.a,t.u,[2,$l.a],[2,vl.a]],null,null),(l()(),t._19(-1,1,["\n  "])),(l()(),t.Z(25,0,null,1,19,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(26,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n    "])),(l()(),t.Z(28,0,null,null,15,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(29,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n      "])),(l()(),t.Z(31,0,null,null,8,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""]],null,null,null,null,null)),t.Y(32,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(34,0,null,null,1,"h1",[["padding",""],["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Listado de Ingresos"])),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(37,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Listado de de todos los ingresos de fruta con sus correspondientes lotes"])),(l()(),t._19(-1,null,["\n      "])),(l()(),t._19(-1,null,["\n      "])),(l()(),t.U(16777216,null,null,1,null,_e)),t.Y(42,802816,null,0,Nl.i,[t.I,t.F,t.p],{ngForOf:[0,"ngForOf"]},null),(l()(),t._19(-1,null,["\n    "])),(l()(),t._19(-1,null,["\n  "])),(l()(),t._19(-1,1,["\n"]))],function(l,n){var u=n.component;l(n,4,0,"cultivos","true");l(n,8,0,"");l(n,13,0,"menu"),l(n,42,0,u.ingresosList)},function(l,n){l(n,3,0,t._13(n,4)._hidden,t._13(n,4)._sbPadding),l(n,6,0,t._13(n,8).isHidden),l(n,12,0,t._13(n,13)._hidden),l(n,22,0,t._13(n,23).statusbarPadding,t._13(n,23)._hasRefresher)})}var ge=t.V("page-ingresos-list",B,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-ingresos-list",[],null,null,null,me,ie)),t.Y(1,49152,null,0,B,[vl.a,tn.a,E,Rn.a,M],null,null)],null,null)},{},{},[]),pe=u(669),he=u(109),be=u(670),fe=u(75),Ce=t.X({encapsulation:2,styles:[],data:{}});function Ye(l){return t._21(0,[(l()(),t.Z(0,0,null,null,135,"ion-col",[["class","back-color col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(1,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                                "])),(l()(),t.Z(3,0,null,null,131,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(4,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t.Z(6,0,null,null,1,"h3",[["padding",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Datos generales del nuevo Lote"])),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t.Z(9,0,null,null,51,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["no-padding",""]],null,null,null,null,null)),t.Y(10,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                                        "])),(l()(),t.Z(12,0,null,null,47,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(13,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                                            "])),(l()(),t.Z(15,0,null,null,13,"ion-item",[["class","no-border item item-block"],["col-md-4",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(16,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,17,{contentLabel:0}),t._17(603979776,18,{_buttons:1}),t._17(603979776,19,{_icons:1}),t.Y(20,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                                              "])),(l()(),t.Z(22,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(23,16384,[[17,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Numero Lote"])),(l()(),t._19(-1,2,["\n                                              "])),(l()(),t.Z(26,0,null,3,1,"ion-input",[["name","nroLote"],["type","number"]],null,[[null,"input"]],function(l,n,u){var e=!0;"input"===n&&(e=!1!==(l.context.$implicit.nroLote=u.target.value)&&e);return e},Bn.b,Bn.a)),t.Y(27,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{value:[0,"value"],type:[1,"type"]},{input:"input"}),(l()(),t._19(-1,2,["\n                                            "])),(l()(),t._19(-1,null,["\n                                            "])),(l()(),t.Z(30,0,null,null,13,"ion-item",[["class","no-border item item-block"],["col-md-4",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(31,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,20,{contentLabel:0}),t._17(603979776,21,{_buttons:1}),t._17(603979776,22,{_icons:1}),t.Y(35,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                                              "])),(l()(),t.Z(37,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(38,16384,[[20,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Cantidad Bins"])),(l()(),t._19(-1,2,["\n                                              "])),(l()(),t.Z(41,0,null,3,1,"ion-input",[["name","cantBins"],["type","number"]],null,[[null,"input"]],function(l,n,u){var e=!0;"input"===n&&(e=!1!==(l.context.$implicit.cantBins=u.target.value)&&e);return e},Bn.b,Bn.a)),t.Y(42,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{value:[0,"value"],type:[1,"type"]},{input:"input"}),(l()(),t._19(-1,2,["\n                                            "])),(l()(),t._19(-1,null,["\n                                            "])),(l()(),t.Z(45,0,null,null,13,"ion-item",[["class","no-border item item-block"],["col-md-4",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(46,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,23,{contentLabel:0}),t._17(603979776,24,{_buttons:1}),t._17(603979776,25,{_icons:1}),t.Y(50,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                                              "])),(l()(),t.Z(52,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(53,16384,[[23,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Peso"])),(l()(),t._19(-1,2,["\n                                              "])),(l()(),t.Z(56,0,null,3,1,"ion-input",[["name","peso"],["type","number"]],null,[[null,"input"]],function(l,n,u){var e=!0;"input"===n&&(e=!1!==(l.context.$implicit.peso=u.target.value)&&e);return e},Bn.b,Bn.a)),t.Y(57,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{value:[0,"value"],type:[1,"type"]},{input:"input"}),(l()(),t._19(-1,2,["\n                                            "])),(l()(),t._19(-1,null,["\n                                        "])),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t.Z(62,0,null,null,18,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["no-padding",""]],null,null,null,null,null)),t.Y(63,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                                        "])),(l()(),t.Z(65,0,null,null,14,"ion-item",[["class","no-border item item-block"]],null,null,null,El.b,El.a)),t.Y(66,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,26,{contentLabel:0}),t._17(603979776,27,{_buttons:1}),t._17(603979776,28,{_icons:1}),t.Y(70,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                                            "])),(l()(),t.Z(72,0,null,2,6,"select-searchable",[["class","select-searchable"],["itemTextField","tipo"],["itemValueField","id"],["name","calidad"],["title","Calidades"]],[[2,"select-searchable-ios",null],[2,"select-searchable-md",null],[2,"select-searchable-can-reset",null],[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"],[null,"onChange"],[null,"click"]],function(l,n,u){var e=!0,a=l.component;"click"===n&&(e=!1!==t._13(l,73)._click(u)&&e);"ngModelChange"===n&&(e=!1!==(l.context.$implicit.calidad=u)&&e);"onChange"===n&&(e=!1!==a.calidadChange(u,l.context.$implicit)&&e);return e},Il,kl)),t.Y(73,770048,null,0,d,[vl.a,Zl.a,yl.a,[2,jl.a]],{items:[0,"items"],itemValueField:[1,"itemValueField"],itemTextField:[2,"itemTextField"],canSearch:[3,"canSearch"],title:[4,"title"]},{onChange:"onChange"}),t._16(1024,null,c.h,function(l){return[l]},[d]),t.Y(75,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[2,c.h]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(77,16384,null,0,c.j,[c.i],null,null),(l()(),t._19(-1,null,["\n                                            "])),(l()(),t._19(-1,2,["\n                                        "])),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t.Z(82,0,null,null,18,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["no-padding",""]],null,null,null,null,null)),t.Y(83,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                                        "])),(l()(),t.Z(85,0,null,null,14,"ion-item",[["class","no-border item item-block"]],null,null,null,El.b,El.a)),t.Y(86,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,29,{contentLabel:0}),t._17(603979776,30,{_buttons:1}),t._17(603979776,31,{_icons:1}),t.Y(90,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                                            "])),(l()(),t.Z(92,0,null,2,6,"select-searchable",[["class","select-searchable"],["itemTextField","tipo"],["itemValueField","id"],["name","especie"],["title","Especies"]],[[2,"select-searchable-ios",null],[2,"select-searchable-md",null],[2,"select-searchable-can-reset",null],[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"],[null,"onChange"],[null,"click"]],function(l,n,u){var e=!0,a=l.component;"click"===n&&(e=!1!==t._13(l,93)._click(u)&&e);"ngModelChange"===n&&(e=!1!==(l.context.$implicit.especie=u)&&e);"onChange"===n&&(e=!1!==a.especieChange(u,l.context.$implicit)&&e);return e},Il,kl)),t.Y(93,770048,null,0,d,[vl.a,Zl.a,yl.a,[2,jl.a]],{items:[0,"items"],itemValueField:[1,"itemValueField"],itemTextField:[2,"itemTextField"],canSearch:[3,"canSearch"],title:[4,"title"]},{onChange:"onChange"}),t._16(1024,null,c.h,function(l){return[l]},[d]),t.Y(95,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[2,c.h]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(97,16384,null,0,c.j,[c.i],null,null),(l()(),t._19(-1,null,["\n                                            "])),(l()(),t._19(-1,2,["\n                                        "])),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t.Z(102,0,null,null,18,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["no-padding",""]],null,null,null,null,null)),t.Y(103,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                                        "])),(l()(),t.Z(105,0,null,null,14,"ion-item",[["class","no-border item item-block"]],null,null,null,El.b,El.a)),t.Y(106,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,32,{contentLabel:0}),t._17(603979776,33,{_buttons:1}),t._17(603979776,34,{_icons:1}),t.Y(110,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                                            "])),(l()(),t.Z(112,0,null,2,6,"select-searchable",[["class","select-searchable"],["itemTextField","tipo"],["itemValueField","id"],["name","variedad"],["title","Variedades"]],[[2,"select-searchable-ios",null],[2,"select-searchable-md",null],[2,"select-searchable-can-reset",null],[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"],[null,"onChange"],[null,"click"]],function(l,n,u){var e=!0,a=l.component;"click"===n&&(e=!1!==t._13(l,113)._click(u)&&e);"ngModelChange"===n&&(e=!1!==(l.context.$implicit.variedad=u)&&e);"onChange"===n&&(e=!1!==a.variedadChange(u,l.context.$implicit)&&e);return e},Il,kl)),t.Y(113,770048,null,0,d,[vl.a,Zl.a,yl.a,[2,jl.a]],{items:[0,"items"],itemValueField:[1,"itemValueField"],itemTextField:[2,"itemTextField"],canSearch:[3,"canSearch"],title:[4,"title"]},{onChange:"onChange"}),t._16(1024,null,c.h,function(l){return[l]},[d]),t.Y(115,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[2,c.h]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(117,16384,null,0,c.j,[c.i],null,null),(l()(),t._19(-1,null,["\n                                            "])),(l()(),t._19(-1,2,["\n                                        "])),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t.Z(122,0,null,null,11,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["no-padding",""]],null,null,null,null,null)),t.Y(123,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                                        "])),(l()(),t.Z(125,0,null,null,7,"ion-buttons",[["right",""]],null,null,null,null,null)),t.Y(126,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,35,{_buttons:1}),(l()(),t._19(-1,null,["\n                                            "])),(l()(),t.Z(129,0,null,null,2,"button",[["color","semiDark"],["ion-button",""]],null,[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==l.component.deleteLoteList(l.context.$implicit)&&e);return e},fl.b,fl.a)),t.Y(130,1097728,[[35,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"]},null),(l()(),t._19(-1,0,["Eliminar Lote"])),(l()(),t._19(-1,null,["\n                                        "])),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t._19(-1,null,["\n                                "])),(l()(),t._19(-1,null,["\n                            "]))],function(l,n){l(n,27,0,n.context.$implicit.nroLote,"number");l(n,42,0,n.context.$implicit.cantBins,"number");l(n,57,0,n.context.$implicit.peso,"number");l(n,73,0,n.context.$implicit.calidades,"id","tipo",!0,"Calidades");l(n,75,0,"calidad",n.context.$implicit.calidad);l(n,93,0,n.context.$implicit.especies,"id","tipo",!0,"Especies");l(n,95,0,"especie",n.context.$implicit.especie);l(n,113,0,n.context.$implicit.variedades,"id","tipo",!0,"Variedades");l(n,115,0,"variedad",n.context.$implicit.variedad);l(n,130,0,"semiDark")},function(l,n){l(n,72,0,t._13(n,73).isIos,t._13(n,73).isMd,t._13(n,73).canReset,t._13(n,77).ngClassUntouched,t._13(n,77).ngClassTouched,t._13(n,77).ngClassPristine,t._13(n,77).ngClassDirty,t._13(n,77).ngClassValid,t._13(n,77).ngClassInvalid,t._13(n,77).ngClassPending),l(n,92,0,t._13(n,93).isIos,t._13(n,93).isMd,t._13(n,93).canReset,t._13(n,97).ngClassUntouched,t._13(n,97).ngClassTouched,t._13(n,97).ngClassPristine,t._13(n,97).ngClassDirty,t._13(n,97).ngClassValid,t._13(n,97).ngClassInvalid,t._13(n,97).ngClassPending),l(n,112,0,t._13(n,113).isIos,t._13(n,113).isMd,t._13(n,113).canReset,t._13(n,117).ngClassUntouched,t._13(n,117).ngClassTouched,t._13(n,117).ngClassPristine,t._13(n,117).ngClassDirty,t._13(n,117).ngClassValid,t._13(n,117).ngClassInvalid,t._13(n,117).ngClassPending)})}function ve(l){return t._21(0,[(l()(),t.Z(0,0,null,null,20,"ion-header",[],null,null,null,null,null)),t.Y(1,16384,null,0,Hl.a,[Yl.a,t.j,t.z,[2,$l.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,16,"ion-navbar",[["class","toolbar"],["color","cultivos"],["hideBackButton","true"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,ql.b,ql.a)),t.Y(4,49152,null,0,Xl.a,[Wl.a,[2,$l.a],[2,vl.a],Yl.a,t.j,t.z],{color:[0,"color"],hideBackButton:[1,"hideBackButton"]},null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==t._13(l,8).toggle()&&e);return e},fl.b,fl.a)),t.Y(7,1097728,[[1,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,Wn.a,[Yn.a,[2,$l.a],[2,Cl.a],[2,Xl.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,Gl.b,Gl.a)),t.Y(17,49152,null,0,Kl.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),(l()(),t._19(-1,0,["Nuevo Ingreso"])),(l()(),t._19(-1,3,["\n  "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n\n\n"])),(l()(),t.Z(22,0,null,null,158,"ion-content",[["class","back-color"],["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Jl.b,Jl.a)),t.Y(23,4374528,null,0,Ql.a,[Yl.a,yl.a,Fl.a,t.j,t.z,Wl.a,ln.a,t.u,[2,$l.a],[2,vl.a]],null,null),(l()(),t._19(-1,1,["\n    "])),(l()(),t.Z(25,0,null,1,143,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(26,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(28,0,null,null,139,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(29,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n            "])),(l()(),t.Z(31,0,null,null,8,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(32,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n              "])),(l()(),t.Z(34,0,null,null,1,"h1",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Nuevo Ingresos"])),(l()(),t._19(-1,null,["\n              "])),(l()(),t.Z(37,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Ingrese los datos necesarios para generar un nuevo ingreso de fruta."])),(l()(),t._19(-1,null,["\n            "])),(l()(),t._19(-1,null,["\n            "])),(l()(),t.Z(41,0,null,null,125,"ion-col",[["class","back-black-color col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(42,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                "])),(l()(),t.Z(44,0,null,null,1,"h3",[["no-margin",""],["padding-top",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Datos generales del Ingreso"])),(l()(),t._19(-1,null,["\n            \t"])),(l()(),t.Z(47,0,null,null,118,"form",[["novalidate",""]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngSubmit"],[null,"submit"],[null,"reset"]],function(l,n,u){var e=!0,a=l.component;"submit"===n&&(e=!1!==t._13(l,49).onSubmit(u)&&e);"reset"===n&&(e=!1!==t._13(l,49).onReset()&&e);"ngSubmit"===n&&(e=!1!==a.addNewIngreso()&&e);return e},null,null)),t.Y(48,16384,null,0,c.r,[],null,null),t.Y(49,4210688,null,0,c.l,[[8,null],[8,null]],null,{ngSubmit:"ngSubmit"}),t._16(2048,null,c.b,null,[c.l]),t.Y(51,16384,null,0,c.k,[c.b],null,null),(l()(),t._19(-1,null,["\n            \t    "])),(l()(),t.Z(53,0,null,null,111,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(54,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(56,0,null,null,107,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(57,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                            "])),(l()(),t.Z(59,0,null,null,87,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding-bottom",""]],null,null,null,null,null)),t.Y(60,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                                "])),(l()(),t.Z(62,0,null,null,35,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(63,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t.Z(65,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(66,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,2,{contentLabel:0}),t._17(603979776,3,{_buttons:1}),t._17(603979776,4,{_icons:1}),t.Y(70,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                                      "])),(l()(),t.Z(72,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(73,16384,[[2,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Nro Remito"])),(l()(),t._19(-1,2,["\n                                      "])),(l()(),t.Z(76,0,null,3,4,"ion-input",[["name","nroRemito"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.ingreso.nroRemito=u)&&e);return e},Bn.b,Bn.a)),t.Y(77,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(79,16384,null,0,c.j,[c.i],null,null),t.Y(80,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                                    "])),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t.Z(83,0,null,null,13,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(84,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,5,{contentLabel:0}),t._17(603979776,6,{_buttons:1}),t._17(603979776,7,{_icons:1}),t.Y(88,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                                      "])),(l()(),t.Z(90,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(91,16384,[[5,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Fecha de Ingreso"])),(l()(),t._19(-1,2,["\n                                      "])),(l()(),t.Z(94,0,null,3,1,"ion-input",[["name","fechaIngreso"],["type","date"]],null,[[null,"input"]],function(l,n,u){var e=!0;"input"===n&&(e=!1!==(l.component.ingreso.fechaIngreso=u.target.value)&&e);return e},Bn.b,Bn.a)),t.Y(95,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{value:[0,"value"],type:[1,"type"]},{input:"input"}),(l()(),t._19(-1,2,["\n                                    "])),(l()(),t._19(-1,null,["\n                                "])),(l()(),t._19(-1,null,["\n                                "])),(l()(),t.Z(99,0,null,null,14,"ion-item",[["class","no-border item item-block"]],null,null,null,El.b,El.a)),t.Y(100,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,8,{contentLabel:0}),t._17(603979776,9,{_buttons:1}),t._17(603979776,10,{_icons:1}),t.Y(104,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                                    "])),(l()(),t.Z(106,0,null,2,6,"select-searchable",[["class","select-searchable"],["itemTextField","nombre"],["itemValueField","id"],["name","institucion"],["title","Instituciones"]],[[2,"select-searchable-ios",null],[2,"select-searchable-md",null],[2,"select-searchable-can-reset",null],[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"],[null,"onChange"],[null,"click"]],function(l,n,u){var e=!0,a=l.component;"click"===n&&(e=!1!==t._13(l,107)._click(u)&&e);"ngModelChange"===n&&(e=!1!==(a.institucion=u)&&e);"onChange"===n&&(e=!1!==a.institucionChange(u)&&e);return e},Il,kl)),t.Y(107,770048,null,0,d,[vl.a,Zl.a,yl.a,[2,jl.a]],{items:[0,"items"],itemValueField:[1,"itemValueField"],itemTextField:[2,"itemTextField"],canSearch:[3,"canSearch"],title:[4,"title"]},{onChange:"onChange"}),t._16(1024,null,c.h,function(l){return[l]},[d]),t.Y(109,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[2,c.h]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(111,16384,null,0,c.j,[c.i],null,null),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t._19(-1,2,["\n                                "])),(l()(),t._19(-1,null,["\n                                "])),(l()(),t.Z(115,0,null,null,14,"ion-item",[["class","no-border item item-block"]],null,null,null,El.b,El.a)),t.Y(116,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,11,{contentLabel:0}),t._17(603979776,12,{_buttons:1}),t._17(603979776,13,{_icons:1}),t.Y(120,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                                    "])),(l()(),t.Z(122,0,null,2,6,"select-searchable",[["class","select-searchable"],["itemTextField","nombreChofer"],["itemValueField","id"],["name","camion"],["title","Camiones"]],[[2,"select-searchable-ios",null],[2,"select-searchable-md",null],[2,"select-searchable-can-reset",null],[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"],[null,"onChange"],[null,"click"]],function(l,n,u){var e=!0,a=l.component;"click"===n&&(e=!1!==t._13(l,123)._click(u)&&e);"ngModelChange"===n&&(e=!1!==(a.camion=u)&&e);"onChange"===n&&(e=!1!==a.camionChange(u)&&e);return e},Il,kl)),t.Y(123,770048,null,0,d,[vl.a,Zl.a,yl.a,[2,jl.a]],{items:[0,"items"],itemValueField:[1,"itemValueField"],itemTextField:[2,"itemTextField"],canSearch:[3,"canSearch"],title:[4,"title"]},{onChange:"onChange"}),t._16(1024,null,c.h,function(l){return[l]},[d]),t.Y(125,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[2,c.h]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(127,16384,null,0,c.j,[c.i],null,null),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t._19(-1,2,["\n                                "])),(l()(),t._19(-1,null,["\n                                "])),(l()(),t.Z(131,0,null,null,14,"ion-item",[["class","no-border item item-block"]],null,null,null,El.b,El.a)),t.Y(132,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,14,{contentLabel:0}),t._17(603979776,15,{_buttons:1}),t._17(603979776,16,{_icons:1}),t.Y(136,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                                    "])),(l()(),t.Z(138,0,null,2,6,"select-searchable",[["class","select-searchable"],["itemTextField","nombre"],["itemValueField","id"],["name","chacra"],["title","Chacras"]],[[2,"select-searchable-ios",null],[2,"select-searchable-md",null],[2,"select-searchable-can-reset",null],[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"],[null,"onChange"],[null,"click"]],function(l,n,u){var e=!0,a=l.component;"click"===n&&(e=!1!==t._13(l,139)._click(u)&&e);"ngModelChange"===n&&(e=!1!==(a.chacra=u)&&e);"onChange"===n&&(e=!1!==a.chacraChange(u)&&e);return e},Il,kl)),t.Y(139,770048,null,0,d,[vl.a,Zl.a,yl.a,[2,jl.a]],{items:[0,"items"],itemValueField:[1,"itemValueField"],itemTextField:[2,"itemTextField"],canSearch:[3,"canSearch"],title:[4,"title"]},{onChange:"onChange"}),t._16(1024,null,c.h,function(l){return[l]},[d]),t.Y(141,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[2,c.h]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(143,16384,null,0,c.j,[c.i],null,null),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t._19(-1,2,["\n                                "])),(l()(),t._19(-1,null,["\n                            "])),(l()(),t._19(-1,null,["\n                            "])),(l()(),t.U(16777216,null,null,1,null,Ye)),t.Y(149,802816,null,0,Nl.i,[t.I,t.F,t.p],{ngForOf:[0,"ngForOf"]},null),(l()(),t._19(-1,null,["\n                            "])),(l()(),t.Z(151,0,null,null,11,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(152,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t.Z(154,0,null,null,7,"ion-buttons",[["left",""]],null,null,null,null,null)),t.Y(155,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,36,{_buttons:1}),(l()(),t._19(-1,null,["\n                                        "])),(l()(),t.Z(158,0,null,null,2,"button",[["color","semiDark"],["ion-button",""],["type","submit"]],null,null,null,fl.b,fl.a)),t.Y(159,1097728,[[36,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"]},null),(l()(),t._19(-1,0,["Aceptar Ingreso"])),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t._19(-1,null,["\n                            "])),(l()(),t._19(-1,null,["\n                        "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n            \t"])),(l()(),t._19(-1,null,["\n            "])),(l()(),t._19(-1,null,["\n        "])),(l()(),t._19(-1,null,["\n    "])),(l()(),t._19(-1,1,["\n    "])),(l()(),t.Z(170,0,null,0,9,"ion-fab",[["bottom",""],["margin",""],["padding",""],["right",""]],null,null,null,pe.b,pe.a)),t.Y(171,1228800,null,2,he.a,[yl.a],null,null),t._17(335544320,37,{_mainButton:0}),t._17(603979776,38,{_fabLists:1}),(l()(),t._19(-1,0,["\n        "])),(l()(),t.Z(175,0,null,0,3,"button",[["color","semiDark"],["ion-fab",""]],null,[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==l.component.agregarLoteList()&&e);return e},be.b,be.a)),t.Y(176,49152,[[37,4]],0,fe.a,[Yl.a,t.j,t.z],{color:[0,"color"]},null),(l()(),t.Z(177,0,null,0,1,"ion-icon",[["name","crop"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(178,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,1,["\n"])),(l()(),t._19(-1,null,["\n"]))],function(l,n){var u=n.component;l(n,4,0,"cultivos","true");l(n,8,0,"");l(n,13,0,"menu");l(n,77,0,"nroRemito",u.ingreso.nroRemito);l(n,80,0,"text");l(n,95,0,u.ingreso.fechaIngreso,"date");l(n,107,0,u.instituciones,"id","nombre",!0,"Instituciones");l(n,109,0,"institucion",u.institucion);l(n,123,0,u.camiones,"id","nombreChofer",!0,"Camiones");l(n,125,0,"camion",u.camion);l(n,139,0,u.chacras,"id","nombre",!0,"Chacras");l(n,141,0,"chacra",u.chacra),l(n,149,0,u.lotes);l(n,159,0,"semiDark");l(n,176,0,"semiDark");l(n,178,0,"crop")},function(l,n){l(n,3,0,t._13(n,4)._hidden,t._13(n,4)._sbPadding),l(n,6,0,t._13(n,8).isHidden),l(n,12,0,t._13(n,13)._hidden),l(n,22,0,t._13(n,23).statusbarPadding,t._13(n,23)._hasRefresher),l(n,47,0,t._13(n,51).ngClassUntouched,t._13(n,51).ngClassTouched,t._13(n,51).ngClassPristine,t._13(n,51).ngClassDirty,t._13(n,51).ngClassValid,t._13(n,51).ngClassInvalid,t._13(n,51).ngClassPending),l(n,76,0,t._13(n,79).ngClassUntouched,t._13(n,79).ngClassTouched,t._13(n,79).ngClassPristine,t._13(n,79).ngClassDirty,t._13(n,79).ngClassValid,t._13(n,79).ngClassInvalid,t._13(n,79).ngClassPending),l(n,106,0,t._13(n,107).isIos,t._13(n,107).isMd,t._13(n,107).canReset,t._13(n,111).ngClassUntouched,t._13(n,111).ngClassTouched,t._13(n,111).ngClassPristine,t._13(n,111).ngClassDirty,t._13(n,111).ngClassValid,t._13(n,111).ngClassInvalid,t._13(n,111).ngClassPending),l(n,122,0,t._13(n,123).isIos,t._13(n,123).isMd,t._13(n,123).canReset,t._13(n,127).ngClassUntouched,t._13(n,127).ngClassTouched,t._13(n,127).ngClassPristine,t._13(n,127).ngClassDirty,t._13(n,127).ngClassValid,t._13(n,127).ngClassInvalid,t._13(n,127).ngClassPending),l(n,138,0,t._13(n,139).isIos,t._13(n,139).isMd,t._13(n,139).canReset,t._13(n,143).ngClassUntouched,t._13(n,143).ngClassTouched,t._13(n,143).ngClassPristine,t._13(n,143).ngClassDirty,t._13(n,143).ngClassValid,t._13(n,143).ngClassInvalid,t._13(n,143).ngClassPending),l(n,177,0,t._13(n,178)._hidden)})}var Ze=t.V("page-new-ingreso",W,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-new-ingreso",[],null,null,null,ve,Ce)),t.Y(1,49152,null,0,W,[vl.a,tn.a,V,L,S,k,E,h,O,Rn.a],null,null)],null,null)},{},{},[]),ye=t.X({encapsulation:2,styles:[],data:{}});function je(l){return t._21(0,[(l()(),t.Z(0,0,null,null,20,"ion-header",[],null,null,null,null,null)),t.Y(1,16384,null,0,Hl.a,[Yl.a,t.j,t.z,[2,$l.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,16,"ion-navbar",[["class","toolbar"],["color","cultivos"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,ql.b,ql.a)),t.Y(4,49152,null,0,Xl.a,[Wl.a,[2,$l.a],[2,vl.a],Yl.a,t.j,t.z],{color:[0,"color"]},null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==t._13(l,8).toggle()&&e);return e},fl.b,fl.a)),t.Y(7,1097728,[[1,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,Wn.a,[Yn.a,[2,$l.a],[2,Cl.a],[2,Xl.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,Gl.b,Gl.a)),t.Y(17,49152,null,0,Kl.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),(l()(),t._19(-1,0,["Editar Ingreso"])),(l()(),t._19(-1,3,["\n  "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n\n\n"])),(l()(),t.Z(22,0,null,null,96,"ion-content",[["class","back-color"],["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Jl.b,Jl.a)),t.Y(23,4374528,null,0,Ql.a,[Yl.a,yl.a,Fl.a,t.j,t.z,Wl.a,ln.a,t.u,[2,$l.a],[2,vl.a]],null,null),(l()(),t._19(-1,1,["\n    "])),(l()(),t.Z(25,0,null,1,92,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(26,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(28,0,null,null,88,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(29,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n            "])),(l()(),t.Z(31,0,null,null,8,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(32,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n              "])),(l()(),t.Z(34,0,null,null,1,"h1",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Editar Ingreso"])),(l()(),t._19(-1,null,["\n              "])),(l()(),t.Z(37,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Ingrese los datos necesarios para editar un ingreso de fruta existente."])),(l()(),t._19(-1,null,["\n            "])),(l()(),t._19(-1,null,["\n            "])),(l()(),t.Z(41,0,null,null,74,"ion-col",[["class","back-black-color col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(42,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                "])),(l()(),t.Z(44,0,null,null,1,"h3",[["no-margin",""],["padding-top",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Datos generales del Ingreso"])),(l()(),t._19(-1,null,["\n            \t"])),(l()(),t.Z(47,0,null,null,67,"form",[["novalidate",""]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngSubmit"],[null,"submit"],[null,"reset"]],function(l,n,u){var e=!0,a=l.component;"submit"===n&&(e=!1!==t._13(l,49).onSubmit(u)&&e);"reset"===n&&(e=!1!==t._13(l,49).onReset()&&e);"ngSubmit"===n&&(e=!1!==a.editIngreso()&&e);return e},null,null)),t.Y(48,16384,null,0,c.r,[],null,null),t.Y(49,4210688,null,0,c.l,[[8,null],[8,null]],null,{ngSubmit:"ngSubmit"}),t._16(2048,null,c.b,null,[c.l]),t.Y(51,16384,null,0,c.k,[c.b],null,null),(l()(),t._19(-1,null,["\n            \t    "])),(l()(),t.Z(53,0,null,null,60,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(54,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(56,0,null,null,56,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(57,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                            "])),(l()(),t.Z(59,0,null,null,39,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding-bottom",""]],null,null,null,null,null)),t.Y(60,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                                "])),(l()(),t.Z(62,0,null,null,35,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(63,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t.Z(65,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(66,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,2,{contentLabel:0}),t._17(603979776,3,{_buttons:1}),t._17(603979776,4,{_icons:1}),t.Y(70,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                                      "])),(l()(),t.Z(72,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(73,16384,[[2,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Nro Remito"])),(l()(),t._19(-1,2,["\n                                      "])),(l()(),t.Z(76,0,null,3,4,"ion-input",[["name","nroRemito"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.ingreso.nroRemito=u)&&e);return e},Bn.b,Bn.a)),t.Y(77,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(79,16384,null,0,c.j,[c.i],null,null),t.Y(80,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                                    "])),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t.Z(83,0,null,null,13,"ion-item",[["class","no-border item item-block"],["col-md-6",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(84,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,5,{contentLabel:0}),t._17(603979776,6,{_buttons:1}),t._17(603979776,7,{_icons:1}),t.Y(88,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                                      "])),(l()(),t.Z(90,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(91,16384,[[5,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Fecha de Ingreso"])),(l()(),t._19(-1,2,["\n                                      "])),(l()(),t.Z(94,0,null,3,1,"ion-input",[["name","fechaIngreso"],["type","date"]],null,[[null,"input"]],function(l,n,u){var e=!0;"input"===n&&(e=!1!==(l.component.ingreso.fechaIngreso=u.target.value)&&e);return e},Bn.b,Bn.a)),t.Y(95,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{value:[0,"value"],type:[1,"type"]},{input:"input"}),(l()(),t._19(-1,2,["\n                                    "])),(l()(),t._19(-1,null,["\n                                "])),(l()(),t._19(-1,null,["\n                            "])),(l()(),t._19(-1,null,["\n                            "])),(l()(),t.Z(100,0,null,null,11,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(101,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t.Z(103,0,null,null,7,"ion-buttons",[["right",""]],null,null,null,null,null)),t.Y(104,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,8,{_buttons:1}),(l()(),t._19(-1,null,["\n                                        "])),(l()(),t.Z(107,0,null,null,2,"button",[["color","semiDark"],["ion-button",""],["type","submit"]],null,null,null,fl.b,fl.a)),t.Y(108,1097728,[[8,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"]},null),(l()(),t._19(-1,0,["Editar"])),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t._19(-1,null,["\n                            "])),(l()(),t._19(-1,null,["\n                        "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n            \t"])),(l()(),t._19(-1,null,["\n            "])),(l()(),t._19(-1,null,["\n        "])),(l()(),t._19(-1,null,["\n    "])),(l()(),t._19(-1,1,["\n"])),(l()(),t._19(-1,null,["\n"]))],function(l,n){var u=n.component;l(n,4,0,"cultivos");l(n,8,0,"");l(n,13,0,"menu");l(n,77,0,"nroRemito",u.ingreso.nroRemito);l(n,80,0,"text");l(n,95,0,u.ingreso.fechaIngreso,"date");l(n,108,0,"semiDark")},function(l,n){l(n,3,0,t._13(n,4)._hidden,t._13(n,4)._sbPadding),l(n,6,0,t._13(n,8).isHidden),l(n,12,0,t._13(n,13)._hidden),l(n,22,0,t._13(n,23).statusbarPadding,t._13(n,23)._hasRefresher),l(n,47,0,t._13(n,51).ngClassUntouched,t._13(n,51).ngClassTouched,t._13(n,51).ngClassPristine,t._13(n,51).ngClassDirty,t._13(n,51).ngClassValid,t._13(n,51).ngClassInvalid,t._13(n,51).ngClassPending),l(n,76,0,t._13(n,79).ngClassUntouched,t._13(n,79).ngClassTouched,t._13(n,79).ngClassPristine,t._13(n,79).ngClassDirty,t._13(n,79).ngClassValid,t._13(n,79).ngClassInvalid,t._13(n,79).ngClassPending)})}var ke=t.V("page-edit-ingreso",A,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-edit-ingreso",[],null,null,null,je,ye)),t.Y(1,49152,null,0,A,[vl.a,tn.a,E,S,O],null,null)],null,null)},{},{},[]),Ie=t.X({encapsulation:2,styles:[],data:{}});function ze(l){return t._21(0,[(l()(),t.Z(0,0,null,null,20,"ion-header",[],null,null,null,null,null)),t.Y(1,16384,null,0,Hl.a,[Yl.a,t.j,t.z,[2,$l.a]],null,null),(l()(),t._19(-1,null,["\n  "])),(l()(),t.Z(3,0,null,null,16,"ion-navbar",[["class","toolbar"],["color","cultivos"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,ql.b,ql.a)),t.Y(4,49152,null,0,Xl.a,[Wl.a,[2,$l.a],[2,vl.a],Yl.a,t.j,t.z],{color:[0,"color"]},null),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(6,0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;"click"===n&&(e=!1!==t._13(l,8).toggle()&&e);return e},fl.b,fl.a)),t.Y(7,1097728,[[1,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],null,null),t.Y(8,1064960,null,0,Wn.a,[Yn.a,[2,$l.a],[2,Cl.a],[2,Xl.a]],{menuToggle:[0,"menuToggle"]},null),t.Y(9,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,1,{_buttons:1}),(l()(),t._19(-1,0,["\n      "])),(l()(),t.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t.Y(13,147456,null,0,Al.a,[Yl.a,t.j,t.z],{name:[0,"name"]},null),(l()(),t._19(-1,0,["\n    "])),(l()(),t._19(-1,3,["\n    "])),(l()(),t.Z(16,0,null,3,2,"ion-title",[],null,null,null,Gl.b,Gl.a)),t.Y(17,49152,null,0,Kl.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),(l()(),t._19(-1,0,["Editar Lote"])),(l()(),t._19(-1,3,["\n  "])),(l()(),t._19(-1,null,["\n"])),(l()(),t._19(-1,null,["\n\n\n"])),(l()(),t.Z(22,0,null,null,171,"ion-content",[["class","back-color"],["padding",""]],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,Jl.b,Jl.a)),t.Y(23,4374528,null,0,Ql.a,[Yl.a,yl.a,Fl.a,t.j,t.z,Wl.a,ln.a,t.u,[2,$l.a],[2,vl.a]],null,null),(l()(),t._19(-1,1,["\n    "])),(l()(),t.Z(25,0,null,1,167,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(26,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n        "])),(l()(),t.Z(28,0,null,null,163,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(29,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n            "])),(l()(),t.Z(31,0,null,null,8,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(32,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n              "])),(l()(),t.Z(34,0,null,null,1,"h1",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Editar Lote"])),(l()(),t._19(-1,null,["\n              "])),(l()(),t.Z(37,0,null,null,1,"p",[["text-center",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Ingrese los datos necesarios para editar un lote de fruta existente."])),(l()(),t._19(-1,null,["\n            "])),(l()(),t._19(-1,null,["\n            "])),(l()(),t.Z(41,0,null,null,149,"ion-col",[["class","back-black-color col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(42,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                "])),(l()(),t.Z(44,0,null,null,1,"h3",[["no-margin",""],["padding-top",""]],null,null,null,null,null)),(l()(),t._19(-1,null,["Datos generales del Lote"])),(l()(),t._19(-1,null,["\n            \t"])),(l()(),t.Z(47,0,null,null,142,"form",[["novalidate",""]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngSubmit"],[null,"submit"],[null,"reset"]],function(l,n,u){var e=!0,a=l.component;"submit"===n&&(e=!1!==t._13(l,49).onSubmit(u)&&e);"reset"===n&&(e=!1!==t._13(l,49).onReset()&&e);"ngSubmit"===n&&(e=!1!==a.editLote()&&e);return e},null,null)),t.Y(48,16384,null,0,c.r,[],null,null),t.Y(49,4210688,null,0,c.l,[[8,null],[8,null]],null,{ngSubmit:"ngSubmit"}),t._16(2048,null,c.b,null,[c.l]),t.Y(51,16384,null,0,c.k,[c.b],null,null),(l()(),t._19(-1,null,["\n            \t    "])),(l()(),t.Z(53,0,null,null,135,"ion-grid",[["class","grid"]],null,null,null,null,null)),t.Y(54,16384,null,0,Fn.a,[],null,null),(l()(),t._19(-1,null,["\n                        "])),(l()(),t.Z(56,0,null,null,131,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(57,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                            "])),(l()(),t.Z(59,0,null,null,114,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding-bottom",""]],null,null,null,null,null)),t.Y(60,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                                "])),(l()(),t.Z(62,0,null,null,50,"ion-row",[["class","row"]],null,null,null,null,null)),t.Y(63,16384,null,0,Rl.a,[],null,null),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t.Z(65,0,null,null,16,"ion-item",[["class","no-border item item-block"],["col-md-4",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(66,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,2,{contentLabel:0}),t._17(603979776,3,{_buttons:1}),t._17(603979776,4,{_icons:1}),t.Y(70,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                                      "])),(l()(),t.Z(72,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(73,16384,[[2,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Numero Lote"])),(l()(),t._19(-1,2,["\n                                      "])),(l()(),t.Z(76,0,null,3,4,"ion-input",[["name","nroRemito"],["type","text"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"]],function(l,n,u){var e=!0;"ngModelChange"===n&&(e=!1!==(l.component.lote.nroLote=u)&&e);return e},Bn.b,Bn.a)),t.Y(77,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[8,null]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(79,16384,null,0,c.j,[c.i],null,null),t.Y(80,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{type:[0,"type"]},null),(l()(),t._19(-1,2,["\n                                    "])),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t.Z(83,0,null,null,13,"ion-item",[["class","no-border item item-block"],["col-md-4",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(84,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,5,{contentLabel:0}),t._17(603979776,6,{_buttons:1}),t._17(603979776,7,{_icons:1}),t.Y(88,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                                      "])),(l()(),t.Z(90,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(91,16384,[[5,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Cantidad Bins"])),(l()(),t._19(-1,2,["\n                                      "])),(l()(),t.Z(94,0,null,3,1,"ion-input",[["name","cantBins"],["type","number"]],null,[[null,"input"]],function(l,n,u){var e=!0;"input"===n&&(e=!1!==(l.component.lote.cantBins=u.target.value)&&e);return e},Bn.b,Bn.a)),t.Y(95,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{value:[0,"value"],type:[1,"type"]},{input:"input"}),(l()(),t._19(-1,2,["\n                                    "])),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t.Z(98,0,null,null,13,"ion-item",[["class","no-border item item-block"],["col-md-4",""],["col-sm-12",""]],null,null,null,El.b,El.a)),t.Y(99,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,8,{contentLabel:0}),t._17(603979776,9,{_buttons:1}),t._17(603979776,10,{_icons:1}),t.Y(103,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                                      "])),(l()(),t.Z(105,0,null,1,2,"ion-label",[["stacked",""]],null,null,null,null,null)),t.Y(106,16384,[[8,4]],0,Nn.a,[Yl.a,t.j,t.z,[8,null],[8,""],[8,null],[8,null]],null,null),(l()(),t._19(-1,null,["Peso"])),(l()(),t._19(-1,2,["\n                                      "])),(l()(),t.Z(109,0,null,3,1,"ion-input",[["name","pesoNeto"],["type","number"]],null,[[null,"input"]],function(l,n,u){var e=!0;"input"===n&&(e=!1!==(l.component.lote.pesoNeto=u.target.value)&&e);return e},Bn.b,Bn.a)),t.Y(110,5423104,null,0,Un.a,[Yl.a,yl.a,Zl.a,Wl.a,t.j,t.z,[2,Ql.a],[2,jl.a],[2,c.i],Fl.a],{value:[0,"value"],type:[1,"type"]},{input:"input"}),(l()(),t._19(-1,2,["\n                                    "])),(l()(),t._19(-1,null,["\n                                "])),(l()(),t._19(-1,null,["\n                                "])),(l()(),t.Z(114,0,null,null,18,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["no-padding",""]],null,null,null,null,null)),t.Y(115,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t.Z(117,0,null,null,14,"ion-item",[["class","no-border item item-block"]],null,null,null,El.b,El.a)),t.Y(118,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,11,{contentLabel:0}),t._17(603979776,12,{_buttons:1}),t._17(603979776,13,{_icons:1}),t.Y(122,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                                        "])),(l()(),t.Z(124,0,null,2,6,"select-searchable",[["class","select-searchable"],["itemTextField","tipo"],["itemValueField","id"],["name","calidad"],["title","Calidades"]],[[2,"select-searchable-ios",null],[2,"select-searchable-md",null],[2,"select-searchable-can-reset",null],[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"],[null,"onChange"],[null,"click"]],function(l,n,u){var e=!0,a=l.component;"click"===n&&(e=!1!==t._13(l,125)._click(u)&&e);"ngModelChange"===n&&(e=!1!==(a.lote.calidad=u)&&e);"onChange"===n&&(e=!1!==a.calidadChange(u,a.lote)&&e);return e},Il,kl)),t.Y(125,770048,null,0,d,[vl.a,Zl.a,yl.a,[2,jl.a]],{items:[0,"items"],itemValueField:[1,"itemValueField"],itemTextField:[2,"itemTextField"],canSearch:[3,"canSearch"],title:[4,"title"]},{onChange:"onChange"}),t._16(1024,null,c.h,function(l){return[l]},[d]),t.Y(127,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[2,c.h]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(129,16384,null,0,c.j,[c.i],null,null),(l()(),t._19(-1,null,["\n                                        "])),(l()(),t._19(-1,2,["\n                                    "])),(l()(),t._19(-1,null,["\n                                "])),(l()(),t._19(-1,null,["\n                                "])),(l()(),t.Z(134,0,null,null,18,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["no-padding",""]],null,null,null,null,null)),t.Y(135,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t.Z(137,0,null,null,14,"ion-item",[["class","no-border item item-block"]],null,null,null,El.b,El.a)),t.Y(138,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,14,{contentLabel:0}),t._17(603979776,15,{_buttons:1}),t._17(603979776,16,{_icons:1}),t.Y(142,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                                        "])),(l()(),t.Z(144,0,null,2,6,"select-searchable",[["class","select-searchable"],["itemTextField","tipo"],["itemValueField","id"],["name","especie"],["title","Especies"]],[[2,"select-searchable-ios",null],[2,"select-searchable-md",null],[2,"select-searchable-can-reset",null],[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"],[null,"onChange"],[null,"click"]],function(l,n,u){var e=!0,a=l.component;"click"===n&&(e=!1!==t._13(l,145)._click(u)&&e);"ngModelChange"===n&&(e=!1!==(a.lote.especy=u)&&e);"onChange"===n&&(e=!1!==a.especieChange(u,a.lote)&&e);return e},Il,kl)),t.Y(145,770048,null,0,d,[vl.a,Zl.a,yl.a,[2,jl.a]],{items:[0,"items"],itemValueField:[1,"itemValueField"],itemTextField:[2,"itemTextField"],canSearch:[3,"canSearch"],title:[4,"title"]},{onChange:"onChange"}),t._16(1024,null,c.h,function(l){return[l]},[d]),t.Y(147,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[2,c.h]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(149,16384,null,0,c.j,[c.i],null,null),(l()(),t._19(-1,null,["\n                                        "])),(l()(),t._19(-1,2,["\n                                    "])),(l()(),t._19(-1,null,["\n                                "])),(l()(),t._19(-1,null,["\n                                "])),(l()(),t.Z(154,0,null,null,18,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["no-padding",""]],null,null,null,null,null)),t.Y(155,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t.Z(157,0,null,null,14,"ion-item",[["class","no-border item item-block"]],null,null,null,El.b,El.a)),t.Y(158,1097728,null,3,jl.a,[Zl.a,Yl.a,t.j,t.z,[2,Ml.a]],null,null),t._17(335544320,17,{contentLabel:0}),t._17(603979776,18,{_buttons:1}),t._17(603979776,19,{_icons:1}),t.Y(162,16384,null,0,Ol.a,[],null,null),(l()(),t._19(-1,2,["\n                                        "])),(l()(),t.Z(164,0,null,2,6,"select-searchable",[["class","select-searchable"],["itemTextField","tipo"],["itemValueField","id"],["name","variedad"],["title","Variedades"]],[[2,"select-searchable-ios",null],[2,"select-searchable-md",null],[2,"select-searchable-can-reset",null],[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null]],[[null,"ngModelChange"],[null,"onChange"],[null,"click"]],function(l,n,u){var e=!0,a=l.component;"click"===n&&(e=!1!==t._13(l,165)._click(u)&&e);"ngModelChange"===n&&(e=!1!==(a.lote.variedad=u)&&e);"onChange"===n&&(e=!1!==a.variedadChange(u,a.lote)&&e);return e},Il,kl)),t.Y(165,770048,null,0,d,[vl.a,Zl.a,yl.a,[2,jl.a]],{items:[0,"items"],itemValueField:[1,"itemValueField"],itemTextField:[2,"itemTextField"],canSearch:[3,"canSearch"],title:[4,"title"]},{onChange:"onChange"}),t._16(1024,null,c.h,function(l){return[l]},[d]),t.Y(167,671744,null,0,c.m,[[2,c.b],[8,null],[8,null],[2,c.h]],{name:[0,"name"],model:[1,"model"]},{update:"ngModelChange"}),t._16(2048,null,c.i,null,[c.m]),t.Y(169,16384,null,0,c.j,[c.i],null,null),(l()(),t._19(-1,null,["\n                                        "])),(l()(),t._19(-1,2,["\n                                    "])),(l()(),t._19(-1,null,["\n                                "])),(l()(),t._19(-1,null,["\n                            "])),(l()(),t._19(-1,null,["\n                            "])),(l()(),t.Z(175,0,null,null,11,"ion-col",[["class","col"],["col-md-12",""],["col-sm-12",""],["padding",""]],null,null,null,null,null)),t.Y(176,16384,null,0,Bl.a,[],null,null),(l()(),t._19(-1,null,["\n                                "])),(l()(),t.Z(178,0,null,null,7,"ion-buttons",[["left",""]],null,null,null,null,null)),t.Y(179,16384,null,1,Gn.a,[Yl.a,t.j,t.z,[2,wl.a],[2,Xl.a]],null,null),t._17(603979776,20,{_buttons:1}),(l()(),t._19(-1,null,["\n                                    "])),(l()(),t.Z(182,0,null,null,2,"button",[["color","semiDark"],["ion-button",""],["type","submit"]],null,null,null,fl.b,fl.a)),t.Y(183,1097728,[[20,4]],0,Cl.a,[[8,""],Yl.a,t.j,t.z],{color:[0,"color"]},null),(l()(),t._19(-1,0,["Editar"])),(l()(),t._19(-1,null,["\n                                "])),(l()(),t._19(-1,null,["\n                            "])),(l()(),t._19(-1,null,["\n                        "])),(l()(),t._19(-1,null,["\n                    "])),(l()(),t._19(-1,null,["\n            \t"])),(l()(),t._19(-1,null,["\n            "])),(l()(),t._19(-1,null,["\n        "])),(l()(),t._19(-1,null,["\n    "])),(l()(),t._19(-1,1,["\n"])),(l()(),t._19(-1,null,["\n"]))],function(l,n){var u=n.component;l(n,4,0,"cultivos");l(n,8,0,"");l(n,13,0,"menu");l(n,77,0,"nroRemito",u.lote.nroLote);l(n,80,0,"text");l(n,95,0,u.lote.cantBins,"number");l(n,110,0,u.lote.pesoNeto,"number");l(n,125,0,u.calidades,"id","tipo",!0,"Calidades");l(n,127,0,"calidad",u.lote.calidad);l(n,145,0,u.especies,"id","tipo",!0,"Especies");l(n,147,0,"especie",u.lote.especy);l(n,165,0,u.variedades,"id","tipo",!0,"Variedades");l(n,167,0,"variedad",u.lote.variedad);l(n,183,0,"semiDark")},function(l,n){l(n,3,0,t._13(n,4)._hidden,t._13(n,4)._sbPadding),l(n,6,0,t._13(n,8).isHidden),l(n,12,0,t._13(n,13)._hidden),l(n,22,0,t._13(n,23).statusbarPadding,t._13(n,23)._hasRefresher),l(n,47,0,t._13(n,51).ngClassUntouched,t._13(n,51).ngClassTouched,t._13(n,51).ngClassPristine,t._13(n,51).ngClassDirty,t._13(n,51).ngClassValid,t._13(n,51).ngClassInvalid,t._13(n,51).ngClassPending),l(n,76,0,t._13(n,79).ngClassUntouched,t._13(n,79).ngClassTouched,t._13(n,79).ngClassPristine,t._13(n,79).ngClassDirty,t._13(n,79).ngClassValid,t._13(n,79).ngClassInvalid,t._13(n,79).ngClassPending),l(n,124,0,t._13(n,125).isIos,t._13(n,125).isMd,t._13(n,125).canReset,t._13(n,129).ngClassUntouched,t._13(n,129).ngClassTouched,t._13(n,129).ngClassPristine,t._13(n,129).ngClassDirty,t._13(n,129).ngClassValid,t._13(n,129).ngClassInvalid,t._13(n,129).ngClassPending),l(n,144,0,t._13(n,145).isIos,t._13(n,145).isMd,t._13(n,145).canReset,t._13(n,149).ngClassUntouched,t._13(n,149).ngClassTouched,t._13(n,149).ngClassPristine,t._13(n,149).ngClassDirty,t._13(n,149).ngClassValid,t._13(n,149).ngClassInvalid,t._13(n,149).ngClassPending),l(n,164,0,t._13(n,165).isIos,t._13(n,165).isMd,t._13(n,165).canReset,t._13(n,169).ngClassUntouched,t._13(n,169).ngClassTouched,t._13(n,169).ngClassPristine,t._13(n,169).ngClassDirty,t._13(n,169).ngClassValid,t._13(n,169).ngClassInvalid,t._13(n,169).ngClassPending)})}var Pe=t.V("page-edit-lote",N,function(l){return t._21(0,[(l()(),t.Z(0,0,null,null,1,"page-edit-lote",[],null,null,null,ze,Ie)),t.Y(1,49152,null,0,N,[vl.a,tn.a,M,V,L,F],null,null)],null,null)},{},{},[]),we=u(170),xe=u(140),Se=u(69),Te=u(248),De=u(83),Ee=u(76),Me=u(151),Oe=u(107),Ae=u(155),Ve=u(167),Le=u(162),Fe=u(247),Ne=u(168),Be=u(150),Ue=u(169),$e=t.W(il,[sl.b],function(l){return t._10([t._11(512,t.i,t.S,[[8,[cl.a,rl.a,dl.a,_l.a,ml.a,gl.a,pl.a,hl.a,bl.a,zl,hn,Ln,Xn,lu,au,_u,pu,Yu,yu,Iu,xu,Du,Ou,Fu,$u,qu,Ku,le,ee,ge,Ze,ke,Pe]],[3,t.i],t.s]),t._11(5120,t.r,t._9,[[3,t.r]]),t._11(4608,Nl.l,Nl.k,[t.r,[2,Nl.t]]),t._11(5120,t.b,t._0,[]),t._11(5120,t.p,t._6,[]),t._11(5120,t.q,t._7,[]),t._11(4608,e.c,e.q,[Nl.d]),t._11(6144,t.D,null,[e.c]),t._11(4608,e.f,we.a,[]),t._11(5120,e.d,function(l,n,u,t,a){return[new e.k(l,n),new e.o(u),new e.n(t,a)]},[Nl.d,t.u,Nl.d,Nl.d,e.f]),t._11(4608,e.e,e.e,[e.d,t.u]),t._11(135680,e.m,e.m,[Nl.d]),t._11(4608,e.l,e.l,[e.e,e.m]),t._11(6144,t.B,null,[e.l]),t._11(6144,e.p,null,[e.m]),t._11(4608,t.G,t.G,[t.u]),t._11(4608,e.h,e.h,[Nl.d]),t._11(4608,e.i,e.i,[Nl.d]),t._11(4608,c.s,c.s,[]),t._11(4608,c.d,c.d,[]),t._11(5120,ol.b,ol.f,[ol.c,ol.d]),t._11(5120,p.a,p.c,[ol.b]),t._11(4608,C.c,C.c,[]),t._11(4608,C.h,C.b,[]),t._11(5120,C.j,C.k,[]),t._11(4608,C.i,C.i,[C.c,C.h,C.j]),t._11(4608,C.g,C.a,[]),t._11(5120,C.e,C.l,[C.i,C.g]),t._11(4608,xe.a,xe.a,[Wl.a,Yl.a]),t._11(4608,Rn.a,Rn.a,[Wl.a,Yl.a]),t._11(4608,Zn.a,Zn.a,[]),t._11(4608,Zl.a,Zl.a,[]),t._11(4608,Se.a,Se.a,[yl.a]),t._11(4608,ln.a,ln.a,[Yl.a,yl.a,t.u,Fl.a]),t._11(4608,$n.a,$n.a,[Wl.a,Yl.a]),t._11(5120,Nl.g,Te.c,[Nl.r,[2,Nl.a],Yl.a]),t._11(4608,Nl.f,Nl.f,[Nl.g]),t._11(5120,De.b,De.d,[Wl.a,De.a]),t._11(5120,On.a,On.b,[Wl.a,De.b,Nl.f,Ee.b,t.i]),t._11(4608,Me.a,Me.a,[Wl.a,Yl.a,On.a]),t._11(4608,Oe.a,Oe.a,[Wl.a,Yl.a]),t._11(4608,Ae.a,Ae.a,[Wl.a,Yl.a,On.a]),t._11(4608,Ve.a,Ve.a,[Yl.a,yl.a,Fl.a,Wl.a,Ll.l]),t._11(4608,Le.a,Le.a,[Wl.a,Yl.a]),t._11(4608,Mn.a,Mn.a,[yl.a,Yl.a]),t._11(4608,m.a,m.a,[]),t._11(4608,g.a,g.a,[]),t._11(4608,Z,Z,[C.e]),t._11(4608,O,O,[C.e]),t._11(4608,h,h,[p.a]),t._11(4608,k,k,[C.e]),t._11(4608,P,P,[C.e]),t._11(4608,S,S,[C.e]),t._11(4608,J,J,[C.e]),t._11(4608,E,E,[C.e]),t._11(4608,L,L,[C.e]),t._11(4608,V,V,[C.e]),t._11(4608,F,F,[C.e]),t._11(4608,M,M,[C.e]),t._11(512,Nl.c,Nl.c,[]),t._11(512,t.k,Fe.a,[]),t._11(256,Yl.b,{},[]),t._11(1024,Ne.a,Ne.b,[]),t._11(1024,yl.a,yl.b,[e.b,Ne.a,t.u]),t._11(1024,Yl.a,Yl.c,[Yl.b,yl.a]),t._11(512,Fl.a,Fl.a,[yl.a]),t._11(512,Yn.a,Yn.a,[]),t._11(512,Wl.a,Wl.a,[Yl.a,yl.a,[2,Yn.a]]),t._11(512,Ll.l,Ll.l,[Wl.a]),t._11(256,De.a,{links:[]},[]),t._11(512,t.h,t.h,[]),t._11(512,Be.a,Be.a,[t.h]),t._11(1024,Ee.b,Ee.c,[Be.a,t.o]),t._11(1024,t.c,function(l,n,u,t,a,o,i,s,c,r,d,_,m){return[e.s(l),Ue.a(n),Zn.b(u,t),Ve.b(a,o,i,s,c),Ee.d(r,d,_,m)]},[[2,t.t],Yl.a,yl.a,Fl.a,Yl.a,yl.a,Fl.a,Wl.a,Ll.l,Yl.a,De.a,Ee.b,t.u]),t._11(512,t.d,t.d,[[2,t.c]]),t._11(131584,t.f,t.f,[t.u,t.T,t.o,t.k,t.i,t.d]),t._11(512,t.e,t.e,[t.f]),t._11(512,e.a,e.a,[[3,e.a]]),t._11(512,c.q,c.q,[]),t._11(512,c.e,c.e,[]),t._11(512,c.o,c.o,[]),t._11(512,Te.a,Te.a,[]),t._11(512,ol.a,ol.a,[]),t._11(512,p.b,p.b,[]),t._11(512,C.f,C.f,[]),t._11(512,Te.b,Te.b,[]),t._11(512,_,_,[]),t._11(512,il,il,[]),t._11(256,ol.c,{apiKey:"AIzaSyAlCvR3L2sO5B8GFSaRvPRMWD1uU498VgE",authDomain:"cultivos-sistema.firebaseapp.com",databaseURL:"https://cultivos-sistema.firebaseio.com",projectId:"cultivos-sistema",storageBucket:"cultivos-sistema.appspot.com",messagingSenderId:"1042519531953"},[]),t._11(256,ol.d,void 0,[]),t._11(256,Ee.a,r,[]),t._11(256,sl.a,al,[]),t._11(256,Nl.a,"/",[])])});Object(t.M)(),Object(e.j)().bootstrapModuleFactory($e)}},[353]);
+webpackJsonp([0],{
+
+/***/ 148:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_login_login__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_productoresList_productoresList__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_camiones_list_camiones_list__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_empresas_list_empresas_list__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_instituciones_list_instituciones_list__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_ingresos_list_ingresos_list__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_new_ingreso_new_ingreso__ = __webpack_require__(171);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+var HomePage = (function () {
+    function HomePage(navCtrl, AuthServiceProvider) {
+        this.navCtrl = navCtrl;
+        this.AuthServiceProvider = AuthServiceProvider;
+        this.pages = [
+            { title: 'Ingreso', icon: 'crop', component: __WEBPACK_IMPORTED_MODULE_8__pages_ingresos_list_ingresos_list__["a" /* IngresosList */] },
+            { title: 'Nuevo Ingreso', icon: 'add', component: __WEBPACK_IMPORTED_MODULE_9__pages_new_ingreso_new_ingreso__["a" /* NewIngreso */] },
+            { title: 'Productores', icon: 'contact', component: __WEBPACK_IMPORTED_MODULE_4__pages_productoresList_productoresList__["a" /* ProductoresList */] },
+            { title: 'Camiones', icon: 'bus', component: __WEBPACK_IMPORTED_MODULE_5__pages_camiones_list_camiones_list__["a" /* CamionesList */] },
+            { title: 'Empresas', icon: 'briefcase', component: __WEBPACK_IMPORTED_MODULE_6__pages_empresas_list_empresas_list__["a" /* EmpresasList */] },
+            { title: 'Instituciones', icon: 'home', component: __WEBPACK_IMPORTED_MODULE_7__pages_instituciones_list_instituciones_list__["a" /* InstitucionesList */] }
+        ];
+    }
+    HomePage.prototype.signOut = function () {
+        this.AuthServiceProvider.signOut();
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__pages_login_login__["a" /* Login */]);
+    };
+    HomePage.prototype.goToPage = function (page) {
+        this.navCtrl.push(page.component);
+    };
+    HomePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-home',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Inicio</ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="signOut()">\n        Cerrar Sesion\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="backImg">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-10 offset-2>\n        <ion-row>\n          <ion-col col-3 *ngFor="let page of pages" padding margin> \n            <button (click)="goToPage(page)" ion-item detail-none color="semiDark" class="no-border-cards">\n              <ion-icon item-left style="zoom:1.35;" name="{{page.icon}}"></ion-icon>\n              {{page.title}}\n            </button>\n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\home\home.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]])
+    ], HomePage);
+    return HomePage;
+}());
+
+//# sourceMappingURL=home.js.map
+
+/***/ }),
+
+/***/ 154:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Login; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_user_model__ = __webpack_require__(481);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_service_auth_service__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(148);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var Login = (function () {
+    function Login(navCtrl, loadingCtrl, alertCtrl, authService) {
+        this.navCtrl = navCtrl;
+        this.loadingCtrl = loadingCtrl;
+        this.alertCtrl = alertCtrl;
+        this.authService = authService;
+        this.userModel = new __WEBPACK_IMPORTED_MODULE_2__models_user_model__["a" /* UserModel */]();
+    }
+    Login.prototype.signIn = function () {
+        var _this = this;
+        var loading = this.loadingCtrl.create({
+            content: 'Iniciando sesión. Por favor, espere...'
+        });
+        loading.present();
+        this.authService.signInWithEmailAndPassword(this.userModel)
+            .then(function (result) {
+            loading.dismiss();
+            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */]);
+        })
+            .catch(function (error) {
+            loading.dismiss();
+            _this.alert('Error', error);
+        });
+    };
+    Login.prototype.alert = function (title, message) {
+        var alert = this.alertCtrl.create({
+            title: title,
+            subTitle: message,
+            buttons: ['OK']
+        });
+        alert.present();
+    };
+    Login = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-login',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\login\login.html"*/'<ion-header>\n    <ion-navbar color="cultivos" hideBackButton="true">\n        <ion-title>Iniciar Sesión</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n    <form  #signInForm="ngForm" (submit)="signIn()">\n        <ion-grid>\n            <ion-row class="back-black-color" col-4 offset-4 padding padding-top>\n                <ion-col col-8 offset-2>\n                    <img src="assets/imgs/cultivosTexto.png">\n                </ion-col>\n                <ion-col col-12>\n                    <ion-row>\n                        <ion-col col-12 padding>\n                            <p text-center>Inicia sesion en Cultivos Patagonicos con tu cuenta de Google</p>\n                        </ion-col>\n                        <ion-col col-10 offset-1>\n                            <ion-item class="no-border">\n                                <ion-label stacked>Correo electrónico</ion-label>\n                                <ion-input [(ngModel)]="userModel.email" type="email" autocorrect="off" autocapitalize="none" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"\n                                    required></ion-input>\n                            </ion-item>\n                        </ion-col>\n                        <ion-col col-10 offset-1> \n                            <ion-item class="no-border">\n                                <ion-label stacked>Contraseña</ion-label>\n                                <ion-input [(ngModel)]="userModel.password" type="password" name="password" required minlength="6"></ion-input>\n                            </ion-item>\n                        </ion-col>\n                    </ion-row>\n                </ion-col>\n                <ion-col col-8 offset-2>\n                    <button ion-button color="semiDark" type="submit" [disabled]="!signInForm.form.valid" block>Ingresar</button>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n    </form>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\login\login.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]])
+    ], Login);
+    return Login;
+}());
+
+//# sourceMappingURL=login.js.map
+
+/***/ }),
+
+/***/ 168:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LotesServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var LotesServiceProvider = (function () {
+    function LotesServiceProvider(http) {
+        this.http = http;
+        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/lote';
+    }
+    LotesServiceProvider.prototype.getAllLotes = function () {
+        return this.http.get(this.urlAPI)
+            .map(this.extractData)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    LotesServiceProvider.prototype.addNewLote = function (lote) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.post(this.urlAPI, lote, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    LotesServiceProvider.prototype.editLote = function (lote) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.put(this.urlAPI + '/' + lote.id, lote, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    LotesServiceProvider.prototype.deleteLote = function (loteId) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.delete(this.urlAPI + '/' + loteId, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    LotesServiceProvider.prototype.catchError = function (error) {
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || "Server Error");
+    };
+    LotesServiceProvider.prototype.extractData = function (res) {
+        return res.json().data;
+    };
+    LotesServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]])
+    ], LotesServiceProvider);
+    return LotesServiceProvider;
+}());
+
+//# sourceMappingURL=lotes-service.js.map
+
+/***/ }),
+
+/***/ 169:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CalidadesServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var CalidadesServiceProvider = (function () {
+    function CalidadesServiceProvider(http) {
+        this.http = http;
+        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/calidad';
+    }
+    CalidadesServiceProvider.prototype.getAllCalidades = function () {
+        return this.http.get(this.urlAPI)
+            .map(this.extractData)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    CalidadesServiceProvider.prototype.catchError = function (error) {
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || "Server Error");
+    };
+    CalidadesServiceProvider.prototype.extractData = function (res) {
+        return res.json().data;
+    };
+    CalidadesServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]])
+    ], CalidadesServiceProvider);
+    return CalidadesServiceProvider;
+}());
+
+//# sourceMappingURL=calidades-service.js.map
+
+/***/ }),
+
+/***/ 170:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EspecieServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var EspecieServiceProvider = (function () {
+    function EspecieServiceProvider(http) {
+        this.http = http;
+        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/especie';
+    }
+    EspecieServiceProvider.prototype.getAllEmpecies = function () {
+        return this.http.get(this.urlAPI)
+            .map(this.extractData)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    EspecieServiceProvider.prototype.catchError = function (error) {
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || "Server Error");
+    };
+    EspecieServiceProvider.prototype.extractData = function (res) {
+        return res.json().data;
+    };
+    EspecieServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]])
+    ], EspecieServiceProvider);
+    return EspecieServiceProvider;
+}());
+
+//# sourceMappingURL=especie-service.js.map
+
+/***/ }),
+
+/***/ 171:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewIngreso; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_ingresos_list_ingresos_list__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_new_viaje_new_viaje__ = __webpack_require__(389);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_calidad_model__ = __webpack_require__(751);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_especie_model__ = __webpack_require__(752);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_variedad_model__ = __webpack_require__(753);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__models_chacra_model__ = __webpack_require__(754);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__models_tratamiento_model__ = __webpack_require__(755);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__models_cuadro_model__ = __webpack_require__(756);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__models_ingreso_model__ = __webpack_require__(757);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__models_lote_model__ = __webpack_require__(758);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_calidades_service_calidades_service__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_especie_service_especie_service__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_cuadros_service_cuadros_service__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_tratamientos_service_tratamientos_service__ = __webpack_require__(391);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_ingresos_service_ingresos_service__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_auth_service_auth_service__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_chacras_service_chacras_service__ = __webpack_require__(46);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var NewIngreso = (function () {
+    function NewIngreso(navCtrl, navParams, CalidadesServiceProvider, EspecieServiceProvider, IngresosServiceProvider, AuthServiceProvider, ChacrasServiceProvider, CuadrosServiceProvider, TratamientosServiceProvider, AlertController) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.CalidadesServiceProvider = CalidadesServiceProvider;
+        this.EspecieServiceProvider = EspecieServiceProvider;
+        this.IngresosServiceProvider = IngresosServiceProvider;
+        this.AuthServiceProvider = AuthServiceProvider;
+        this.ChacrasServiceProvider = ChacrasServiceProvider;
+        this.CuadrosServiceProvider = CuadrosServiceProvider;
+        this.TratamientosServiceProvider = TratamientosServiceProvider;
+        this.AlertController = AlertController;
+        this.indexLote = 0;
+        this.indexIngreso = 0;
+        this.ingresos = new Array();
+        this.calidades = [];
+        this.especies = [];
+        this.variedades = [];
+        this.chacras = [];
+        this.tratamientos = [];
+        this.cuadros = [];
+        this.agregarIngresoList();
+        this.CalidadesServiceProvider.getAllCalidades().subscribe(function (data) {
+            _this.calidades = Object.assign([], data);
+            _this.ingresos[0].lotes[0].calidades = Object.assign([], data);
+        });
+        this.EspecieServiceProvider.getAllEmpecies().subscribe(function (data) {
+            _this.especies = Object.assign([], data);
+            _this.ingresos[0].lotes[0].especies = Object.assign([], data);
+        });
+        this.TratamientosServiceProvider.getAllTratamientos().subscribe(function (data) {
+            _this.tratamientos = Object.assign([], data);
+            _this.ingresos[0].lotes[0].tratamientos = Object.assign([], data);
+        });
+        this.ChacrasServiceProvider.getAllChacras().subscribe(function (data) {
+            _this.chacras = Object.assign([], data);
+            _this.ingresos[0].chacras = Object.assign([], data);
+        });
+    }
+    NewIngreso.prototype.agregarIngresoList = function () {
+        this.ingresos.push(new __WEBPACK_IMPORTED_MODULE_10__models_ingreso_model__["a" /* IngresoModel */](this.indexIngreso, 0, this.formatDate(), 0, 0, this.AuthServiceProvider.getCurrentUser().email, new Array(new __WEBPACK_IMPORTED_MODULE_11__models_lote_model__["a" /* LoteModel */](this.indexLote, 0, 0, 0, 0, 0, 0, 0, 0, Object.assign([], this.calidades), new __WEBPACK_IMPORTED_MODULE_4__models_calidad_model__["a" /* CalidadModel */](), Object.assign([], this.especies), new __WEBPACK_IMPORTED_MODULE_5__models_especie_model__["a" /* EspecieModel */](), new Array(), new __WEBPACK_IMPORTED_MODULE_6__models_variedad_model__["a" /* VariedadModel */](), Object.assign([], this.tratamientos), new __WEBPACK_IMPORTED_MODULE_8__models_tratamiento_model__["a" /* TratamientoModel */](), new Array(), new __WEBPACK_IMPORTED_MODULE_9__models_cuadro_model__["a" /* CuadroModel */]())), Object.assign([], this.chacras), new __WEBPACK_IMPORTED_MODULE_7__models_chacra_model__["a" /* ChacraModel */]()));
+        this.indexLote++;
+        this.indexIngreso++;
+    };
+    NewIngreso.prototype.agregarLoteList = function (ingreso) {
+        var index = this.ingresos.indexOf(ingreso, 0);
+        this.ingresos[index].lotes.push(new __WEBPACK_IMPORTED_MODULE_11__models_lote_model__["a" /* LoteModel */](this.indexLote, 0, 0, 0, 0, 0, 0, 0, 0, Object.assign([], this.calidades), new __WEBPACK_IMPORTED_MODULE_4__models_calidad_model__["a" /* CalidadModel */](), Object.assign([], this.especies), new __WEBPACK_IMPORTED_MODULE_5__models_especie_model__["a" /* EspecieModel */](), new Array(), new __WEBPACK_IMPORTED_MODULE_6__models_variedad_model__["a" /* VariedadModel */](), Object.assign([], this.tratamientos), new __WEBPACK_IMPORTED_MODULE_8__models_tratamiento_model__["a" /* TratamientoModel */](), new Array(), new __WEBPACK_IMPORTED_MODULE_9__models_cuadro_model__["a" /* CuadroModel */]()));
+        this.indexLote++;
+    };
+    NewIngreso.prototype.deleteIngresoList = function (ingreso) {
+        var index = this.ingresos.indexOf(ingreso, 0);
+        this.ingresos.splice(index, 1);
+    };
+    NewIngreso.prototype.deleteLoteList = function (ingreso, lote) {
+        var index = ingreso.lotes.indexOf(lote, 0);
+        ingreso.lotes.splice(index, 1);
+    };
+    NewIngreso.prototype.calidadChange = function (event, lote) {
+        lote.calidadId = event.value.id;
+    };
+    NewIngreso.prototype.especieChange = function (event, lote) {
+        lote.especieId = event.value.id;
+        var currentVariedades = this.especies[this.especies.indexOf(event.value, 0)].variedads;
+        lote.variedades = Object.assign([], currentVariedades);
+    };
+    NewIngreso.prototype.variedadChange = function (event, lote) {
+        lote.variedadId = event.value.id;
+    };
+    NewIngreso.prototype.tratamientoChange = function (event, lote) {
+        lote.tratamientoId = event.value.id;
+    };
+    NewIngreso.prototype.chacraChange = function (event, ingreso) {
+        ingreso.chacraId = event.value.id;
+        var currentCuadros = this.chacras[this.chacras.indexOf(event.value, 0)].cuadros;
+        for (var _i = 0, _a = ingreso.lotes; _i < _a.length; _i++) {
+            var lote = _a[_i];
+            lote.cuadros = Object.assign([], currentCuadros);
+        }
+    };
+    NewIngreso.prototype.cuadroChange = function (event, lote) {
+        lote.cuadroId = event.value.id;
+    };
+    NewIngreso.prototype.addNewIngreso = function () {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pages_new_viaje_new_viaje__["a" /* NewViaje */], {
+            ingresos: this.ingresos
+        });
+    };
+    NewIngreso.prototype.alertNewIngreso = function () {
+        var _this = this;
+        var alert = this.AlertController.create({
+            title: 'Revise los datos ingresados',
+            message: 'Se procedera a realizar la carga del viaje. Desea continuar?',
+            buttons: [
+                {
+                    text: 'Aceptar',
+                    handler: function () {
+                        _this.addNewIngreso();
+                    }
+                },
+                {
+                    text: 'Cancelar',
+                    handler: function () { }
+                }
+            ]
+        });
+        alert.present();
+    };
+    NewIngreso.prototype.destroyView = function () {
+        this.navCtrl.pop();
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__pages_ingresos_list_ingresos_list__["a" /* IngresosList */]);
+    };
+    NewIngreso.prototype.formatDate = function () {
+        var fecha = new Date();
+        return fecha.getFullYear() + "-" + fecha.getMonth() + 1 + "-" + fecha.getDate();
+    };
+    NewIngreso.prototype.trackByFn = function (index, value) {
+        return value.id;
+    };
+    NewIngreso = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-new-ingreso',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-ingreso\new-ingreso.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Nuevo Ingreso</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n    <ion-grid>\n        <ion-row>\n            <ion-col col-sm-12 col-md-12 padding>\n              <h1 text-center>Nuevo Ingresos</h1>\n              <p text-center>Ingrese los datos necesarios para generar un nuevo ingreso de fruta.</p>\n            </ion-col>\n            <ion-col col-sm-12 col-md-12 padding>\n            	<form (ngSubmit)="alertNewIngreso()">\n            	    <ion-grid *ngFor="let ingreso of ingresos; trackBy:trackByFn" class="back-black-color" padding margin>\n                        <ion-row>\n                            <ion-col col-sm-12 col-md-12 padding-bottom>\n                                <h3 padding-top no-margin>Datos generales del Ingreso</h3>\n                            </ion-col>\n                            <ion-col col-sm-12 col-md-12 padding-bottom>\n                                <ion-row>\n                                    <ion-item col-sm-12 col-md-6 class="no-border">\n                                      <ion-label stacked>Nro Remito</ion-label>\n                                      <ion-input type="text" [(ngModel)]="ingreso.nroRemito" name="nroRemito"></ion-input>\n                                    </ion-item>\n                                    <ion-item col-sm-12 col-md-6 class="no-border">\n                                      <ion-label stacked>Fecha de Ingreso</ion-label>\n                                      <ion-input type="date" [value]="ingreso.fechaIngreso" (input)="ingreso.fechaIngreso = $event.target.value" name="fechaIngreso"></ion-input>\n                                    </ion-item>\n                                </ion-row>\n                                <ion-item class="no-border">\n                                    <select-searchable\n                                        [(ngModel)]="ingreso.chacra"\n                                        name="chacra"\n                                        title="Chacras"\n                                        itemValueField="id"\n                                        itemTextField="nombre"\n                                        [items]="ingreso.chacras"\n                                        [canSearch]="true"\n                                        (onChange)="chacraChange($event, ingreso)">\n                                    </select-searchable>\n                                </ion-item>\n                            </ion-col>\n                            <ion-col col-sm-12 col-md-12 padding class="back-color">\n                                <ion-row>\n                                    <ion-col col-sm-12 col-md-12 no-padding>\n                                        <h3 padding>Datos generales del nuevo Lote</h3>\n                                    </ion-col>\n                                    <ion-row *ngFor="let lote of ingreso.lotes; trackBy:trackByFn" margin>\n                                        <ion-col col-sm-12 col-md-12 no-padding>\n                                            <ion-row>\n                                                <ion-item class="no-border" col-sm-12 col-md-4>\n                                                  <ion-label stacked>Numero Lote</ion-label>\n                                                  <ion-input type="number" [value]="lote.nroLote" (input)="lote.nroLote = $event.target.value" name="nroLote"></ion-input>\n                                                </ion-item>\n                                                <ion-item class="no-border" col-sm-12 col-md-4>\n                                                  <ion-label stacked>Cantidad Bins</ion-label>\n                                                  <ion-input type="number" [value]="lote.cantBins" (input)="lote.cantBins = $event.target.value" name="cantBins"></ion-input>\n                                                </ion-item>\n                                                <ion-item class="no-border" col-sm-12 col-md-4>\n                                                  <ion-label stacked>Peso</ion-label>\n                                                  <ion-input type="number" [value]="lote.peso" (input)="lote.peso = $event.target.value" name="peso"></ion-input>\n                                                </ion-item>\n                                            </ion-row>\n                                        </ion-col>\n                                        <ion-col col-sm-12 col-md-12 no-padding>\n                                            <ion-item class="no-border">\n                                                <select-searchable\n                                                    [(ngModel)]="lote.calidad"\n                                                    name="calidad"\n                                                    title="Calidades"\n                                                    itemValueField="id"\n                                                    itemTextField="tipo"\n                                                    [items]="lote.calidades"\n                                                    [canSearch]="true"\n                                                    (onChange)="calidadChange($event,lote)">\n                                                </select-searchable>\n                                            </ion-item>\n                                        </ion-col>\n                                        <ion-col col-sm-12 col-md-12 no-padding>\n                                            <ion-item class="no-border">\n                                                <select-searchable\n                                                    [(ngModel)]="lote.especie"\n                                                    name="especie"\n                                                    title="Especies"\n                                                    itemValueField="id"\n                                                    itemTextField="tipo"\n                                                    [items]="lote.especies"\n                                                    [canSearch]="true"\n                                                    (onChange)="especieChange($event,lote)">\n                                                </select-searchable>\n                                            </ion-item>\n                                        </ion-col>\n                                        <ion-col col-sm-12 col-md-12 no-padding>\n                                            <ion-item class="no-border">\n                                                <select-searchable\n                                                    [(ngModel)]="lote.variedad"\n                                                    name="variedad"\n                                                    title="Variedades"\n                                                    itemValueField="id"\n                                                    itemTextField="tipo"\n                                                    [items]="lote.variedades"\n                                                    [canSearch]="true"\n                                                    (onChange)="variedadChange($event,lote)">\n                                                </select-searchable>\n                                            </ion-item>\n                                        </ion-col>\n                                        <ion-col col-sm-12 col-md-12 no-padding>\n                                            <ion-item class="no-border">\n                                                <select-searchable\n                                                    [(ngModel)]="lote.tratamiento"\n                                                    name="tratamiento"\n                                                    title="Tratamientos"\n                                                    itemValueField="id"\n                                                    itemTextField="tipo"\n                                                    [items]="lote.tratamientos"\n                                                    [canSearch]="true"\n                                                    (onChange)="tratamientoChange($event,lote)">\n                                                </select-searchable>\n                                            </ion-item>\n                                        </ion-col>\n                                        <ion-col col-sm-12 col-md-12 no-padding>\n                                            <ion-item class="no-border">\n                                                <select-searchable\n                                                    [(ngModel)]="lote.cuadro"\n                                                    name="cuadro"\n                                                    title="Cuadros"\n                                                    itemValueField="id"\n                                                    itemTextField="up"\n                                                    [items]="lote.cuadros"\n                                                    [canSearch]="true"\n                                                    (onChange)="cuadroChange($event,lote)">\n                                                </select-searchable>\n                                            </ion-item>\n                                        </ion-col>\n                                        <ion-col col-sm-12 col-md-12 padding>\n                                            <ion-buttons right>\n                                                <button ion-button type="button" color="semiDark" (click)="deleteLoteList(ingreso,lote)">Eliminar Lote</button>\n                                            </ion-buttons>\n                                        </ion-col>\n                                    </ion-row>\n                                </ion-row>\n                            </ion-col>\n                            <ion-col col-sm-12 col-md-12 padding>\n                                <ion-buttons right>\n                                    <button ion-button type="button" color="semiDark" (click)="agregarLoteList(ingreso)">Agregar Lote</button>\n                                    <button *ngIf="ingresos.length > 1" ion-button type="button" color="semiDark" (click)="deleteIngresoList(ingreso)">Eliminar Ingreso</button>\n                                </ion-buttons>\n                            </ion-col>\n                        </ion-row>\n                    </ion-grid>\n                    <ion-col col-sm-12 col-md-12 padding>\n                            <ion-buttons left>\n                                <button ion-button color="semiDark" type="submit">Siguiente</button>\n                            </ion-buttons>\n                    </ion-col>\n            	</form>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n    <ion-fab bottom right padding margin>\n        <button ion-fab color="semiDark" (click)="agregarIngresoList()"><ion-icon name="crop"></ion-icon></button>\n    </ion-fab>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-ingreso\new-ingreso.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_12__providers_calidades_service_calidades_service__["a" /* CalidadesServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_13__providers_especie_service_especie_service__["a" /* EspecieServiceProvider */], __WEBPACK_IMPORTED_MODULE_16__providers_ingresos_service_ingresos_service__["a" /* IngresosServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_17__providers_auth_service_auth_service__["a" /* AuthServiceProvider */], __WEBPACK_IMPORTED_MODULE_18__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */], __WEBPACK_IMPORTED_MODULE_14__providers_cuadros_service_cuadros_service__["a" /* CuadrosServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_15__providers_tratamientos_service_tratamientos_service__["a" /* TratamientosServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], NewIngreso);
+    return NewIngreso;
+}());
+
+//# sourceMappingURL=new-ingreso.js.map
+
+/***/ }),
+
+/***/ 172:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CuadrosServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var CuadrosServiceProvider = (function () {
+    function CuadrosServiceProvider(http) {
+        this.http = http;
+        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/cuadro';
+    }
+    CuadrosServiceProvider.prototype.getAllCuadros = function () {
+        return this.http.get(this.urlAPI)
+            .map(this.extractData)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    CuadrosServiceProvider.prototype.addNewCuadro = function (cuadro) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.post(this.urlAPI, cuadro, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    CuadrosServiceProvider.prototype.editCuadro = function (cuadro) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.put(this.urlAPI + '/' + cuadro.id, cuadro, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    CuadrosServiceProvider.prototype.deleteCuadro = function (cuadroId) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.delete(this.urlAPI + '/' + cuadroId, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    CuadrosServiceProvider.prototype.catchError = function (error) {
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || "Server Error");
+    };
+    CuadrosServiceProvider.prototype.extractData = function (res) {
+        return res.json().data;
+    };
+    CuadrosServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]])
+    ], CuadrosServiceProvider);
+    return CuadrosServiceProvider;
+}());
+
+//# sourceMappingURL=cuadros-service.js.map
+
+/***/ }),
+
+/***/ 173:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChacrasList; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_cuadros_service_cuadros_service__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_edit_chacra_edit_chacra__ = __webpack_require__(393);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var ChacrasList = (function () {
+    function ChacrasList(navCtrl, navParams, ChacrasServiceProvider, CuadrosServiceProvider, AlertController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.ChacrasServiceProvider = ChacrasServiceProvider;
+        this.CuadrosServiceProvider = CuadrosServiceProvider;
+        this.AlertController = AlertController;
+        this.chacrasList = [];
+        this.newCuadro = { up: '', chacraId: '' };
+        this.getAllChacras();
+    }
+    ChacrasList.prototype.getAllChacras = function () {
+        var _this = this;
+        this.ChacrasServiceProvider.getAllChacras().subscribe(function (data) { return _this.chacrasList = data; });
+    };
+    ChacrasList.prototype.goToEdit = function (chacra) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__pages_edit_chacra_edit_chacra__["a" /* EditChacra */], {
+            chacra: chacra
+        });
+    };
+    ChacrasList.prototype.deleteChacra = function (chacraId) {
+        var _this = this;
+        this.ChacrasServiceProvider.deleteChacra(chacraId).subscribe(function (data) { return _this.getAllChacras(); });
+    };
+    ChacrasList.prototype.alertDeleteChacra = function (chacraId) {
+        var _this = this;
+        var alert = this.AlertController.create({
+            title: 'Confirmar eliminacion',
+            message: 'Esta seguro que desea eliminar la chacra de la lista?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function () { }
+                },
+                {
+                    text: 'Eliminar',
+                    handler: function () {
+                        _this.deleteChacra(chacraId);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    //CUADROS
+    ChacrasList.prototype.alertNewCuadro = function (chacraId) {
+        var _this = this;
+        var alert = this.AlertController.create({
+            title: 'Agregar Cuadro',
+            inputs: [
+                {
+                    name: 'Up',
+                    placeholder: 'Up',
+                }
+            ],
+            buttons: [
+                {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    handler: function (data) { }
+                },
+                {
+                    text: 'Crear',
+                    handler: function (data) {
+                        _this.newCuadro.up = data.Up;
+                        _this.newCuadro.chacraId = chacraId;
+                        _this.addNewCuadro();
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    ChacrasList.prototype.addNewCuadro = function () {
+        var _this = this;
+        this.CuadrosServiceProvider.addNewCuadro(this.newCuadro).subscribe(function (data) { return _this.getAllChacras(); });
+        this.newCuadro = { up: '', chacraId: '' };
+    };
+    ChacrasList.prototype.alertEditCuadro = function (cuadro) {
+        var _this = this;
+        var alert = this.AlertController.create({
+            title: 'Editar Cuadro',
+            inputs: [
+                {
+                    name: 'Up',
+                    placeholder: 'Up',
+                    value: cuadro.up,
+                }
+            ],
+            buttons: [
+                {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    handler: function (data) { }
+                },
+                {
+                    text: 'Editar',
+                    handler: function (data) {
+                        cuadro.up = data.Up;
+                        _this.editCuadro(cuadro);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    ChacrasList.prototype.editCuadro = function (cuadro) {
+        var _this = this;
+        this.CuadrosServiceProvider.editCuadro(cuadro).subscribe(function (data) { return _this.getAllChacras(); });
+    };
+    ChacrasList.prototype.alertDeleteCuadro = function (cuadroId) {
+        var _this = this;
+        var alert = this.AlertController.create({
+            title: 'Confirmar eliminacion',
+            message: 'Esta seguro que desea eliminar el cuadro de la lista?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function () { }
+                },
+                {
+                    text: 'Eliminar',
+                    handler: function () {
+                        _this.deleteCuadro(cuadroId);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    ChacrasList.prototype.deleteCuadro = function (cuadroId) {
+        var _this = this;
+        this.CuadrosServiceProvider.deleteCuadro(cuadroId).subscribe(function (data) { return _this.getAllChacras(); });
+    };
+    ChacrasList = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-chacras-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\chacras-list\chacras-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Chacras</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Listado de Chacras</h1>\n        <p text-center>Presentacion en forma de lista de chacras donde se obtiene la produccion</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h4 padding-top no-margin>Chacras</h4>\n        <ion-row padding>\n          <ion-col col-sm-12 col-md-10 offset-md-1>\n            <ion-list>\n              <ion-item ion-item *ngFor="let chacra of chacrasList" class="no-border">\n                <ion-avatar item-left>\n                  <img src="assets/imgs/chacra-icon.png">\n                </ion-avatar>\n                <ion-row>\n                  <ion-col col-sm-12 col-md-5>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Chacra</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{chacra.nombre}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-5>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Renspa</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{chacra.renspa}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-2> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-4>\n                        <button ion-button color="semiDark" round icon-only small (click)="alertNewCuadro(chacra.id)">\n                          <ion-icon name="add"></ion-icon>\n                        </button>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-4>\n                        <button ion-button color="semiDark" round icon-only small (click)="goToEdit(chacra)">\n                          <ion-icon name="create"></ion-icon>\n                        </button>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-4>\n                        <button ion-button color="semiDark" round icon-only small \n                          (click)="alertDeleteChacra(chacra.id)">\n                          <ion-icon name="trash"></ion-icon>\n                        </button>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-12>\n                    <h2>Cuadros</h2>\n                  </ion-col>\n                  <ion-col *ngFor="let cuadro of chacra.cuadros; let i = \'index\'" no-padding margin col-sm-12 col-md-2>\n                    <ion-row>\n                      <ion-list>\n                        <ion-item class="no-border" class="back-color">\n                          <ion-row>\n                            <ion-col col-sm-12 col-md-12>\n                              <ion-row>\n                                <ion-col col-sm-12 col-md-12>\n                                  <h2 text-center>UP</h2>\n                                </ion-col>\n                                <ion-col col-sm-12 col-md-12>\n                                  <p text-center>{{cuadro.up}}</p>\n                                </ion-col>\n                              </ion-row>\n                            </ion-col>\n                            <ion-col col-sm-12 col-md-12> \n                              <ion-row>\n                                <ion-col col-sm-12 col-md-6>\n                                  <button ion-button color="semiDark" round icon-only small (click)="alertEditCuadro(cuadro)">\n                                    <ion-icon name="create"></ion-icon>\n                                  </button>\n                                </ion-col>\n                                <ion-col col-sm-12 col-md-6>\n                                  <button ion-button color="semiDark" round icon-only small \n                                    (click)="alertDeleteCuadro(cuadro.id)">\n                                    <ion-icon name="trash"></ion-icon>\n                                  </button>\n                                </ion-col>\n                              </ion-row>\n                            </ion-col>\n                          </ion-row>\n                        </ion-item>\n                      </ion-list>\n                    </ion-row>    \n                  </ion-col>\n                </ion-row>\n              </ion-item>\n            </ion-list>\n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n<!--ion-content padding class="back-color">\n  <div class="back-black-color" padding>\n    <h3 padding>Listado de Chacras:</h3>\n      <ion-list>\n        <ion-item ion-item *ngFor="let chacra of chacrasList">\n          <ion-avatar item-left>\n            <img src="assets/img/user.png">\n          </ion-avatar>\n          <h2>{{chacra.nombre}}</h2>\n          <p>Renspa: {{chacra.renspa}}</p>\n          <div padding>\n            <h3 padding>Cuadros: </h3>\n            <ion-list>\n              <ion-item ion-item *ngFor="let cuadro of chacra.cuadros">\n                <p>UP: {{cuadro.up}}</p>\n                <button ion-button (click)="alertEditCuadro(cuadro)">\n                 Editar\n                </button>\n                <button ion-button (click)="alertDeleteCuadro(cuadro.id)">\n                 Eliminar\n                </button>\n              </ion-item>\n            </ion-list>\n            <button ion-button (click)="alertNewCuadro(chacra.id)">\n             Agregar Cuadro\n            </button>\n          </div>\n          <button ion-button (click)="goToEdit(chacra)">\n           Editar\n          </button>\n          <button ion-button (click)="alertDeleteChacra(chacra.id)">\n           Eliminar\n          </button>\n        </ion-item>\n      </ion-list>\n    </div>\n</ion-content-->\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\chacras-list\chacras-list.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_cuadros_service_cuadros_service__["a" /* CuadrosServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], ChacrasList);
+    return ChacrasList;
+}());
+
+//# sourceMappingURL=chacras-list.js.map
+
+/***/ }),
+
+/***/ 186:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 186;
+
+/***/ }),
+
+/***/ 23:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return urlAPI; });
+var urlAPI = 'http://localhost:3000';
+//# sourceMappingURL=api-service.js.map
+
+/***/ }),
+
+/***/ 231:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 231;
+
+/***/ }),
+
+/***/ 271:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SideMenuContentComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_side_menu_redirect_events__ = __webpack_require__(440);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+// Angular
+ // tslint:disable-line
+// Ionic
+
+
+var InnerMenuOptionModel = (function () {
+    function InnerMenuOptionModel() {
+    }
+    InnerMenuOptionModel.fromMenuOptionModel = function (option, parent) {
+        var innerMenuOptionModel = new InnerMenuOptionModel();
+        innerMenuOptionModel.id = this.counter++;
+        innerMenuOptionModel.iconName = option.iconName;
+        innerMenuOptionModel.displayName = option.displayName;
+        innerMenuOptionModel.badge = option.badge;
+        innerMenuOptionModel.targetOption = option;
+        innerMenuOptionModel.parent = parent || null;
+        innerMenuOptionModel.selected = option.selected;
+        if (option.subItems) {
+            innerMenuOptionModel.expanded = false;
+            innerMenuOptionModel.subItemsCount = option.subItems.length;
+            innerMenuOptionModel.subOptions = [];
+            option.subItems.forEach(function (subItem) {
+                var innerSubItem = InnerMenuOptionModel.fromMenuOptionModel(subItem, innerMenuOptionModel);
+                innerMenuOptionModel.subOptions.push(innerSubItem);
+                // Select the parent if any
+                // child option is selected
+                if (subItem.selected) {
+                    innerSubItem.parent.selected = true;
+                    innerSubItem.parent.expanded = true;
+                }
+            });
+        }
+        return innerMenuOptionModel;
+    };
+    InnerMenuOptionModel.counter = 1;
+    return InnerMenuOptionModel;
+}());
+var SideMenuContentComponent = (function () {
+    function SideMenuContentComponent(platform, eventsCtrl, cdRef) {
+        var _this = this;
+        this.platform = platform;
+        this.eventsCtrl = eventsCtrl;
+        this.cdRef = cdRef;
+        this.collapsableItems = [];
+        // Outputs: return the selected option to the caller
+        this.selectOption = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* EventEmitter */]();
+        // Handle the redirect event
+        this.eventsCtrl.subscribe(__WEBPACK_IMPORTED_MODULE_2__models_side_menu_redirect_events__["a" /* SideMenuRedirectEvent */], function (data) {
+            _this.updateSelectedOption(data);
+        });
+    }
+    Object.defineProperty(SideMenuContentComponent.prototype, "options", {
+        set: function (value) {
+            var _this = this;
+            if (value) {
+                // Keep a reference to the options
+                // sent to this component
+                this.menuOptions = value;
+                this.collapsableItems = new Array();
+                // Map the options to our internal models
+                this.menuOptions.forEach(function (option) {
+                    var innerMenuOption = InnerMenuOptionModel.fromMenuOptionModel(option);
+                    _this.collapsableItems.push(innerMenuOption);
+                    // Check if there's any option marked as selected
+                    if (option.selected) {
+                        _this.selectedOption = innerMenuOption;
+                    }
+                    else if (innerMenuOption.subItemsCount) {
+                        innerMenuOption.subOptions.forEach(function (subItem) {
+                            if (subItem.selected) {
+                                _this.selectedOption = subItem;
+                            }
+                        });
+                    }
+                });
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(SideMenuContentComponent.prototype, "settings", {
+        set: function (value) {
+            if (value) {
+                this.menuSettings = value;
+                this.mergeSettings();
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    SideMenuContentComponent.prototype.ngOnDestroy = function () {
+        this.eventsCtrl.unsubscribe(__WEBPACK_IMPORTED_MODULE_2__models_side_menu_redirect_events__["a" /* SideMenuRedirectEvent */]);
+    };
+    // ---------------------------------------------------
+    // PUBLIC methods
+    // ---------------------------------------------------
+    // Send the selected option to the caller component
+    SideMenuContentComponent.prototype.select = function (option) {
+        if (this.menuSettings.showSelectedOption) {
+            this.setSelectedOption(option);
+        }
+        // Return the selected option (not our inner option)
+        this.selectOption.emit(option.targetOption);
+    };
+    // Toggle the sub options of the selected item
+    SideMenuContentComponent.prototype.toggleItemOptions = function (targetOption) {
+        if (!targetOption)
+            return;
+        // If the accordion mode is set to true, we need
+        // to collapse all the other menu options
+        if (this.menuSettings.accordionMode) {
+            this.collapsableItems.forEach(function (option) {
+                if (option.id !== targetOption.id) {
+                    option.expanded = false;
+                }
+            });
+        }
+        // Toggle the selected option
+        targetOption.expanded = !targetOption.expanded;
+    };
+    // Reset the entire menu
+    SideMenuContentComponent.prototype.collapseAllOptions = function () {
+        this.collapsableItems.forEach(function (option) {
+            if (!option.selected) {
+                option.expanded = false;
+            }
+            if (option.subItemsCount) {
+                option.subOptions.forEach(function (subItem) {
+                    if (subItem.selected) {
+                        // Expand the parent if any of
+                        // its childs is selected
+                        subItem.parent.expanded = true;
+                    }
+                });
+            }
+        });
+        // Update the view since there wasn't
+        // any user interaction with it
+        this.cdRef.detectChanges();
+    };
+    Object.defineProperty(SideMenuContentComponent.prototype, "subOptionIndentation", {
+        // Get the proper indentation of each option
+        get: function () {
+            if (this.platform.is('ios'))
+                return this.menuSettings.subOptionIndentation.ios;
+            if (this.platform.is('windows'))
+                return this.menuSettings.subOptionIndentation.wp;
+            return this.menuSettings.subOptionIndentation.md;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(SideMenuContentComponent.prototype, "itemHeight", {
+        // Get the proper height of each option
+        get: function () {
+            if (this.platform.is('ios'))
+                return this.menuSettings.itemHeight.ios;
+            if (this.platform.is('windows'))
+                return this.menuSettings.itemHeight.wp;
+            return this.menuSettings.itemHeight.md;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    // ---------------------------------------------------
+    // PRIVATE methods
+    // ---------------------------------------------------
+    // Method that set the selected option and its parent
+    SideMenuContentComponent.prototype.setSelectedOption = function (option) {
+        if (!option.targetOption.component)
+            return;
+        // Clean the current selected option if any
+        if (this.selectedOption) {
+            this.selectedOption.selected = false;
+            this.selectedOption.targetOption.selected = false;
+            if (this.selectedOption.parent) {
+                this.selectedOption.parent.selected = false;
+                this.selectedOption.parent.expanded = false;
+            }
+            this.selectedOption = null;
+        }
+        // Set this option to be the selected
+        option.selected = true;
+        option.targetOption.selected = true;
+        if (option.parent) {
+            option.parent.selected = true;
+            option.parent.expanded = true;
+        }
+        // Keep a reference to the selected option
+        this.selectedOption = option;
+        // Update the view if needed since we may have
+        // expanded or collapsed some options
+        this.cdRef.detectChanges();
+    };
+    // Update the selected option
+    SideMenuContentComponent.prototype.updateSelectedOption = function (data) {
+        if (!data.displayName) {
+            return;
+        }
+        var targetOption;
+        this.collapsableItems.forEach(function (option) {
+            if (option.displayName.toLowerCase() === data.displayName.toLowerCase()) {
+                targetOption = option;
+            }
+            else if (option.subItemsCount) {
+                option.subOptions.forEach(function (subOption) {
+                    if (subOption.displayName.toLowerCase() === data.displayName.toLowerCase()) {
+                        targetOption = subOption;
+                    }
+                });
+            }
+        });
+        if (targetOption) {
+            this.setSelectedOption(targetOption);
+        }
+    };
+    // Merge the settings received with the default settings
+    SideMenuContentComponent.prototype.mergeSettings = function () {
+        var defaultSettings = {
+            accordionMode: false,
+            itemHeight: {
+                ios: 50,
+                md: 50,
+                wp: 50
+            },
+            arrowIcon: 'ios-arrow-down',
+            showSelectedOption: false,
+            selectedOptionClass: 'selected-option',
+            indentSubOptionsWithoutIcons: false,
+            subOptionIndentation: {
+                ios: '16px',
+                md: '16px',
+                wp: '16px'
+            }
+        };
+        if (!this.menuSettings) {
+            // Use the default values
+            this.menuSettings = defaultSettings;
+            return;
+        }
+        if (!this.menuSettings.itemHeight) {
+            this.menuSettings.itemHeight = defaultSettings.itemHeight;
+        }
+        else {
+            this.menuSettings.itemHeight.ios = this.isDefinedAndPositive(this.menuSettings.itemHeight.ios) ? this.menuSettings.itemHeight.ios : defaultSettings.itemHeight.ios;
+            this.menuSettings.itemHeight.md = this.isDefinedAndPositive(this.menuSettings.itemHeight.md) ? this.menuSettings.itemHeight.md : defaultSettings.itemHeight.md;
+            this.menuSettings.itemHeight.wp = this.isDefinedAndPositive(this.menuSettings.itemHeight.wp) ? this.menuSettings.itemHeight.wp : defaultSettings.itemHeight.wp;
+        }
+        this.menuSettings.showSelectedOption = this.isDefined(this.menuSettings.showSelectedOption) ? this.menuSettings.showSelectedOption : defaultSettings.showSelectedOption;
+        this.menuSettings.accordionMode = this.isDefined(this.menuSettings.accordionMode) ? this.menuSettings.accordionMode : defaultSettings.accordionMode;
+        this.menuSettings.arrowIcon = this.isDefined(this.menuSettings.arrowIcon) ? this.menuSettings.arrowIcon : defaultSettings.arrowIcon;
+        this.menuSettings.selectedOptionClass = this.isDefined(this.menuSettings.selectedOptionClass) ? this.menuSettings.selectedOptionClass : defaultSettings.selectedOptionClass;
+        this.menuSettings.subOptionIndentation = this.isDefined(this.menuSettings.subOptionIndentation) ? this.menuSettings.subOptionIndentation : defaultSettings.subOptionIndentation;
+        this.menuSettings.indentSubOptionsWithoutIcons = this.isDefined(this.menuSettings.indentSubOptionsWithoutIcons) ? this.menuSettings.indentSubOptionsWithoutIcons : defaultSettings.indentSubOptionsWithoutIcons;
+        if (!this.menuSettings.subOptionIndentation) {
+            this.menuSettings.subOptionIndentation = defaultSettings.subOptionIndentation;
+        }
+        else {
+            this.menuSettings.subOptionIndentation.ios = this.isDefined(this.menuSettings.subOptionIndentation.ios) ? this.menuSettings.subOptionIndentation.ios : defaultSettings.subOptionIndentation.ios;
+            this.menuSettings.subOptionIndentation.md = this.isDefined(this.menuSettings.subOptionIndentation.md) ? this.menuSettings.subOptionIndentation.md : defaultSettings.subOptionIndentation.md;
+            this.menuSettings.subOptionIndentation.wp = this.isDefined(this.menuSettings.subOptionIndentation.wp) ? this.menuSettings.subOptionIndentation.wp : defaultSettings.subOptionIndentation.wp;
+        }
+    };
+    SideMenuContentComponent.prototype.isDefined = function (property) {
+        return property !== null && property !== undefined;
+    };
+    SideMenuContentComponent.prototype.isDefinedAndPositive = function (property) {
+        return this.isDefined(property) && !isNaN(property) && property > 0;
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])('options'),
+        __metadata("design:type", Array),
+        __metadata("design:paramtypes", [Array])
+    ], SideMenuContentComponent.prototype, "options", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])('settings'),
+        __metadata("design:type", Object),
+        __metadata("design:paramtypes", [Object])
+    ], SideMenuContentComponent.prototype, "settings", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* Output */])(),
+        __metadata("design:type", Object)
+    ], SideMenuContentComponent.prototype, "selectOption", void 0);
+    SideMenuContentComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'side-menu-content',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\shared\side-menu-content\side-menu-content.component.html"*/'<ion-list no-margin no-lines>\n    <ng-template ngFor let-option [ngForOf]="collapsableItems" let-i="index">\n\n        <!-- It is a simple option -->\n        <ng-template [ngIf]="!option.subItemsCount">\n            <ion-item class="option" [ngClass]="menuSettings?.showSelectedOption && option.selected ? menuSettings.selectedOptionClass : null" (tap)="select(option)" tappable>\n                <ion-icon *ngIf="option.iconName" [name]="option.iconName" item-left></ion-icon>\n                {{ option.displayName }} <ion-badge item-right *ngIf="option.badge | async as badgeNo">{{ badgeNo }}</ion-badge>\n            </ion-item>\n        </ng-template>\n\n        <!-- It has nested options -->\n        <ng-template [ngIf]="option.subItemsCount">\n\n            <ion-list no-margin class="accordion-menu">\n\n                <!-- Header -->\n                <ion-item class="header" [ngClass]="menuSettings?.showSelectedOption && option.selected ? menuSettings.selectedOptionClass : null" (tap)="toggleItemOptions(option)" tappable>\n                    <ion-icon [class.rotate]="option.expanded" class="header-icon" [name]="option.iconName || menuSettings.arrowIcon" item-left></ion-icon>\n                    {{ option.displayName }}\n                </ion-item>\n\n                <!-- Sub items -->\n                <div [style.height]="option.expanded ? ((itemHeight + 1) * option.subItemsCount) + \'px\' : \'0px\'" class="options">\n                    <ng-template ngFor let-item [ngForOf]="option.subOptions">\n                        <ion-item class="sub-option" [style.padding-left]="subOptionIndentation" [class.no-icon]="menuSettings?.indentSubOptionsWithoutIcons && !item.iconName" [ngClass]="menuSettings?.showSelectedOption && item.selected ? menuSettings.selectedOptionClass : null" tappable (tap)="select(item)">\n                            <ion-icon *ngIf="item.iconName" [name]="item.iconName" item-left></ion-icon>\n                            {{ item.displayName }}  <ion-badge item-right *ngIf="item.badge | async as badgeNo">{{ badgeNo }}</ion-badge>\n                        </ion-item>\n                    </ng-template>\n                </div>\n            </ion-list>\n\n        </ng-template>\n\n    </ng-template>\n</ion-list>'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\shared\side-menu-content\side-menu-content.component.html"*/,
+            changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["i" /* ChangeDetectionStrategy */].OnPush
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */],
+            __WEBPACK_IMPORTED_MODULE_0__angular_core__["j" /* ChangeDetectorRef */]])
+    ], SideMenuContentComponent);
+    return SideMenuContentComponent;
+}());
+
+//# sourceMappingURL=side-menu-content.component.js.map
+
+/***/ }),
+
+/***/ 272:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SelectSearchablePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var SelectSearchablePage = (function () {
+    function SelectSearchablePage(navParams) {
+        var _this = this;
+        this.navParams = navParams;
+        this.selectedItems = [];
+        this.selectComponent = this.navParams.get('selectComponent');
+        this.navController = this.navParams.get('navController');
+        this.filteredItems = this.selectComponent.items;
+        this.filterItems();
+        if (this.selectComponent.value) {
+            if (this.selectComponent.multiple) {
+                this.selectComponent.value.forEach(function (item) {
+                    _this.selectedItems.push(item);
+                });
+            }
+            else {
+                this.selectedItems.push(this.selectComponent.value);
+            }
+        }
+    }
+    SelectSearchablePage.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        if (this.searchbarComponent) {
+            // Focus after a delay because focus doesn't work without it.
+            setTimeout(function () {
+                _this.searchbarComponent.setFocus();
+            }, 1000);
+        }
+    };
+    SelectSearchablePage.prototype.isItemSelected = function (item) {
+        var _this = this;
+        return this.selectedItems.find(function (selectedItem) {
+            if (_this.selectComponent.itemValueField) {
+                return item[_this.selectComponent.itemValueField] === selectedItem[_this.selectComponent.itemValueField];
+            }
+            return item === selectedItem;
+        }) !== undefined;
+    };
+    SelectSearchablePage.prototype.deleteSelectedItem = function (item) {
+        var _this = this;
+        var itemToDeleteIndex;
+        this.selectedItems.forEach(function (selectedItem, itemIndex) {
+            if (_this.selectComponent.itemValueField) {
+                if (item[_this.selectComponent.itemValueField] === selectedItem[_this.selectComponent.itemValueField]) {
+                    itemToDeleteIndex = itemIndex;
+                }
+            }
+            else if (item === selectedItem) {
+                itemToDeleteIndex = itemIndex;
+            }
+        });
+        this.selectedItems.splice(itemToDeleteIndex, 1);
+    };
+    SelectSearchablePage.prototype.addSelectedItem = function (item) {
+        this.selectedItems.push(item);
+    };
+    SelectSearchablePage.prototype.select = function (item) {
+        if (this.selectComponent.multiple) {
+            if (this.isItemSelected(item)) {
+                this.deleteSelectedItem(item);
+            }
+            else {
+                this.addSelectedItem(item);
+            }
+        }
+        else {
+            if (!this.isItemSelected(item)) {
+                this.selectedItems = [];
+                this.addSelectedItem(item);
+                this.selectComponent.select(item);
+            }
+            this.close();
+        }
+    };
+    SelectSearchablePage.prototype.ok = function () {
+        this.selectComponent.select(this.selectedItems.length ? this.selectedItems : null);
+        this.close();
+    };
+    SelectSearchablePage.prototype.close = function () {
+        var _this = this;
+        // Focused input interferes with the animation.
+        // Blur it first, wait a bit and then close the page.
+        if (this.searchbarComponent) {
+            this.searchbarComponent._fireBlur();
+        }
+        setTimeout(function () {
+            _this.navController.pop();
+            if (!_this.selectComponent.hasSearchEvent) {
+                _this.selectComponent.filterText = '';
+            }
+        });
+    };
+    SelectSearchablePage.prototype.reset = function () {
+        this.navController.pop();
+        this.selectComponent.reset();
+    };
+    SelectSearchablePage.prototype.filterItems = function () {
+        var _this = this;
+        if (this.selectComponent.hasSearchEvent) {
+            // Delegate filtering to the event.
+            this.selectComponent.emitSearch();
+        }
+        else {
+            var items = [];
+            // Default filtering.
+            if (!this.selectComponent.filterText || !this.selectComponent.filterText.trim()) {
+                items = this.selectComponent.items;
+            }
+            else {
+                var filterText_1 = this.selectComponent.filterText.trim().toLowerCase();
+                items = this.selectComponent.items.filter(function (item) {
+                    return (_this.selectComponent.itemTextField ? item[_this.selectComponent.itemTextField] : item)
+                        .toLowerCase().indexOf(filterText_1) !== -1;
+                });
+            }
+            this.filteredItems = items;
+        }
+    };
+    SelectSearchablePage.prototype.getMoreItems = function (infiniteScroll) {
+        this.selectComponent.onInfiniteScroll.emit({
+            component: this.selectComponent,
+            infiniteScroll: infiniteScroll
+        });
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('searchbarComponent'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Searchbar */])
+    ], SelectSearchablePage.prototype, "searchbarComponent", void 0);
+    SelectSearchablePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'select-searchable-page',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\shared\select\select-page.html"*/'<ion-header>\n    <ion-navbar>\n        <ion-title>{{selectComponent.title}}</ion-title>\n    </ion-navbar>\n    <ion-toolbar *ngIf="selectComponent.canSearch">\n        <ion-searchbar\n            #searchbarComponent\n            [(ngModel)]="selectComponent.filterText"\n            (ionInput)="filterItems()"\n            [placeholder]="selectComponent.searchPlaceholder || \'Search\'">\n        </ion-searchbar>\n    </ion-toolbar>\n</ion-header>\n<ion-content>\n    <div class="select-searchable-spinner" *ngIf="selectComponent.isSearching">\n        <div class="select-searchable-spinner-background"></div>\n        <ion-spinner></ion-spinner>\n    </div>\n    <ion-list no-margin *ngIf="filteredItems.length">\n        <button ion-item detail-none *ngFor="let item of filteredItems" (click)="select(item)">\n            <ion-icon\n                [name]="isItemSelected(item) ? \'checkmark-circle\' : \'radio-button-off\'"\n                [color]="isItemSelected(item) ? \'primary\' : \'daek\'"\n                item-left>\n            </ion-icon>\n            <h2>{{selectComponent.formatItem(item)}}</h2>\n        </button>\n    </ion-list>\n    <ion-infinite-scroll [enabled]="selectComponent.hasInfiniteScroll" (ionInfinite)="getMoreItems($event)">\n        <ion-infinite-scroll-content></ion-infinite-scroll-content>\n    </ion-infinite-scroll>\n    <div *ngIf="!filteredItems.length" margin>No items found.</div>\n</ion-content>\n<ion-footer *ngIf="selectComponent.canReset || selectComponent.multiple">\n    <ion-toolbar padding>\n        <ion-row>\n            <ion-col no-padding *ngIf="selectComponent.canReset"\n                [attr.col-6]="selectComponent.canReset && selectComponent.multiple ? \'\' : null"\n                [attr.col-12]="selectComponent.canReset && !selectComponent.multiple ? \'\' : null">\n                <button ion-button full no-margin (click)="reset()" [disabled]="!selectedItems.length">\n                    Clear\n                </button>\n            </ion-col>\n            <ion-col no-padding *ngIf="selectComponent.multiple"\n                [attr.col-6]="selectComponent.canReset && selectComponent.multiple ? \'\' : null"\n                [attr.col-12]="!selectComponent.canReset && selectComponent.multiple ? \'\' : null">\n                <button ion-button full no-margin (click)="ok()">\n                    OK\n                </button>\n            </ion-col>\n        </ion-row>\n    </ion-toolbar>\n</ion-footer>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\shared\select\select-page.html"*/,
+            host: {
+                'class': 'select-searchable-page',
+                '[class.select-searchable-page-can-reset]': 'selectComponent.canReset',
+                '[class.select-searchable-page-multiple]': 'selectComponent.multiple'
+            }
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
+    ], SelectSearchablePage);
+    return SelectSearchablePage;
+}());
+
+//# sourceMappingURL=select-page.js.map
+
+/***/ }),
+
+/***/ 380:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditProductor; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__ = __webpack_require__(86);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var EditProductor = (function () {
+    function EditProductor(navCtrl, navParams, ProductoresServiceProvider, AlertController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.ProductoresServiceProvider = ProductoresServiceProvider;
+        this.AlertController = AlertController;
+        this.productor = [];
+        this.productor = this.navParams.get('productor');
+    }
+    EditProductor.prototype.editProductor = function () {
+        var _this = this;
+        this.ProductoresServiceProvider.editProductor(this.productor).subscribe(function (data) { return _this.alertEditLote(data.error); });
+    };
+    EditProductor.prototype.alertEditLote = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Edicion exitosa',
+                message: 'Se ha editado correctamente el productor.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar editar el productor.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
+    };
+    EditProductor.prototype.destroyView = function () {
+        this.navCtrl.pop();
+    };
+    EditProductor = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-edit-productor',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-productor\edit-productor.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Productor</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Editar Productor</h1>\n        <p text-center>Ingrese los datos necesarios para editar un productor existente.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales del productor</h3>\n        <form (ngSubmit)="editProductor()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="productor.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>DNI</ion-label>\n                    <ion-input type="text" [(ngModel)]="productor.dni" name="dni"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Telefono</ion-label>\n                    <ion-input type="number" [(ngModel)]="productor.telefono" name="telefono"></ion-input>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Editar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-productor\edit-productor.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__["a" /* ProductoresServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], EditProductor);
+    return EditProductor;
+}());
+
+//# sourceMappingURL=edit-productor.js.map
+
+/***/ }),
+
+/***/ 381:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditCamion; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_camiones_service_camiones_service__ = __webpack_require__(49);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var EditCamion = (function () {
+    function EditCamion(navCtrl, navParams, CamionesServiceProvider, AlertController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.CamionesServiceProvider = CamionesServiceProvider;
+        this.AlertController = AlertController;
+        this.camion = [];
+        this.camion = this.navParams.get('camion');
+    }
+    EditCamion.prototype.editCamion = function (camion) {
+        var _this = this;
+        this.CamionesServiceProvider.editCamion(this.camion).subscribe(function (data) { return _this.alertEditCamion(data.error); });
+    };
+    EditCamion.prototype.alertEditCamion = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Edicion exitosa',
+                message: 'Se ha editado correctamente el camion.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar editar el camion.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
+    };
+    EditCamion.prototype.destroyView = function () {
+        this.navCtrl.pop();
+    };
+    EditCamion = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-edit-camion',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-camion\edit-camion.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Camion</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Editar Camion</h1>\n        <p text-center>Ingrese los datos necesarios para editar un camion existente.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales del camion</h3>\n        <form (ngSubmit)="editCamion()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-12 class="no-border">\n                    <ion-label stacked>Nombre Chofer</ion-label>\n                    <ion-input type="text" [(ngModel)]="camion.nombreChofer" name="nombreChofer"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Patente Acoplado</ion-label>\n                    <ion-input type="text" [(ngModel)]="camion.patenteAcoplado" name="patenteAcoplado"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Patente Chasis</ion-label>\n                    <ion-input type="text" [(ngModel)]="camion.patenteChasis" name="patenteChasis"></ion-input>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Editar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-camion\edit-camion.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], EditCamion);
+    return EditCamion;
+}());
+
+//# sourceMappingURL=edit-camion.js.map
+
+/***/ }),
+
+/***/ 382:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditEmpresa; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_empresas_service_empresas_service__ = __webpack_require__(96);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var EditEmpresa = (function () {
+    function EditEmpresa(navCtrl, navParams, EmpresasServiceProvider, AlertController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.EmpresasServiceProvider = EmpresasServiceProvider;
+        this.AlertController = AlertController;
+        this.empresa = [];
+        this.empresa = this.navParams.get('empresa');
+    }
+    EditEmpresa.prototype.editEmpresa = function (chacra) {
+        var _this = this;
+        this.EmpresasServiceProvider.editEmpresa(this.empresa).subscribe(function (data) { return _this.alertEditEmpresa(data.error); });
+    };
+    EditEmpresa.prototype.alertEditEmpresa = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Edicion exitosa',
+                message: 'Se ha editado correctamente la empresa.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar editar la empresa.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
+    };
+    EditEmpresa.prototype.destroyView = function () {
+        this.navCtrl.pop();
+    };
+    EditEmpresa = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-edit-empresa',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-empresa\edit-empresa.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Empresa</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Editar Empresa</h1>\n        <p text-center>Ingrese los datos necesarios para generar una empresa existente.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales de la empresa</h3>\n        <form (ngSubmit)="editEmpresa()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="empresa.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Direccion</ion-label>\n                    <ion-input type="text" [(ngModel)]="empresa.direccion" name="direccion"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Telefono</ion-label>\n                    <ion-input type="number" [(ngModel)]="empresa.telefono" name="telefono"></ion-input>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Editar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-empresa\edit-empresa.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_empresas_service_empresas_service__["a" /* EmpresasServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], EditEmpresa);
+    return EditEmpresa;
+}());
+
+//# sourceMappingURL=edit-empresa.js.map
+
+/***/ }),
+
+/***/ 383:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditInstitucion; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_instituciones_service_instituciones_service__ = __webpack_require__(50);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var EditInstitucion = (function () {
+    function EditInstitucion(navCtrl, navParams, InstitucionesServiceProvider, AlertController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.InstitucionesServiceProvider = InstitucionesServiceProvider;
+        this.AlertController = AlertController;
+        this.institucion = [];
+        this.institucion = this.navParams.get('institucion');
+    }
+    EditInstitucion.prototype.editInstitucion = function (institucion) {
+        var _this = this;
+        this.InstitucionesServiceProvider.editInstitucion(this.institucion).subscribe(function (data) { return _this.alertEditInstitucion(data.error); });
+    };
+    EditInstitucion.prototype.alertEditInstitucion = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Edicion exitosa',
+                message: 'Se ha editado correctamente la institucion.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar editar la institucion.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
+    };
+    EditInstitucion.prototype.destroyView = function () {
+        this.navCtrl.pop();
+    };
+    EditInstitucion = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-edit-institucion',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-institucion\edit-institucion.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Institucion</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Editar Institucion</h1>\n        <p text-center>Ingrese los datos necesarios para editar una institucion existente.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales de la institucion</h3>\n        <form (ngSubmit)="editInstitucion()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="institucion.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Direccion</ion-label>\n                    <ion-input type="text" [(ngModel)]="institucion.direccion" name="direccion"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Telefono</ion-label>\n                    <ion-input type="number" [(ngModel)]="institucion.telefono" name="telefono"></ion-input>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Editar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-institucion\edit-institucion.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], EditInstitucion);
+    return EditInstitucion;
+}());
+
+//# sourceMappingURL=edit-institucion.js.map
+
+/***/ }),
+
+/***/ 384:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditIngreso; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_ingresos_service_ingresos_service__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_instituciones_service_instituciones_service__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_chacras_service_chacras_service__ = __webpack_require__(46);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var EditIngreso = (function () {
+    function EditIngreso(navCtrl, navParams, IngresosServiceProvider, InstitucionesServiceProvider, ChacrasServiceProvider, AlertController) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.IngresosServiceProvider = IngresosServiceProvider;
+        this.InstitucionesServiceProvider = InstitucionesServiceProvider;
+        this.ChacrasServiceProvider = ChacrasServiceProvider;
+        this.AlertController = AlertController;
+        this.ingreso = [];
+        this.chacras = [];
+        this.instituciones = [];
+        this.InstitucionesServiceProvider.getAllInstituciones().subscribe(function (data) { return _this.instituciones = data; });
+        this.ChacrasServiceProvider.getAllChacras().subscribe(function (data) { return _this.chacras = data; });
+        this.ingreso = this.navParams.get('ingreso');
+    }
+    EditIngreso.prototype.editIngreso = function (ingreso) {
+        var _this = this;
+        this.IngresosServiceProvider.editIngreso(this.ingreso).subscribe(function (data) { return _this.alertEditIngreso(data.error); });
+    };
+    EditIngreso.prototype.alertEditIngreso = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Edicion exitosa',
+                message: 'Se ha editado correctamente el ingreso.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar editar el ingreso.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
+    };
+    EditIngreso.prototype.destroyView = function () {
+        this.navCtrl.pop();
+    };
+    EditIngreso = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-edit-ingreso',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-ingreso\edit-ingreso.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Ingreso</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n    <ion-grid>\n        <ion-row>\n            <ion-col col-sm-12 col-md-12 padding>\n              <h1 text-center>Editar Ingreso</h1>\n              <p text-center>Ingrese los datos necesarios para editar un ingreso de fruta existente.</p>\n            </ion-col>\n            <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n                <h3 padding-top no-margin>Datos generales del Ingreso</h3>\n            	<form (ngSubmit)="editIngreso()">\n            	    <ion-grid>\n                        <ion-row>\n                            <ion-col col-sm-12 col-md-12 padding-bottom>\n                                <ion-row>\n                                    <ion-item col-sm-12 col-md-6 class="no-border">\n                                      <ion-label stacked>Nro Remito</ion-label>\n                                      <ion-input type="text" [(ngModel)]="ingreso.nroRemito" name="nroRemito"></ion-input>\n                                    </ion-item>\n                                    <ion-item col-sm-12 col-md-6 class="no-border">\n                                      <ion-label stacked>Fecha de Ingreso</ion-label>\n                                      <ion-input type="date" [value]="ingreso.fechaIngreso" (input)="ingreso.fechaIngreso = $event.target.value" name="fechaIngreso"></ion-input>\n                                    </ion-item>\n                                </ion-row>\n                            </ion-col>\n                            <ion-col col-sm-12 col-md-12 padding>\n                                    <ion-buttons right>\n                                        <button ion-button color="semiDark" type="submit">Editar</button>\n                                    </ion-buttons>\n                            </ion-col>\n                        </ion-row>\n                    </ion-grid>\n            	</form>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-ingreso\edit-ingreso.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_ingresos_service_ingresos_service__["a" /* IngresosServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], EditIngreso);
+    return EditIngreso;
+}());
+
+//# sourceMappingURL=edit-ingreso.js.map
+
+/***/ }),
+
+/***/ 385:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ViajesList; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ViajesList = (function () {
+    function ViajesList(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.viajes = [];
+        this.viajes = this.navParams.get('viajes');
+    }
+    ViajesList = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-viajes-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\viajes-list\viajes-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Viajes</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Listado de Viajes</h1>\n        <p text-center>Presentacion en forma de lista de los viajes para el ingreso seleccionado<p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h4 padding-top no-margin>Viajes</h4>\n        <ion-row padding>\n          <ion-col col-sm-12 col-md-8 offset-md-2>\n            <ion-list>\n              <ion-item ion-item *ngFor="let viaje of viajes" class="no-border">\n                <ion-avatar item-left>\n                  <img src="assets/imgs/camion-icon.png">\n                </ion-avatar>\n                <ion-row>\n                  <ion-col col-sm-12 col-md-2>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Fecha</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{viaje.fecha}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Costo</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{viaje.costo}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Chofer</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{viaje.camion.nombreChofer}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Lugar</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{viaje.institucion.nombre}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                </ion-row>\n              </ion-item>\n            </ion-list>\n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\viajes-list\viajes-list.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
+    ], ViajesList);
+    return ViajesList;
+}());
+
+//# sourceMappingURL=viajes-list.js.map
+
+/***/ }),
+
+/***/ 386:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LotesList; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_edit_lote_edit_lote__ = __webpack_require__(387);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_lotes_service_lotes_service__ = __webpack_require__(168);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var LotesList = (function () {
+    function LotesList(navCtrl, navParams, LotesServiceProvider, AlertController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.LotesServiceProvider = LotesServiceProvider;
+        this.AlertController = AlertController;
+        this.lotes = [];
+        this.lotes = this.navParams.get('lotes');
+    }
+    LotesList.prototype.alertDeleteLote = function (loteId) {
+        var _this = this;
+        var alert = this.AlertController.create({
+            title: 'Confirmar eliminacion',
+            message: 'Esta seguro que desea eliminar el lote de la lista?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function () { }
+                },
+                {
+                    text: 'Eliminar',
+                    handler: function () {
+                        _this.deleteLote(loteId);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    LotesList.prototype.deleteLote = function (loteId) {
+        this.LotesServiceProvider.deleteLote(loteId);
+    };
+    LotesList.prototype.goToEditLote = function (lote) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__pages_edit_lote_edit_lote__["a" /* EditLote */], {
+            lote: lote
+        });
+    };
+    LotesList = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-lotes-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\lotes-list\lotes-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <ion-title>Lotes</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 padding>\n        <h1 text-center>Listado de Lotes</h1>\n        <p text-center>Presentacion en forma de lista de los lotes para el ingreso seleccionado<p>\n      </ion-col>\n      <ion-col col-12 padding class="back-black-color">\n        <h4 padding-top no-margin>Lotes</h4>\n        <ion-row padding>\n          <!-- Formato lista-->\n          <ion-col col-sm-12 col-md-10 offset-md-1 class="hidden-sm-down">\n            <ion-list>\n              <ion-item ion-item *ngFor="let lote of lotes">\n                <ion-row align-items-center>\n                  <ion-col col-sm-12 col-md-1>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12 text-center>\n                        <ion-icon class="size-icon" name="information-circle"></ion-icon>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{lote.nroLote}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-1>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12 text-center>\n                        <ion-icon class="size-icon" name="cube"></ion-icon>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{lote.cantBins}} Bins</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-2> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12 text-center>\n                        <ion-icon class="size-icon" name="podium"></ion-icon>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{lote.pesoNeto}} Kg</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-1> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12 text-center>\n                        <ion-icon class="size-icon" name="rose"></ion-icon>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{lote.especy.tipo}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-2>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12 text-center>\n                        <ion-icon class="size-icon" name="flower"></ion-icon>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{lote.variedad.tipo}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-1>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12 text-center>\n                        <ion-icon class="size-icon" name="star-half"></ion-icon>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{lote.calidad.tipo}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-2>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12 text-center>\n                        <ion-icon class="size-icon" name="color-fill"></ion-icon>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{lote.tratamiento.tipo}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-1>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12 text-center>\n                        <ion-icon class="size-icon" name="grid"></ion-icon>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{lote.cuadro.up}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-1>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small (click)="goToEditLote(lote)">\n                          <ion-icon name="create"></ion-icon>\n                        </button>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small \n                          (click)="alertDeleteLote(lote.id)">\n                          <ion-icon name="trash"></ion-icon>\n                        </button>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                </ion-row>\n              </ion-item>\n            </ion-list>\n          </ion-col>\n\n          <!-- Formato Card-->\n          <ion-col *ngFor="let lote of lotes" padding offset-sm-1 col-sm-10 col-12 class="hidden-md-up">\n            <ion-list>\n              <ion-item class="no-border">\n                <ion-card>\n                  <ion-card-header no-padding no-margin class="card-hearder-color no-border">\n                    <ion-row>\n                      <ion-col col-md-6 no-padding>\n                        <h2 margin text-center style="color: white">Lote Nro {{lote.nroLote}}</h2>\n                      </ion-col>\n                      <ion-col col-md-6 no-padding> \n                        <ion-buttons right>\n                          <button ion-button clear color="white" icon-only small (click)="goToEditLote(lote)">\n                            <ion-icon name="create"></ion-icon>\n                          </button>\n                          <button ion-button clear color="white" icon-only small (click)="alertDeleteLote(lote.id)">\n                            <ion-icon name="trash"></ion-icon>\n                          </button>\n                        </ion-buttons>\n                      </ion-col>\n                    </ion-row>\n                  </ion-card-header>\n                  <ion-card-content>\n                    <ion-list no-padding no-margin>\n                      <ion-item class="no-border">\n                        <ion-icon name="cube" item-start></ion-icon>\n                        {{lote.cantBins}} Bins\n                      </ion-item>\n                      <ion-item class="no-border">\n                        <ion-icon name="podium" item-start></ion-icon>\n                        {{lote.pesoNeto}} Kgs\n                      </ion-item>\n                      <ion-item class="no-border">\n                        <ion-icon name="rose" item-start></ion-icon>\n                        {{lote.especy.tipo}}\n                      </ion-item>\n                      <ion-item class="no-border">\n                        <ion-icon name="flower" item-start></ion-icon>\n                        {{lote.variedad.tipo}}\n                      </ion-item>\n                      <ion-item class="no-border">\n                        <ion-icon name="star-half" item-start></ion-icon>\n                        {{lote.calidad.tipo}}\n                      </ion-item>\n                      <ion-item class="no-border">\n                        <ion-icon name="color-fill" item-start></ion-icon>\n                        {{lote.tratamiento.tipo}}\n                      </ion-item>\n                      <ion-item class="no-border">\n                        <ion-icon name="grid" item-start></ion-icon>\n                        {{lote.cuadro.up}}\n                      </ion-item>\n                    </ion-list>\n                  </ion-card-content>\n                </ion-card>\n              </ion-item>\n            </ion-list>    \n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\lotes-list\lotes-list.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_lotes_service_lotes_service__["a" /* LotesServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], LotesList);
+    return LotesList;
+}());
+
+//# sourceMappingURL=lotes-list.js.map
+
+/***/ }),
+
+/***/ 387:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditLote; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_lotes_service_lotes_service__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_calidades_service_calidades_service__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_especie_service_especie_service__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_variedades_service_variedades_service__ = __webpack_require__(388);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var EditLote = (function () {
+    function EditLote(navCtrl, navParams, LotesServiceProvider, CalidadesServiceProvider, EspecieServiceProvider, VariedadesServiceProvider, AlertController) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.LotesServiceProvider = LotesServiceProvider;
+        this.CalidadesServiceProvider = CalidadesServiceProvider;
+        this.EspecieServiceProvider = EspecieServiceProvider;
+        this.VariedadesServiceProvider = VariedadesServiceProvider;
+        this.AlertController = AlertController;
+        this.lote = [];
+        this.calidades = [];
+        this.variedades = [];
+        this.especies = [];
+        this.lote = this.navParams.get('lote');
+        this.CalidadesServiceProvider.getAllCalidades().subscribe(function (data) { return _this.calidades = data; });
+        this.EspecieServiceProvider.getAllEmpecies().subscribe(function (data) { return _this.especies = data; });
+        var especieId = this.lote['especy'].id;
+        this.VariedadesServiceProvider.getAllVariedades(especieId).subscribe(function (data) { return _this.variedades = data; });
+    }
+    EditLote.prototype.editLote = function () {
+        var _this = this;
+        this.LotesServiceProvider.editLote(this.lote).subscribe(function (data) { return _this.alertEditLote(data.error); });
+    };
+    EditLote.prototype.destroyView = function () {
+        this.navCtrl.pop();
+    };
+    EditLote.prototype.calidadChange = function (event, lote) {
+        lote.calidadId = event.value.id;
+    };
+    EditLote.prototype.especieChange = function (event, lote) {
+        var _this = this;
+        lote.especieId = event.value.id;
+        this.VariedadesServiceProvider.getAllVariedades(lote.especieId).subscribe(function (data) { return _this.variedades = data; });
+        this.lote['variedad'] = [];
+    };
+    EditLote.prototype.variedadChange = function (event, lote) {
+        lote.variedadId = event.value.id;
+    };
+    EditLote.prototype.alertEditLote = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Edicion exitosa',
+                message: 'Se ha editado correctamente el lote.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar editar el lote.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
+    };
+    EditLote = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-edit-lote',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-lote\edit-lote.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Lote</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n    <ion-grid>\n        <ion-row>\n            <ion-col col-sm-12 col-md-12 padding>\n              <h1 text-center>Editar Lote</h1>\n              <p text-center>Ingrese los datos necesarios para editar un lote de fruta existente.</p>\n            </ion-col>\n            <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n                <h3 padding-top no-margin>Datos generales del Lote</h3>\n            	<form (ngSubmit)="editLote()">\n            	    <ion-grid>\n                        <ion-row>\n                            <ion-col col-sm-12 col-md-12 padding-bottom>\n                                <ion-row>\n                                    <ion-item col-sm-12 col-md-4 class="no-border">\n                                      <ion-label stacked>Numero Lote</ion-label>\n                                      <ion-input type="text" [(ngModel)]="lote.nroLote" name="nroRemito"></ion-input>\n                                    </ion-item>\n                                    <ion-item col-sm-12 col-md-4 class="no-border">\n                                      <ion-label stacked>Cantidad Bins</ion-label>\n                                      <ion-input type="number" [value]="lote.cantBins" (input)="lote.cantBins = $event.target.value" name="cantBins"></ion-input>\n                                    </ion-item>\n                                    <ion-item col-sm-12 col-md-4 class="no-border">\n                                      <ion-label stacked>Peso</ion-label>\n                                      <ion-input type="number" [value]="lote.pesoNeto" (input)="lote.pesoNeto = $event.target.value" name="pesoNeto"></ion-input>\n                                    </ion-item>\n                                </ion-row>\n                                <ion-col col-sm-12 col-md-12 no-padding>\n                                    <ion-item class="no-border">\n                                        <select-searchable\n                                            [(ngModel)]="lote.calidad"\n                                            name="calidad"\n                                            title="Calidades"\n                                            itemValueField="id"\n                                            itemTextField="tipo"\n                                            [items]="calidades"\n                                            [canSearch]="true"\n                                            (onChange)="calidadChange($event,lote)">\n                                        </select-searchable>\n                                    </ion-item>\n                                </ion-col>\n                                <ion-col col-sm-12 col-md-12 no-padding>\n                                    <ion-item class="no-border">\n                                        <select-searchable\n                                            [(ngModel)]="lote.especy"\n                                            name="especie"\n                                            title="Especies"\n                                            itemValueField="id"\n                                            itemTextField="tipo"\n                                            [items]="especies"\n                                            [canSearch]="true"\n                                            (onChange)="especieChange($event,lote)">\n                                        </select-searchable>\n                                    </ion-item>\n                                </ion-col>\n                                <ion-col col-sm-12 col-md-12 no-padding>\n                                    <ion-item class="no-border">\n                                        <select-searchable\n                                            [(ngModel)]="lote.variedad"\n                                            name="variedad"\n                                            title="Variedades"\n                                            itemValueField="id"\n                                            itemTextField="tipo"\n                                            [items]="variedades"\n                                            [canSearch]="true"\n                                            (onChange)="variedadChange($event,lote)">\n                                        </select-searchable>\n                                    </ion-item>\n                                </ion-col>\n                            </ion-col>\n                            <ion-col col-sm-12 col-md-12 padding>\n                                <ion-buttons left>\n                                    <button ion-button color="semiDark" type="submit">Editar</button>\n                                </ion-buttons>\n                            </ion-col>\n                        </ion-row>\n                    </ion-grid>\n            	</form>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-lote\edit-lote.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_lotes_service_lotes_service__["a" /* LotesServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_calidades_service_calidades_service__["a" /* CalidadesServiceProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_especie_service_especie_service__["a" /* EspecieServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_5__providers_variedades_service_variedades_service__["a" /* VariedadesServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], EditLote);
+    return EditLote;
+}());
+
+//# sourceMappingURL=edit-lote.js.map
+
+/***/ }),
+
+/***/ 388:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VariedadesServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var VariedadesServiceProvider = (function () {
+    function VariedadesServiceProvider(http) {
+        this.http = http;
+        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/variedad';
+    }
+    VariedadesServiceProvider.prototype.getAllVariedades = function (especieId) {
+        return this.http.get(this.urlAPI + '/' + especieId)
+            .map(this.extractData)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    VariedadesServiceProvider.prototype.catchError = function (error) {
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || "Server Error");
+    };
+    VariedadesServiceProvider.prototype.extractData = function (res) {
+        return res.json().data;
+    };
+    VariedadesServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
+    ], VariedadesServiceProvider);
+    return VariedadesServiceProvider;
+}());
+
+//# sourceMappingURL=variedades-service.js.map
+
+/***/ }),
+
+/***/ 389:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewViaje; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_ingresos_service_ingresos_service__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_camiones_service_camiones_service__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_instituciones_service_instituciones_service__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_viajes_service_viajes_service__ = __webpack_require__(390);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_ingresos_list_ingresos_list__ = __webpack_require__(67);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+var NewViaje = (function () {
+    function NewViaje(navCtrl, navParams, AuthServiceProvider, IngresosServiceProvider, ViajesServiceProvider, CamionesServiceProvider, InstitucionesServiceProvider, AlertController) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.AuthServiceProvider = AuthServiceProvider;
+        this.IngresosServiceProvider = IngresosServiceProvider;
+        this.ViajesServiceProvider = ViajesServiceProvider;
+        this.CamionesServiceProvider = CamionesServiceProvider;
+        this.InstitucionesServiceProvider = InstitucionesServiceProvider;
+        this.AlertController = AlertController;
+        this.ingresos = [];
+        this.viaje = { fecha: this.formatDate(), costo: 0, createdFor: this.AuthServiceProvider.getCurrentUser().email,
+            institucionId: 0, camionId: 0, camiones: [], camion: {}, instituciones: [], institucion: {}, ingresos: [] };
+        this.ingresos = this.navParams.get('ingresos');
+        this.InstitucionesServiceProvider.getAllInstituciones().subscribe(function (data) { return _this.viaje.instituciones = data; });
+        this.CamionesServiceProvider.getAllCamiones().subscribe(function (data) { return _this.viaje.camiones = data; });
+    }
+    NewViaje.prototype.camionChange = function (event) {
+        this.viaje.camionId = event.value.id;
+    };
+    NewViaje.prototype.institucionChange = function (event) {
+        this.viaje.institucionId = event.value.id;
+    };
+    NewViaje.prototype.addNewViaje = function () {
+        var _this = this;
+        this.viaje.ingresos = this.ingresos;
+        this.ViajesServiceProvider.addNewViajeWithIngresos(this.viaje).subscribe(function (data) { return _this.alertSuccess(data); });
+    };
+    NewViaje.prototype.finishAdding = function () {
+        this.navCtrl.pop();
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__pages_ingresos_list_ingresos_list__["a" /* IngresosList */]);
+    };
+    NewViaje.prototype.goBack = function () {
+        this.navCtrl.pop();
+    };
+    NewViaje.prototype.formatDate = function () {
+        var fecha = new Date();
+        return fecha.getFullYear() + "-" + fecha.getMonth() + 1 + "-" + fecha.getDate();
+    };
+    NewViaje.prototype.alertSuccess = function (data) {
+        var _this = this;
+        var alert;
+        if (JSON.parse(data._body).error) {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'No se ha podido llevar a cabo los nuevos ingresos. Revise los datos ingresados y pruebe nuevamente.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        role: 'aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Exito',
+                message: 'Se han cargado correctamente los datos.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        role: 'aceptar',
+                        handler: function () {
+                            _this.finishAdding();
+                        }
+                    }
+                ]
+            });
+        }
+        alert.present();
+    };
+    NewViaje = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-new-viaje',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-viaje\new-viaje.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Nuevo Viaje</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n    <ion-grid>\n        <ion-row>\n            <ion-col col-sm-12 col-md-12 padding>\n              <h1 text-center>Nuevo Viaje</h1>\n              <p text-center>Ingrese los datos necesarios para generar un nuevo viaje</p>\n            </ion-col>\n            <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n                <h3 padding-top no-margin>Datos generales del Viaje</h3>\n            	<form (ngSubmit)="addNewViaje()">\n            	    <ion-grid>\n                        <ion-row>\n                            <ion-col col-sm-12 col-md-12 padding-bottom>\n                                <ion-row>\n                                    <ion-item col-sm-12 col-md-6 class="no-border">\n                                      <ion-label stacked>Fecha</ion-label>\n                                      <ion-input type="date" [value]="viaje.fecha" (input)="viaje.fecha = $event.target.value" name="fecha"></ion-input>\n                                    </ion-item>\n                                    <ion-item col-sm-12 col-md-6 class="no-border">\n                                      <ion-label stacked>Costo</ion-label>\n                                      <ion-input type="number" [(ngModel)]="viaje.costo" name="costo">\n                                      </ion-input>\n                                    </ion-item>\n                                </ion-row>\n                                <ion-item class="no-border">\n                                    <select-searchable\n                                        [(ngModel)]="viaje.institucion"\n                                        name="institucion"\n                                        title="Instituciones"\n                                        itemValueField="id"\n                                        itemTextField="nombre"\n                                        [items]="viaje.instituciones"\n                                        [canSearch]="true"\n                                        (onChange)="institucionChange($event)">\n                                    </select-searchable>\n                                </ion-item>\n                                <ion-item class="no-border">\n                                    <select-searchable\n                                        [(ngModel)]="viaje.camion"\n                                        name="camion"\n                                        title="Camiones"\n                                        itemValueField="id"\n                                        itemTextField="nombreChofer"\n                                        [items]="viaje.camiones"\n                                        [canSearch]="true"\n                                        (onChange)="camionChange($event)">\n                                    </select-searchable>\n                                </ion-item>\n                            </ion-col>\n                            <ion-col col-sm-12 col-md-12 padding>\n                                <ion-buttons right>\n                                    <button ion-button color="semiDark" type="button" (click)="goBack()">Volver</button>\n                                    <button ion-button color="semiDark" type="submit">Finalizar</button>\n                                </ion-buttons>\n                            </ion-col>\n                        </ion-row>\n                    </ion-grid>\n            	</form>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-viaje\new-viaje.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__["a" /* AuthServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_3__providers_ingresos_service_ingresos_service__["a" /* IngresosServiceProvider */], __WEBPACK_IMPORTED_MODULE_6__providers_viajes_service_viajes_service__["a" /* ViajesServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */], __WEBPACK_IMPORTED_MODULE_5__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], NewViaje);
+    return NewViaje;
+}());
+
+//# sourceMappingURL=new-viaje.js.map
+
+/***/ }),
+
+/***/ 390:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ViajesServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var ViajesServiceProvider = (function () {
+    function ViajesServiceProvider(http) {
+        this.http = http;
+        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/viaje';
+    }
+    ViajesServiceProvider.prototype.getAllViajes = function () {
+        return this.http.get(this.urlAPI)
+            .map(this.extractData)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    ViajesServiceProvider.prototype.addNewViaje = function (data) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.post(this.urlAPI, data, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    ViajesServiceProvider.prototype.addNewViajeWithIngresos = function (data) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.post(this.urlAPI + '/withIngresos', data, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    ViajesServiceProvider.prototype.editViaje = function (viaje) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.put(this.urlAPI + '/' + viaje.id, viaje, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    ViajesServiceProvider.prototype.deleteViaje = function (viajeId) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.delete(this.urlAPI + '/' + viajeId, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    ViajesServiceProvider.prototype.catchError = function (error) {
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || "Server Error");
+    };
+    ViajesServiceProvider.prototype.extractData = function (res) {
+        return res.json().data;
+    };
+    ViajesServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
+    ], ViajesServiceProvider);
+    return ViajesServiceProvider;
+}());
+
+//# sourceMappingURL=viajes-service.js.map
+
+/***/ }),
+
+/***/ 391:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TratamientosServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var TratamientosServiceProvider = (function () {
+    function TratamientosServiceProvider(http) {
+        this.http = http;
+        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/tratamiento';
+    }
+    TratamientosServiceProvider.prototype.getAllTratamientos = function () {
+        return this.http.get(this.urlAPI)
+            .map(this.extractData)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    TratamientosServiceProvider.prototype.catchError = function (error) {
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || "Server Error");
+    };
+    TratamientosServiceProvider.prototype.extractData = function (res) {
+        return res.json().data;
+    };
+    TratamientosServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]])
+    ], TratamientosServiceProvider);
+    return TratamientosServiceProvider;
+}());
+
+//# sourceMappingURL=tratamientos-service.js.map
+
+/***/ }),
+
+/***/ 392:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewProductor; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_chacras_service_chacras_service__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_productoresList_productoresList__ = __webpack_require__(85);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var NewProductor = (function () {
+    function NewProductor(navCtrl, navParams, ProductoresServiceProvider, ChacrasServiceProvider, AlertController) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.ProductoresServiceProvider = ProductoresServiceProvider;
+        this.ChacrasServiceProvider = ChacrasServiceProvider;
+        this.AlertController = AlertController;
+        this.productor = { nombre: '', dni: '', telefono: '', chacras_ids: [] };
+        this.chacras = [];
+        this.ChacrasServiceProvider.getAllChacras().subscribe(function (data) { return _this.chacras = data; });
+    }
+    NewProductor.prototype.addNewProductor = function () {
+        var _this = this;
+        this.ProductoresServiceProvider.addNewProductor(this.productor).subscribe(function (data) { return _this.alertNewProductor(data.error); });
+    };
+    NewProductor.prototype.alertNewProductor = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Creacion exitosa',
+                message: 'Se ha creado correctamente el nuevo productor.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar ingresar el nuevo productor.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
+    };
+    NewProductor.prototype.destroyView = function () {
+        this.navCtrl.pop();
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__pages_productoresList_productoresList__["a" /* ProductoresList */]);
+    };
+    NewProductor = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-new-productor',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-productor\new-productor.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Nuevo Productor</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Nuevo Productor</h1>\n        <p text-center>Ingrese los datos necesarios para generar un nuevo productor.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales del productor</h3>\n        <form (ngSubmit)="addNewProductor()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="productor.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>DNI</ion-label>\n                    <ion-input type="text" [(ngModel)]="productor.dni" name="dni"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Telefono</ion-label>\n                    <ion-input type="number" [(ngModel)]="productor.telefono" name="telefono"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Chacras</ion-label>\n                    <ion-select [(ngModel)]="productor.chacras_ids" multiple="true" cancelText="Cancelar" okText="Aceptar" name="chacras_ids">\n                      <ion-option *ngFor="let chacra of chacras" [value] = "chacra.id" >{{chacra.nombre}}</ion-option>\n                    </ion-select>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Agregar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-productor\new-productor.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__["a" /* ProductoresServiceProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], NewProductor);
+    return NewProductor;
+}());
+
+//# sourceMappingURL=new-productor.js.map
+
+/***/ }),
+
+/***/ 393:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditChacra; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__ = __webpack_require__(46);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var EditChacra = (function () {
+    function EditChacra(navCtrl, navParams, ChacrasServiceProvider, AlertController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.ChacrasServiceProvider = ChacrasServiceProvider;
+        this.AlertController = AlertController;
+        this.chacra = [];
+        this.chacra = this.navParams.get('chacra');
+    }
+    EditChacra.prototype.editChacra = function (chacra) {
+        var _this = this;
+        this.ChacrasServiceProvider.editChacra(this.chacra).subscribe(function (data) { return _this.alertEditChacra(data.error); });
+    };
+    EditChacra.prototype.alertEditChacra = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Edicion exitosa',
+                message: 'Se ha editado correctamente la chacra.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar editar la chacra.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
+    };
+    EditChacra.prototype.destroyView = function () {
+        this.navCtrl.pop();
+    };
+    EditChacra = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-edit-chacra',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-chacra\edit-chacra.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Chacra</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Editar Chacra</h1>\n        <p text-center>Ingrese los datos necesarios para editar una chacra existente.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales de la Chacra</h3>\n        <form (ngSubmit)="editChacra()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="chacra.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Renspa</ion-label>\n                    <ion-input type="text" [(ngModel)]="chacra.renspa" name="renspa"></ion-input>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Editar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-chacra\edit-chacra.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], EditChacra);
+    return EditChacra;
+}());
+
+//# sourceMappingURL=edit-chacra.js.map
+
+/***/ }),
+
+/***/ 394:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewChacra; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_chacras_list_chacras_list__ = __webpack_require__(173);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var NewChacra = (function () {
+    function NewChacra(navCtrl, navParams, ChacrasServiceProvider, AlertController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.ChacrasServiceProvider = ChacrasServiceProvider;
+        this.AlertController = AlertController;
+        this.chacra = { nombre: '', renspa: '' };
+    }
+    NewChacra.prototype.addNewChacra = function () {
+        var _this = this;
+        this.ChacrasServiceProvider.addNewChacra(this.chacra).subscribe(function (data) { return _this.alertNewChacra(data.error); });
+    };
+    NewChacra.prototype.alertNewChacra = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Creacion exitosa',
+                message: 'Se ha creado correctamente la nueva chacra.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar ingresar la nueva chacra.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
+    };
+    NewChacra.prototype.destroyView = function () {
+        this.navCtrl.pop();
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pages_chacras_list_chacras_list__["a" /* ChacrasList */]);
+    };
+    NewChacra = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-new-chacra',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-chacra\new-chacra.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Nueva Chacra</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Nueva Chacra</h1>\n        <p text-center>Ingrese los datos necesarios para generar una nueva chacra.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales de la Chacra</h3>\n        <form (ngSubmit)="addNewChacra()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="chacra.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Renspa</ion-label>\n                    <ion-input type="text" [(ngModel)]="chacra.renspa" name="renspa"></ion-input>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Agregar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-chacra\new-chacra.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], NewChacra);
+    return NewChacra;
+}());
+
+//# sourceMappingURL=new-chacra.js.map
+
+/***/ }),
+
+/***/ 395:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewCamion; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_camiones_service_camiones_service__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_camiones_list_camiones_list__ = __webpack_require__(94);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var NewCamion = (function () {
+    function NewCamion(navCtrl, navParams, CamionesServiceProvider, AlertController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.CamionesServiceProvider = CamionesServiceProvider;
+        this.AlertController = AlertController;
+        this.camion = { patenteChasis: '', patenteAcoplado: '', nombreChofer: '' };
+    }
+    NewCamion.prototype.addNewCamion = function () {
+        var _this = this;
+        this.CamionesServiceProvider.addNewCamion(this.camion).subscribe(function (data) { return _this.alertNewCamion(data.error); });
+    };
+    NewCamion.prototype.alertNewCamion = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Creacion exitosa',
+                message: 'Se ha creado correctamente el nuevo camion.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar ingresar el nuevo camion.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
+    };
+    NewCamion.prototype.destroyView = function () {
+        this.navCtrl.pop();
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pages_camiones_list_camiones_list__["a" /* CamionesList */]);
+    };
+    NewCamion = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-new-camion',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-camion\new-camion.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Nuevo Camion</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Nuevo Camion</h1>\n        <p text-center>Ingrese los datos necesarios para generar un nuevo camion.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales del camion</h3>\n        <form (ngSubmit)="addNewCamion()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-12 class="no-border">\n                    <ion-label stacked>Nombre Chofer</ion-label>\n                    <ion-input type="text" [(ngModel)]="camion.nombreChofer" name="nombreChofer"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Patente Acoplado</ion-label>\n                    <ion-input type="text" [(ngModel)]="camion.patenteAcoplado" name="patenteAcoplado"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Patente Chasis</ion-label>\n                    <ion-input type="text" [(ngModel)]="camion.patenteChasis" name="patenteChasis"></ion-input>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Agregar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-camion\new-camion.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], NewCamion);
+    return NewCamion;
+}());
+
+//# sourceMappingURL=new-camion.js.map
+
+/***/ }),
+
+/***/ 396:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewEmpresa; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_empresas_list_empresas_list__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_empresas_service_empresas_service__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_camiones_service_camiones_service__ = __webpack_require__(49);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var NewEmpresa = (function () {
+    function NewEmpresa(navCtrl, navParams, CamionesServiceProvider, EmpresasServiceProvider, AlertController) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.CamionesServiceProvider = CamionesServiceProvider;
+        this.EmpresasServiceProvider = EmpresasServiceProvider;
+        this.AlertController = AlertController;
+        this.empresa = { nombre: '', direcccion: '', telefono: '', camiones_ids: [] };
+        this.camiones = [];
+        this.CamionesServiceProvider.getAllCamiones().subscribe(function (data) { return _this.camiones = data; });
+    }
+    NewEmpresa.prototype.addNewEmpresa = function () {
+        var _this = this;
+        this.EmpresasServiceProvider.addNewEmpresa(this.empresa).subscribe(function (data) { return _this.alertNewEmpresa(data.error); });
+    };
+    NewEmpresa.prototype.alertNewEmpresa = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Creacion exitosa',
+                message: 'Se ha creado correctamente la nueva empresa.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar ingresar la nueva empresa.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
+    };
+    NewEmpresa.prototype.destroyView = function () {
+        this.navCtrl.pop();
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__pages_empresas_list_empresas_list__["a" /* EmpresasList */]);
+    };
+    NewEmpresa = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-new-empresa',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-empresa\new-empresa.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Nuevo Empresa</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Nueva Empresa</h1>\n        <p text-center>Ingrese los datos necesarios para generar una nueva empresa.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales de la empresa</h3>\n        <form (ngSubmit)="addNewEmpresa()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="empresa.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Direccion</ion-label>\n                    <ion-input type="text" [(ngModel)]="empresa.direccion" name="direccion"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Telefono</ion-label>\n                    <ion-input type="number" [(ngModel)]="empresa.telefono" name="telefono"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Camiones</ion-label>\n                    <ion-select [(ngModel)]="empresa.camiones_ids" multiple="true" cancelText="Cancelar" okText="Aceptar" name="camiones_ids">\n                      <ion-option *ngFor="let camion of camiones" [value] = "camion.id" >{{camion.nombreChofer}}</ion-option>\n                    </ion-select>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Agregar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-empresa\new-empresa.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_4__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_empresas_service_empresas_service__["a" /* EmpresasServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], NewEmpresa);
+    return NewEmpresa;
+}());
+
+//# sourceMappingURL=new-empresa.js.map
+
+/***/ }),
+
+/***/ 397:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewInstitucion; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_instituciones_service_instituciones_service__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_instituciones_list_instituciones_list__ = __webpack_require__(97);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var NewInstitucion = (function () {
+    function NewInstitucion(navCtrl, navParams, InstitucionesServiceProvider, AlertController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.InstitucionesServiceProvider = InstitucionesServiceProvider;
+        this.AlertController = AlertController;
+        this.institucion = { nombre: '', direccion: '', telefono: '' };
+    }
+    NewInstitucion.prototype.addNewInstitucion = function () {
+        var _this = this;
+        this.InstitucionesServiceProvider.addNewInstitucion(this.institucion).subscribe(function (data) { return _this.alertNewInstitucion(data.error); });
+    };
+    NewInstitucion.prototype.alertNewInstitucion = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Creacion exitosa',
+                message: 'Se ha creado correctamente la nueva institucion.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar ingresar la nueva institucion.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
+    };
+    NewInstitucion.prototype.destroyView = function () {
+        this.navCtrl.pop();
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pages_instituciones_list_instituciones_list__["a" /* InstitucionesList */]);
+    };
+    NewInstitucion = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-new-institucion',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-institucion\new-institucion.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Nueva Institucion</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Nueva Institucion</h1>\n        <p text-center>Ingrese los datos necesarios para generar una nueva institucion.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales de la institucion</h3>\n        <form (ngSubmit)="addNewInstitucion()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="institucion.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Direccion</ion-label>\n                    <ion-input type="text" [(ngModel)]="institucion.direccion" name="direccion"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Telefono</ion-label>\n                    <ion-input type="number" [(ngModel)]="institucion.telefono" name="telefono"></ion-input>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Agregar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-institucion\new-institucion.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], NewInstitucion);
+    return NewInstitucion;
+}());
+
+//# sourceMappingURL=new-institucion.js.map
+
+/***/ }),
+
+/***/ 398:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(399);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(403);
+
+
+Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
+//# sourceMappingURL=main.js.map
+
+/***/ }),
+
+/***/ 403:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export firebaseConfig */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_side_menu_content_side_menu_content_component__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_select_select_module__ = __webpack_require__(441);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(443);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_productoresList_productoresList__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_new_productor_new_productor__ = __webpack_require__(392);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_edit_productor_edit_productor__ = __webpack_require__(380);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_chacras_list_chacras_list__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_new_chacra_new_chacra__ = __webpack_require__(394);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_edit_chacra_edit_chacra__ = __webpack_require__(393);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_camiones_list_camiones_list__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_new_camion_new_camion__ = __webpack_require__(395);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_edit_camion_edit_camion__ = __webpack_require__(381);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_empresas_list_empresas_list__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_new_empresa_new_empresa__ = __webpack_require__(396);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_edit_empresa_edit_empresa__ = __webpack_require__(382);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_instituciones_list_instituciones_list__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_new_institucion_new_institucion__ = __webpack_require__(397);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_edit_institucion_edit_institucion__ = __webpack_require__(383);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_new_ingreso_new_ingreso__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_ingresos_list_ingresos_list__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_edit_ingreso_edit_ingreso__ = __webpack_require__(384);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_edit_lote_edit_lote__ = __webpack_require__(387);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_new_viaje_new_viaje__ = __webpack_require__(389);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_viajes_list_viajes_list__ = __webpack_require__(385);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_lotes_list_lotes_list__ = __webpack_require__(386);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__ionic_native_status_bar__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__ionic_native_splash_screen__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__angular_http__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_angularfire2__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_angularfire2_auth__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__providers_auth_service_auth_service__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__providers_camiones_service_camiones_service__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__providers_empresas_service_empresas_service__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__providers_instituciones_service_instituciones_service__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__providers_cuadros_service_cuadros_service__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__providers_ingresos_service_ingresos_service__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__providers_especie_service_especie_service__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__providers_calidades_service_calidades_service__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__providers_variedades_service_variedades_service__ = __webpack_require__(388);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__providers_chacras_service_chacras_service__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__providers_productores_service_productores_service__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__providers_lotes_service_lotes_service__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__providers_tratamientos_service_tratamientos_service__ = __webpack_require__(391);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__providers_viajes_service_viajes_service__ = __webpack_require__(390);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var firebaseConfig = {
+    apiKey: "AIzaSyAlCvR3L2sO5B8GFSaRvPRMWD1uU498VgE",
+    authDomain: "cultivos-sistema.firebaseapp.com",
+    databaseURL: "https://cultivos-sistema.firebaseio.com",
+    projectId: "cultivos-sistema",
+    storageBucket: "cultivos-sistema.appspot.com",
+    messagingSenderId: "1042519531953"
+};
+var AppModule = (function () {
+    function AppModule() {
+    }
+    AppModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_3__shared_side_menu_content_side_menu_content_component__["a" /* SideMenuContentComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__pages_login_login__["a" /* Login */],
+                __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_8__pages_productoresList_productoresList__["a" /* ProductoresList */],
+                __WEBPACK_IMPORTED_MODULE_9__pages_new_productor_new_productor__["a" /* NewProductor */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_edit_productor_edit_productor__["a" /* EditProductor */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_chacras_list_chacras_list__["a" /* ChacrasList */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_new_chacra_new_chacra__["a" /* NewChacra */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_edit_chacra_edit_chacra__["a" /* EditChacra */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_camiones_list_camiones_list__["a" /* CamionesList */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_new_camion_new_camion__["a" /* NewCamion */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_edit_camion_edit_camion__["a" /* EditCamion */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_empresas_list_empresas_list__["a" /* EmpresasList */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_new_empresa_new_empresa__["a" /* NewEmpresa */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_edit_empresa_edit_empresa__["a" /* EditEmpresa */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_instituciones_list_instituciones_list__["a" /* InstitucionesList */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_new_institucion_new_institucion__["a" /* NewInstitucion */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_edit_institucion_edit_institucion__["a" /* EditInstitucion */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_ingresos_list_ingresos_list__["a" /* IngresosList */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_new_ingreso_new_ingreso__["a" /* NewIngreso */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_edit_ingreso_edit_ingreso__["a" /* EditIngreso */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_edit_lote_edit_lote__["a" /* EditLote */],
+                __WEBPACK_IMPORTED_MODULE_27__pages_new_viaje_new_viaje__["a" /* NewViaje */],
+                __WEBPACK_IMPORTED_MODULE_28__pages_viajes_list_viajes_list__["a" /* ViajesList */],
+                __WEBPACK_IMPORTED_MODULE_29__pages_lotes_list_lotes_list__["a" /* LotesList */]
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
+                    links: []
+                }),
+                __WEBPACK_IMPORTED_MODULE_33_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
+                __WEBPACK_IMPORTED_MODULE_34_angularfire2_auth__["b" /* AngularFireAuthModule */],
+                __WEBPACK_IMPORTED_MODULE_32__angular_http__["c" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_4__shared_select_select_module__["a" /* SelectSearchableModule */]
+            ],
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicApp */]],
+            entryComponents: [
+                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_7__pages_login_login__["a" /* Login */],
+                __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_8__pages_productoresList_productoresList__["a" /* ProductoresList */],
+                __WEBPACK_IMPORTED_MODULE_9__pages_new_productor_new_productor__["a" /* NewProductor */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_edit_productor_edit_productor__["a" /* EditProductor */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_chacras_list_chacras_list__["a" /* ChacrasList */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_new_chacra_new_chacra__["a" /* NewChacra */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_edit_chacra_edit_chacra__["a" /* EditChacra */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_camiones_list_camiones_list__["a" /* CamionesList */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_new_camion_new_camion__["a" /* NewCamion */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_edit_camion_edit_camion__["a" /* EditCamion */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_empresas_list_empresas_list__["a" /* EmpresasList */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_new_empresa_new_empresa__["a" /* NewEmpresa */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_edit_empresa_edit_empresa__["a" /* EditEmpresa */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_instituciones_list_instituciones_list__["a" /* InstitucionesList */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_new_institucion_new_institucion__["a" /* NewInstitucion */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_edit_institucion_edit_institucion__["a" /* EditInstitucion */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_ingresos_list_ingresos_list__["a" /* IngresosList */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_new_ingreso_new_ingreso__["a" /* NewIngreso */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_edit_ingreso_edit_ingreso__["a" /* EditIngreso */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_edit_lote_edit_lote__["a" /* EditLote */],
+                __WEBPACK_IMPORTED_MODULE_27__pages_new_viaje_new_viaje__["a" /* NewViaje */],
+                __WEBPACK_IMPORTED_MODULE_28__pages_viajes_list_viajes_list__["a" /* ViajesList */],
+                __WEBPACK_IMPORTED_MODULE_29__pages_lotes_list_lotes_list__["a" /* LotesList */]
+            ],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_30__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_31__ionic_native_splash_screen__["a" /* SplashScreen */],
+                { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicErrorHandler */] },
+                __WEBPACK_IMPORTED_MODULE_45__providers_productores_service_productores_service__["a" /* ProductoresServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_44__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_35__providers_auth_service_auth_service__["a" /* AuthServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_36__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_37__providers_empresas_service_empresas_service__["a" /* EmpresasServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_38__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_39__providers_cuadros_service_cuadros_service__["a" /* CuadrosServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_40__providers_ingresos_service_ingresos_service__["a" /* IngresosServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_41__providers_especie_service_especie_service__["a" /* EspecieServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_42__providers_calidades_service_calidades_service__["a" /* CalidadesServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_43__providers_variedades_service_variedades_service__["a" /* VariedadesServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_46__providers_lotes_service_lotes_service__["a" /* LotesServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_47__providers_tratamientos_service_tratamientos_service__["a" /* TratamientosServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_48__providers_viajes_service_viajes_service__["a" /* ViajesServiceProvider */]
+            ]
+        })
+    ], AppModule);
+    return AppModule;
+}());
+
+//# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ 440:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SideMenuRedirectEvent; });
+// SideMenuRedirectEvent constant
+var SideMenuRedirectEvent = 'sidemenu:redirect';
+//# sourceMappingURL=side-menu-redirect-events.js.map
+
+/***/ }),
+
+/***/ 441:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SelectSearchableModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__select__ = __webpack_require__(442);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__select_page__ = __webpack_require__(272);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+var SelectSearchableModule = (function () {
+    function SelectSearchableModule() {
+    }
+    SelectSearchableModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__select__["a" /* SelectSearchable */],
+                __WEBPACK_IMPORTED_MODULE_3__select_page__["a" /* SelectSearchablePage */]
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__select__["a" /* SelectSearchable */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_3__select_page__["a" /* SelectSearchablePage */])
+            ],
+            exports: [
+                __WEBPACK_IMPORTED_MODULE_2__select__["a" /* SelectSearchable */],
+                __WEBPACK_IMPORTED_MODULE_3__select_page__["a" /* SelectSearchablePage */]
+            ],
+            entryComponents: [
+                __WEBPACK_IMPORTED_MODULE_2__select__["a" /* SelectSearchable */],
+                __WEBPACK_IMPORTED_MODULE_3__select_page__["a" /* SelectSearchablePage */]
+            ]
+        })
+    ], SelectSearchableModule);
+    return SelectSearchableModule;
+}());
+
+//# sourceMappingURL=select-module.js.map
+
+/***/ }),
+
+/***/ 442:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SelectSearchable; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__select_page__ = __webpack_require__(272);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
+
+var SelectSearchable = (function () {
+    function SelectSearchable(navController, ionForm, platform, ionItem) {
+        this.navController = navController;
+        this.ionForm = ionForm;
+        this.platform = platform;
+        this.ionItem = ionItem;
+        this._items = [];
+        this.filterText = '';
+        this.value = null;
+        this.canSearch = false;
+        this.canReset = false;
+        this.hasInfiniteScroll = false;
+        this.searchPlaceholder = 'Enter 3 or more characters';
+        this.onChange = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* EventEmitter */]();
+        this.onSearch = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* EventEmitter */]();
+        this.onInfiniteScroll = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* EventEmitter */]();
+        this.propagateChange = function (_) { };
+    }
+    SelectSearchable_1 = SelectSearchable;
+    Object.defineProperty(SelectSearchable.prototype, "items", {
+        get: function () {
+            return this._items;
+        },
+        set: function (items) {
+            // The original reference of the array should be preserved to keep two-way data binding working between SelectSearchable and SelectSearchablePage.
+            this._items.splice(0, this._items.length);
+            // Add new items to the array.
+            Array.prototype.push.apply(this._items, items);
+        },
+        enumerable: true,
+        configurable: true
+    });
+    SelectSearchable.prototype.isNullOrWhiteSpace = function (value) {
+        if (value === null || value === undefined) {
+            return true;
+        }
+        // Convert value to string in case if it's not.
+        return value.toString().replace(/\s/g, '').length < 1;
+    };
+    SelectSearchable.prototype.ngOnInit = function () {
+        this.isIos = this.platform.is('ios');
+        this.isMd = this.platform.is('android');
+        this.hasSearchEvent = this.onSearch.observers.length > 0 && !this.hasInfiniteScroll;
+        this.ionForm.register(this);
+        if (this.ionItem) {
+            this.ionItem.setElementClass('item-select-searchable', true);
+        }
+    };
+    SelectSearchable.prototype.initFocus = function () { };
+    SelectSearchable.prototype._click = function (event) {
+        if (event.detail === 0) {
+            // Don't continue if the click event came from a form submit.
+            return;
+        }
+        event.preventDefault();
+        event.stopPropagation();
+        this.open();
+    };
+    SelectSearchable.prototype.select = function (selectedItem) {
+        this.value = selectedItem;
+        this.emitChange();
+    };
+    SelectSearchable.prototype.emitChange = function () {
+        this.propagateChange(this.value);
+        this.onChange.emit({
+            component: this,
+            value: this.value
+        });
+    };
+    SelectSearchable.prototype.emitSearch = function () {
+        this.onSearch.emit({
+            component: this,
+            text: this.filterText
+        });
+    };
+    SelectSearchable.prototype.open = function () {
+        this.navController.push(__WEBPACK_IMPORTED_MODULE_3__select_page__["a" /* SelectSearchablePage */], {
+            selectComponent: this,
+            navController: this.navController
+        });
+    };
+    SelectSearchable.prototype.reset = function () {
+        this.setValue(null);
+        this.emitChange();
+    };
+    SelectSearchable.prototype.formatItem = function (value) {
+        if (this.itemTemplate) {
+            return this.itemTemplate(value);
+        }
+        if (this.isNullOrWhiteSpace(value)) {
+            return null;
+        }
+        return this.itemTextField ? value[this.itemTextField] : value.toString();
+    };
+    SelectSearchable.prototype.formatValue = function () {
+        var _this = this;
+        if (!this.value) {
+            return null;
+        }
+        if (this.multiple) {
+            return this.value.map(function (item) { return _this.formatItem(item); }).join(', ');
+        }
+        else {
+            return this.formatItem(this.value);
+        }
+    };
+    SelectSearchable.prototype.writeValue = function (value) {
+        this.setValue(value);
+    };
+    SelectSearchable.prototype.registerOnChange = function (fn) {
+        this.propagateChange = fn;
+    };
+    SelectSearchable.prototype.registerOnTouched = function (fn) { };
+    SelectSearchable.prototype.setDisabledState = function (isDisabled) { };
+    SelectSearchable.prototype.ngOnDestroy = function () {
+        this.ionForm.deregister(this);
+    };
+    SelectSearchable.prototype.setValue = function (value) {
+        var _this = this;
+        this.value = value;
+        // Get an item from the list for value.
+        // We need this in case value contains only id, which is not sufficient for template rendering.
+        if (this.value && !this.isNullOrWhiteSpace(this.value[this.itemValueField])) {
+            var selectedItem = this.items.find(function (item) {
+                return item[_this.itemValueField] === _this.value[_this.itemValueField];
+            });
+            if (selectedItem) {
+                this.value = selectedItem;
+            }
+        }
+    };
+    SelectSearchable.prototype.ngOnChanges = function (changes) {
+        if (changes['items'] && this.items.length > 0) {
+            this.setValue(this.value);
+        }
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])('items'),
+        __metadata("design:type", Array),
+        __metadata("design:paramtypes", [Array])
+    ], SelectSearchable.prototype, "items", null);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Boolean)
+    ], SelectSearchable.prototype, "isSearching", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", String)
+    ], SelectSearchable.prototype, "itemValueField", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", String)
+    ], SelectSearchable.prototype, "itemTextField", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Object)
+    ], SelectSearchable.prototype, "canSearch", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Object)
+    ], SelectSearchable.prototype, "canReset", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Object)
+    ], SelectSearchable.prototype, "hasInfiniteScroll", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", String)
+    ], SelectSearchable.prototype, "title", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", String)
+    ], SelectSearchable.prototype, "searchPlaceholder", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* Output */])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* EventEmitter */])
+    ], SelectSearchable.prototype, "onChange", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* Output */])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* EventEmitter */])
+    ], SelectSearchable.prototype, "onSearch", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["O" /* Output */])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* EventEmitter */])
+    ], SelectSearchable.prototype, "onInfiniteScroll", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Function)
+    ], SelectSearchable.prototype, "itemTemplate", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Boolean)
+    ], SelectSearchable.prototype, "multiple", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["y" /* HostListener */])('click', ['$event']),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [UIEvent]),
+        __metadata("design:returntype", void 0)
+    ], SelectSearchable.prototype, "_click", null);
+    SelectSearchable = SelectSearchable_1 = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'select-searchable',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\shared\select\select.html"*/'<div class="select-searchable-label">{{title}}</div>\n<div class="select-searchable-value">{{formatValue()}}</div>\n<div class="select-searchable-icon">\n    <div class="select-searchable-icon-inner"></div>\n</div>\n<button aria-haspopup="true" ion-button="item-cover" class="item-cover"></button>'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\shared\select\select.html"*/,
+            providers: [{
+                    provide: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* NG_VALUE_ACCESSOR */],
+                    useExisting: Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* forwardRef */])(function () { return SelectSearchable_1; }),
+                    multi: true
+                }],
+            host: {
+                'class': 'select-searchable',
+                '[class.select-searchable-ios]': 'isIos',
+                '[class.select-searchable-md]': 'isMd',
+                '[class.select-searchable-can-reset]': 'canReset'
+            }
+        }),
+        __param(3, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["N" /* Optional */])()),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* Form */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["n" /* Platform */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* Item */]])
+    ], SelectSearchable);
+    return SelectSearchable;
+    var SelectSearchable_1;
+}());
+
+//# sourceMappingURL=select.js.map
+
+/***/ }),
+
+/***/ 443:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_side_menu_content_side_menu_content_component__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_productoresList_productoresList__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_new_productor_new_productor__ = __webpack_require__(392);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_chacras_list_chacras_list__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_new_chacra_new_chacra__ = __webpack_require__(394);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_camiones_list_camiones_list__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_new_camion_new_camion__ = __webpack_require__(395);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_empresas_list_empresas_list__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_new_empresa_new_empresa__ = __webpack_require__(396);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_instituciones_list_instituciones_list__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_new_institucion_new_institucion__ = __webpack_require__(397);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_ingresos_list_ingresos_list__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_new_ingreso_new_ingreso__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_auth_service_auth_service__ = __webpack_require__(48);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var MyApp = (function () {
+    function MyApp(platform, statusBar, splashScreen, authService, menuCtrl) {
+        this.platform = platform;
+        this.statusBar = statusBar;
+        this.splashScreen = splashScreen;
+        this.authService = authService;
+        this.menuCtrl = menuCtrl;
+        this.sideMenuSettings = {
+            accordionMode: false,
+            showSelectedOption: false
+        };
+        this.initializeApp();
+    }
+    MyApp.prototype.initializeApp = function () {
+        var _this = this;
+        this.platform.ready().then(function () {
+            // Okay, so the platform is ready and our plugins are available.
+            // Here you can do any higher level native things you might need.
+            if (_this.authService.authenticated) {
+                _this.rootPage = __WEBPACK_IMPORTED_MODULE_5__pages_home_home__["a" /* HomePage */];
+            }
+            else {
+                _this.rootPage = __WEBPACK_IMPORTED_MODULE_6__pages_login_login__["a" /* Login */];
+            }
+            _this.statusBar.styleDefault();
+            _this.splashScreen.hide();
+            // Create the options
+            _this.options = _this.getSideMenuOptions();
+        });
+    };
+    MyApp.prototype.openPage = function (page) {
+        // Reset the content nav to have just this page
+        // we wouldn't want the back button to show in this scenario
+        this.nav.setRoot(page.component);
+    };
+    MyApp.prototype.getCurrentUser = function () {
+        this.currentUser = this.authService.getCurrentUser();
+    };
+    // Initialize the side menu options
+    MyApp.prototype.getSideMenuOptions = function () {
+        var menuOptions = new Array();
+        menuOptions.push({
+            displayName: "DashBoard",
+            component: __WEBPACK_IMPORTED_MODULE_5__pages_home_home__["a" /* HomePage */]
+        });
+        menuOptions.push({
+            displayName: "Ingresos",
+            subItems: [
+                {
+                    displayName: "Lista Ingresos",
+                    iconName: 'crop',
+                    component: __WEBPACK_IMPORTED_MODULE_17__pages_ingresos_list_ingresos_list__["a" /* IngresosList */],
+                },
+                {
+                    displayName: "Nuevo Ingreso",
+                    iconName: 'add',
+                    component: __WEBPACK_IMPORTED_MODULE_18__pages_new_ingreso_new_ingreso__["a" /* NewIngreso */],
+                }
+            ]
+        });
+        menuOptions.push({
+            displayName: "Productores",
+            subItems: [
+                {
+                    displayName: "Lista Productores",
+                    iconName: 'contacts',
+                    component: __WEBPACK_IMPORTED_MODULE_7__pages_productoresList_productoresList__["a" /* ProductoresList */],
+                },
+                {
+                    displayName: "Nuevo Productor",
+                    iconName: 'add',
+                    component: __WEBPACK_IMPORTED_MODULE_8__pages_new_productor_new_productor__["a" /* NewProductor */],
+                }
+            ]
+        });
+        menuOptions.push({
+            displayName: "Empresas",
+            subItems: [
+                {
+                    displayName: "Lista Empresas",
+                    iconName: 'briefcase',
+                    component: __WEBPACK_IMPORTED_MODULE_13__pages_empresas_list_empresas_list__["a" /* EmpresasList */],
+                },
+                {
+                    displayName: "Nueva Empresa",
+                    iconName: 'add',
+                    component: __WEBPACK_IMPORTED_MODULE_14__pages_new_empresa_new_empresa__["a" /* NewEmpresa */],
+                }
+            ]
+        });
+        menuOptions.push({
+            displayName: "Chacras",
+            subItems: [
+                {
+                    displayName: "Lista Chacras",
+                    iconName: 'leaf',
+                    component: __WEBPACK_IMPORTED_MODULE_9__pages_chacras_list_chacras_list__["a" /* ChacrasList */],
+                },
+                {
+                    displayName: "Nueva Chacra",
+                    iconName: 'add',
+                    component: __WEBPACK_IMPORTED_MODULE_10__pages_new_chacra_new_chacra__["a" /* NewChacra */],
+                }
+            ]
+        });
+        menuOptions.push({
+            displayName: "Camiones",
+            subItems: [
+                {
+                    displayName: "Lista Camiones",
+                    iconName: 'bus',
+                    component: __WEBPACK_IMPORTED_MODULE_11__pages_camiones_list_camiones_list__["a" /* CamionesList */],
+                },
+                {
+                    displayName: "Nuevo Camion",
+                    iconName: 'add',
+                    component: __WEBPACK_IMPORTED_MODULE_12__pages_new_camion_new_camion__["a" /* NewCamion */],
+                }
+            ]
+        });
+        menuOptions.push({
+            displayName: "Instituciones",
+            subItems: [
+                {
+                    displayName: "Lista Instituciones",
+                    iconName: 'home',
+                    component: __WEBPACK_IMPORTED_MODULE_15__pages_instituciones_list_instituciones_list__["a" /* InstitucionesList */],
+                },
+                {
+                    displayName: "Nueva Institucion",
+                    iconName: 'add',
+                    component: __WEBPACK_IMPORTED_MODULE_16__pages_new_institucion_new_institucion__["a" /* NewInstitucion */],
+                }
+            ]
+        });
+        return menuOptions;
+    };
+    // Redirect the user to the selected page
+    MyApp.prototype.selectOption = function (option) {
+        var _this = this;
+        this.menuCtrl.close().then(function () {
+            // Collapse all the options
+            _this.sideMenu.collapseAllOptions();
+            // Redirect to the selected page
+            _this.nav.push(option.component);
+        });
+    };
+    MyApp.prototype.collapseMenuOptions = function () {
+        // Collapse all the options
+        this.sideMenu.collapseAllOptions();
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Nav */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Nav */])
+    ], MyApp.prototype, "nav", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_4__shared_side_menu_content_side_menu_content_component__["a" /* SideMenuContentComponent */]),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_4__shared_side_menu_content_side_menu_content_component__["a" /* SideMenuContentComponent */])
+    ], MyApp.prototype, "sideMenu", void 0);
+    MyApp = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\app\app.html"*/'<ion-menu persistent="true" [content]="content" (ionClose)="collapseMenuOptions()">\n  <ion-header>\n    <ion-toolbar color="cultivos">\n      <ion-title>Menu</ion-title>\n    </ion-toolbar>\n  </ion-header>\n\n  <ion-content>\n    <side-menu-content [settings]="sideMenuSettings" [options]="options" (selectOption)="selectOption($event)" style="padding: 0"></side-menu-content>\n  </ion-content>\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\app\app.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_19__providers_auth_service_auth_service__["a" /* AuthServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* MenuController */]])
+    ], MyApp);
+    return MyApp;
+}());
+
+//# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ 46:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChacrasServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var ChacrasServiceProvider = (function () {
+    function ChacrasServiceProvider(http) {
+        this.http = http;
+        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/chacra';
+    }
+    ChacrasServiceProvider.prototype.getAllChacras = function () {
+        return this.http.get(this.urlAPI)
+            .map(this.extractData)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    ChacrasServiceProvider.prototype.addNewChacra = function (chacra) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.post(this.urlAPI, chacra, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    ChacrasServiceProvider.prototype.editChacra = function (chacra) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.put(this.urlAPI + '/' + chacra.id, chacra, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    ChacrasServiceProvider.prototype.deleteChacra = function (chacraId) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.delete(this.urlAPI + '/' + chacraId, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    ChacrasServiceProvider.prototype.catchError = function (error) {
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || "Server Error");
+    };
+    ChacrasServiceProvider.prototype.extractData = function (res) {
+        return res.json().data;
+    };
+    ChacrasServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]])
+    ], ChacrasServiceProvider);
+    return ChacrasServiceProvider;
+}());
+
+//# sourceMappingURL=chacras-service.js.map
+
+/***/ }),
+
+/***/ 48:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__ = __webpack_require__(279);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AuthServiceProvider = (function () {
+    function AuthServiceProvider(angularFireAuth) {
+        var _this = this;
+        this.angularFireAuth = angularFireAuth;
+        this.angularFireAuth.authState.subscribe(function (user) {
+            _this.user = user;
+        });
+    }
+    Object.defineProperty(AuthServiceProvider.prototype, "authenticated", {
+        get: function () {
+            return this.user !== null;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    AuthServiceProvider.prototype.signInWithEmailAndPassword = function (userModel) {
+        return this.angularFireAuth.auth.signInWithEmailAndPassword(userModel.email, userModel.password);
+    };
+    AuthServiceProvider.prototype.createUserWithEmailAndPassword = function (userModel) {
+        return this.angularFireAuth.auth.createUserWithEmailAndPassword(userModel.email, userModel.password);
+    };
+    AuthServiceProvider.prototype.signOut = function () {
+        return this.angularFireAuth.auth.signOut();
+    };
+    AuthServiceProvider.prototype.getCurrentUser = function () {
+        return this.angularFireAuth.auth.currentUser;
+    };
+    AuthServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__["a" /* AngularFireAuth */]])
+    ], AuthServiceProvider);
+    return AuthServiceProvider;
+}());
+
+//# sourceMappingURL=auth-service.js.map
+
+/***/ }),
+
+/***/ 481:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserModel; });
+var UserModel = (function () {
+    function UserModel() {
+    }
+    return UserModel;
+}());
+
+//# sourceMappingURL=user-model.js.map
+
+/***/ }),
+
+/***/ 49:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CamionesServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var CamionesServiceProvider = (function () {
+    function CamionesServiceProvider(http) {
+        this.http = http;
+        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/camion';
+    }
+    CamionesServiceProvider.prototype.getAllCamiones = function () {
+        return this.http.get(this.urlAPI)
+            .map(this.extractData)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    CamionesServiceProvider.prototype.addNewCamion = function (camion) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.post(this.urlAPI, camion, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    CamionesServiceProvider.prototype.editCamion = function (camion) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.put(this.urlAPI + '/' + camion.id, camion, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    CamionesServiceProvider.prototype.deleteCamion = function (camionId) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.delete(this.urlAPI + '/' + camionId, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    CamionesServiceProvider.prototype.catchError = function (error) {
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || "Server Error");
+    };
+    CamionesServiceProvider.prototype.extractData = function (res) {
+        return res.json().data;
+    };
+    CamionesServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]])
+    ], CamionesServiceProvider);
+    return CamionesServiceProvider;
+}());
+
+//# sourceMappingURL=camiones-service.js.map
+
+/***/ }),
+
+/***/ 50:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InstitucionesServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var InstitucionesServiceProvider = (function () {
+    function InstitucionesServiceProvider(http) {
+        this.http = http;
+        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/institucion';
+    }
+    InstitucionesServiceProvider.prototype.getAllInstituciones = function () {
+        return this.http.get(this.urlAPI)
+            .map(this.extractData)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    InstitucionesServiceProvider.prototype.addNewInstitucion = function (institucion) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.post(this.urlAPI, institucion, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    InstitucionesServiceProvider.prototype.editInstitucion = function (institucion) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.put(this.urlAPI + '/' + institucion.id, institucion, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    InstitucionesServiceProvider.prototype.deleteInstitucion = function (institucionId) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.delete(this.urlAPI + '/' + institucionId, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    InstitucionesServiceProvider.prototype.catchError = function (error) {
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || "Server Error");
+    };
+    InstitucionesServiceProvider.prototype.extractData = function (res) {
+        return res.json().data;
+    };
+    InstitucionesServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]])
+    ], InstitucionesServiceProvider);
+    return InstitucionesServiceProvider;
+}());
+
+//# sourceMappingURL=instituciones-service.js.map
+
+/***/ }),
+
+/***/ 67:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IngresosList; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_ingresos_service_ingresos_service__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_ingreso_edit_ingreso__ = __webpack_require__(384);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_viajes_list_viajes_list__ = __webpack_require__(385);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_lotes_list_lotes_list__ = __webpack_require__(386);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var IngresosList = (function () {
+    function IngresosList(navCtrl, navParams, IngresosServiceProvider, AlertController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.IngresosServiceProvider = IngresosServiceProvider;
+        this.AlertController = AlertController;
+        this.ingresosList = [];
+        this.itemExpandHeight = 100;
+        this.getAllIngresos();
+    }
+    IngresosList.prototype.getAllIngresos = function () {
+        var _this = this;
+        this.IngresosServiceProvider.getAllIngresos().subscribe(function (data) { return _this.ingresosList = data; });
+    };
+    IngresosList.prototype.toggleIngreso = function (index) {
+        this.ingresosList[index].open = !this.ingresosList[index].open;
+    };
+    IngresosList.prototype.goToEditIngreso = function (ingreso) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pages_edit_ingreso_edit_ingreso__["a" /* EditIngreso */], {
+            ingreso: ingreso
+        });
+    };
+    IngresosList.prototype.alertDeleteIngreso = function (ingresoId) {
+        var _this = this;
+        var alert = this.AlertController.create({
+            title: 'Confirmar eliminacion',
+            message: 'Esta seguro que desea eliminar el ingreso de la lista?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function () { }
+                },
+                {
+                    text: 'Eliminar',
+                    handler: function () {
+                        _this.deleteIngreso(ingresoId);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    IngresosList.prototype.deleteIngreso = function (ingresoId) {
+        var _this = this;
+        this.IngresosServiceProvider.deleteIngreso(ingresoId).subscribe(function (data) { return _this.getAllIngresos(); });
+    };
+    IngresosList.prototype.goToViajes = function (ingreso) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__pages_viajes_list_viajes_list__["a" /* ViajesList */], {
+            viajes: ingreso.ingresos_viajes
+        });
+    };
+    IngresosList.prototype.goToLotes = function (ingreso) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__pages_lotes_list_lotes_list__["a" /* LotesList */], {
+            lotes: ingreso.lotes
+        });
+    };
+    IngresosList = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-ingresos-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\ingresos-list\ingresos-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Ingresos</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12>\n        <h1 padding text-center>Listado de Ingresos</h1>\n        <p text-center>Listado de de todos los ingresos de fruta con sus correspondientes lotes</p>\n      </ion-col>\n      <ion-col padding col-12 class="accordion-list" *ngFor=" let ingreso of ingresosList; let i = \'index\'">\n        <button ion-item class="no-border-cards" (click)="toggleIngreso(i)" detail-none [ngClass]="{ \'section-active\': ingreso.open, \'section\': !ingreso.open }">\n          <ion-row>\n            <ion-col col-1 >\n              <ion-icon item-left name="arrow-forward" *ngIf="!ingreso.open"></ion-icon>\n              <ion-icon item-left name="arrow-down" *ngIf="ingreso.open"></ion-icon>\n            </ion-col>        \n            <ion-col col-5>\n              <h2 padding text-left>Remito {{ingreso.nroRemito}}</h2>\n            </ion-col>\n            <ion-col col-6>\n              <ion-buttons right>\n                <button ion-button icon-only small outline color="white" (click)="goToLotes(ingreso)"><ion-icon name="cube"></ion-icon></button>\n                <button ion-button icon-only small outline color="white" (click)="goToViajes(ingreso)"><ion-icon name="bus"></ion-icon></button>\n                <button ion-button icon-only small outline color="white" (click)="goToEditIngreso(ingreso)"><ion-icon name="create"></ion-icon></button>\n                <button ion-button icon-only small outline color="white" (click)="alertDeleteIngreso(ingreso.id)"><ion-icon name="trash"></ion-icon></button>\n              </ion-buttons>\n            </ion-col>\n          </ion-row>\n        </button>\n        <ion-grid *ngIf="ingreso.open" class="back-black-color">\n          <ion-row>\n            <ion-col padding col-sm-12 col-md-12>\n              <ion-row>\n                <ion-col padding col-sm-12 col-md-6>\n                  <ion-item class="no-border">\n                    <ion-icon name="calendar" item-start></ion-icon>\n                      {{ingreso.fechaIngreso}}\n                  </ion-item>\n                </ion-col>\n                <ion-col padding col-sm-12 col-md-6>\n                  <ion-item class="no-border">\n                    <ion-icon name="contact" item-start></ion-icon>\n                      {{ingreso.createdFor}}\n                  </ion-item>\n                </ion-col>\n                <ion-col padding col-sm-12 col-md-4>\n                  <ion-item class="no-border">\n                    <ion-icon name="leaf" item-start></ion-icon>\n                      {{ingreso.lotes[0].chacra.renspa}} - {{ingreso.lotes[0].chacra.nombre}}\n                  </ion-item>\n                </ion-col>\n                <ion-col padding col-sm-12 col-md-4>\n                  <ion-item class="no-border">\n                    <ion-icon name="home" item-start></ion-icon>\n                      {{ingreso.ingresos_viajes[0].institucion.nombre}}\n                  </ion-item>\n                </ion-col>\n                <ion-col padding col-sm-12 col-md-4>\n                  <ion-item class="no-border">\n                    <ion-icon name="bus" item-start></ion-icon>\n                      {{ingreso.ingresos_viajes[0].camion.nombreChofer}}\n                  </ion-item>\n                </ion-col>\n              </ion-row>\n            </ion-col>\n            <!--ion-col *ngFor="let lote of ingreso.lotes" padding col-sm-12 col-md-4>\n              <ion-list>\n                <ion-item class="no-border">\n                  <ion-card>\n                    <ion-card-header no-padding no-margin class="card-hearder-color no-border">\n                      <ion-row>\n                        <ion-col col-md-6 no-padding>\n                          <h2 margin text-center class="black-color">Lote Nro {{lote.nroLote}}</h2>\n                        </ion-col>\n                        <ion-col col-md-6 no-padding> \n                          <ion-buttons right>\n                            <button ion-button clear color="white" icon-only small (click)="goToEditLote(lote)">\n                              <ion-icon name="create"></ion-icon>\n                            </button>\n                            <button ion-button clear color="white" icon-only small (click)="alertDeleteLote(lote.id)">\n                              <ion-icon name="trash"></ion-icon>\n                            </button>\n                          </ion-buttons>\n                        </ion-col>\n                      </ion-row>\n                    </ion-card-header>\n                    <ion-card-content>\n                      <ion-list no-padding no-margin>\n                        <ion-item class="no-border">\n                          <ion-icon name="cube" item-start></ion-icon>\n                          {{lote.cantBins}} Bins\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="podium" item-start></ion-icon>\n                          {{lote.pesoNeto}} Kgs\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="rose" item-start></ion-icon>\n                          {{lote.especy.tipo}}\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="flower" item-start></ion-icon>\n                          {{lote.variedad.tipo}}\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="star-half" item-start></ion-icon>\n                          {{lote.calidad.tipo}}\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="color-fill" item-start></ion-icon>\n                          {{lote.tratamiento.tipo}}\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="grid" item-start></ion-icon>\n                          {{lote.cuadro.up}}\n                        </ion-item>\n                      </ion-list>\n                    </ion-card-content>\n                  </ion-card>\n                </ion-item>\n              </ion-list>    \n            </ion-col-->\n          </ion-row>\n        </ion-grid>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\ingresos-list\ingresos-list.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_ingresos_service_ingresos_service__["a" /* IngresosServiceProvider */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], IngresosList);
+    return IngresosList;
+}());
+
+//# sourceMappingURL=ingresos-list.js.map
+
+/***/ }),
+
+/***/ 68:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IngresosServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var IngresosServiceProvider = (function () {
+    function IngresosServiceProvider(http) {
+        this.http = http;
+        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/ingreso';
+    }
+    IngresosServiceProvider.prototype.getAllIngresos = function () {
+        return this.http.get(this.urlAPI)
+            .map(this.extractData)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    IngresosServiceProvider.prototype.addNewIngreso = function (ingreso) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.post(this.urlAPI, ingreso, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    IngresosServiceProvider.prototype.editIngreso = function (ingreso) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.put(this.urlAPI + '/' + ingreso.id, ingreso, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    IngresosServiceProvider.prototype.deleteIngreso = function (ingresoId) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.delete(this.urlAPI + '/' + ingresoId, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    IngresosServiceProvider.prototype.catchError = function (error) {
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || "Server Error");
+    };
+    IngresosServiceProvider.prototype.extractData = function (res) {
+        return res.json().data;
+    };
+    IngresosServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]])
+    ], IngresosServiceProvider);
+    return IngresosServiceProvider;
+}());
+
+//# sourceMappingURL=ingresos-service.js.map
+
+/***/ }),
+
+/***/ 751:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CalidadModel; });
+var CalidadModel = (function () {
+    function CalidadModel() {
+    }
+    return CalidadModel;
+}());
+
+//# sourceMappingURL=calidad-model.js.map
+
+/***/ }),
+
+/***/ 752:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EspecieModel; });
+var EspecieModel = (function () {
+    function EspecieModel() {
+    }
+    return EspecieModel;
+}());
+
+//# sourceMappingURL=especie-model.js.map
+
+/***/ }),
+
+/***/ 753:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return VariedadModel; });
+var VariedadModel = (function () {
+    function VariedadModel() {
+    }
+    return VariedadModel;
+}());
+
+//# sourceMappingURL=variedad-model.js.map
+
+/***/ }),
+
+/***/ 754:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChacraModel; });
+var ChacraModel = (function () {
+    function ChacraModel() {
+    }
+    return ChacraModel;
+}());
+
+//# sourceMappingURL=chacra-model.js.map
+
+/***/ }),
+
+/***/ 755:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TratamientoModel; });
+var TratamientoModel = (function () {
+    function TratamientoModel() {
+    }
+    return TratamientoModel;
+}());
+
+//# sourceMappingURL=tratamiento-model.js.map
+
+/***/ }),
+
+/***/ 756:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CuadroModel; });
+var CuadroModel = (function () {
+    function CuadroModel() {
+    }
+    return CuadroModel;
+}());
+
+//# sourceMappingURL=cuadro-model.js.map
+
+/***/ }),
+
+/***/ 757:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IngresoModel; });
+var IngresoModel = (function () {
+    function IngresoModel(id, nroRemito, fechaIngreso, viajeId, chacraId, createdFor, lotes, chacras, chacra) {
+        this.id = id;
+        this.nroRemito = nroRemito;
+        this.fechaIngreso = fechaIngreso;
+        this.viajeId = viajeId;
+        this.chacraId = chacraId;
+        this.createdFor = createdFor;
+        this.lotes = lotes;
+        this.chacras = chacras;
+        this.chacra = chacra;
+    }
+    return IngresoModel;
+}());
+
+//# sourceMappingURL=ingreso-model.js.map
+
+/***/ }),
+
+/***/ 758:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoteModel; });
+var LoteModel = (function () {
+    function LoteModel(id, peso, nroLote, cantBins, calidadId, especieId, variedadId, tratamientoId, cuadroId, calidades, calidad, especies, especie, variedades, variedad, tratamientos, tratamiento, cuadros, cuadro) {
+        this.id = id;
+        this.peso = peso;
+        this.nroLote = nroLote;
+        this.cantBins = cantBins;
+        this.calidadId = calidadId;
+        this.especieId = especieId;
+        this.variedadId = variedadId;
+        this.tratamientoId = tratamientoId;
+        this.cuadroId = cuadroId;
+        this.calidades = calidades;
+        this.calidad = calidad;
+        this.especies = especies;
+        this.especie = especie;
+        this.variedades = variedades;
+        this.variedad = variedad;
+        this.tratamientos = tratamientos;
+        this.tratamiento = tratamiento;
+        this.cuadros = cuadros;
+        this.cuadro = cuadro;
+    }
+    return LoteModel;
+}());
+
+//# sourceMappingURL=lote-model.js.map
+
+/***/ }),
+
+/***/ 85:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductoresList; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_productor_edit_productor__ = __webpack_require__(380);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ProductoresList = (function () {
+    function ProductoresList(navCtrl, navParams, ProductoresServiceProvider, AlertController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.ProductoresServiceProvider = ProductoresServiceProvider;
+        this.AlertController = AlertController;
+        this.productoresList = [];
+        this.getProductores();
+    }
+    ProductoresList.prototype.getProductores = function () {
+        var _this = this;
+        this.ProductoresServiceProvider.getAllProductores().subscribe(function (data) { return _this.productoresList = data; });
+    };
+    ProductoresList.prototype.goToEdit = function (productor) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pages_edit_productor_edit_productor__["a" /* EditProductor */], {
+            productor: productor
+        });
+    };
+    ProductoresList.prototype.deleteProductor = function (productorId) {
+        var _this = this;
+        this.ProductoresServiceProvider.deleteProductor(productorId).subscribe(function (data) { return _this.getProductores(); });
+    };
+    ProductoresList.prototype.alertDeleteProductor = function (productorId) {
+        var _this = this;
+        var alert = this.AlertController.create({
+            title: 'Confirmar eliminacion',
+            message: 'Esta seguro que desea eliminar el productor de la lista?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function () { }
+                },
+                {
+                    text: 'Eliminar',
+                    handler: function () {
+                        _this.deleteProductor(productorId);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    ProductoresList = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\productoresList\productoresList.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Productores</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Listado de Productores</h1>\n        <p text-center>Presentacion en forma de lista de los productores con los que se trabaja</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h4 padding-top no-margin>Datos generales de los productores</h4>\n        <ion-row padding>\n          <ion-col col-sm-12 col-md-8 offset-md-2>\n            <ion-list>\n              <ion-item ion-item *ngFor="let prod of productoresList" class="no-border">\n                <ion-avatar item-left>\n                  <img src="assets/imgs/user.png">\n                </ion-avatar>\n                <ion-row>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Productor</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{prod.nombre}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Dni</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{prod.dni}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Telefono</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{prod.telefono}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small (click)="goToEdit(prod)">\n                          <ion-icon name="create"></ion-icon>\n                        </button>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small \n                          (click)="alertDeleteProductor(prod.id)">\n                          <ion-icon name="trash"></ion-icon>\n                        </button>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                </ion-row>\n              </ion-item>\n            </ion-list>\n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\productoresList\productoresList.html"*/
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__["a" /* ProductoresServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], ProductoresList);
+    return ProductoresList;
+}());
+
+//# sourceMappingURL=productoresList.js.map
+
+/***/ }),
+
+/***/ 86:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductoresServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var ProductoresServiceProvider = (function () {
+    function ProductoresServiceProvider(http) {
+        this.http = http;
+        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/productor';
+    }
+    ProductoresServiceProvider.prototype.getAllProductores = function () {
+        return this.http.get(this.urlAPI)
+            .map(this.extractData)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    ProductoresServiceProvider.prototype.addNewProductor = function (data) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.post(this.urlAPI, data, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    ProductoresServiceProvider.prototype.editProductor = function (productor) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.put(this.urlAPI + '/' + productor.id, productor, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    ProductoresServiceProvider.prototype.deleteProductor = function (productorId) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.delete(this.urlAPI + '/' + productorId, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    ProductoresServiceProvider.prototype.catchError = function (error) {
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || "Server Error");
+    };
+    ProductoresServiceProvider.prototype.extractData = function (res) {
+        return res.json().data;
+    };
+    ProductoresServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
+    ], ProductoresServiceProvider);
+    return ProductoresServiceProvider;
+}());
+
+//# sourceMappingURL=productores-service.js.map
+
+/***/ }),
+
+/***/ 94:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CamionesList; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_camiones_service_camiones_service__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_camion_edit_camion__ = __webpack_require__(381);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var CamionesList = (function () {
+    function CamionesList(navCtrl, navParams, CamionesServiceProvider, AlertController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.CamionesServiceProvider = CamionesServiceProvider;
+        this.AlertController = AlertController;
+        this.camionesList = [];
+        this.getAllCamiones();
+    }
+    CamionesList.prototype.getAllCamiones = function () {
+        var _this = this;
+        this.CamionesServiceProvider.getAllCamiones().subscribe(function (data) { return _this.camionesList = data; });
+    };
+    CamionesList.prototype.goToEdit = function (camion) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pages_edit_camion_edit_camion__["a" /* EditCamion */], {
+            camion: camion
+        });
+    };
+    CamionesList.prototype.deleteCamion = function (camionId) {
+        var _this = this;
+        this.CamionesServiceProvider.deleteCamion(camionId).subscribe(function (data) { return _this.getAllCamiones(); });
+    };
+    CamionesList.prototype.alertDeleteCamion = function (camionId) {
+        var _this = this;
+        var alert = this.AlertController.create({
+            title: 'Confirmar eliminacion',
+            message: 'Esta seguro que desea eliminar el camion de la lista?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function () { }
+                },
+                {
+                    text: 'Eliminar',
+                    handler: function () {
+                        _this.deleteCamion(camionId);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    CamionesList = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-camiones-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\camiones-list\camiones-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Camiones</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Listado de Camiones</h1>\n        <p text-center>Presentacion en forma de lista de los camiones con los que se transporta</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h4 padding-top no-margin>Camiones</h4>\n        <ion-row padding>\n          <ion-col col-sm-12 col-md-8 offset-md-2>\n            <ion-list>\n              <ion-item ion-item *ngFor="let camion of camionesList" class="no-border">\n                <ion-avatar item-left>\n                  <img src="assets/imgs/camion-icon.png">\n                </ion-avatar>\n                <ion-row>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Chofer</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{camion.nombreChofer}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Patente Chasis</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{camion.patenteChasis}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Patente Acoplado</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{camion.patenteAcoplado}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small (click)="goToEdit(camion)">\n                          <ion-icon name="create"></ion-icon>\n                        </button>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small \n                          (click)="alertDeleteCamion(camion.id)">\n                          <ion-icon name="trash"></ion-icon>\n                        </button>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                </ion-row>\n              </ion-item>\n            </ion-list>\n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\camiones-list\camiones-list.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], CamionesList);
+    return CamionesList;
+}());
+
+//# sourceMappingURL=camiones-list.js.map
+
+/***/ }),
+
+/***/ 95:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmpresasList; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_empresas_service_empresas_service__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_empresa_edit_empresa__ = __webpack_require__(382);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var EmpresasList = (function () {
+    function EmpresasList(navCtrl, navParams, EmpresasServiceProvider, AlertController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.EmpresasServiceProvider = EmpresasServiceProvider;
+        this.AlertController = AlertController;
+        this.empresasList = [];
+        this.getAllEmpresas();
+    }
+    EmpresasList.prototype.getAllEmpresas = function () {
+        var _this = this;
+        this.EmpresasServiceProvider.getAllEmpresas().subscribe(function (data) { return _this.empresasList = data; });
+    };
+    EmpresasList.prototype.goToEdit = function (empresa) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pages_edit_empresa_edit_empresa__["a" /* EditEmpresa */], {
+            empresa: empresa
+        });
+    };
+    EmpresasList.prototype.deleteEmpresa = function (empresaId) {
+        var _this = this;
+        this.EmpresasServiceProvider.deleteEmpresa(empresaId).subscribe(function (data) { return _this.getAllEmpresas(); });
+    };
+    EmpresasList.prototype.alertDeleteEmpresa = function (empresaId) {
+        var _this = this;
+        var alert = this.AlertController.create({
+            title: 'Confirmar eliminacion',
+            message: 'Esta seguro que desea eliminar la empresa de la lista?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function () { }
+                },
+                {
+                    text: 'Eliminar',
+                    handler: function () {
+                        _this.deleteEmpresa(empresaId);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    EmpresasList = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-empresas-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\empresas-list\empresas-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Empresas</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Listado de Empresas</h1>\n        <p text-center>Presentacion en forma de lista de las empresas con los que se comercializa</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h4 padding-top no-margin>Empresas</h4>\n        <ion-row padding>\n          <ion-col col-sm-12 col-md-8 offset-md-2>\n            <ion-list>\n              <ion-item ion-item *ngFor="let empresa of empresasList" class="no-border">\n                <ion-avatar item-left>\n                  <img src="assets/imgs/emperesa-icon.png">\n                </ion-avatar>\n                <ion-row>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Empresa</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{empresa.nombre}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Direccion</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{empresa.direccion}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Telefono</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{empresa.telefono}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small (click)="goToEdit(empresa)">\n                          <ion-icon name="create"></ion-icon>\n                        </button>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small \n                          (click)="alertDeleteEmpresa(empresa.id)">\n                          <ion-icon name="trash"></ion-icon>\n                        </button>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                </ion-row>\n              </ion-item>\n            </ion-list>\n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\empresas-list\empresas-list.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_empresas_service_empresas_service__["a" /* EmpresasServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], EmpresasList);
+    return EmpresasList;
+}());
+
+//# sourceMappingURL=empresas-list.js.map
+
+/***/ }),
+
+/***/ 96:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmpresasServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var EmpresasServiceProvider = (function () {
+    function EmpresasServiceProvider(http) {
+        this.http = http;
+        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/empresa';
+    }
+    EmpresasServiceProvider.prototype.getAllEmpresas = function () {
+        return this.http.get(this.urlAPI)
+            .map(this.extractData)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    EmpresasServiceProvider.prototype.addNewEmpresa = function (empresa) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.post(this.urlAPI, empresa, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    EmpresasServiceProvider.prototype.editEmpresa = function (empresa) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.put(this.urlAPI + '/' + empresa.id, empresa, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    EmpresasServiceProvider.prototype.deleteEmpresa = function (empresaId) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.delete(this.urlAPI + '/' + empresaId, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    EmpresasServiceProvider.prototype.catchError = function (error) {
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || "Server Error");
+    };
+    EmpresasServiceProvider.prototype.extractData = function (res) {
+        return res.json().data;
+    };
+    EmpresasServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]])
+    ], EmpresasServiceProvider);
+    return EmpresasServiceProvider;
+}());
+
+//# sourceMappingURL=empresas-service.js.map
+
+/***/ }),
+
+/***/ 97:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InstitucionesList; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_instituciones_service_instituciones_service__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_institucion_edit_institucion__ = __webpack_require__(383);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var InstitucionesList = (function () {
+    function InstitucionesList(navCtrl, navParams, InstitucionesServiceProvider, AlertController) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.InstitucionesServiceProvider = InstitucionesServiceProvider;
+        this.AlertController = AlertController;
+        this.institucionesList = [];
+        this.InstitucionesServiceProvider.getAllInstituciones().subscribe(function (data) { return _this.institucionesList = data; });
+    }
+    InstitucionesList.prototype.getAllInstituciones = function () {
+        var _this = this;
+        this.InstitucionesServiceProvider.getAllInstituciones().subscribe(function (data) { return _this.institucionesList = data; });
+    };
+    InstitucionesList.prototype.goToEdit = function (institucion) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__pages_edit_institucion_edit_institucion__["a" /* EditInstitucion */], {
+            institucion: institucion
+        });
+    };
+    InstitucionesList.prototype.deleteInstitucion = function (institucionId) {
+        var _this = this;
+        this.InstitucionesServiceProvider.deleteInstitucion(institucionId).subscribe(function (data) { return _this.getAllInstituciones(); });
+    };
+    InstitucionesList.prototype.alertDeleteInstitucion = function (institucionId) {
+        var _this = this;
+        var alert = this.AlertController.create({
+            title: 'Confirmar eliminacion',
+            message: 'Esta seguro que desea eliminar el camion de la lista?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function () { }
+                },
+                {
+                    text: 'Eliminar',
+                    handler: function () {
+                        _this.deleteInstitucion(institucionId);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    InstitucionesList = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-instituciones-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\instituciones-list\instituciones-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Instituciones</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Listado de Instituciones</h1>\n        <p text-center>Presentacion en forma de lista de las intituciones donde se destina la fruta</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h4 padding-top no-margin>Instituciones</h4>\n        <ion-row padding>\n          <ion-col col-sm-12 col-md-8 offset-md-2>\n            <ion-list>\n              <ion-item ion-item *ngFor="let institucion of institucionesList" class="no-border">\n                <ion-avatar item-left>\n                  <img src="assets/imgs/institucion-icon.png">\n                </ion-avatar>\n                <ion-row>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Institucion</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{institucion.nombre}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Direccion</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{institucion.direccion}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Telefono</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{institucion.telefono}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small (click)="goToEdit(institucion)">\n                          <ion-icon name="create"></ion-icon>\n                        </button>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small \n                          (click)="alertDeleteInstitucion(institucion.id)">\n                          <ion-icon name="trash"></ion-icon>\n                        </button>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                </ion-row>\n              </ion-item>\n            </ion-list>\n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\instituciones-list\instituciones-list.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], InstitucionesList);
+    return InstitucionesList;
+}());
+
+//# sourceMappingURL=instituciones-list.js.map
+
+/***/ })
+
+},[398]);
+//# sourceMappingURL=main.js.map

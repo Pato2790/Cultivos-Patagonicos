@@ -3,7 +3,7 @@ import { NavController, NavParams, AlertController } from 'ionic-angular';
 
 import { CamionesServiceProvider } from '../../providers/camiones-service/camiones-service';
 
-import { CamionList } from '../../pages/camion-list/camion-list';
+import { CamionesList } from '../../pages/camiones-list/camiones-list';
 
 @Component({
   selector: 'page-new-camion',
@@ -56,6 +56,6 @@ export class NewCamion {
 
 	destroyView(){
 		this.navCtrl.pop();
-		this.navCtrl.push(CamionList);
+		this.navCtrl.push(CamionesList);
 	}
 }
