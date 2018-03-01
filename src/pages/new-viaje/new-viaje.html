@@ -11,22 +11,22 @@
 <ion-content padding class="back-color">
     <ion-grid>
         <ion-row>
-            <ion-col col-sm-12 col-md-12 padding>
+            <ion-col col-12 padding>
               <h1 text-center>Nuevo Viaje</h1>
               <p text-center>Ingrese los datos necesarios para generar un nuevo viaje</p>
             </ion-col>
-            <ion-col col-sm-12 col-md-12 padding class="back-black-color">
+            <ion-col col-12 padding class="back-black-color">
                 <h3 padding-top no-margin>Datos generales del Viaje</h3>
             	<form (ngSubmit)="addNewViaje()">
             	    <ion-grid>
                         <ion-row>
-                            <ion-col col-sm-12 col-md-12 padding-bottom>
+                            <ion-col col-12 padding-bottom>
                                 <ion-row>
-                                    <ion-item col-sm-12 col-md-6 class="no-border">
+                                    <ion-item col-12 col-md-6 col-lg-6 class="no-border">
                                       <ion-label stacked>Fecha</ion-label>
                                       <ion-input type="date" [value]="viaje.fecha" (input)="viaje.fecha = $event.target.value" name="fecha"></ion-input>
                                     </ion-item>
-                                    <ion-item col-sm-12 col-md-6 class="no-border">
+                                    <ion-item col-12 col-md-6 col-lg-6 class="no-border">
                                       <ion-label stacked>Costo</ion-label>
                                       <ion-input type="number" [(ngModel)]="viaje.costo" name="costo">
                                       </ion-input>
@@ -57,7 +57,7 @@
                                     </select-searchable>
                                 </ion-item>
                             </ion-col>
-                            <ion-col col-sm-12 col-md-12 padding>
+                            <ion-col col-12 padding>
                                 <ion-buttons right>
                                     <button ion-button color="semiDark" type="button" (click)="goBack()">Volver</button>
                                     <button ion-button color="semiDark" type="submit">Finalizar</button>

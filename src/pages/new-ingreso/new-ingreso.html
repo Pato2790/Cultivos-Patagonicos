@@ -11,150 +11,148 @@
 <ion-content padding class="back-color">
     <ion-grid>
         <ion-row>
-            <ion-col col-sm-12 col-md-12 padding>
+            <ion-col col-12 padding>
               <h1 text-center>Nuevo Ingresos</h1>
               <p text-center>Ingrese los datos necesarios para generar un nuevo ingreso de fruta.</p>
             </ion-col>
-            <ion-col col-sm-12 col-md-12 padding>
+            <ion-col col-12 class="back-black-color">
             	<form (ngSubmit)="alertNewIngreso()">
-            	    <ion-grid *ngFor="let ingreso of ingresos; trackBy:trackByFn" class="back-black-color" padding margin>
-                        <ion-row>
-                            <ion-col col-sm-12 col-md-12 padding-bottom>
-                                <h3 padding-top no-margin>Datos generales del Ingreso</h3>
-                            </ion-col>
-                            <ion-col col-sm-12 col-md-12 padding-bottom>
-                                <ion-row>
-                                    <ion-item col-sm-12 col-md-6 class="no-border">
-                                      <ion-label stacked>Nro Remito</ion-label>
-                                      <ion-input type="text" [(ngModel)]="ingreso.nroRemito" name="nroRemito"></ion-input>
-                                    </ion-item>
-                                    <ion-item col-sm-12 col-md-6 class="no-border">
-                                      <ion-label stacked>Fecha de Ingreso</ion-label>
-                                      <ion-input type="date" [value]="ingreso.fechaIngreso" (input)="ingreso.fechaIngreso = $event.target.value" name="fechaIngreso"></ion-input>
-                                    </ion-item>
-                                </ion-row>
-                                <ion-item class="no-border">
-                                    <select-searchable
-                                        [(ngModel)]="ingreso.chacra"
-                                        name="chacra"
-                                        title="Chacras"
-                                        itemValueField="id"
-                                        itemTextField="nombre"
-                                        [items]="ingreso.chacras"
-                                        [canSearch]="true"
-                                        (onChange)="chacraChange($event, ingreso)">
-                                    </select-searchable>
+                    <ion-row *ngFor="let ingreso of ingresos; trackBy:trackByFn">
+                        <ion-col col-12 padding-bottom>
+                            <h3 padding-top no-margin>Datos generales del Ingreso</h3>
+                        </ion-col>
+                        <ion-col col-12 padding-bottom>
+                            <ion-row>
+                                <ion-item col-12 col-md-6 col-lg-6 class="no-border">
+                                  <ion-label stacked>Nro Remito</ion-label>
+                                  <ion-input type="text" [(ngModel)]="ingreso.nroRemito" name="nroRemito"></ion-input>
                                 </ion-item>
-                            </ion-col>
-                            <ion-col col-sm-12 col-md-12 padding class="back-color">
-                                <ion-row>
-                                    <ion-col col-sm-12 col-md-12 no-padding>
-                                        <h3 padding>Datos generales del nuevo Lote</h3>
+                                <ion-item col-12 col-md-6 col-lg-6 class="no-border">
+                                  <ion-label stacked>Fecha de Ingreso</ion-label>
+                                  <ion-input type="date" [value]="ingreso.fechaIngreso" (input)="ingreso.fechaIngreso = $event.target.value" name="fechaIngreso"></ion-input>
+                                </ion-item>
+                            </ion-row>
+                            <ion-item class="no-border">
+                                <select-searchable
+                                    [(ngModel)]="ingreso.chacra"
+                                    name="chacra"
+                                    title="Chacras"
+                                    itemValueField="id"
+                                    itemTextField="nombre"
+                                    [items]="ingreso.chacras"
+                                    [canSearch]="true"
+                                    (onChange)="chacraChange($event, ingreso)">
+                                </select-searchable>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col col-12 padding class="back-color">
+                            <ion-row>
+                                <ion-col col-12 no-padding>
+                                    <h3 padding>Datos generales del nuevo Lote</h3>
+                                </ion-col>
+                                <ion-row *ngFor="let lote of ingreso.lotes; trackBy:trackByFn" margin>
+                                    <ion-col col-12 no-padding>
+                                        <ion-row>
+                                            <ion-item class="no-border" col-12 col-md-4 col-lg-4>
+                                              <ion-label stacked>Numero Lote</ion-label>
+                                              <ion-input type="number" [value]="lote.nroLote" (input)="lote.nroLote = $event.target.value" name="nroLote"></ion-input>
+                                            </ion-item>
+                                            <ion-item class="no-border" col-12 col-md-4 col-lg-4>
+                                              <ion-label stacked>Cantidad Bins</ion-label>
+                                              <ion-input type="number" [value]="lote.cantBins" (input)="lote.cantBins = $event.target.value" name="cantBins"></ion-input>
+                                            </ion-item>
+                                            <ion-item class="no-border" col-12 col-md-4 col-lg-4>
+                                              <ion-label stacked>Peso</ion-label>
+                                              <ion-input type="number" [value]="lote.peso" (input)="lote.peso = $event.target.value" name="peso"></ion-input>
+                                            </ion-item>
+                                        </ion-row>
                                     </ion-col>
-                                    <ion-row *ngFor="let lote of ingreso.lotes; trackBy:trackByFn" margin>
-                                        <ion-col col-sm-12 col-md-12 no-padding>
-                                            <ion-row>
-                                                <ion-item class="no-border" col-sm-12 col-md-4>
-                                                  <ion-label stacked>Numero Lote</ion-label>
-                                                  <ion-input type="number" [value]="lote.nroLote" (input)="lote.nroLote = $event.target.value" name="nroLote"></ion-input>
-                                                </ion-item>
-                                                <ion-item class="no-border" col-sm-12 col-md-4>
-                                                  <ion-label stacked>Cantidad Bins</ion-label>
-                                                  <ion-input type="number" [value]="lote.cantBins" (input)="lote.cantBins = $event.target.value" name="cantBins"></ion-input>
-                                                </ion-item>
-                                                <ion-item class="no-border" col-sm-12 col-md-4>
-                                                  <ion-label stacked>Peso</ion-label>
-                                                  <ion-input type="number" [value]="lote.peso" (input)="lote.peso = $event.target.value" name="peso"></ion-input>
-                                                </ion-item>
-                                            </ion-row>
-                                        </ion-col>
-                                        <ion-col col-sm-12 col-md-12 no-padding>
-                                            <ion-item class="no-border">
-                                                <select-searchable
-                                                    [(ngModel)]="lote.calidad"
-                                                    name="calidad"
-                                                    title="Calidades"
-                                                    itemValueField="id"
-                                                    itemTextField="tipo"
-                                                    [items]="lote.calidades"
-                                                    [canSearch]="true"
-                                                    (onChange)="calidadChange($event,lote)">
-                                                </select-searchable>
-                                            </ion-item>
-                                        </ion-col>
-                                        <ion-col col-sm-12 col-md-12 no-padding>
-                                            <ion-item class="no-border">
-                                                <select-searchable
-                                                    [(ngModel)]="lote.especie"
-                                                    name="especie"
-                                                    title="Especies"
-                                                    itemValueField="id"
-                                                    itemTextField="tipo"
-                                                    [items]="lote.especies"
-                                                    [canSearch]="true"
-                                                    (onChange)="especieChange($event,lote)">
-                                                </select-searchable>
-                                            </ion-item>
-                                        </ion-col>
-                                        <ion-col col-sm-12 col-md-12 no-padding>
-                                            <ion-item class="no-border">
-                                                <select-searchable
-                                                    [(ngModel)]="lote.variedad"
-                                                    name="variedad"
-                                                    title="Variedades"
-                                                    itemValueField="id"
-                                                    itemTextField="tipo"
-                                                    [items]="lote.variedades"
-                                                    [canSearch]="true"
-                                                    (onChange)="variedadChange($event,lote)">
-                                                </select-searchable>
-                                            </ion-item>
-                                        </ion-col>
-                                        <ion-col col-sm-12 col-md-12 no-padding>
-                                            <ion-item class="no-border">
-                                                <select-searchable
-                                                    [(ngModel)]="lote.tratamiento"
-                                                    name="tratamiento"
-                                                    title="Tratamientos"
-                                                    itemValueField="id"
-                                                    itemTextField="tipo"
-                                                    [items]="lote.tratamientos"
-                                                    [canSearch]="true"
-                                                    (onChange)="tratamientoChange($event,lote)">
-                                                </select-searchable>
-                                            </ion-item>
-                                        </ion-col>
-                                        <ion-col col-sm-12 col-md-12 no-padding>
-                                            <ion-item class="no-border">
-                                                <select-searchable
-                                                    [(ngModel)]="lote.cuadro"
-                                                    name="cuadro"
-                                                    title="Cuadros"
-                                                    itemValueField="id"
-                                                    itemTextField="up"
-                                                    [items]="lote.cuadros"
-                                                    [canSearch]="true"
-                                                    (onChange)="cuadroChange($event,lote)">
-                                                </select-searchable>
-                                            </ion-item>
-                                        </ion-col>
-                                        <ion-col col-sm-12 col-md-12 padding>
-                                            <ion-buttons right>
-                                                <button ion-button type="button" color="semiDark" (click)="deleteLoteList(ingreso,lote)">Eliminar Lote</button>
-                                            </ion-buttons>
-                                        </ion-col>
-                                    </ion-row>
+                                    <ion-col col-12 no-padding>
+                                        <ion-item class="no-border">
+                                            <select-searchable
+                                                [(ngModel)]="lote.calidad"
+                                                name="calidad"
+                                                title="Calidades"
+                                                itemValueField="id"
+                                                itemTextField="tipo"
+                                                [items]="lote.calidades"
+                                                [canSearch]="true"
+                                                (onChange)="calidadChange($event,lote)">
+                                            </select-searchable>
+                                        </ion-item>
+                                    </ion-col>
+                                    <ion-col col-12 no-padding>
+                                        <ion-item class="no-border">
+                                            <select-searchable
+                                                [(ngModel)]="lote.especie"
+                                                name="especie"
+                                                title="Especies"
+                                                itemValueField="id"
+                                                itemTextField="tipo"
+                                                [items]="lote.especies"
+                                                [canSearch]="true"
+                                                (onChange)="especieChange($event,lote)">
+                                            </select-searchable>
+                                        </ion-item>
+                                    </ion-col>
+                                    <ion-col col-12 no-padding>
+                                        <ion-item class="no-border">
+                                            <select-searchable
+                                                [(ngModel)]="lote.variedad"
+                                                name="variedad"
+                                                title="Variedades"
+                                                itemValueField="id"
+                                                itemTextField="tipo"
+                                                [items]="lote.variedades"
+                                                [canSearch]="true"
+                                                (onChange)="variedadChange($event,lote)">
+                                            </select-searchable>
+                                        </ion-item>
+                                    </ion-col>
+                                    <ion-col col-12 no-padding>
+                                        <ion-item class="no-border">
+                                            <select-searchable
+                                                [(ngModel)]="lote.tratamiento"
+                                                name="tratamiento"
+                                                title="Tratamientos"
+                                                itemValueField="id"
+                                                itemTextField="tipo"
+                                                [items]="lote.tratamientos"
+                                                [canSearch]="true"
+                                                (onChange)="tratamientoChange($event,lote)">
+                                            </select-searchable>
+                                        </ion-item>
+                                    </ion-col>
+                                    <ion-col col-12 no-padding>
+                                        <ion-item class="no-border">
+                                            <select-searchable
+                                                [(ngModel)]="lote.cuadro"
+                                                name="cuadro"
+                                                title="Cuadros"
+                                                itemValueField="id"
+                                                itemTextField="up"
+                                                [items]="lote.cuadros"
+                                                [canSearch]="true"
+                                                (onChange)="cuadroChange($event,lote)">
+                                            </select-searchable>
+                                        </ion-item>
+                                    </ion-col>
+                                    <ion-col col-12 padding>
+                                        <ion-buttons right>
+                                            <button ion-button type="button" color="semiDark" (click)="deleteLoteList(ingreso,lote)">Eliminar Lote</button>
+                                        </ion-buttons>
+                                    </ion-col>
                                 </ion-row>
-                            </ion-col>
-                            <ion-col col-sm-12 col-md-12 padding>
-                                <ion-buttons right>
-                                    <button ion-button type="button" color="semiDark" (click)="agregarLoteList(ingreso)">Agregar Lote</button>
-                                    <button *ngIf="ingresos.length > 1" ion-button type="button" color="semiDark" (click)="deleteIngresoList(ingreso)">Eliminar Ingreso</button>
-                                </ion-buttons>
-                            </ion-col>
-                        </ion-row>
-                    </ion-grid>
-                    <ion-col col-sm-12 col-md-12 padding>
+                            </ion-row>
+                        </ion-col>
+                        <ion-col col-12 padding>
+                            <ion-buttons right>
+                                <button ion-button type="button" color="semiDark" (click)="agregarLoteList(ingreso)">Agregar Lote</button>
+                                <button *ngIf="ingresos.length > 1" ion-button type="button" color="semiDark" (click)="deleteIngresoList(ingreso)">Eliminar Ingreso</button>
+                            </ion-buttons>
+                        </ion-col>
+                    </ion-row>
+                    <ion-col col-12 padding>
                             <ion-buttons left>
                                 <button ion-button color="semiDark" type="submit">Siguiente</button>
                             </ion-buttons>

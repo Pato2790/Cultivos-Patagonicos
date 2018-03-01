@@ -17,28 +17,30 @@
       <ion-col padding col-12 class="accordion-list" *ngFor=" let ingreso of ingresosList; let i = 'index'">
         <button ion-item class="no-border-cards" (click)="toggleIngreso(i)" detail-none [ngClass]="{ 'section-active': ingreso.open, 'section': !ingreso.open }">
           <ion-row align-items-center>
-            <ion-col col-2 col-sm-1 col-md-1 col-lg-1>
+            <ion-col col-sm-1 col-md-1 col-lg-1 class="hidden-xs-down">
               <ion-icon item-left name="arrow-forward" *ngIf="!ingreso.open"></ion-icon>
               <ion-icon item-left name="arrow-down" *ngIf="ingreso.open"></ion-icon>
             </ion-col>        
-            <ion-col col-10 col-sm-7 col-md-9 col-lg-9>
+            <ion-col col-12 col-sm-7 col-md-9 col-lg-9>
               <h2 padding text-center>Remito {{ingreso.nroRemito}}</h2>
             </ion-col>
             <ion-col col-8 offset-2 col-sm-4 col-md-2 col-lg-2 offset-sm-0 offset-md-0 offset-lg-0>
-              <ion-row align-items-center>
-                <ion-col col-3 class="vertical-align-icon">
-                  <button ion-button icon-only small outline color="white" (click)="goToLotes(ingreso)"><ion-icon name="cube"></ion-icon></button>
-                </ion-col>
-                <ion-col col-3 class="vertical-align-icon">
-                  <button ion-button icon-only small outline color="white" (click)="goToViajes(ingreso)"><ion-icon name="bus"></ion-icon></button>
-                </ion-col>
-                <ion-col col-3 class="vertical-align-icon">
-                  <button ion-button icon-only small outline color="white" (click)="goToEditIngreso(ingreso)"><ion-icon name="create"></ion-icon></button>
-                </ion-col>
-                <ion-col col-3 class="vertical-align-icon">
-                  <button ion-button icon-only small outline color="white" (click)="alertDeleteIngreso(ingreso.id)"><ion-icon name="trash"></ion-icon></button>
-                </ion-col>
-              </ion-row>
+              <ion-buttons>
+                <ion-row align-items-center>
+                  <ion-col col-3 class="vertical-align-icon">
+                    <button ion-button icon-only small outline color="white" (click)="goToLotes(ingreso)"><ion-icon name="cube"></ion-icon></button>
+                  </ion-col>
+                  <ion-col col-3 class="vertical-align-icon">
+                    <button ion-button icon-only small outline color="white" (click)="goToViajes(ingreso)"><ion-icon name="bus"></ion-icon></button>
+                  </ion-col>
+                  <ion-col col-3 class="vertical-align-icon">
+                    <button ion-button icon-only small outline color="white" (click)="goToEditIngreso(ingreso)"><ion-icon name="create"></ion-icon></button>
+                  </ion-col>
+                  <ion-col col-3 class="vertical-align-icon">
+                    <button ion-button icon-only small outline color="white" (click)="alertDeleteIngreso(ingreso.id)"><ion-icon name="trash"></ion-icon></button>
+                  </ion-col>
+                </ion-row>
+              </ion-buttons>
             </ion-col>
           </ion-row>
         </button>

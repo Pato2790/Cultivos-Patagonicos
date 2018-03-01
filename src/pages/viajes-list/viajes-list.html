@@ -10,67 +10,91 @@
 <ion-content padding class="back-color">
   <ion-grid>
     <ion-row>
-      <ion-col col-sm-12 col-md-12 padding>
+      <ion-col col-12 padding>
         <h1 text-center>Listado de Viajes</h1>
-        <p text-center>Presentacion en forma de lista de los viajes para el ingreso seleccionado<p>
+        <p text-center>Presentacion en forma de lista de los viajes para el ingreso seleccionado</p>
       </ion-col>
-      <ion-col col-sm-12 col-md-12 padding class="back-black-color">
-        <h4 padding-top no-margin>Viajes</h4>
+
+      <ion-col col-12 padding class="back-black-color">
+        <h4 padding-top no-margin>Datos generales de los Viajes</h4>
         <ion-row padding>
-          <ion-col col-sm-12 col-md-8 offset-md-2>
-            <ion-list>
-              <ion-item ion-item *ngFor="let viaje of viajes" class="no-border">
-                <ion-avatar item-left>
-                  <img src="assets/imgs/camion-icon.png">
-                </ion-avatar>
-                <ion-row>
-                  <ion-col col-sm-12 col-md-2>
+
+          <!-- Forma Lista -->
+          <ion-col col-12 padding class="back-black-color hidden-md-down">
+            <ion-row padding-top>
+              <ion-col col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2>
+                <ion-list>
+                  <ion-item ion-item class="no-border">
                     <ion-row>
-                      <ion-col col-sm-12 col-md-12>
+                      <ion-col col-3>
                         <h2 text-center>Fecha</h2>
                       </ion-col>
-                      <ion-col col-sm-12 col-md-12>
-                        <p text-center>{{viaje.fecha}}</p>
-                      </ion-col>
-                    </ion-row>
-                  </ion-col>
-                  <ion-col col-sm-12 col-md-3>
-                    <ion-row>
-                      <ion-col col-sm-12 col-md-12>
+                      <ion-col col-3>
                         <h2 text-center>Costo</h2>
                       </ion-col>
-                      <ion-col col-sm-12 col-md-12>
-                        <p text-center>{{viaje.costo}}</p>
-                      </ion-col>
-                    </ion-row>
-                  </ion-col>
-                  <ion-col col-sm-12 col-md-3> 
-                    <ion-row>
-                      <ion-col col-sm-12 col-md-12>
+                      <ion-col col-3> 
                         <h2 text-center>Chofer</h2>
                       </ion-col>
-                      <ion-col col-sm-12 col-md-12>
-                        <p text-center>{{viaje.camion.nombreChofer}}</p>
-                      </ion-col>
-                    </ion-row>
-                  </ion-col>
-                  <ion-col col-sm-12 col-md-3> 
-                    <ion-row>
-                      <ion-col col-sm-12 col-md-12>
+                      <ion-col col-3 class="vertical-align-icon"> 
                         <h2 text-center>Lugar</h2>
                       </ion-col>
-                      <ion-col col-sm-12 col-md-12>
+                    </ion-row>
+                  </ion-item>
+                  <ion-item  *ngFor="let viaje of viajes" class="no-border">
+                    <ion-row align-items-center>
+                      <ion-col col-3>
+                        <p text-center>{{viaje.fecha}}</p>
+                      </ion-col>
+                      <ion-col col-3>
+                        <p text-center>{{viaje.costo}}</p>
+                      </ion-col>
+                      <ion-col col-3> 
+                        <p text-center>{{viaje.camion.nombreChofer}}</p>
+                      </ion-col>
+                      <ion-col col-3> 
                         <p text-center>{{viaje.institucion.nombre}}</p>
                       </ion-col>
                     </ion-row>
-                  </ion-col>
-                </ion-row>
+                  </ion-item>
+                </ion-list>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+
+          <!-- Formato Card-->
+          <ion-col  *ngFor="let viaje of viajes; let i = 'index'" offset-sm-1 col-sm-10 col-12 col-md-6 offset-md-0 no-padding class="hidden-lg-up">
+            <ion-list>
+              <ion-item class="no-border">
+                <ion-card>
+                  <ion-card-header no-padding no-margin class="card-hearder-color no-border">
+                      <h2 margin text-center style="color: white">Viaje {{i+1}}</h2>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <ion-list no-padding no-margin>
+                      <ion-item class="no-border">
+                        <ion-icon name="calendar" item-start></ion-icon>
+                        {{viaje.fecha}}
+                      </ion-item>
+                      <ion-item class="no-border">
+                        <ion-icon name="cash" item-start></ion-icon>
+                        {{viaje.costo}}
+                      </ion-item>
+                      <ion-item class="no-border">
+                        <ion-icon name="bus" item-start></ion-icon>
+                        {{viaje.camion.nombreChofer}}
+                      </ion-item>
+                      <ion-item class="no-border">
+                        <ion-icon name="home" item-start></ion-icon>
+                        {{viaje.institucion.nombre}}
+                      </ion-item>
+                    </ion-list>
+                  </ion-card-content>
+                </ion-card>
               </ion-item>
-            </ion-list>
+            </ion-list>    
           </ion-col>
         </ion-row>
       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
-

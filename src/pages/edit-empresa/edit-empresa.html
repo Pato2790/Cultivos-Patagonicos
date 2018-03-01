@@ -10,30 +10,30 @@
 <ion-content padding class="back-color">
   <ion-grid>
     <ion-row>
-      <ion-col col-sm-12 col-md-12 padding>
+      <ion-col col-12 padding>
         <h1 text-center>Editar Empresa</h1>
         <p text-center>Ingrese los datos necesarios para generar una empresa existente.</p>
       </ion-col>
-      <ion-col col-sm-12 col-md-12 padding class="back-black-color">
+      <ion-col col-12 padding class="back-black-color">
         <h3 padding-top no-margin>Datos generales de la empresa</h3>
         <form (ngSubmit)="editEmpresa()">
           <ion-grid>
             <ion-row>
-              <ion-col col-sm-12 col-md-12 padding-bottom>
+              <ion-col col-12 padding-bottom>
                 <ion-row>
-                  <ion-item col-sm-12 col-md-6 class="no-border">
+                  <ion-item col-12 class="no-border">
                     <ion-label stacked>Nombre</ion-label>
                     <ion-input type="text" [(ngModel)]="empresa.nombre" name="name"></ion-input>
                   </ion-item>
-                  <ion-item col-sm-12 col-md-6 class="no-border">
+                  <ion-item col-12 col-md-6 col-lg-6 class="no-border">
                     <ion-label stacked>Direccion</ion-label>
                     <ion-input type="text" [(ngModel)]="empresa.direccion" name="direccion"></ion-input>
                   </ion-item>
-                  <ion-item col-sm-12 col-md-6 class="no-border">
+                  <ion-item col-12 col-md-6 col-lg-6 class="no-border">
                     <ion-label stacked>Telefono</ion-label>
                     <ion-input type="number" [(ngModel)]="empresa.telefono" name="telefono"></ion-input>
                   </ion-item>
-                  <ion-col col-sm-12 col-md-12 padding>
+                  <ion-col col-12 col-md-12 padding>
                     <ion-buttons right>
                         <button ion-button type="submit" color="semiDark">Editar</button>
                     </ion-buttons>

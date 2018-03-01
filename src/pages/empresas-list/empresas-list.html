@@ -10,72 +10,109 @@
 <ion-content padding class="back-color">
   <ion-grid>
     <ion-row>
-      <ion-col col-sm-12 col-md-12 padding>
+      <ion-col col-12 padding>
         <h1 text-center>Listado de Empresas</h1>
         <p text-center>Presentacion en forma de lista de las empresas con los que se comercializa</p>
       </ion-col>
-      <ion-col col-sm-12 col-md-12 padding class="back-black-color">
-        <h4 padding-top no-margin>Empresas</h4>
+
+      <ion-col col-12 padding class="back-black-color">
+        <h4 padding-top no-margin>Datos generales de las Empresas</h4>
         <ion-row padding>
-          <ion-col col-sm-12 col-md-8 offset-md-2>
-            <ion-list>
-              <ion-item ion-item *ngFor="let empresa of empresasList" class="no-border">
-                <ion-avatar item-left>
-                  <img src="assets/imgs/emperesa-icon.png">
-                </ion-avatar>
-                <ion-row>
-                  <ion-col col-sm-12 col-md-3>
+
+          <!-- Forma Lista -->
+          <ion-col col-12 padding class="back-black-color hidden-md-down">
+            <ion-row padding-top>
+              <ion-col col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2>
+                <ion-list>
+                  <ion-item ion-item class="no-border">
                     <ion-row>
-                      <ion-col col-sm-12 col-md-12>
+                      <ion-col col-3>
                         <h2 text-center>Empresa</h2>
                       </ion-col>
-                      <ion-col col-sm-12 col-md-12>
-                        <p text-center>{{empresa.nombre}}</p>
-                      </ion-col>
-                    </ion-row>
-                  </ion-col>
-                  <ion-col col-sm-12 col-md-3>
-                    <ion-row>
-                      <ion-col col-sm-12 col-md-12>
+                      <ion-col col-3>
                         <h2 text-center>Direccion</h2>
                       </ion-col>
-                      <ion-col col-sm-12 col-md-12>
-                        <p text-center>{{empresa.direccion}}</p>
-                      </ion-col>
-                    </ion-row>
-                  </ion-col>
-                  <ion-col col-sm-12 col-md-3> 
-                    <ion-row>
-                      <ion-col col-sm-12 col-md-12>
+                      <ion-col col-3> 
                         <h2 text-center>Telefono</h2>
                       </ion-col>
-                      <ion-col col-sm-12 col-md-12>
+                      <ion-col col-3 class="vertical-align-icon"> 
+                        <ion-icon class="size-icon" name="more"></ion-icon>
+                      </ion-col>
+                    </ion-row>
+                  </ion-item>
+                  <ion-item ion-item *ngFor="let empresa of empresasList" class="no-border">
+                    <ion-row align-items-center>
+                      <ion-col col-3>
+                        <p text-center>{{empresa.nombre}}</p>
+                      </ion-col>
+                      <ion-col col-3>
+                        <p text-center>{{empresa.direccion}}</p>
+                      </ion-col>
+                      <ion-col col-3> 
                         <p text-center>{{empresa.telefono}}</p>
                       </ion-col>
-                    </ion-row>
-                  </ion-col>
-                  <ion-col col-sm-12 col-md-3> 
-                    <ion-row>
-                      <ion-col col-sm-12 col-md-6>
-                        <button ion-button color="semiDark" round icon-only small (click)="goToEdit(empresa)">
-                          <ion-icon name="create"></ion-icon>
-                        </button>
+                      <ion-col col-3> 
+                        <ion-row>
+                          <ion-col col-6 class="vertical-align-icon">
+                            <button ion-button color="semiDark" round icon-only small (click)="goToEdit(empresa)">
+                              <ion-icon name="create"></ion-icon>
+                            </button>
+                          </ion-col>
+                          <ion-col col-6 class="vertical-align-icon">
+                            <button ion-button color="semiDark" round icon-only small 
+                              (click)="alertDeleteEmpresa(empresa.id)">
+                              <ion-icon name="trash"></ion-icon>
+                            </button>
+                          </ion-col>
+                        </ion-row>
                       </ion-col>
-                      <ion-col col-sm-12 col-md-6>
-                        <button ion-button color="semiDark" round icon-only small 
-                          (click)="alertDeleteEmpresa(empresa.id)">
-                          <ion-icon name="trash"></ion-icon>
-                        </button>
+                    </ion-row>
+                  </ion-item>
+                </ion-list>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+
+          <!-- Formato Card-->
+          <ion-col *ngFor="let empresa of empresasList" offset-sm-1 col-sm-10 col-12 col-md-6 offset-md-0 no-padding class="hidden-lg-up">
+            <ion-list>
+              <ion-item class="no-border">
+                <ion-card>
+                  <ion-card-header no-padding no-margin class="card-hearder-color no-border">
+                    <ion-row align-items-center>
+                      <ion-col col-6 no-padding>
+                        <h2 margin text-center style="color: white">{{empresa.nombre}}</h2>
+                      </ion-col>
+                      <ion-col col-6 no-padding> 
+                        <ion-buttons right>
+                          <button ion-button clear color="white" icon-only small (click)="goToEdit(empresa)">
+                            <ion-icon name="create"></ion-icon>
+                          </button>
+                          <button ion-button clear color="white" icon-only small (click)="alertDeleteEmpresa(empresa.id)">
+                            <ion-icon name="trash"></ion-icon>
+                          </button>
+                        </ion-buttons>
                       </ion-col>
                     </ion-row>
-                  </ion-col>
-                </ion-row>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <ion-list no-padding no-margin>
+                      <ion-item class="no-border">
+                        <ion-icon name="contact" item-start></ion-icon>
+                        {{empresa.direccion}}
+                      </ion-item>
+                      <ion-item class="no-border">
+                        <ion-icon name="call" item-start></ion-icon>
+                        {{empresa.telefono}}
+                      </ion-item>
+                    </ion-list>
+                  </ion-card-content>
+                </ion-card>
               </ion-item>
-            </ion-list>
+            </ion-list>    
           </ion-col>
         </ion-row>
       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
-

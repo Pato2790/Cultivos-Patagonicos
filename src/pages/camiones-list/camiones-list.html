@@ -10,68 +10,106 @@
 <ion-content padding class="back-color">
   <ion-grid>
     <ion-row>
-      <ion-col col-sm-12 col-md-12 padding>
+      <ion-col col-12 padding>
         <h1 text-center>Listado de Camiones</h1>
         <p text-center>Presentacion en forma de lista de los camiones con los que se transporta</p>
       </ion-col>
-      <ion-col col-sm-12 col-md-12 padding class="back-black-color">
-        <h4 padding-top no-margin>Camiones</h4>
+
+      <ion-col col-12 padding class="back-black-color">
+        <h4 padding-top no-margin>Datos generales de los Camiones</h4>
         <ion-row padding>
-          <ion-col col-sm-12 col-md-8 offset-md-2>
-            <ion-list>
-              <ion-item ion-item *ngFor="let camion of camionesList" class="no-border">
-                <ion-avatar item-left>
-                  <img src="assets/imgs/camion-icon.png">
-                </ion-avatar>
-                <ion-row>
-                  <ion-col col-sm-12 col-md-3>
+
+          <!-- Forma Lista -->
+          <ion-col col-12 padding class="back-black-color hidden-md-down">
+            <ion-row padding-top>
+              <ion-col col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2>
+                <ion-list>
+                  <ion-item ion-item class="no-border">
                     <ion-row>
-                      <ion-col col-sm-12 col-md-12>
+                      <ion-col col-3>
                         <h2 text-center>Chofer</h2>
                       </ion-col>
-                      <ion-col col-sm-12 col-md-12>
-                        <p text-center>{{camion.nombreChofer}}</p>
-                      </ion-col>
-                    </ion-row>
-                  </ion-col>
-                  <ion-col col-sm-12 col-md-3>
-                    <ion-row>
-                      <ion-col col-sm-12 col-md-12>
+                      <ion-col col-3>
                         <h2 text-center>Patente Chasis</h2>
                       </ion-col>
-                      <ion-col col-sm-12 col-md-12>
-                        <p text-center>{{camion.patenteChasis}}</p>
-                      </ion-col>
-                    </ion-row>
-                  </ion-col>
-                  <ion-col col-sm-12 col-md-3> 
-                    <ion-row>
-                      <ion-col col-sm-12 col-md-12>
+                      <ion-col col-3> 
                         <h2 text-center>Patente Acoplado</h2>
                       </ion-col>
-                      <ion-col col-sm-12 col-md-12>
+                      <ion-col col-3 class="vertical-align-icon"> 
+                        <ion-icon class="size-icon" name="more"></ion-icon>
+                      </ion-col>
+                    </ion-row>
+                  </ion-item>
+                  <ion-item  *ngFor="let camion of camionesList" class="no-border">
+                    <ion-row align-items-center>
+                      <ion-col col-3>
+                        <p text-center>{{camion.nombreChofer}}</p>
+                      </ion-col>
+                      <ion-col col-3>
+                        <p text-center>{{camion.patenteChasis}}</p>
+                      </ion-col>
+                      <ion-col col-3> 
                         <p text-center>{{camion.patenteAcoplado}}</p>
                       </ion-col>
-                    </ion-row>
-                  </ion-col>
-                  <ion-col col-sm-12 col-md-3> 
-                    <ion-row>
-                      <ion-col col-sm-12 col-md-6>
-                        <button ion-button color="semiDark" round icon-only small (click)="goToEdit(camion)">
-                          <ion-icon name="create"></ion-icon>
-                        </button>
+                      <ion-col col-3> 
+                        <ion-row>
+                          <ion-col col-6 class="vertical-align-icon">
+                            <button ion-button color="semiDark" round icon-only small (click)="goToEdit(camion)">
+                              <ion-icon name="create"></ion-icon>
+                            </button>
+                          </ion-col>
+                          <ion-col col-6 class="vertical-align-icon">
+                            <button ion-button color="semiDark" round icon-only small 
+                              (click)="alertDeleteCamion(camion.id)">
+                              <ion-icon name="trash"></ion-icon>
+                            </button>
+                          </ion-col>
+                        </ion-row>
                       </ion-col>
-                      <ion-col col-sm-12 col-md-6>
-                        <button ion-button color="semiDark" round icon-only small 
-                          (click)="alertDeleteCamion(camion.id)">
-                          <ion-icon name="trash"></ion-icon>
-                        </button>
+                    </ion-row>
+                  </ion-item>
+                </ion-list>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+
+          <!-- Formato Card-->
+          <ion-col  *ngFor="let camion of camionesList" offset-sm-1 col-sm-10 col-12 col-md-6 offset-md-0 no-padding class="hidden-lg-up">
+            <ion-list>
+              <ion-item class="no-border">
+                <ion-card>
+                  <ion-card-header no-padding no-margin class="card-hearder-color no-border">
+                    <ion-row align-items-center>
+                      <ion-col col-6 no-padding>
+                        <h2 margin text-center style="color: white">{{camion.nombreChofer}}</h2>
+                      </ion-col>
+                      <ion-col col-6 no-padding> 
+                        <ion-buttons right>
+                          <button ion-button clear color="white" icon-only small (click)="goToEdit(camion)">
+                            <ion-icon name="create"></ion-icon>
+                          </button>
+                          <button ion-button clear color="white" icon-only small (click)="alertDeleteCamion(camion.id)">
+                            <ion-icon name="trash"></ion-icon>
+                          </button>
+                        </ion-buttons>
                       </ion-col>
                     </ion-row>
-                  </ion-col>
-                </ion-row>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <ion-list no-padding no-margin>
+                      <ion-item class="no-border">
+                        <ion-icon name="contact" item-start></ion-icon>
+                        {{camion.patenteChasis}}
+                      </ion-item>
+                      <ion-item class="no-border">
+                        <ion-icon name="call" item-start></ion-icon>
+                        {{camion.patenteAcoplado}}
+                      </ion-item>
+                    </ion-list>
+                  </ion-card-content>
+                </ion-card>
               </ion-item>
-            </ion-list>
+            </ion-list>    
           </ion-col>
         </ion-row>
       </ion-col>
