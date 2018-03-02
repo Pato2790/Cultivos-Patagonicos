@@ -33370,6 +33370,10 @@ ion-navbar.toolbar {
   border: none !important;
 }
 
+.vertical-align-icon {
+  text-align: center !important;
+}
+
 .invisible {
   visibility: hidden !important;
 }

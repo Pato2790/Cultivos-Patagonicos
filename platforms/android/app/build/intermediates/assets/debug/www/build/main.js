@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 148:
+/***/ 150:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,13 +8,16 @@ webpackJsonp([0],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_login_login__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_login_login__ = __webpack_require__(156);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_productoresList_productoresList__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_camiones_list_camiones_list__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_empresas_list_empresas_list__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_instituciones_list_instituciones_list__ = __webpack_require__(97);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_ingresos_list_ingresos_list__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_new_ingreso_new_ingreso__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_new_productor_new_productor__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_camiones_list_camiones_list__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_empresas_list_empresas_list__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_instituciones_list_instituciones_list__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_chacras_list_chacras_list__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_ingresos_list_ingresos_list__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_new_ingreso_new_ingreso__ = __webpack_require__(175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_printer_view_printer_view__ = __webpack_require__(395);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -34,17 +37,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 var HomePage = (function () {
     function HomePage(navCtrl, AuthServiceProvider) {
         this.navCtrl = navCtrl;
         this.AuthServiceProvider = AuthServiceProvider;
         this.pages = [
-            { title: 'Ingreso', icon: 'crop', component: __WEBPACK_IMPORTED_MODULE_8__pages_ingresos_list_ingresos_list__["a" /* IngresosList */] },
-            { title: 'Nuevo Ingreso', icon: 'add', component: __WEBPACK_IMPORTED_MODULE_9__pages_new_ingreso_new_ingreso__["a" /* NewIngreso */] },
+            { title: 'Ingresos', icon: 'crop', component: __WEBPACK_IMPORTED_MODULE_10__pages_ingresos_list_ingresos_list__["a" /* IngresosList */] },
+            { title: 'Nuevo Ingreso', icon: 'add', component: __WEBPACK_IMPORTED_MODULE_11__pages_new_ingreso_new_ingreso__["a" /* NewIngreso */] },
             { title: 'Productores', icon: 'contact', component: __WEBPACK_IMPORTED_MODULE_4__pages_productoresList_productoresList__["a" /* ProductoresList */] },
-            { title: 'Camiones', icon: 'bus', component: __WEBPACK_IMPORTED_MODULE_5__pages_camiones_list_camiones_list__["a" /* CamionesList */] },
-            { title: 'Empresas', icon: 'briefcase', component: __WEBPACK_IMPORTED_MODULE_6__pages_empresas_list_empresas_list__["a" /* EmpresasList */] },
-            { title: 'Instituciones', icon: 'home', component: __WEBPACK_IMPORTED_MODULE_7__pages_instituciones_list_instituciones_list__["a" /* InstitucionesList */] }
+            { title: 'Nuevo Productor', icon: 'add', component: __WEBPACK_IMPORTED_MODULE_5__pages_new_productor_new_productor__["a" /* NewProductor */] },
+            { title: 'Empresas', icon: 'briefcase', component: __WEBPACK_IMPORTED_MODULE_7__pages_empresas_list_empresas_list__["a" /* EmpresasList */] },
+            { title: 'Chacras', icon: 'leaf', component: __WEBPACK_IMPORTED_MODULE_9__pages_chacras_list_chacras_list__["a" /* ChacrasList */] },
+            { title: 'Camiones', icon: 'bus', component: __WEBPACK_IMPORTED_MODULE_6__pages_camiones_list_camiones_list__["a" /* CamionesList */] },
+            { title: 'Instituciones', icon: 'home', component: __WEBPACK_IMPORTED_MODULE_8__pages_instituciones_list_instituciones_list__["a" /* InstitucionesList */] },
+            { title: 'Imprimir', icon: 'print', component: __WEBPACK_IMPORTED_MODULE_12__pages_printer_view_printer_view__["a" /* PrinterView */] }
         ];
     }
     HomePage.prototype.signOut = function () {
@@ -56,7 +65,7 @@ var HomePage = (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Inicio</ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="signOut()">\n        Cerrar Sesion\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="backImg">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-10 offset-2>\n        <ion-row>\n          <ion-col col-3 *ngFor="let page of pages" padding margin> \n            <button (click)="goToPage(page)" ion-item detail-none color="semiDark" class="no-border-cards">\n              <ion-icon item-left style="zoom:1.35;" name="{{page.icon}}"></ion-icon>\n              {{page.title}}\n            </button>\n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Inicio</ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="signOut()">\n        Cerrar Sesion\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="backImg">\n  <ion-col col-10 offset-1>\n    <ion-row>\n      <ion-col col-12>\n        <p padding text-center style="font-size: 35px; font-weight:700">Panel de Control</p>\n      </ion-col>\n      <ion-col col-lg-3 col-md-6 col-sm-6 col-12 *ngFor="let page of pages"> \n        <button (click)="goToPage(page)" ion-item detail-none color="semiDark" class="no-border-cards">\n          <ion-icon item-left style="zoom:1.35;" name="{{page.icon}}"></ion-icon>\n          {{page.title}}\n        </button>\n      </ion-col>\n    </ion-row>\n  </ion-col>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]])
     ], HomePage);
@@ -67,16 +76,16 @@ var HomePage = (function () {
 
 /***/ }),
 
-/***/ 154:
+/***/ 156:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Login; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_user_model__ = __webpack_require__(481);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_user_model__ = __webpack_require__(483);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_service_auth_service__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(148);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(150);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -125,7 +134,7 @@ var Login = (function () {
     };
     Login = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\login\login.html"*/'<ion-header>\n    <ion-navbar color="cultivos" hideBackButton="true">\n        <ion-title>Iniciar Sesión</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n    <form  #signInForm="ngForm" (submit)="signIn()">\n        <ion-grid>\n            <ion-row class="back-black-color" col-4 offset-4 padding padding-top>\n                <ion-col col-8 offset-2>\n                    <img src="assets/imgs/cultivosTexto.png">\n                </ion-col>\n                <ion-col col-12>\n                    <ion-row>\n                        <ion-col col-12 padding>\n                            <p text-center>Inicia sesion en Cultivos Patagonicos con tu cuenta de Google</p>\n                        </ion-col>\n                        <ion-col col-10 offset-1>\n                            <ion-item class="no-border">\n                                <ion-label stacked>Correo electrónico</ion-label>\n                                <ion-input [(ngModel)]="userModel.email" type="email" autocorrect="off" autocapitalize="none" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"\n                                    required></ion-input>\n                            </ion-item>\n                        </ion-col>\n                        <ion-col col-10 offset-1> \n                            <ion-item class="no-border">\n                                <ion-label stacked>Contraseña</ion-label>\n                                <ion-input [(ngModel)]="userModel.password" type="password" name="password" required minlength="6"></ion-input>\n                            </ion-item>\n                        </ion-col>\n                    </ion-row>\n                </ion-col>\n                <ion-col col-8 offset-2>\n                    <button ion-button color="semiDark" type="submit" [disabled]="!signInForm.form.valid" block>Ingresar</button>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n    </form>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\login\login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\login\login.html"*/'<ion-header>\n    <ion-navbar color="cultivos" hideBackButton="true">\n        <ion-title>Iniciar Sesión</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n    <form  #signInForm="ngForm" (submit)="signIn()">\n        <ion-grid>\n            <ion-row class="back-black-color" col-10 offset-1 col-lg-4 offset-lg-4 padding>\n                <ion-col col-8 offset-2>\n                    <img src="assets/imgs/cultivosTexto.png">\n                </ion-col>\n                <ion-col col-12>\n                    <ion-row>\n                        <ion-col col-12 padding>\n                            <p text-center>Inicia sesion en Cultivos Patagonicos con tu cuenta de Google</p>\n                        </ion-col>\n                        <ion-col col-10 offset-1>\n                            <ion-item class="no-border">\n                                <ion-label stacked>Correo electrónico</ion-label>\n                                <ion-input [(ngModel)]="userModel.email" type="email" autocorrect="off" autocapitalize="none" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"\n                                    required></ion-input>\n                            </ion-item>\n                        </ion-col>\n                        <ion-col col-10 offset-1> \n                            <ion-item class="no-border">\n                                <ion-label stacked>Contraseña</ion-label>\n                                <ion-input [(ngModel)]="userModel.password" type="password" name="password" required minlength="6"></ion-input>\n                            </ion-item>\n                        </ion-col>\n                    </ion-row>\n                </ion-col>\n                <ion-col col-8 offset-2>\n                    <button ion-button color="semiDark" type="submit" [disabled]="!signInForm.form.valid" block>Ingresar</button>\n                </ion-col>\n            </ion-row>\n        </ion-grid>\n    </form>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\login\login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */],
@@ -139,7 +148,182 @@ var Login = (function () {
 
 /***/ }),
 
-/***/ 168:
+/***/ 170:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewProductor; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_chacras_service_chacras_service__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_productoresList_productoresList__ = __webpack_require__(85);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var NewProductor = (function () {
+    function NewProductor(navCtrl, navParams, ProductoresServiceProvider, ChacrasServiceProvider, AlertController) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.ProductoresServiceProvider = ProductoresServiceProvider;
+        this.ChacrasServiceProvider = ChacrasServiceProvider;
+        this.AlertController = AlertController;
+        this.productor = { nombre: '', dni: '', telefono: '', chacras_ids: [] };
+        this.chacras = [];
+        this.ChacrasServiceProvider.getAllChacras().subscribe(function (data) { return _this.chacras = data; });
+    }
+    NewProductor.prototype.addNewProductor = function () {
+        var _this = this;
+        this.ProductoresServiceProvider.addNewProductor(this.productor).subscribe(function (data) { return _this.alertNewProductor(data.error); });
+    };
+    NewProductor.prototype.alertNewProductor = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Creacion exitosa',
+                message: 'Se ha creado correctamente el nuevo productor.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar ingresar el nuevo productor.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
+    };
+    NewProductor.prototype.destroyView = function () {
+        this.navCtrl.pop();
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__pages_productoresList_productoresList__["a" /* ProductoresList */]);
+    };
+    NewProductor = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-new-productor',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-productor\new-productor.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Nuevo Productor</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Nuevo Productor</h1>\n        <p text-center>Ingrese los datos necesarios para generar un nuevo productor.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales del productor</h3>\n        <form (ngSubmit)="addNewProductor()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="productor.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>DNI</ion-label>\n                    <ion-input type="text" [(ngModel)]="productor.dni" name="dni"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Telefono</ion-label>\n                    <ion-input type="number" [(ngModel)]="productor.telefono" name="telefono"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Chacras</ion-label>\n                    <ion-select [(ngModel)]="productor.chacras_ids" multiple="true" cancelText="Cancelar" okText="Aceptar" name="chacras_ids">\n                      <ion-option *ngFor="let chacra of chacras" [value] = "chacra.id" >{{chacra.nombre}}</ion-option>\n                    </ion-select>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Agregar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-productor\new-productor.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__["a" /* ProductoresServiceProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], NewProductor);
+    return NewProductor;
+}());
+
+//# sourceMappingURL=new-productor.js.map
+
+/***/ }),
+
+/***/ 171:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CuadrosServiceProvider; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var CuadrosServiceProvider = (function () {
+    function CuadrosServiceProvider(http) {
+        this.http = http;
+        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/cuadro';
+    }
+    CuadrosServiceProvider.prototype.getAllCuadros = function () {
+        return this.http.get(this.urlAPI)
+            .map(this.extractData)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    CuadrosServiceProvider.prototype.addNewCuadro = function (cuadro) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.post(this.urlAPI, cuadro, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    CuadrosServiceProvider.prototype.editCuadro = function (cuadro) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.put(this.urlAPI + '/' + cuadro.id, cuadro, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    CuadrosServiceProvider.prototype.deleteCuadro = function (cuadroId) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
+            'Content-Type': 'application/json'
+        });
+        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
+            headers: headers
+        });
+        return this.http.delete(this.urlAPI + '/' + cuadroId, options)
+            .do(function (res) { return console.log(res); })
+            .catch(this.catchError);
+    };
+    CuadrosServiceProvider.prototype.catchError = function (error) {
+        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || "Server Error");
+    };
+    CuadrosServiceProvider.prototype.extractData = function (res) {
+        return res.json().data;
+    };
+    CuadrosServiceProvider = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]])
+    ], CuadrosServiceProvider);
+    return CuadrosServiceProvider;
+}());
+
+//# sourceMappingURL=cuadros-service.js.map
+
+/***/ }),
+
+/***/ 172:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -226,7 +410,7 @@ var LotesServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 169:
+/***/ 173:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -280,7 +464,7 @@ var CalidadesServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 170:
+/***/ 174:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -334,7 +518,7 @@ var EspecieServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 171:
+/***/ 175:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -342,19 +526,19 @@ var EspecieServiceProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_ingresos_list_ingresos_list__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_new_viaje_new_viaje__ = __webpack_require__(389);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_calidad_model__ = __webpack_require__(751);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_especie_model__ = __webpack_require__(752);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_variedad_model__ = __webpack_require__(753);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__models_chacra_model__ = __webpack_require__(754);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__models_tratamiento_model__ = __webpack_require__(755);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__models_cuadro_model__ = __webpack_require__(756);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__models_ingreso_model__ = __webpack_require__(757);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__models_lote_model__ = __webpack_require__(758);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_calidades_service_calidades_service__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_especie_service_especie_service__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_cuadros_service_cuadros_service__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_tratamientos_service_tratamientos_service__ = __webpack_require__(391);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_new_viaje_new_viaje__ = __webpack_require__(392);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_calidad_model__ = __webpack_require__(753);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_especie_model__ = __webpack_require__(754);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_variedad_model__ = __webpack_require__(755);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__models_chacra_model__ = __webpack_require__(756);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__models_tratamiento_model__ = __webpack_require__(757);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__models_cuadro_model__ = __webpack_require__(758);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__models_ingreso_model__ = __webpack_require__(759);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__models_lote_model__ = __webpack_require__(760);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_calidades_service_calidades_service__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_especie_service_especie_service__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_cuadros_service_cuadros_service__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_tratamientos_service_tratamientos_service__ = __webpack_require__(394);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_ingresos_service_ingresos_service__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_auth_service_auth_service__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_chacras_service_chacras_service__ = __webpack_require__(46);
@@ -507,7 +691,7 @@ var NewIngreso = (function () {
     };
     NewIngreso = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-new-ingreso',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-ingreso\new-ingreso.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Nuevo Ingreso</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n    <ion-grid>\n        <ion-row>\n            <ion-col col-sm-12 col-md-12 padding>\n              <h1 text-center>Nuevo Ingresos</h1>\n              <p text-center>Ingrese los datos necesarios para generar un nuevo ingreso de fruta.</p>\n            </ion-col>\n            <ion-col col-sm-12 col-md-12 padding>\n            	<form (ngSubmit)="alertNewIngreso()">\n            	    <ion-grid *ngFor="let ingreso of ingresos; trackBy:trackByFn" class="back-black-color" padding margin>\n                        <ion-row>\n                            <ion-col col-sm-12 col-md-12 padding-bottom>\n                                <h3 padding-top no-margin>Datos generales del Ingreso</h3>\n                            </ion-col>\n                            <ion-col col-sm-12 col-md-12 padding-bottom>\n                                <ion-row>\n                                    <ion-item col-sm-12 col-md-6 class="no-border">\n                                      <ion-label stacked>Nro Remito</ion-label>\n                                      <ion-input type="text" [(ngModel)]="ingreso.nroRemito" name="nroRemito"></ion-input>\n                                    </ion-item>\n                                    <ion-item col-sm-12 col-md-6 class="no-border">\n                                      <ion-label stacked>Fecha de Ingreso</ion-label>\n                                      <ion-input type="date" [value]="ingreso.fechaIngreso" (input)="ingreso.fechaIngreso = $event.target.value" name="fechaIngreso"></ion-input>\n                                    </ion-item>\n                                </ion-row>\n                                <ion-item class="no-border">\n                                    <select-searchable\n                                        [(ngModel)]="ingreso.chacra"\n                                        name="chacra"\n                                        title="Chacras"\n                                        itemValueField="id"\n                                        itemTextField="nombre"\n                                        [items]="ingreso.chacras"\n                                        [canSearch]="true"\n                                        (onChange)="chacraChange($event, ingreso)">\n                                    </select-searchable>\n                                </ion-item>\n                            </ion-col>\n                            <ion-col col-sm-12 col-md-12 padding class="back-color">\n                                <ion-row>\n                                    <ion-col col-sm-12 col-md-12 no-padding>\n                                        <h3 padding>Datos generales del nuevo Lote</h3>\n                                    </ion-col>\n                                    <ion-row *ngFor="let lote of ingreso.lotes; trackBy:trackByFn" margin>\n                                        <ion-col col-sm-12 col-md-12 no-padding>\n                                            <ion-row>\n                                                <ion-item class="no-border" col-sm-12 col-md-4>\n                                                  <ion-label stacked>Numero Lote</ion-label>\n                                                  <ion-input type="number" [value]="lote.nroLote" (input)="lote.nroLote = $event.target.value" name="nroLote"></ion-input>\n                                                </ion-item>\n                                                <ion-item class="no-border" col-sm-12 col-md-4>\n                                                  <ion-label stacked>Cantidad Bins</ion-label>\n                                                  <ion-input type="number" [value]="lote.cantBins" (input)="lote.cantBins = $event.target.value" name="cantBins"></ion-input>\n                                                </ion-item>\n                                                <ion-item class="no-border" col-sm-12 col-md-4>\n                                                  <ion-label stacked>Peso</ion-label>\n                                                  <ion-input type="number" [value]="lote.peso" (input)="lote.peso = $event.target.value" name="peso"></ion-input>\n                                                </ion-item>\n                                            </ion-row>\n                                        </ion-col>\n                                        <ion-col col-sm-12 col-md-12 no-padding>\n                                            <ion-item class="no-border">\n                                                <select-searchable\n                                                    [(ngModel)]="lote.calidad"\n                                                    name="calidad"\n                                                    title="Calidades"\n                                                    itemValueField="id"\n                                                    itemTextField="tipo"\n                                                    [items]="lote.calidades"\n                                                    [canSearch]="true"\n                                                    (onChange)="calidadChange($event,lote)">\n                                                </select-searchable>\n                                            </ion-item>\n                                        </ion-col>\n                                        <ion-col col-sm-12 col-md-12 no-padding>\n                                            <ion-item class="no-border">\n                                                <select-searchable\n                                                    [(ngModel)]="lote.especie"\n                                                    name="especie"\n                                                    title="Especies"\n                                                    itemValueField="id"\n                                                    itemTextField="tipo"\n                                                    [items]="lote.especies"\n                                                    [canSearch]="true"\n                                                    (onChange)="especieChange($event,lote)">\n                                                </select-searchable>\n                                            </ion-item>\n                                        </ion-col>\n                                        <ion-col col-sm-12 col-md-12 no-padding>\n                                            <ion-item class="no-border">\n                                                <select-searchable\n                                                    [(ngModel)]="lote.variedad"\n                                                    name="variedad"\n                                                    title="Variedades"\n                                                    itemValueField="id"\n                                                    itemTextField="tipo"\n                                                    [items]="lote.variedades"\n                                                    [canSearch]="true"\n                                                    (onChange)="variedadChange($event,lote)">\n                                                </select-searchable>\n                                            </ion-item>\n                                        </ion-col>\n                                        <ion-col col-sm-12 col-md-12 no-padding>\n                                            <ion-item class="no-border">\n                                                <select-searchable\n                                                    [(ngModel)]="lote.tratamiento"\n                                                    name="tratamiento"\n                                                    title="Tratamientos"\n                                                    itemValueField="id"\n                                                    itemTextField="tipo"\n                                                    [items]="lote.tratamientos"\n                                                    [canSearch]="true"\n                                                    (onChange)="tratamientoChange($event,lote)">\n                                                </select-searchable>\n                                            </ion-item>\n                                        </ion-col>\n                                        <ion-col col-sm-12 col-md-12 no-padding>\n                                            <ion-item class="no-border">\n                                                <select-searchable\n                                                    [(ngModel)]="lote.cuadro"\n                                                    name="cuadro"\n                                                    title="Cuadros"\n                                                    itemValueField="id"\n                                                    itemTextField="up"\n                                                    [items]="lote.cuadros"\n                                                    [canSearch]="true"\n                                                    (onChange)="cuadroChange($event,lote)">\n                                                </select-searchable>\n                                            </ion-item>\n                                        </ion-col>\n                                        <ion-col col-sm-12 col-md-12 padding>\n                                            <ion-buttons right>\n                                                <button ion-button type="button" color="semiDark" (click)="deleteLoteList(ingreso,lote)">Eliminar Lote</button>\n                                            </ion-buttons>\n                                        </ion-col>\n                                    </ion-row>\n                                </ion-row>\n                            </ion-col>\n                            <ion-col col-sm-12 col-md-12 padding>\n                                <ion-buttons right>\n                                    <button ion-button type="button" color="semiDark" (click)="agregarLoteList(ingreso)">Agregar Lote</button>\n                                    <button *ngIf="ingresos.length > 1" ion-button type="button" color="semiDark" (click)="deleteIngresoList(ingreso)">Eliminar Ingreso</button>\n                                </ion-buttons>\n                            </ion-col>\n                        </ion-row>\n                    </ion-grid>\n                    <ion-col col-sm-12 col-md-12 padding>\n                            <ion-buttons left>\n                                <button ion-button color="semiDark" type="submit">Siguiente</button>\n                            </ion-buttons>\n                    </ion-col>\n            	</form>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n    <ion-fab bottom right padding margin>\n        <button ion-fab color="semiDark" (click)="agregarIngresoList()"><ion-icon name="crop"></ion-icon></button>\n    </ion-fab>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-ingreso\new-ingreso.html"*/,
+            selector: 'page-new-ingreso',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-ingreso\new-ingreso.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Nuevo Ingreso</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n    <ion-grid>\n        <ion-row>\n            <ion-col col-12 padding>\n              <h1 text-center>Nuevo Ingresos</h1>\n              <p text-center>Ingrese los datos necesarios para generar un nuevo ingreso de fruta.</p>\n            </ion-col>\n            <ion-col col-12 class="back-black-color">\n            	<form (ngSubmit)="alertNewIngreso()">\n                    <ion-row *ngFor="let ingreso of ingresos; trackBy:trackByFn">\n                        <ion-col col-12 padding-bottom>\n                            <h3 padding-top no-margin>Datos generales del Ingreso</h3>\n                        </ion-col>\n                        <ion-col col-12 padding-bottom>\n                            <ion-row>\n                                <ion-item col-12 col-md-6 col-lg-6 class="no-border">\n                                  <ion-label stacked>Nro Remito</ion-label>\n                                  <ion-input type="text" [(ngModel)]="ingreso.nroRemito" name="nroRemito"></ion-input>\n                                </ion-item>\n                                <ion-item col-12 col-md-6 col-lg-6 class="no-border">\n                                  <ion-label stacked>Fecha de Ingreso</ion-label>\n                                  <ion-input type="date" [value]="ingreso.fechaIngreso" (input)="ingreso.fechaIngreso = $event.target.value" name="fechaIngreso"></ion-input>\n                                </ion-item>\n                            </ion-row>\n                            <ion-item class="no-border">\n                                <select-searchable\n                                    [(ngModel)]="ingreso.chacra"\n                                    name="chacra"\n                                    title="Chacras"\n                                    itemValueField="id"\n                                    itemTextField="nombre"\n                                    [items]="ingreso.chacras"\n                                    [canSearch]="true"\n                                    (onChange)="chacraChange($event, ingreso)">\n                                </select-searchable>\n                            </ion-item>\n                        </ion-col>\n                        <ion-col col-12 padding class="back-color">\n                            <ion-row>\n                                <ion-col col-12 no-padding>\n                                    <h3 padding>Datos generales del nuevo Lote</h3>\n                                </ion-col>\n                                <ion-row *ngFor="let lote of ingreso.lotes; trackBy:trackByFn" margin>\n                                    <ion-col col-12 no-padding>\n                                        <ion-row>\n                                            <ion-item class="no-border" col-12 col-md-4 col-lg-4>\n                                              <ion-label stacked>Numero Lote</ion-label>\n                                              <ion-input type="number" [value]="lote.nroLote" (input)="lote.nroLote = $event.target.value" name="nroLote"></ion-input>\n                                            </ion-item>\n                                            <ion-item class="no-border" col-12 col-md-4 col-lg-4>\n                                              <ion-label stacked>Cantidad Bins</ion-label>\n                                              <ion-input type="number" [value]="lote.cantBins" (input)="lote.cantBins = $event.target.value" name="cantBins"></ion-input>\n                                            </ion-item>\n                                            <ion-item class="no-border" col-12 col-md-4 col-lg-4>\n                                              <ion-label stacked>Peso</ion-label>\n                                              <ion-input type="number" [value]="lote.peso" (input)="lote.peso = $event.target.value" name="peso"></ion-input>\n                                            </ion-item>\n                                        </ion-row>\n                                    </ion-col>\n                                    <ion-col col-12 no-padding>\n                                        <ion-item class="no-border">\n                                            <select-searchable\n                                                [(ngModel)]="lote.calidad"\n                                                name="calidad"\n                                                title="Calidades"\n                                                itemValueField="id"\n                                                itemTextField="tipo"\n                                                [items]="lote.calidades"\n                                                [canSearch]="true"\n                                                (onChange)="calidadChange($event,lote)">\n                                            </select-searchable>\n                                        </ion-item>\n                                    </ion-col>\n                                    <ion-col col-12 no-padding>\n                                        <ion-item class="no-border">\n                                            <select-searchable\n                                                [(ngModel)]="lote.especie"\n                                                name="especie"\n                                                title="Especies"\n                                                itemValueField="id"\n                                                itemTextField="tipo"\n                                                [items]="lote.especies"\n                                                [canSearch]="true"\n                                                (onChange)="especieChange($event,lote)">\n                                            </select-searchable>\n                                        </ion-item>\n                                    </ion-col>\n                                    <ion-col col-12 no-padding>\n                                        <ion-item class="no-border">\n                                            <select-searchable\n                                                [(ngModel)]="lote.variedad"\n                                                name="variedad"\n                                                title="Variedades"\n                                                itemValueField="id"\n                                                itemTextField="tipo"\n                                                [items]="lote.variedades"\n                                                [canSearch]="true"\n                                                (onChange)="variedadChange($event,lote)">\n                                            </select-searchable>\n                                        </ion-item>\n                                    </ion-col>\n                                    <ion-col col-12 no-padding>\n                                        <ion-item class="no-border">\n                                            <select-searchable\n                                                [(ngModel)]="lote.tratamiento"\n                                                name="tratamiento"\n                                                title="Tratamientos"\n                                                itemValueField="id"\n                                                itemTextField="tipo"\n                                                [items]="lote.tratamientos"\n                                                [canSearch]="true"\n                                                (onChange)="tratamientoChange($event,lote)">\n                                            </select-searchable>\n                                        </ion-item>\n                                    </ion-col>\n                                    <ion-col col-12 no-padding>\n                                        <ion-item class="no-border">\n                                            <select-searchable\n                                                [(ngModel)]="lote.cuadro"\n                                                name="cuadro"\n                                                title="Cuadros"\n                                                itemValueField="id"\n                                                itemTextField="up"\n                                                [items]="lote.cuadros"\n                                                [canSearch]="true"\n                                                (onChange)="cuadroChange($event,lote)">\n                                            </select-searchable>\n                                        </ion-item>\n                                    </ion-col>\n                                    <ion-col col-12 padding>\n                                        <ion-buttons right>\n                                            <button ion-button type="button" color="semiDark" (click)="deleteLoteList(ingreso,lote)">Eliminar Lote</button>\n                                        </ion-buttons>\n                                    </ion-col>\n                                </ion-row>\n                            </ion-row>\n                        </ion-col>\n                        <ion-col col-12 padding>\n                            <ion-buttons right>\n                                <button ion-button type="button" color="semiDark" (click)="agregarLoteList(ingreso)">Agregar Lote</button>\n                                <button *ngIf="ingresos.length > 1" ion-button type="button" color="semiDark" (click)="deleteIngresoList(ingreso)">Eliminar Ingreso</button>\n                            </ion-buttons>\n                        </ion-col>\n                    </ion-row>\n                    <ion-col col-12 padding>\n                            <ion-buttons left>\n                                <button ion-button color="semiDark" type="submit">Siguiente</button>\n                            </ion-buttons>\n                    </ion-col>\n            	</form>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n    <ion-fab bottom right padding margin>\n        <button ion-fab color="semiDark" (click)="agregarIngresoList()"><ion-icon name="crop"></ion-icon></button>\n    </ion-fab>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-ingreso\new-ingreso.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_12__providers_calidades_service_calidades_service__["a" /* CalidadesServiceProvider */],
             __WEBPACK_IMPORTED_MODULE_13__providers_especie_service_especie_service__["a" /* EspecieServiceProvider */], __WEBPACK_IMPORTED_MODULE_16__providers_ingresos_service_ingresos_service__["a" /* IngresosServiceProvider */],
@@ -521,267 +705,7 @@ var NewIngreso = (function () {
 
 /***/ }),
 
-/***/ 172:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CuadrosServiceProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Rx__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var CuadrosServiceProvider = (function () {
-    function CuadrosServiceProvider(http) {
-        this.http = http;
-        this.urlAPI = __WEBPACK_IMPORTED_MODULE_3__api_service_api_service__["a" /* urlAPI */] + '/cuadro';
-    }
-    CuadrosServiceProvider.prototype.getAllCuadros = function () {
-        return this.http.get(this.urlAPI)
-            .map(this.extractData)
-            .do(function (res) { return console.log(res); })
-            .catch(this.catchError);
-    };
-    CuadrosServiceProvider.prototype.addNewCuadro = function (cuadro) {
-        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
-            'Content-Type': 'application/json'
-        });
-        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
-            headers: headers
-        });
-        return this.http.post(this.urlAPI, cuadro, options)
-            .do(function (res) { return console.log(res); })
-            .catch(this.catchError);
-    };
-    CuadrosServiceProvider.prototype.editCuadro = function (cuadro) {
-        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
-            'Content-Type': 'application/json'
-        });
-        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
-            headers: headers
-        });
-        return this.http.put(this.urlAPI + '/' + cuadro.id, cuadro, options)
-            .do(function (res) { return console.log(res); })
-            .catch(this.catchError);
-    };
-    CuadrosServiceProvider.prototype.deleteCuadro = function (cuadroId) {
-        var headers = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["a" /* Headers */]({
-            'Content-Type': 'application/json'
-        });
-        var options = new __WEBPACK_IMPORTED_MODULE_0__angular_http__["d" /* RequestOptions */]({
-            headers: headers
-        });
-        return this.http.delete(this.urlAPI + '/' + cuadroId, options)
-            .do(function (res) { return console.log(res); })
-            .catch(this.catchError);
-    };
-    CuadrosServiceProvider.prototype.catchError = function (error) {
-        return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || "Server Error");
-    };
-    CuadrosServiceProvider.prototype.extractData = function (res) {
-        return res.json().data;
-    };
-    CuadrosServiceProvider = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_http__["b" /* Http */]])
-    ], CuadrosServiceProvider);
-    return CuadrosServiceProvider;
-}());
-
-//# sourceMappingURL=cuadros-service.js.map
-
-/***/ }),
-
-/***/ 173:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChacrasList; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_cuadros_service_cuadros_service__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_edit_chacra_edit_chacra__ = __webpack_require__(393);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-var ChacrasList = (function () {
-    function ChacrasList(navCtrl, navParams, ChacrasServiceProvider, CuadrosServiceProvider, AlertController) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.ChacrasServiceProvider = ChacrasServiceProvider;
-        this.CuadrosServiceProvider = CuadrosServiceProvider;
-        this.AlertController = AlertController;
-        this.chacrasList = [];
-        this.newCuadro = { up: '', chacraId: '' };
-        this.getAllChacras();
-    }
-    ChacrasList.prototype.getAllChacras = function () {
-        var _this = this;
-        this.ChacrasServiceProvider.getAllChacras().subscribe(function (data) { return _this.chacrasList = data; });
-    };
-    ChacrasList.prototype.goToEdit = function (chacra) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__pages_edit_chacra_edit_chacra__["a" /* EditChacra */], {
-            chacra: chacra
-        });
-    };
-    ChacrasList.prototype.deleteChacra = function (chacraId) {
-        var _this = this;
-        this.ChacrasServiceProvider.deleteChacra(chacraId).subscribe(function (data) { return _this.getAllChacras(); });
-    };
-    ChacrasList.prototype.alertDeleteChacra = function (chacraId) {
-        var _this = this;
-        var alert = this.AlertController.create({
-            title: 'Confirmar eliminacion',
-            message: 'Esta seguro que desea eliminar la chacra de la lista?',
-            buttons: [
-                {
-                    text: 'Cancelar',
-                    role: 'cancel',
-                    handler: function () { }
-                },
-                {
-                    text: 'Eliminar',
-                    handler: function () {
-                        _this.deleteChacra(chacraId);
-                    }
-                }
-            ]
-        });
-        alert.present();
-    };
-    //CUADROS
-    ChacrasList.prototype.alertNewCuadro = function (chacraId) {
-        var _this = this;
-        var alert = this.AlertController.create({
-            title: 'Agregar Cuadro',
-            inputs: [
-                {
-                    name: 'Up',
-                    placeholder: 'Up',
-                }
-            ],
-            buttons: [
-                {
-                    text: 'Cancel',
-                    role: 'cancel',
-                    handler: function (data) { }
-                },
-                {
-                    text: 'Crear',
-                    handler: function (data) {
-                        _this.newCuadro.up = data.Up;
-                        _this.newCuadro.chacraId = chacraId;
-                        _this.addNewCuadro();
-                    }
-                }
-            ]
-        });
-        alert.present();
-    };
-    ChacrasList.prototype.addNewCuadro = function () {
-        var _this = this;
-        this.CuadrosServiceProvider.addNewCuadro(this.newCuadro).subscribe(function (data) { return _this.getAllChacras(); });
-        this.newCuadro = { up: '', chacraId: '' };
-    };
-    ChacrasList.prototype.alertEditCuadro = function (cuadro) {
-        var _this = this;
-        var alert = this.AlertController.create({
-            title: 'Editar Cuadro',
-            inputs: [
-                {
-                    name: 'Up',
-                    placeholder: 'Up',
-                    value: cuadro.up,
-                }
-            ],
-            buttons: [
-                {
-                    text: 'Cancel',
-                    role: 'cancel',
-                    handler: function (data) { }
-                },
-                {
-                    text: 'Editar',
-                    handler: function (data) {
-                        cuadro.up = data.Up;
-                        _this.editCuadro(cuadro);
-                    }
-                }
-            ]
-        });
-        alert.present();
-    };
-    ChacrasList.prototype.editCuadro = function (cuadro) {
-        var _this = this;
-        this.CuadrosServiceProvider.editCuadro(cuadro).subscribe(function (data) { return _this.getAllChacras(); });
-    };
-    ChacrasList.prototype.alertDeleteCuadro = function (cuadroId) {
-        var _this = this;
-        var alert = this.AlertController.create({
-            title: 'Confirmar eliminacion',
-            message: 'Esta seguro que desea eliminar el cuadro de la lista?',
-            buttons: [
-                {
-                    text: 'Cancelar',
-                    role: 'cancel',
-                    handler: function () { }
-                },
-                {
-                    text: 'Eliminar',
-                    handler: function () {
-                        _this.deleteCuadro(cuadroId);
-                    }
-                }
-            ]
-        });
-        alert.present();
-    };
-    ChacrasList.prototype.deleteCuadro = function (cuadroId) {
-        var _this = this;
-        this.CuadrosServiceProvider.deleteCuadro(cuadroId).subscribe(function (data) { return _this.getAllChacras(); });
-    };
-    ChacrasList = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-chacras-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\chacras-list\chacras-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Chacras</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Listado de Chacras</h1>\n        <p text-center>Presentacion en forma de lista de chacras donde se obtiene la produccion</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h4 padding-top no-margin>Chacras</h4>\n        <ion-row padding>\n          <ion-col col-sm-12 col-md-10 offset-md-1>\n            <ion-list>\n              <ion-item ion-item *ngFor="let chacra of chacrasList" class="no-border">\n                <ion-avatar item-left>\n                  <img src="assets/imgs/chacra-icon.png">\n                </ion-avatar>\n                <ion-row>\n                  <ion-col col-sm-12 col-md-5>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Chacra</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{chacra.nombre}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-5>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Renspa</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{chacra.renspa}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-2> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-4>\n                        <button ion-button color="semiDark" round icon-only small (click)="alertNewCuadro(chacra.id)">\n                          <ion-icon name="add"></ion-icon>\n                        </button>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-4>\n                        <button ion-button color="semiDark" round icon-only small (click)="goToEdit(chacra)">\n                          <ion-icon name="create"></ion-icon>\n                        </button>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-4>\n                        <button ion-button color="semiDark" round icon-only small \n                          (click)="alertDeleteChacra(chacra.id)">\n                          <ion-icon name="trash"></ion-icon>\n                        </button>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-12>\n                    <h2>Cuadros</h2>\n                  </ion-col>\n                  <ion-col *ngFor="let cuadro of chacra.cuadros; let i = \'index\'" no-padding margin col-sm-12 col-md-2>\n                    <ion-row>\n                      <ion-list>\n                        <ion-item class="no-border" class="back-color">\n                          <ion-row>\n                            <ion-col col-sm-12 col-md-12>\n                              <ion-row>\n                                <ion-col col-sm-12 col-md-12>\n                                  <h2 text-center>UP</h2>\n                                </ion-col>\n                                <ion-col col-sm-12 col-md-12>\n                                  <p text-center>{{cuadro.up}}</p>\n                                </ion-col>\n                              </ion-row>\n                            </ion-col>\n                            <ion-col col-sm-12 col-md-12> \n                              <ion-row>\n                                <ion-col col-sm-12 col-md-6>\n                                  <button ion-button color="semiDark" round icon-only small (click)="alertEditCuadro(cuadro)">\n                                    <ion-icon name="create"></ion-icon>\n                                  </button>\n                                </ion-col>\n                                <ion-col col-sm-12 col-md-6>\n                                  <button ion-button color="semiDark" round icon-only small \n                                    (click)="alertDeleteCuadro(cuadro.id)">\n                                    <ion-icon name="trash"></ion-icon>\n                                  </button>\n                                </ion-col>\n                              </ion-row>\n                            </ion-col>\n                          </ion-row>\n                        </ion-item>\n                      </ion-list>\n                    </ion-row>    \n                  </ion-col>\n                </ion-row>\n              </ion-item>\n            </ion-list>\n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n<!--ion-content padding class="back-color">\n  <div class="back-black-color" padding>\n    <h3 padding>Listado de Chacras:</h3>\n      <ion-list>\n        <ion-item ion-item *ngFor="let chacra of chacrasList">\n          <ion-avatar item-left>\n            <img src="assets/img/user.png">\n          </ion-avatar>\n          <h2>{{chacra.nombre}}</h2>\n          <p>Renspa: {{chacra.renspa}}</p>\n          <div padding>\n            <h3 padding>Cuadros: </h3>\n            <ion-list>\n              <ion-item ion-item *ngFor="let cuadro of chacra.cuadros">\n                <p>UP: {{cuadro.up}}</p>\n                <button ion-button (click)="alertEditCuadro(cuadro)">\n                 Editar\n                </button>\n                <button ion-button (click)="alertDeleteCuadro(cuadro.id)">\n                 Eliminar\n                </button>\n              </ion-item>\n            </ion-list>\n            <button ion-button (click)="alertNewCuadro(chacra.id)">\n             Agregar Cuadro\n            </button>\n          </div>\n          <button ion-button (click)="goToEdit(chacra)">\n           Editar\n          </button>\n          <button ion-button (click)="alertDeleteChacra(chacra.id)">\n           Eliminar\n          </button>\n        </ion-item>\n      </ion-list>\n    </div>\n</ion-content-->\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\chacras-list\chacras-list.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_cuadros_service_cuadros_service__["a" /* CuadrosServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
-    ], ChacrasList);
-    return ChacrasList;
-}());
-
-//# sourceMappingURL=chacras-list.js.map
-
-/***/ }),
-
-/***/ 186:
+/***/ 188:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -794,7 +718,7 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 186;
+webpackEmptyAsyncContext.id = 188;
 
 /***/ }),
 
@@ -803,12 +727,12 @@ webpackEmptyAsyncContext.id = 186;
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return urlAPI; });
-var urlAPI = 'http://localhost:3000';
+var urlAPI = 'http://cultivospatagonicos.sytes.net:3000';
 //# sourceMappingURL=api-service.js.map
 
 /***/ }),
 
-/***/ 231:
+/***/ 233:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -821,18 +745,18 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 231;
+webpackEmptyAsyncContext.id = 233;
 
 /***/ }),
 
-/***/ 271:
+/***/ 273:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SideMenuContentComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_side_menu_redirect_events__ = __webpack_require__(440);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_side_menu_redirect_events__ = __webpack_require__(442);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1141,7 +1065,7 @@ var SideMenuContentComponent = (function () {
 
 /***/ }),
 
-/***/ 272:
+/***/ 274:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1305,7 +1229,7 @@ var SelectSearchablePage = (function () {
 
 /***/ }),
 
-/***/ 380:
+/***/ 382:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1374,7 +1298,7 @@ var EditProductor = (function () {
     };
     EditProductor = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-edit-productor',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-productor\edit-productor.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Productor</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Editar Productor</h1>\n        <p text-center>Ingrese los datos necesarios para editar un productor existente.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales del productor</h3>\n        <form (ngSubmit)="editProductor()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="productor.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>DNI</ion-label>\n                    <ion-input type="text" [(ngModel)]="productor.dni" name="dni"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Telefono</ion-label>\n                    <ion-input type="number" [(ngModel)]="productor.telefono" name="telefono"></ion-input>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Editar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-productor\edit-productor.html"*/,
+            selector: 'page-edit-productor',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-productor\edit-productor.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Productor</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 padding>\n        <h1 text-center>Editar Productor</h1>\n        <p text-center>Ingrese los datos necesarios para editar un productor existente.</p>\n      </ion-col>\n      <ion-col col-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales del productor</h3>\n        <form (ngSubmit)="editProductor()">\n          <ion-grid>\n            <ion-row>\n              <ion-col ccol-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-12 col-md-6 col-lg-6 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="productor.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-12 col-md-6 col-lg-6 class="no-border">\n                    <ion-label stacked>DNI</ion-label>\n                    <ion-input type="text" [(ngModel)]="productor.dni" name="dni"></ion-input>\n                  </ion-item>\n                  <ion-item col-12 col-md-6 col-lg-6 class="no-border">\n                    <ion-label stacked>Telefono</ion-label>\n                    <ion-input type="number" [(ngModel)]="productor.telefono" name="telefono"></ion-input>\n                  </ion-item>\n                  <ion-col col-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Editar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-productor\edit-productor.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__["a" /* ProductoresServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], EditProductor);
@@ -1385,7 +1309,7 @@ var EditProductor = (function () {
 
 /***/ }),
 
-/***/ 381:
+/***/ 383:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1454,7 +1378,7 @@ var EditCamion = (function () {
     };
     EditCamion = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-edit-camion',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-camion\edit-camion.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Camion</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Editar Camion</h1>\n        <p text-center>Ingrese los datos necesarios para editar un camion existente.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales del camion</h3>\n        <form (ngSubmit)="editCamion()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-12 class="no-border">\n                    <ion-label stacked>Nombre Chofer</ion-label>\n                    <ion-input type="text" [(ngModel)]="camion.nombreChofer" name="nombreChofer"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Patente Acoplado</ion-label>\n                    <ion-input type="text" [(ngModel)]="camion.patenteAcoplado" name="patenteAcoplado"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Patente Chasis</ion-label>\n                    <ion-input type="text" [(ngModel)]="camion.patenteChasis" name="patenteChasis"></ion-input>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Editar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-camion\edit-camion.html"*/,
+            selector: 'page-edit-camion',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-camion\edit-camion.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Camion</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 padding>\n        <h1 text-center>Editar Camion</h1>\n        <p text-center>Ingrese los datos necesarios para editar un camion existente.</p>\n      </ion-col>\n      <ion-col col-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales del camion</h3>\n        <form (ngSubmit)="editCamion()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-12 class="no-border">\n                    <ion-label stacked>Nombre Chofer</ion-label>\n                    <ion-input type="text" [(ngModel)]="camion.nombreChofer" name="nombreChofer"></ion-input>\n                  </ion-item>\n                  <ion-item col-12 col-md-6 col-lg-6 class="no-border">\n                    <ion-label stacked>Patente Acoplado</ion-label>\n                    <ion-input type="text" [(ngModel)]="camion.patenteAcoplado" name="patenteAcoplado"></ion-input>\n                  </ion-item>\n                  <ion-item col-12 col-md-6 col-lg-6 class="no-border">\n                    <ion-label stacked>Patente Chasis</ion-label>\n                    <ion-input type="text" [(ngModel)]="camion.patenteChasis" name="patenteChasis"></ion-input>\n                  </ion-item>\n                  <ion-col col-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Editar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-camion\edit-camion.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], EditCamion);
@@ -1465,7 +1389,7 @@ var EditCamion = (function () {
 
 /***/ }),
 
-/***/ 382:
+/***/ 384:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1534,7 +1458,7 @@ var EditEmpresa = (function () {
     };
     EditEmpresa = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-edit-empresa',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-empresa\edit-empresa.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Empresa</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Editar Empresa</h1>\n        <p text-center>Ingrese los datos necesarios para generar una empresa existente.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales de la empresa</h3>\n        <form (ngSubmit)="editEmpresa()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="empresa.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Direccion</ion-label>\n                    <ion-input type="text" [(ngModel)]="empresa.direccion" name="direccion"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Telefono</ion-label>\n                    <ion-input type="number" [(ngModel)]="empresa.telefono" name="telefono"></ion-input>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Editar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-empresa\edit-empresa.html"*/,
+            selector: 'page-edit-empresa',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-empresa\edit-empresa.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Empresa</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 padding>\n        <h1 text-center>Editar Empresa</h1>\n        <p text-center>Ingrese los datos necesarios para generar una empresa existente.</p>\n      </ion-col>\n      <ion-col col-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales de la empresa</h3>\n        <form (ngSubmit)="editEmpresa()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-12 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="empresa.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-12 col-md-6 col-lg-6 class="no-border">\n                    <ion-label stacked>Direccion</ion-label>\n                    <ion-input type="text" [(ngModel)]="empresa.direccion" name="direccion"></ion-input>\n                  </ion-item>\n                  <ion-item col-12 col-md-6 col-lg-6 class="no-border">\n                    <ion-label stacked>Telefono</ion-label>\n                    <ion-input type="number" [(ngModel)]="empresa.telefono" name="telefono"></ion-input>\n                  </ion-item>\n                  <ion-col col-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Editar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-empresa\edit-empresa.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_empresas_service_empresas_service__["a" /* EmpresasServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], EditEmpresa);
@@ -1545,7 +1469,7 @@ var EditEmpresa = (function () {
 
 /***/ }),
 
-/***/ 383:
+/***/ 385:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1614,7 +1538,7 @@ var EditInstitucion = (function () {
     };
     EditInstitucion = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-edit-institucion',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-institucion\edit-institucion.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Institucion</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Editar Institucion</h1>\n        <p text-center>Ingrese los datos necesarios para editar una institucion existente.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales de la institucion</h3>\n        <form (ngSubmit)="editInstitucion()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="institucion.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Direccion</ion-label>\n                    <ion-input type="text" [(ngModel)]="institucion.direccion" name="direccion"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Telefono</ion-label>\n                    <ion-input type="number" [(ngModel)]="institucion.telefono" name="telefono"></ion-input>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Editar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-institucion\edit-institucion.html"*/,
+            selector: 'page-edit-institucion',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-institucion\edit-institucion.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Institucion</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 padding>\n        <h1 text-center>Editar Institucion</h1>\n        <p text-center>Ingrese los datos necesarios para editar una institucion existente.</p>\n      </ion-col>\n      <ion-col col-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales de la institucion</h3>\n        <form (ngSubmit)="editInstitucion()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-12 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="institucion.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-12 col-md-6 col-lg-6 class="no-border">\n                    <ion-label stacked>Direccion</ion-label>\n                    <ion-input type="text" [(ngModel)]="institucion.direccion" name="direccion"></ion-input>\n                  </ion-item>\n                  <ion-item col-12 col-md-6 col-lg-6 class="no-border">\n                    <ion-label stacked>Telefono</ion-label>\n                    <ion-input type="number" [(ngModel)]="institucion.telefono" name="telefono"></ion-input>\n                  </ion-item>\n                  <ion-col ccol-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Editar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-institucion\edit-institucion.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], EditInstitucion);
@@ -1625,7 +1549,87 @@ var EditInstitucion = (function () {
 
 /***/ }),
 
-/***/ 384:
+/***/ 386:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditChacra; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__ = __webpack_require__(46);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var EditChacra = (function () {
+    function EditChacra(navCtrl, navParams, ChacrasServiceProvider, AlertController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.ChacrasServiceProvider = ChacrasServiceProvider;
+        this.AlertController = AlertController;
+        this.chacra = [];
+        this.chacra = this.navParams.get('chacra');
+    }
+    EditChacra.prototype.editChacra = function (chacra) {
+        var _this = this;
+        this.ChacrasServiceProvider.editChacra(this.chacra).subscribe(function (data) { return _this.alertEditChacra(data.error); });
+    };
+    EditChacra.prototype.alertEditChacra = function (error) {
+        var _this = this;
+        var alert;
+        if (!error) {
+            alert = this.AlertController.create({
+                title: 'Edicion exitosa',
+                message: 'Se ha editado correctamente la chacra.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () {
+                            _this.destroyView();
+                        }
+                    }
+                ]
+            });
+        }
+        else {
+            alert = this.AlertController.create({
+                title: 'Error',
+                message: 'Se ha producido un error al intentar editar la chacra.',
+                buttons: [
+                    {
+                        text: 'Aceptar',
+                        handler: function () { }
+                    }
+                ]
+            });
+        }
+        alert.present();
+    };
+    EditChacra.prototype.destroyView = function () {
+        this.navCtrl.pop();
+    };
+    EditChacra = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-edit-chacra',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-chacra\edit-chacra.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Chacra</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 padding>\n        <h1 text-center>Editar Chacra</h1>\n        <p text-center>Ingrese los datos necesarios para editar una chacra existente.</p>\n      </ion-col>\n      <ion-col col-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales de la Chacra</h3>\n        <form (ngSubmit)="editChacra()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-12 col-md-6 col-lg-6 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="chacra.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-12 col-md-6 col-lg-6 class="no-border">\n                    <ion-label stacked>Renspa</ion-label>\n                    <ion-input type="text" [(ngModel)]="chacra.renspa" name="renspa"></ion-input>\n                  </ion-item>\n                  <ion-col col-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Editar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-chacra\edit-chacra.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], EditChacra);
+    return EditChacra;
+}());
+
+//# sourceMappingURL=edit-chacra.js.map
+
+/***/ }),
+
+/***/ 387:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1705,7 +1709,7 @@ var EditIngreso = (function () {
     };
     EditIngreso = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-edit-ingreso',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-ingreso\edit-ingreso.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Ingreso</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n    <ion-grid>\n        <ion-row>\n            <ion-col col-sm-12 col-md-12 padding>\n              <h1 text-center>Editar Ingreso</h1>\n              <p text-center>Ingrese los datos necesarios para editar un ingreso de fruta existente.</p>\n            </ion-col>\n            <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n                <h3 padding-top no-margin>Datos generales del Ingreso</h3>\n            	<form (ngSubmit)="editIngreso()">\n            	    <ion-grid>\n                        <ion-row>\n                            <ion-col col-sm-12 col-md-12 padding-bottom>\n                                <ion-row>\n                                    <ion-item col-sm-12 col-md-6 class="no-border">\n                                      <ion-label stacked>Nro Remito</ion-label>\n                                      <ion-input type="text" [(ngModel)]="ingreso.nroRemito" name="nroRemito"></ion-input>\n                                    </ion-item>\n                                    <ion-item col-sm-12 col-md-6 class="no-border">\n                                      <ion-label stacked>Fecha de Ingreso</ion-label>\n                                      <ion-input type="date" [value]="ingreso.fechaIngreso" (input)="ingreso.fechaIngreso = $event.target.value" name="fechaIngreso"></ion-input>\n                                    </ion-item>\n                                </ion-row>\n                            </ion-col>\n                            <ion-col col-sm-12 col-md-12 padding>\n                                    <ion-buttons right>\n                                        <button ion-button color="semiDark" type="submit">Editar</button>\n                                    </ion-buttons>\n                            </ion-col>\n                        </ion-row>\n                    </ion-grid>\n            	</form>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-ingreso\edit-ingreso.html"*/,
+            selector: 'page-edit-ingreso',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-ingreso\edit-ingreso.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Ingreso</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n    <ion-grid>\n        <ion-row>\n            <ion-col col-12 padding>\n              <h1 text-center>Editar Ingreso</h1>\n              <p text-center>Ingrese los datos necesarios para editar un ingreso de fruta existente.</p>\n            </ion-col>\n            <ion-col col-12 padding class="back-black-color">\n                <h3 padding-top no-margin>Datos generales del Ingreso</h3>\n            	<form (ngSubmit)="editIngreso()">\n            	    <ion-grid>\n                        <ion-row>\n                            <ion-col col-12 padding-bottom>\n                                <ion-row>\n                                    <ion-item col-12 col-md-6 col-lg-6 class="no-border">\n                                      <ion-label stacked>Nro Remito</ion-label>\n                                      <ion-input type="text" [(ngModel)]="ingreso.nroRemito" name="nroRemito"></ion-input>\n                                    </ion-item>\n                                    <ion-item col-12 col-md-6 col-lg-6 class="no-border">\n                                      <ion-label stacked>Fecha de Ingreso</ion-label>\n                                      <ion-input type="date" [value]="ingreso.fechaIngreso" (input)="ingreso.fechaIngreso = $event.target.value" name="fechaIngreso"></ion-input>\n                                    </ion-item>\n                                </ion-row>\n                            </ion-col>\n                            <ion-col col-12 padding>\n                                    <ion-buttons right>\n                                        <button ion-button color="semiDark" type="submit">Editar</button>\n                                    </ion-buttons>\n                            </ion-col>\n                        </ion-row>\n                    </ion-grid>\n            	</form>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-ingreso\edit-ingreso.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_ingresos_service_ingresos_service__["a" /* IngresosServiceProvider */],
             __WEBPACK_IMPORTED_MODULE_3__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */],
@@ -1718,7 +1722,7 @@ var EditIngreso = (function () {
 
 /***/ }),
 
-/***/ 385:
+/***/ 388:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1745,7 +1749,7 @@ var ViajesList = (function () {
     }
     ViajesList = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-viajes-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\viajes-list\viajes-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Viajes</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Listado de Viajes</h1>\n        <p text-center>Presentacion en forma de lista de los viajes para el ingreso seleccionado<p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h4 padding-top no-margin>Viajes</h4>\n        <ion-row padding>\n          <ion-col col-sm-12 col-md-8 offset-md-2>\n            <ion-list>\n              <ion-item ion-item *ngFor="let viaje of viajes" class="no-border">\n                <ion-avatar item-left>\n                  <img src="assets/imgs/camion-icon.png">\n                </ion-avatar>\n                <ion-row>\n                  <ion-col col-sm-12 col-md-2>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Fecha</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{viaje.fecha}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Costo</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{viaje.costo}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Chofer</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{viaje.camion.nombreChofer}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Lugar</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{viaje.institucion.nombre}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                </ion-row>\n              </ion-item>\n            </ion-list>\n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\viajes-list\viajes-list.html"*/,
+            selector: 'page-viajes-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\viajes-list\viajes-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Viajes</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 padding>\n        <h1 text-center>Listado de Viajes</h1>\n        <p text-center>Presentacion en forma de lista de los viajes para el ingreso seleccionado</p>\n      </ion-col>\n\n      <ion-col col-12 padding class="back-black-color">\n        <h4 padding-top no-margin>Datos generales de los Viajes</h4>\n        <ion-row padding>\n\n          <!-- Forma Lista -->\n          <ion-col col-12 padding class="back-black-color hidden-md-down">\n            <ion-row padding-top>\n              <ion-col col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2>\n                <ion-list>\n                  <ion-item ion-item class="no-border">\n                    <ion-row>\n                      <ion-col col-3>\n                        <h2 text-center>Fecha</h2>\n                      </ion-col>\n                      <ion-col col-3>\n                        <h2 text-center>Costo</h2>\n                      </ion-col>\n                      <ion-col col-3> \n                        <h2 text-center>Chofer</h2>\n                      </ion-col>\n                      <ion-col col-3 class="vertical-align-icon"> \n                        <h2 text-center>Lugar</h2>\n                      </ion-col>\n                    </ion-row>\n                  </ion-item>\n                  <ion-item  *ngFor="let viaje of viajes" class="no-border">\n                    <ion-row align-items-center>\n                      <ion-col col-3>\n                        <p text-center>{{viaje.fecha}}</p>\n                      </ion-col>\n                      <ion-col col-3>\n                        <p text-center>{{viaje.costo}}</p>\n                      </ion-col>\n                      <ion-col col-3> \n                        <p text-center>{{viaje.camion.nombreChofer}}</p>\n                      </ion-col>\n                      <ion-col col-3> \n                        <p text-center>{{viaje.institucion.nombre}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-item>\n                </ion-list>\n              </ion-col>\n            </ion-row>\n          </ion-col>\n\n          <!-- Formato Card-->\n          <ion-col  *ngFor="let viaje of viajes; let i = \'index\'" offset-sm-1 col-sm-10 col-12 col-md-6 offset-md-0 no-padding class="hidden-lg-up">\n            <ion-list>\n              <ion-item class="no-border">\n                <ion-card>\n                  <ion-card-header no-padding no-margin class="card-hearder-color no-border">\n                      <h2 margin text-center style="color: white">Viaje {{i+1}}</h2>\n                  </ion-card-header>\n                  <ion-card-content>\n                    <ion-list no-padding no-margin>\n                      <ion-item class="no-border">\n                        <ion-icon name="calendar" item-start></ion-icon>\n                        {{viaje.fecha}}\n                      </ion-item>\n                      <ion-item class="no-border">\n                        <ion-icon name="cash" item-start></ion-icon>\n                        {{viaje.costo}}\n                      </ion-item>\n                      <ion-item class="no-border">\n                        <ion-icon name="bus" item-start></ion-icon>\n                        {{viaje.camion.nombreChofer}}\n                      </ion-item>\n                      <ion-item class="no-border">\n                        <ion-icon name="home" item-start></ion-icon>\n                        {{viaje.institucion.nombre}}\n                      </ion-item>\n                    </ion-list>\n                  </ion-card-content>\n                </ion-card>\n              </ion-item>\n            </ion-list>    \n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\viajes-list\viajes-list.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]])
     ], ViajesList);
@@ -1756,15 +1760,15 @@ var ViajesList = (function () {
 
 /***/ }),
 
-/***/ 386:
+/***/ 389:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LotesList; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_edit_lote_edit_lote__ = __webpack_require__(387);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_lotes_service_lotes_service__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_edit_lote_edit_lote__ = __webpack_require__(390);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_lotes_service_lotes_service__ = __webpack_require__(172);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1818,7 +1822,7 @@ var LotesList = (function () {
     };
     LotesList = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-lotes-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\lotes-list\lotes-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <ion-title>Lotes</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 padding>\n        <h1 text-center>Listado de Lotes</h1>\n        <p text-center>Presentacion en forma de lista de los lotes para el ingreso seleccionado<p>\n      </ion-col>\n      <ion-col col-12 padding class="back-black-color">\n        <h4 padding-top no-margin>Lotes</h4>\n        <ion-row padding>\n          <!-- Formato lista-->\n          <ion-col col-sm-12 col-md-10 offset-md-1 class="hidden-sm-down">\n            <ion-list>\n              <ion-item ion-item *ngFor="let lote of lotes">\n                <ion-row align-items-center>\n                  <ion-col col-sm-12 col-md-1>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12 text-center>\n                        <ion-icon class="size-icon" name="information-circle"></ion-icon>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{lote.nroLote}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-1>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12 text-center>\n                        <ion-icon class="size-icon" name="cube"></ion-icon>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{lote.cantBins}} Bins</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-2> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12 text-center>\n                        <ion-icon class="size-icon" name="podium"></ion-icon>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{lote.pesoNeto}} Kg</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-1> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12 text-center>\n                        <ion-icon class="size-icon" name="rose"></ion-icon>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{lote.especy.tipo}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-2>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12 text-center>\n                        <ion-icon class="size-icon" name="flower"></ion-icon>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{lote.variedad.tipo}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-1>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12 text-center>\n                        <ion-icon class="size-icon" name="star-half"></ion-icon>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{lote.calidad.tipo}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-2>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12 text-center>\n                        <ion-icon class="size-icon" name="color-fill"></ion-icon>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{lote.tratamiento.tipo}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-1>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12 text-center>\n                        <ion-icon class="size-icon" name="grid"></ion-icon>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{lote.cuadro.up}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-1>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small (click)="goToEditLote(lote)">\n                          <ion-icon name="create"></ion-icon>\n                        </button>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small \n                          (click)="alertDeleteLote(lote.id)">\n                          <ion-icon name="trash"></ion-icon>\n                        </button>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                </ion-row>\n              </ion-item>\n            </ion-list>\n          </ion-col>\n\n          <!-- Formato Card-->\n          <ion-col *ngFor="let lote of lotes" padding offset-sm-1 col-sm-10 col-12 class="hidden-md-up">\n            <ion-list>\n              <ion-item class="no-border">\n                <ion-card>\n                  <ion-card-header no-padding no-margin class="card-hearder-color no-border">\n                    <ion-row>\n                      <ion-col col-md-6 no-padding>\n                        <h2 margin text-center style="color: white">Lote Nro {{lote.nroLote}}</h2>\n                      </ion-col>\n                      <ion-col col-md-6 no-padding> \n                        <ion-buttons right>\n                          <button ion-button clear color="white" icon-only small (click)="goToEditLote(lote)">\n                            <ion-icon name="create"></ion-icon>\n                          </button>\n                          <button ion-button clear color="white" icon-only small (click)="alertDeleteLote(lote.id)">\n                            <ion-icon name="trash"></ion-icon>\n                          </button>\n                        </ion-buttons>\n                      </ion-col>\n                    </ion-row>\n                  </ion-card-header>\n                  <ion-card-content>\n                    <ion-list no-padding no-margin>\n                      <ion-item class="no-border">\n                        <ion-icon name="cube" item-start></ion-icon>\n                        {{lote.cantBins}} Bins\n                      </ion-item>\n                      <ion-item class="no-border">\n                        <ion-icon name="podium" item-start></ion-icon>\n                        {{lote.pesoNeto}} Kgs\n                      </ion-item>\n                      <ion-item class="no-border">\n                        <ion-icon name="rose" item-start></ion-icon>\n                        {{lote.especy.tipo}}\n                      </ion-item>\n                      <ion-item class="no-border">\n                        <ion-icon name="flower" item-start></ion-icon>\n                        {{lote.variedad.tipo}}\n                      </ion-item>\n                      <ion-item class="no-border">\n                        <ion-icon name="star-half" item-start></ion-icon>\n                        {{lote.calidad.tipo}}\n                      </ion-item>\n                      <ion-item class="no-border">\n                        <ion-icon name="color-fill" item-start></ion-icon>\n                        {{lote.tratamiento.tipo}}\n                      </ion-item>\n                      <ion-item class="no-border">\n                        <ion-icon name="grid" item-start></ion-icon>\n                        {{lote.cuadro.up}}\n                      </ion-item>\n                    </ion-list>\n                  </ion-card-content>\n                </ion-card>\n              </ion-item>\n            </ion-list>    \n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\lotes-list\lotes-list.html"*/,
+            selector: 'page-lotes-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\lotes-list\lotes-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <ion-title>Lotes</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 padding>\n        <h1 text-center>Listado de Lotes</h1>\n        <p text-center>Presentacion en forma de lista de los lotes para el ingreso seleccionado<p>\n      </ion-col>\n      <ion-col col-12 padding class="back-black-color">\n        <h4 padding-top no-margin>Lotes</h4>\n        <ion-row padding>\n          <!-- Formato lista-->\n          <ion-col col-12 col-md-10 offset-md-1 class="hidden-md-down">\n            <ion-list>\n              <ion-item ion-item col-12 class="no-border">\n                <ion-row>\n                  <ion-col col-1 class="vertical-align-icon">\n                    <ion-icon class="size-icon" name="information-circle"></ion-icon>\n                  </ion-col>\n                  <ion-col col-1 class="vertical-align-icon">\n                    <ion-icon class="size-icon" name="cube"></ion-icon>\n                  </ion-col>\n                  <ion-col col-1 class="vertical-align-icon"> \n                    <ion-icon class="size-icon" name="podium"></ion-icon>\n                  </ion-col>\n                  <ion-col col-2 class="vertical-align-icon"> \n                    <ion-icon class="size-icon" name="rose"></ion-icon>\n                  </ion-col>\n                  <ion-col col-2 class="vertical-align-icon">\n                    <ion-icon class="size-icon" name="flower"></ion-icon>\n                  </ion-col>\n                  <ion-col col-1 class="vertical-align-icon">\n                    <ion-icon class="size-icon" name="star-half"></ion-icon>\n                  </ion-col>\n                  <ion-col col-2 class="vertical-align-icon">\n                    <ion-icon class="size-icon" name="color-fill"></ion-icon>\n                  </ion-col>\n                  <ion-col col-1 class="vertical-align-icon">\n                    <ion-icon class="size-icon" name="grid"></ion-icon>\n                  </ion-col>\n                  <ion-col col-1 class="vertical-align-icon">\n                    <ion-icon class="size-icon" name="more"></ion-icon>\n                  </ion-col>\n                </ion-row>\n              </ion-item>\n              <ion-item ion-item *ngFor="let lote of lotes" col-12 class="no-border">\n                <ion-row align-items-center>\n                  <ion-col col-1>\n                    <p text-center>{{lote.nroLote}}</p>\n                  </ion-col>\n                  <ion-col col-1>\n                    <p text-center>{{lote.cantBins}} Bins</p>\n                  </ion-col>\n                  <ion-col col-1> \n                    <p text-center>{{lote.pesoNeto}} Kg</p>\n                  </ion-col>\n                  <ion-col col-2> \n                    <p text-center>{{lote.especy.tipo}}</p>\n                  </ion-col>\n                  <ion-col col-2>\n                    <p text-center>{{lote.variedad.tipo}}</p>\n                  </ion-col>\n                  <ion-col col-1>\n                    <p text-center>{{lote.calidad.tipo}}</p>\n                  </ion-col>\n                  <ion-col col-2>\n                    <p text-center>{{lote.tratamiento.tipo}}</p>\n                  </ion-col>\n                  <ion-col col-1>\n                    <p text-center>{{lote.cuadro.up}}</p>\n                  </ion-col>\n                  <ion-col col-1>\n                    <ion-row>\n                      <ion-col col-12 class="vertical-align-icon">\n                        <button ion-button color="semiDark" round icon-only small (click)="goToEditLote(lote)">\n                          <ion-icon name="create"></ion-icon>\n                        </button>\n                      </ion-col>\n                      <ion-col col-12 class="vertical-align-icon">\n                        <button ion-button color="semiDark" round icon-only small \n                          (click)="alertDeleteLote(lote.id)">\n                          <ion-icon name="trash"></ion-icon>\n                        </button>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                </ion-row>\n              </ion-item>\n            </ion-list>\n          </ion-col>\n\n          <!-- Formato Card-->\n          <ion-col *ngFor="let lote of lotes" offset-sm-1 col-sm-10 col-12 col-md-6 offset-md-0 no-padding class="hidden-lg-up">\n            <ion-list>\n              <ion-item class="no-border">\n                <ion-card>\n                  <ion-card-header no-padding no-margin class="card-hearder-color no-border">\n                    <ion-row align-items-center>\n                      <ion-col col-6 no-padding>\n                        <h2 margin text-center style="color: white">Lote Nro {{lote.nroLote}}</h2>\n                      </ion-col>\n                      <ion-col col-6 no-padding> \n                        <ion-buttons right>\n                          <button ion-button clear color="white" icon-only small (click)="goToEditLote(lote)">\n                            <ion-icon name="create"></ion-icon>\n                          </button>\n                          <button ion-button clear color="white" icon-only small (click)="alertDeleteLote(lote.id)">\n                            <ion-icon name="trash"></ion-icon>\n                          </button>\n                        </ion-buttons>\n                      </ion-col>\n                    </ion-row>\n                  </ion-card-header>\n                  <ion-card-content>\n                    <ion-list no-padding no-margin>\n                      <ion-item class="no-border">\n                        <ion-icon name="cube" item-start></ion-icon>\n                        {{lote.cantBins}} Bins\n                      </ion-item>\n                      <ion-item class="no-border">\n                        <ion-icon name="podium" item-start></ion-icon>\n                        {{lote.pesoNeto}} Kgs\n                      </ion-item>\n                      <ion-item class="no-border">\n                        <ion-icon name="rose" item-start></ion-icon>\n                        {{lote.especy.tipo}}\n                      </ion-item>\n                      <ion-item class="no-border">\n                        <ion-icon name="flower" item-start></ion-icon>\n                        {{lote.variedad.tipo}}\n                      </ion-item>\n                      <ion-item class="no-border">\n                        <ion-icon name="star-half" item-start></ion-icon>\n                        {{lote.calidad.tipo}}\n                      </ion-item>\n                      <ion-item class="no-border">\n                        <ion-icon name="color-fill" item-start></ion-icon>\n                        {{lote.tratamiento.tipo}}\n                      </ion-item>\n                      <ion-item class="no-border">\n                        <ion-icon name="grid" item-start></ion-icon>\n                        {{lote.cuadro.up}}\n                      </ion-item>\n                    </ion-list>\n                  </ion-card-content>\n                </ion-card>\n              </ion-item>\n            </ion-list>    \n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\lotes-list\lotes-list.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_lotes_service_lotes_service__["a" /* LotesServiceProvider */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
@@ -1830,17 +1834,17 @@ var LotesList = (function () {
 
 /***/ }),
 
-/***/ 387:
+/***/ 390:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditLote; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_lotes_service_lotes_service__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_calidades_service_calidades_service__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_especie_service_especie_service__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_variedades_service_variedades_service__ = __webpack_require__(388);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_lotes_service_lotes_service__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_calidades_service_calidades_service__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_especie_service_especie_service__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_variedades_service_variedades_service__ = __webpack_require__(391);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1928,7 +1932,7 @@ var EditLote = (function () {
     };
     EditLote = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-edit-lote',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-lote\edit-lote.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Lote</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n    <ion-grid>\n        <ion-row>\n            <ion-col col-sm-12 col-md-12 padding>\n              <h1 text-center>Editar Lote</h1>\n              <p text-center>Ingrese los datos necesarios para editar un lote de fruta existente.</p>\n            </ion-col>\n            <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n                <h3 padding-top no-margin>Datos generales del Lote</h3>\n            	<form (ngSubmit)="editLote()">\n            	    <ion-grid>\n                        <ion-row>\n                            <ion-col col-sm-12 col-md-12 padding-bottom>\n                                <ion-row>\n                                    <ion-item col-sm-12 col-md-4 class="no-border">\n                                      <ion-label stacked>Numero Lote</ion-label>\n                                      <ion-input type="text" [(ngModel)]="lote.nroLote" name="nroRemito"></ion-input>\n                                    </ion-item>\n                                    <ion-item col-sm-12 col-md-4 class="no-border">\n                                      <ion-label stacked>Cantidad Bins</ion-label>\n                                      <ion-input type="number" [value]="lote.cantBins" (input)="lote.cantBins = $event.target.value" name="cantBins"></ion-input>\n                                    </ion-item>\n                                    <ion-item col-sm-12 col-md-4 class="no-border">\n                                      <ion-label stacked>Peso</ion-label>\n                                      <ion-input type="number" [value]="lote.pesoNeto" (input)="lote.pesoNeto = $event.target.value" name="pesoNeto"></ion-input>\n                                    </ion-item>\n                                </ion-row>\n                                <ion-col col-sm-12 col-md-12 no-padding>\n                                    <ion-item class="no-border">\n                                        <select-searchable\n                                            [(ngModel)]="lote.calidad"\n                                            name="calidad"\n                                            title="Calidades"\n                                            itemValueField="id"\n                                            itemTextField="tipo"\n                                            [items]="calidades"\n                                            [canSearch]="true"\n                                            (onChange)="calidadChange($event,lote)">\n                                        </select-searchable>\n                                    </ion-item>\n                                </ion-col>\n                                <ion-col col-sm-12 col-md-12 no-padding>\n                                    <ion-item class="no-border">\n                                        <select-searchable\n                                            [(ngModel)]="lote.especy"\n                                            name="especie"\n                                            title="Especies"\n                                            itemValueField="id"\n                                            itemTextField="tipo"\n                                            [items]="especies"\n                                            [canSearch]="true"\n                                            (onChange)="especieChange($event,lote)">\n                                        </select-searchable>\n                                    </ion-item>\n                                </ion-col>\n                                <ion-col col-sm-12 col-md-12 no-padding>\n                                    <ion-item class="no-border">\n                                        <select-searchable\n                                            [(ngModel)]="lote.variedad"\n                                            name="variedad"\n                                            title="Variedades"\n                                            itemValueField="id"\n                                            itemTextField="tipo"\n                                            [items]="variedades"\n                                            [canSearch]="true"\n                                            (onChange)="variedadChange($event,lote)">\n                                        </select-searchable>\n                                    </ion-item>\n                                </ion-col>\n                            </ion-col>\n                            <ion-col col-sm-12 col-md-12 padding>\n                                <ion-buttons left>\n                                    <button ion-button color="semiDark" type="submit">Editar</button>\n                                </ion-buttons>\n                            </ion-col>\n                        </ion-row>\n                    </ion-grid>\n            	</form>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-lote\edit-lote.html"*/,
+            selector: 'page-edit-lote',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-lote\edit-lote.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Lote</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n    <ion-grid>\n        <ion-row>\n            <ion-col col-12 padding>\n              <h1 text-center>Editar Lote</h1>\n              <p text-center>Ingrese los datos necesarios para editar un lote de fruta existente.</p>\n            </ion-col>\n            <ion-col col-12 padding class="back-black-color">\n                <h3 padding-top no-margin>Datos generales del Lote</h3>\n            	<form (ngSubmit)="editLote()">\n            	    <ion-grid>\n                        <ion-row>\n                            <ion-col col-12 padding-bottom>\n                                <ion-row>\n                                    <ion-item col-12 col-md-4 col-lg-4 class="no-border">\n                                      <ion-label stacked>Numero Lote</ion-label>\n                                      <ion-input type="text" [(ngModel)]="lote.nroLote" name="nroRemito"></ion-input>\n                                    </ion-item>\n                                    <ion-item col-12 col-md-4 col-lg-4 class="no-border">\n                                      <ion-label stacked>Cantidad Bins</ion-label>\n                                      <ion-input type="number" [value]="lote.cantBins" (input)="lote.cantBins = $event.target.value" name="cantBins"></ion-input>\n                                    </ion-item>\n                                    <ion-item col-12 col-md-4 col-lg-4 class="no-border">\n                                      <ion-label stacked>Peso</ion-label>\n                                      <ion-input type="number" [value]="lote.pesoNeto" (input)="lote.pesoNeto = $event.target.value" name="pesoNeto"></ion-input>\n                                    </ion-item>\n                                </ion-row>\n                                <ion-col col-12 no-padding>\n                                    <ion-item class="no-border">\n                                        <select-searchable\n                                            [(ngModel)]="lote.calidad"\n                                            name="calidad"\n                                            title="Calidades"\n                                            itemValueField="id"\n                                            itemTextField="tipo"\n                                            [items]="calidades"\n                                            [canSearch]="true"\n                                            (onChange)="calidadChange($event,lote)">\n                                        </select-searchable>\n                                    </ion-item>\n                                </ion-col>\n                                <ion-col col-12 no-padding>\n                                    <ion-item class="no-border">\n                                        <select-searchable\n                                            [(ngModel)]="lote.especy"\n                                            name="especie"\n                                            title="Especies"\n                                            itemValueField="id"\n                                            itemTextField="tipo"\n                                            [items]="especies"\n                                            [canSearch]="true"\n                                            (onChange)="especieChange($event,lote)">\n                                        </select-searchable>\n                                    </ion-item>\n                                </ion-col>\n                                <ion-col col-12 no-padding>\n                                    <ion-item class="no-border">\n                                        <select-searchable\n                                            [(ngModel)]="lote.variedad"\n                                            name="variedad"\n                                            title="Variedades"\n                                            itemValueField="id"\n                                            itemTextField="tipo"\n                                            [items]="variedades"\n                                            [canSearch]="true"\n                                            (onChange)="variedadChange($event,lote)">\n                                        </select-searchable>\n                                    </ion-item>\n                                </ion-col>\n                            </ion-col>\n                            <ion-col col-12 padding>\n                                <ion-buttons left>\n                                    <button ion-button color="semiDark" type="submit">Editar</button>\n                                </ion-buttons>\n                            </ion-col>\n                        </ion-row>\n                    </ion-grid>\n            	</form>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-lote\edit-lote.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_lotes_service_lotes_service__["a" /* LotesServiceProvider */],
             __WEBPACK_IMPORTED_MODULE_3__providers_calidades_service_calidades_service__["a" /* CalidadesServiceProvider */], __WEBPACK_IMPORTED_MODULE_4__providers_especie_service_especie_service__["a" /* EspecieServiceProvider */],
@@ -1941,7 +1945,7 @@ var EditLote = (function () {
 
 /***/ }),
 
-/***/ 388:
+/***/ 391:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1995,7 +1999,7 @@ var VariedadesServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 389:
+/***/ 392:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2006,7 +2010,7 @@ var VariedadesServiceProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_ingresos_service_ingresos_service__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_camiones_service_camiones_service__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_instituciones_service_instituciones_service__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_viajes_service_viajes_service__ = __webpack_require__(390);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_viajes_service_viajes_service__ = __webpack_require__(393);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_ingresos_list_ingresos_list__ = __webpack_require__(67);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2100,7 +2104,7 @@ var NewViaje = (function () {
     };
     NewViaje = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-new-viaje',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-viaje\new-viaje.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Nuevo Viaje</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n    <ion-grid>\n        <ion-row>\n            <ion-col col-sm-12 col-md-12 padding>\n              <h1 text-center>Nuevo Viaje</h1>\n              <p text-center>Ingrese los datos necesarios para generar un nuevo viaje</p>\n            </ion-col>\n            <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n                <h3 padding-top no-margin>Datos generales del Viaje</h3>\n            	<form (ngSubmit)="addNewViaje()">\n            	    <ion-grid>\n                        <ion-row>\n                            <ion-col col-sm-12 col-md-12 padding-bottom>\n                                <ion-row>\n                                    <ion-item col-sm-12 col-md-6 class="no-border">\n                                      <ion-label stacked>Fecha</ion-label>\n                                      <ion-input type="date" [value]="viaje.fecha" (input)="viaje.fecha = $event.target.value" name="fecha"></ion-input>\n                                    </ion-item>\n                                    <ion-item col-sm-12 col-md-6 class="no-border">\n                                      <ion-label stacked>Costo</ion-label>\n                                      <ion-input type="number" [(ngModel)]="viaje.costo" name="costo">\n                                      </ion-input>\n                                    </ion-item>\n                                </ion-row>\n                                <ion-item class="no-border">\n                                    <select-searchable\n                                        [(ngModel)]="viaje.institucion"\n                                        name="institucion"\n                                        title="Instituciones"\n                                        itemValueField="id"\n                                        itemTextField="nombre"\n                                        [items]="viaje.instituciones"\n                                        [canSearch]="true"\n                                        (onChange)="institucionChange($event)">\n                                    </select-searchable>\n                                </ion-item>\n                                <ion-item class="no-border">\n                                    <select-searchable\n                                        [(ngModel)]="viaje.camion"\n                                        name="camion"\n                                        title="Camiones"\n                                        itemValueField="id"\n                                        itemTextField="nombreChofer"\n                                        [items]="viaje.camiones"\n                                        [canSearch]="true"\n                                        (onChange)="camionChange($event)">\n                                    </select-searchable>\n                                </ion-item>\n                            </ion-col>\n                            <ion-col col-sm-12 col-md-12 padding>\n                                <ion-buttons right>\n                                    <button ion-button color="semiDark" type="button" (click)="goBack()">Volver</button>\n                                    <button ion-button color="semiDark" type="submit">Finalizar</button>\n                                </ion-buttons>\n                            </ion-col>\n                        </ion-row>\n                    </ion-grid>\n            	</form>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-viaje\new-viaje.html"*/,
+            selector: 'page-new-viaje',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-viaje\new-viaje.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Nuevo Viaje</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n    <ion-grid>\n        <ion-row>\n            <ion-col col-12 padding>\n              <h1 text-center>Nuevo Viaje</h1>\n              <p text-center>Ingrese los datos necesarios para generar un nuevo viaje</p>\n            </ion-col>\n            <ion-col col-12 padding class="back-black-color">\n                <h3 padding-top no-margin>Datos generales del Viaje</h3>\n            	<form (ngSubmit)="addNewViaje()">\n            	    <ion-grid>\n                        <ion-row>\n                            <ion-col col-12 padding-bottom>\n                                <ion-row>\n                                    <ion-item col-12 col-md-6 col-lg-6 class="no-border">\n                                      <ion-label stacked>Fecha</ion-label>\n                                      <ion-input type="date" [value]="viaje.fecha" (input)="viaje.fecha = $event.target.value" name="fecha"></ion-input>\n                                    </ion-item>\n                                    <ion-item col-12 col-md-6 col-lg-6 class="no-border">\n                                      <ion-label stacked>Costo</ion-label>\n                                      <ion-input type="number" [(ngModel)]="viaje.costo" name="costo">\n                                      </ion-input>\n                                    </ion-item>\n                                </ion-row>\n                                <ion-item class="no-border">\n                                    <select-searchable\n                                        [(ngModel)]="viaje.institucion"\n                                        name="institucion"\n                                        title="Instituciones"\n                                        itemValueField="id"\n                                        itemTextField="nombre"\n                                        [items]="viaje.instituciones"\n                                        [canSearch]="true"\n                                        (onChange)="institucionChange($event)">\n                                    </select-searchable>\n                                </ion-item>\n                                <ion-item class="no-border">\n                                    <select-searchable\n                                        [(ngModel)]="viaje.camion"\n                                        name="camion"\n                                        title="Camiones"\n                                        itemValueField="id"\n                                        itemTextField="nombreChofer"\n                                        [items]="viaje.camiones"\n                                        [canSearch]="true"\n                                        (onChange)="camionChange($event)">\n                                    </select-searchable>\n                                </ion-item>\n                            </ion-col>\n                            <ion-col col-12 padding>\n                                <ion-buttons right>\n                                    <button ion-button color="semiDark" type="button" (click)="goBack()">Volver</button>\n                                    <button ion-button color="semiDark" type="submit">Finalizar</button>\n                                </ion-buttons>\n                            </ion-col>\n                        </ion-row>\n                    </ion-grid>\n            	</form>\n            </ion-col>\n        </ion-row>\n    </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-viaje\new-viaje.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__["a" /* AuthServiceProvider */],
             __WEBPACK_IMPORTED_MODULE_3__providers_ingresos_service_ingresos_service__["a" /* IngresosServiceProvider */], __WEBPACK_IMPORTED_MODULE_6__providers_viajes_service_viajes_service__["a" /* ViajesServiceProvider */],
@@ -2114,7 +2118,7 @@ var NewViaje = (function () {
 
 /***/ }),
 
-/***/ 390:
+/***/ 393:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2212,7 +2216,7 @@ var ViajesServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 391:
+/***/ 394:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2266,16 +2270,14 @@ var TratamientosServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 392:
+/***/ 395:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewProductor; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_chacras_service_chacras_service__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_productoresList_productoresList__ = __webpack_require__(85);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PrinterView; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_printer__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2288,153 +2290,61 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
-var NewProductor = (function () {
-    function NewProductor(navCtrl, navParams, ProductoresServiceProvider, ChacrasServiceProvider, AlertController) {
-        var _this = this;
+var PrinterView = (function () {
+    function PrinterView(navCtrl, navParams, printer) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.ProductoresServiceProvider = ProductoresServiceProvider;
-        this.ChacrasServiceProvider = ChacrasServiceProvider;
-        this.AlertController = AlertController;
-        this.productor = { nombre: '', dni: '', telefono: '', chacras_ids: [] };
-        this.chacras = [];
-        this.ChacrasServiceProvider.getAllChacras().subscribe(function (data) { return _this.chacras = data; });
+        this.printer = printer;
+        this.available = 'Apagada';
+        this.selectedPrinter = '';
     }
-    NewProductor.prototype.addNewProductor = function () {
+    PrinterView.prototype.pickPrinter = function () {
         var _this = this;
-        this.ProductoresServiceProvider.addNewProductor(this.productor).subscribe(function (data) { return _this.alertNewProductor(data.error); });
+        this.printer.pick()
+            .then(function (data) {
+            _this.selectedPrinter = data;
+            _this.checkPrinter();
+        })
+            .catch(function (error) { return alert('Hubo un error al intentar seleccionar la impresora'); });
     };
-    NewProductor.prototype.alertNewProductor = function (error) {
+    PrinterView.prototype.checkPrinter = function () {
         var _this = this;
-        var alert;
-        if (!error) {
-            alert = this.AlertController.create({
-                title: 'Creacion exitosa',
-                message: 'Se ha creado correctamente el nuevo productor.',
-                buttons: [
-                    {
-                        text: 'Aceptar',
-                        handler: function () {
-                            _this.destroyView();
-                        }
-                    }
-                ]
-            });
+        this.printer.isAvailable()
+            .then(function (data) { return _this.available = 'Lista'; })
+            .catch(function (error) { return alert('La impresora no se encuentra lista. Por favor compruebe que se encuentre enchufada y en correcto funcionamiento'); });
+    };
+    PrinterView.prototype.print = function () {
+        if (this.selectedPrinter !== '' && this.available === 'Lista') {
+            this.options = {
+                name: 'MyDocument',
+                printerId: this.selectedPrinter,
+                duplex: false,
+                landscape: true,
+                grayscale: true
+            };
+            var context = '<html><body><h1>Probando</h1></body></html>';
+            this.printer.print(context, this.options)
+                .then(function (data) { return alert('Se ha imprimido correctamente'); })
+                .catch(function (error) { return alert('Se ha generado un error mientras se realizaba la impresion.'); });
         }
         else {
-            alert = this.AlertController.create({
-                title: 'Error',
-                message: 'Se ha producido un error al intentar ingresar el nuevo productor.',
-                buttons: [
-                    {
-                        text: 'Aceptar',
-                        handler: function () { }
-                    }
-                ]
-            });
+            alert('Seleccione una impresora o corrobore que se encuentre en estado Lista');
         }
-        alert.present();
     };
-    NewProductor.prototype.destroyView = function () {
-        this.navCtrl.pop();
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__pages_productoresList_productoresList__["a" /* ProductoresList */]);
-    };
-    NewProductor = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-new-productor',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-productor\new-productor.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Nuevo Productor</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Nuevo Productor</h1>\n        <p text-center>Ingrese los datos necesarios para generar un nuevo productor.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales del productor</h3>\n        <form (ngSubmit)="addNewProductor()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="productor.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>DNI</ion-label>\n                    <ion-input type="text" [(ngModel)]="productor.dni" name="dni"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Telefono</ion-label>\n                    <ion-input type="number" [(ngModel)]="productor.telefono" name="telefono"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Chacras</ion-label>\n                    <ion-select [(ngModel)]="productor.chacras_ids" multiple="true" cancelText="Cancelar" okText="Aceptar" name="chacras_ids">\n                      <ion-option *ngFor="let chacra of chacras" [value] = "chacra.id" >{{chacra.nombre}}</ion-option>\n                    </ion-select>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Agregar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\new-productor\new-productor.html"*/,
+    PrinterView = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
+            selector: 'page-printer-view',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\printer-view\printer-view.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <ion-title>Imprimir</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n	<ion-grid>\n	    <ion-row>\n	        <ion-col col-12 padding>\n	          <h1 text-center>Nuevo Ingresos</h1>\n	          <p text-center>Ingrese los datos necesarios para generar un nuevo ingreso de fruta.</p>\n	        </ion-col>\n	        <ion-col col-12 class="back-black-color">\n	        	<ion-item col-12 class="no-border">\n	        	  <ion-label stacked>Impresora</ion-label>\n	        	  <ion-input type="date" [(ngModel)]="selectedPrinter" [disabled]="true"  name="selectedPrinter"></ion-input>\n	        	</ion-item>\n	        	<ion-item col-12 class="no-border">\n	        		<button ion-button type="button" color="semiDark" (click)="pickPrinter(ingreso)">Seleccionar Impresora</button>\n	        	</ion-item>\n	        	<ion-item col-12 class="no-border">\n	        	  <ion-label stacked>Estado</ion-label>\n	        	  <ion-input type="date" [(ngModel)]="available" [disabled]="true"  name="available"></ion-input>\n	        	</ion-item>\n	        	<ion-item col-12 class="no-border">\n	        		<button ion-button type="button" color="semiDark" (click)="print()">Imprimir</button>\n	        	</ion-item>\n	        </ion-col>\n	    </ion-row>\n	</ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\printer-view\printer-view.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__["a" /* ProductoresServiceProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
-    ], NewProductor);
-    return NewProductor;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0__ionic_native_printer__["a" /* Printer */]])
+    ], PrinterView);
+    return PrinterView;
 }());
 
-//# sourceMappingURL=new-productor.js.map
+//# sourceMappingURL=printer-view.js.map
 
 /***/ }),
 
-/***/ 393:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditChacra; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__ = __webpack_require__(46);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var EditChacra = (function () {
-    function EditChacra(navCtrl, navParams, ChacrasServiceProvider, AlertController) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.ChacrasServiceProvider = ChacrasServiceProvider;
-        this.AlertController = AlertController;
-        this.chacra = [];
-        this.chacra = this.navParams.get('chacra');
-    }
-    EditChacra.prototype.editChacra = function (chacra) {
-        var _this = this;
-        this.ChacrasServiceProvider.editChacra(this.chacra).subscribe(function (data) { return _this.alertEditChacra(data.error); });
-    };
-    EditChacra.prototype.alertEditChacra = function (error) {
-        var _this = this;
-        var alert;
-        if (!error) {
-            alert = this.AlertController.create({
-                title: 'Edicion exitosa',
-                message: 'Se ha editado correctamente la chacra.',
-                buttons: [
-                    {
-                        text: 'Aceptar',
-                        handler: function () {
-                            _this.destroyView();
-                        }
-                    }
-                ]
-            });
-        }
-        else {
-            alert = this.AlertController.create({
-                title: 'Error',
-                message: 'Se ha producido un error al intentar editar la chacra.',
-                buttons: [
-                    {
-                        text: 'Aceptar',
-                        handler: function () { }
-                    }
-                ]
-            });
-        }
-        alert.present();
-    };
-    EditChacra.prototype.destroyView = function () {
-        this.navCtrl.pop();
-    };
-    EditChacra = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-edit-chacra',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-chacra\edit-chacra.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Editar Chacra</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Editar Chacra</h1>\n        <p text-center>Ingrese los datos necesarios para editar una chacra existente.</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h3 padding-top no-margin>Datos generales de la Chacra</h3>\n        <form (ngSubmit)="editChacra()">\n          <ion-grid>\n            <ion-row>\n              <ion-col col-sm-12 col-md-12 padding-bottom>\n                <ion-row>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Nombre</ion-label>\n                    <ion-input type="text" [(ngModel)]="chacra.nombre" name="name"></ion-input>\n                  </ion-item>\n                  <ion-item col-sm-12 col-md-6 class="no-border">\n                    <ion-label stacked>Renspa</ion-label>\n                    <ion-input type="text" [(ngModel)]="chacra.renspa" name="renspa"></ion-input>\n                  </ion-item>\n                  <ion-col col-sm-12 col-md-12 padding>\n                    <ion-buttons right>\n                        <button ion-button type="submit" color="semiDark">Editar</button>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-col>\n            </ion-row>\n          </ion-grid>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\edit-chacra\edit-chacra.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
-    ], EditChacra);
-    return EditChacra;
-}());
-
-//# sourceMappingURL=edit-chacra.js.map
-
-/***/ }),
-
-/***/ 394:
+/***/ 396:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2442,7 +2352,7 @@ var EditChacra = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_chacras_list_chacras_list__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_chacras_list_chacras_list__ = __webpack_require__(98);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2516,7 +2426,7 @@ var NewChacra = (function () {
 
 /***/ }),
 
-/***/ 395:
+/***/ 397:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2598,7 +2508,7 @@ var NewCamion = (function () {
 
 /***/ }),
 
-/***/ 396:
+/***/ 398:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2686,7 +2596,7 @@ var NewEmpresa = (function () {
 
 /***/ }),
 
-/***/ 397:
+/***/ 399:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2768,13 +2678,13 @@ var NewInstitucion = (function () {
 
 /***/ }),
 
-/***/ 398:
+/***/ 400:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(399);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(403);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(401);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(405);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -2782,7 +2692,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 403:
+/***/ 405:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2791,58 +2701,62 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_side_menu_content_side_menu_content_component__ = __webpack_require__(271);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_select_select_module__ = __webpack_require__(441);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(443);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(148);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_productoresList_productoresList__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_new_productor_new_productor__ = __webpack_require__(392);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_edit_productor_edit_productor__ = __webpack_require__(380);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_chacras_list_chacras_list__ = __webpack_require__(173);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_new_chacra_new_chacra__ = __webpack_require__(394);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_edit_chacra_edit_chacra__ = __webpack_require__(393);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_camiones_list_camiones_list__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_new_camion_new_camion__ = __webpack_require__(395);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_edit_camion_edit_camion__ = __webpack_require__(381);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_empresas_list_empresas_list__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_new_empresa_new_empresa__ = __webpack_require__(396);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_edit_empresa_edit_empresa__ = __webpack_require__(382);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_instituciones_list_instituciones_list__ = __webpack_require__(97);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_new_institucion_new_institucion__ = __webpack_require__(397);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_edit_institucion_edit_institucion__ = __webpack_require__(383);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_new_ingreso_new_ingreso__ = __webpack_require__(171);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_ingresos_list_ingresos_list__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_edit_ingreso_edit_ingreso__ = __webpack_require__(384);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_edit_lote_edit_lote__ = __webpack_require__(387);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_new_viaje_new_viaje__ = __webpack_require__(389);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_viajes_list_viajes_list__ = __webpack_require__(385);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_lotes_list_lotes_list__ = __webpack_require__(386);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__ionic_native_status_bar__ = __webpack_require__(273);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__ionic_native_splash_screen__ = __webpack_require__(278);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__angular_http__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_angularfire2__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_angularfire2_auth__ = __webpack_require__(279);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__providers_auth_service_auth_service__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__providers_camiones_service_camiones_service__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__providers_empresas_service_empresas_service__ = __webpack_require__(96);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__providers_instituciones_service_instituciones_service__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__providers_cuadros_service_cuadros_service__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__providers_ingresos_service_ingresos_service__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__providers_especie_service_especie_service__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__providers_calidades_service_calidades_service__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__providers_variedades_service_variedades_service__ = __webpack_require__(388);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__providers_chacras_service_chacras_service__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__providers_productores_service_productores_service__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__providers_lotes_service_lotes_service__ = __webpack_require__(168);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__providers_tratamientos_service_tratamientos_service__ = __webpack_require__(391);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__providers_viajes_service_viajes_service__ = __webpack_require__(390);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_side_menu_content_side_menu_content_component__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_select_select_module__ = __webpack_require__(443);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_printer__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(451);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_login_login__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_productoresList_productoresList__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_new_productor_new_productor__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_edit_productor_edit_productor__ = __webpack_require__(382);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_chacras_list_chacras_list__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_new_chacra_new_chacra__ = __webpack_require__(396);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_edit_chacra_edit_chacra__ = __webpack_require__(386);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_camiones_list_camiones_list__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_new_camion_new_camion__ = __webpack_require__(397);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_edit_camion_edit_camion__ = __webpack_require__(383);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_empresas_list_empresas_list__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_new_empresa_new_empresa__ = __webpack_require__(398);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_edit_empresa_edit_empresa__ = __webpack_require__(384);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_instituciones_list_instituciones_list__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_new_institucion_new_institucion__ = __webpack_require__(399);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_edit_institucion_edit_institucion__ = __webpack_require__(385);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_new_ingreso_new_ingreso__ = __webpack_require__(175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_ingresos_list_ingresos_list__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_edit_ingreso_edit_ingreso__ = __webpack_require__(387);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_edit_lote_edit_lote__ = __webpack_require__(390);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_new_viaje_new_viaje__ = __webpack_require__(392);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_viajes_list_viajes_list__ = __webpack_require__(388);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_lotes_list_lotes_list__ = __webpack_require__(389);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_printer_view_printer_view__ = __webpack_require__(395);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__ionic_native_status_bar__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__ionic_native_splash_screen__ = __webpack_require__(280);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__angular_http__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_angularfire2__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_angularfire2_auth__ = __webpack_require__(281);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__providers_auth_service_auth_service__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__providers_camiones_service_camiones_service__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__providers_empresas_service_empresas_service__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__providers_instituciones_service_instituciones_service__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__providers_cuadros_service_cuadros_service__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__providers_ingresos_service_ingresos_service__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__providers_especie_service_especie_service__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__providers_calidades_service_calidades_service__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__providers_variedades_service_variedades_service__ = __webpack_require__(391);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__providers_chacras_service_chacras_service__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__providers_productores_service_productores_service__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__providers_lotes_service_lotes_service__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__providers_tratamientos_service_tratamientos_service__ = __webpack_require__(394);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__providers_viajes_service_viajes_service__ = __webpack_require__(393);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -2906,89 +2820,92 @@ var AppModule = (function () {
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */],
                 __WEBPACK_IMPORTED_MODULE_3__shared_side_menu_content_side_menu_content_component__["a" /* SideMenuContentComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__pages_login_login__["a" /* Login */],
-                __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_8__pages_productoresList_productoresList__["a" /* ProductoresList */],
-                __WEBPACK_IMPORTED_MODULE_9__pages_new_productor_new_productor__["a" /* NewProductor */],
-                __WEBPACK_IMPORTED_MODULE_10__pages_edit_productor_edit_productor__["a" /* EditProductor */],
-                __WEBPACK_IMPORTED_MODULE_11__pages_chacras_list_chacras_list__["a" /* ChacrasList */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_new_chacra_new_chacra__["a" /* NewChacra */],
-                __WEBPACK_IMPORTED_MODULE_13__pages_edit_chacra_edit_chacra__["a" /* EditChacra */],
-                __WEBPACK_IMPORTED_MODULE_14__pages_camiones_list_camiones_list__["a" /* CamionesList */],
-                __WEBPACK_IMPORTED_MODULE_15__pages_new_camion_new_camion__["a" /* NewCamion */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_edit_camion_edit_camion__["a" /* EditCamion */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_empresas_list_empresas_list__["a" /* EmpresasList */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_new_empresa_new_empresa__["a" /* NewEmpresa */],
-                __WEBPACK_IMPORTED_MODULE_19__pages_edit_empresa_edit_empresa__["a" /* EditEmpresa */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_instituciones_list_instituciones_list__["a" /* InstitucionesList */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_new_institucion_new_institucion__["a" /* NewInstitucion */],
-                __WEBPACK_IMPORTED_MODULE_22__pages_edit_institucion_edit_institucion__["a" /* EditInstitucion */],
-                __WEBPACK_IMPORTED_MODULE_24__pages_ingresos_list_ingresos_list__["a" /* IngresosList */],
-                __WEBPACK_IMPORTED_MODULE_23__pages_new_ingreso_new_ingreso__["a" /* NewIngreso */],
-                __WEBPACK_IMPORTED_MODULE_25__pages_edit_ingreso_edit_ingreso__["a" /* EditIngreso */],
-                __WEBPACK_IMPORTED_MODULE_26__pages_edit_lote_edit_lote__["a" /* EditLote */],
-                __WEBPACK_IMPORTED_MODULE_27__pages_new_viaje_new_viaje__["a" /* NewViaje */],
-                __WEBPACK_IMPORTED_MODULE_28__pages_viajes_list_viajes_list__["a" /* ViajesList */],
-                __WEBPACK_IMPORTED_MODULE_29__pages_lotes_list_lotes_list__["a" /* LotesList */]
+                __WEBPACK_IMPORTED_MODULE_8__pages_login_login__["a" /* Login */],
+                __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_9__pages_productoresList_productoresList__["a" /* ProductoresList */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_new_productor_new_productor__["a" /* NewProductor */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_edit_productor_edit_productor__["a" /* EditProductor */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_chacras_list_chacras_list__["a" /* ChacrasList */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_new_chacra_new_chacra__["a" /* NewChacra */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_edit_chacra_edit_chacra__["a" /* EditChacra */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_camiones_list_camiones_list__["a" /* CamionesList */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_new_camion_new_camion__["a" /* NewCamion */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_edit_camion_edit_camion__["a" /* EditCamion */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_empresas_list_empresas_list__["a" /* EmpresasList */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_new_empresa_new_empresa__["a" /* NewEmpresa */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_edit_empresa_edit_empresa__["a" /* EditEmpresa */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_instituciones_list_instituciones_list__["a" /* InstitucionesList */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_new_institucion_new_institucion__["a" /* NewInstitucion */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_edit_institucion_edit_institucion__["a" /* EditInstitucion */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_ingresos_list_ingresos_list__["a" /* IngresosList */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_new_ingreso_new_ingreso__["a" /* NewIngreso */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_edit_ingreso_edit_ingreso__["a" /* EditIngreso */],
+                __WEBPACK_IMPORTED_MODULE_27__pages_edit_lote_edit_lote__["a" /* EditLote */],
+                __WEBPACK_IMPORTED_MODULE_28__pages_new_viaje_new_viaje__["a" /* NewViaje */],
+                __WEBPACK_IMPORTED_MODULE_29__pages_viajes_list_viajes_list__["a" /* ViajesList */],
+                __WEBPACK_IMPORTED_MODULE_30__pages_lotes_list_lotes_list__["a" /* LotesList */],
+                __WEBPACK_IMPORTED_MODULE_31__pages_printer_view_printer_view__["a" /* PrinterView */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */], {}, {
                     links: []
                 }),
-                __WEBPACK_IMPORTED_MODULE_33_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
-                __WEBPACK_IMPORTED_MODULE_34_angularfire2_auth__["b" /* AngularFireAuthModule */],
-                __WEBPACK_IMPORTED_MODULE_32__angular_http__["c" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_35_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
+                __WEBPACK_IMPORTED_MODULE_36_angularfire2_auth__["b" /* AngularFireAuthModule */],
+                __WEBPACK_IMPORTED_MODULE_34__angular_http__["c" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_4__shared_select_select_module__["a" /* SelectSearchableModule */]
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicApp */]],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_7__pages_login_login__["a" /* Login */],
-                __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_8__pages_productoresList_productoresList__["a" /* ProductoresList */],
-                __WEBPACK_IMPORTED_MODULE_9__pages_new_productor_new_productor__["a" /* NewProductor */],
-                __WEBPACK_IMPORTED_MODULE_10__pages_edit_productor_edit_productor__["a" /* EditProductor */],
-                __WEBPACK_IMPORTED_MODULE_11__pages_chacras_list_chacras_list__["a" /* ChacrasList */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_new_chacra_new_chacra__["a" /* NewChacra */],
-                __WEBPACK_IMPORTED_MODULE_13__pages_edit_chacra_edit_chacra__["a" /* EditChacra */],
-                __WEBPACK_IMPORTED_MODULE_14__pages_camiones_list_camiones_list__["a" /* CamionesList */],
-                __WEBPACK_IMPORTED_MODULE_15__pages_new_camion_new_camion__["a" /* NewCamion */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_edit_camion_edit_camion__["a" /* EditCamion */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_empresas_list_empresas_list__["a" /* EmpresasList */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_new_empresa_new_empresa__["a" /* NewEmpresa */],
-                __WEBPACK_IMPORTED_MODULE_19__pages_edit_empresa_edit_empresa__["a" /* EditEmpresa */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_instituciones_list_instituciones_list__["a" /* InstitucionesList */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_new_institucion_new_institucion__["a" /* NewInstitucion */],
-                __WEBPACK_IMPORTED_MODULE_22__pages_edit_institucion_edit_institucion__["a" /* EditInstitucion */],
-                __WEBPACK_IMPORTED_MODULE_24__pages_ingresos_list_ingresos_list__["a" /* IngresosList */],
-                __WEBPACK_IMPORTED_MODULE_23__pages_new_ingreso_new_ingreso__["a" /* NewIngreso */],
-                __WEBPACK_IMPORTED_MODULE_25__pages_edit_ingreso_edit_ingreso__["a" /* EditIngreso */],
-                __WEBPACK_IMPORTED_MODULE_26__pages_edit_lote_edit_lote__["a" /* EditLote */],
-                __WEBPACK_IMPORTED_MODULE_27__pages_new_viaje_new_viaje__["a" /* NewViaje */],
-                __WEBPACK_IMPORTED_MODULE_28__pages_viajes_list_viajes_list__["a" /* ViajesList */],
-                __WEBPACK_IMPORTED_MODULE_29__pages_lotes_list_lotes_list__["a" /* LotesList */]
+                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_8__pages_login_login__["a" /* Login */],
+                __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_9__pages_productoresList_productoresList__["a" /* ProductoresList */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_new_productor_new_productor__["a" /* NewProductor */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_edit_productor_edit_productor__["a" /* EditProductor */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_chacras_list_chacras_list__["a" /* ChacrasList */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_new_chacra_new_chacra__["a" /* NewChacra */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_edit_chacra_edit_chacra__["a" /* EditChacra */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_camiones_list_camiones_list__["a" /* CamionesList */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_new_camion_new_camion__["a" /* NewCamion */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_edit_camion_edit_camion__["a" /* EditCamion */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_empresas_list_empresas_list__["a" /* EmpresasList */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_new_empresa_new_empresa__["a" /* NewEmpresa */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_edit_empresa_edit_empresa__["a" /* EditEmpresa */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_instituciones_list_instituciones_list__["a" /* InstitucionesList */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_new_institucion_new_institucion__["a" /* NewInstitucion */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_edit_institucion_edit_institucion__["a" /* EditInstitucion */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_ingresos_list_ingresos_list__["a" /* IngresosList */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_new_ingreso_new_ingreso__["a" /* NewIngreso */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_edit_ingreso_edit_ingreso__["a" /* EditIngreso */],
+                __WEBPACK_IMPORTED_MODULE_27__pages_edit_lote_edit_lote__["a" /* EditLote */],
+                __WEBPACK_IMPORTED_MODULE_28__pages_new_viaje_new_viaje__["a" /* NewViaje */],
+                __WEBPACK_IMPORTED_MODULE_29__pages_viajes_list_viajes_list__["a" /* ViajesList */],
+                __WEBPACK_IMPORTED_MODULE_30__pages_lotes_list_lotes_list__["a" /* LotesList */],
+                __WEBPACK_IMPORTED_MODULE_31__pages_printer_view_printer_view__["a" /* PrinterView */]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_30__ionic_native_status_bar__["a" /* StatusBar */],
-                __WEBPACK_IMPORTED_MODULE_31__ionic_native_splash_screen__["a" /* SplashScreen */],
+                __WEBPACK_IMPORTED_MODULE_32__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_33__ionic_native_splash_screen__["a" /* SplashScreen */],
+                __WEBPACK_IMPORTED_MODULE_5__ionic_native_printer__["a" /* Printer */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_45__providers_productores_service_productores_service__["a" /* ProductoresServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_44__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_35__providers_auth_service_auth_service__["a" /* AuthServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_36__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_37__providers_empresas_service_empresas_service__["a" /* EmpresasServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_38__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_39__providers_cuadros_service_cuadros_service__["a" /* CuadrosServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_40__providers_ingresos_service_ingresos_service__["a" /* IngresosServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_41__providers_especie_service_especie_service__["a" /* EspecieServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_42__providers_calidades_service_calidades_service__["a" /* CalidadesServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_43__providers_variedades_service_variedades_service__["a" /* VariedadesServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_46__providers_lotes_service_lotes_service__["a" /* LotesServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_47__providers_tratamientos_service_tratamientos_service__["a" /* TratamientosServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_48__providers_viajes_service_viajes_service__["a" /* ViajesServiceProvider */]
+                __WEBPACK_IMPORTED_MODULE_47__providers_productores_service_productores_service__["a" /* ProductoresServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_46__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_37__providers_auth_service_auth_service__["a" /* AuthServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_38__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_39__providers_empresas_service_empresas_service__["a" /* EmpresasServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_40__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_41__providers_cuadros_service_cuadros_service__["a" /* CuadrosServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_42__providers_ingresos_service_ingresos_service__["a" /* IngresosServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_43__providers_especie_service_especie_service__["a" /* EspecieServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_44__providers_calidades_service_calidades_service__["a" /* CalidadesServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_45__providers_variedades_service_variedades_service__["a" /* VariedadesServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_48__providers_lotes_service_lotes_service__["a" /* LotesServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_49__providers_tratamientos_service_tratamientos_service__["a" /* TratamientosServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_50__providers_viajes_service_viajes_service__["a" /* ViajesServiceProvider */]
             ]
         })
     ], AppModule);
@@ -2999,7 +2916,7 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 440:
+/***/ 442:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3010,15 +2927,15 @@ var SideMenuRedirectEvent = 'sidemenu:redirect';
 
 /***/ }),
 
-/***/ 441:
+/***/ 443:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SelectSearchableModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__select__ = __webpack_require__(442);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__select_page__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__select__ = __webpack_require__(444);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__select_page__ = __webpack_require__(274);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3059,7 +2976,7 @@ var SelectSearchableModule = (function () {
 
 /***/ }),
 
-/***/ 442:
+/***/ 444:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3067,7 +2984,7 @@ var SelectSearchableModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__select_page__ = __webpack_require__(272);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__select_page__ = __webpack_require__(274);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3309,30 +3226,30 @@ var SelectSearchable = (function () {
 
 /***/ }),
 
-/***/ 443:
+/***/ 451:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(273);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(278);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_side_menu_content_side_menu_content_component__ = __webpack_require__(271);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home__ = __webpack_require__(148);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(280);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_side_menu_content_side_menu_content_component__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(156);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_productoresList_productoresList__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_new_productor_new_productor__ = __webpack_require__(392);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_chacras_list_chacras_list__ = __webpack_require__(173);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_new_chacra_new_chacra__ = __webpack_require__(394);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_new_productor_new_productor__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_chacras_list_chacras_list__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_new_chacra_new_chacra__ = __webpack_require__(396);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_camiones_list_camiones_list__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_new_camion_new_camion__ = __webpack_require__(395);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_new_camion_new_camion__ = __webpack_require__(397);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_empresas_list_empresas_list__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_new_empresa_new_empresa__ = __webpack_require__(396);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_new_empresa_new_empresa__ = __webpack_require__(398);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_instituciones_list_instituciones_list__ = __webpack_require__(97);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_new_institucion_new_institucion__ = __webpack_require__(397);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_new_institucion_new_institucion__ = __webpack_require__(399);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_ingresos_list_ingresos_list__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_new_ingreso_new_ingreso__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_new_ingreso_new_ingreso__ = __webpack_require__(175);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_auth_service_auth_service__ = __webpack_require__(48);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3627,7 +3544,7 @@ var ChacrasServiceProvider = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthServiceProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__ = __webpack_require__(281);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3677,7 +3594,7 @@ var AuthServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 481:
+/***/ 483:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3874,9 +3791,9 @@ var InstitucionesServiceProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_ingresos_service_ingresos_service__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_ingreso_edit_ingreso__ = __webpack_require__(384);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_viajes_list_viajes_list__ = __webpack_require__(385);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_lotes_list_lotes_list__ = __webpack_require__(386);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_ingreso_edit_ingreso__ = __webpack_require__(387);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_viajes_list_viajes_list__ = __webpack_require__(388);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_lotes_list_lotes_list__ = __webpack_require__(389);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3951,7 +3868,7 @@ var IngresosList = (function () {
     };
     IngresosList = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-ingresos-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\ingresos-list\ingresos-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Ingresos</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12>\n        <h1 padding text-center>Listado de Ingresos</h1>\n        <p text-center>Listado de de todos los ingresos de fruta con sus correspondientes lotes</p>\n      </ion-col>\n      <ion-col padding col-12 class="accordion-list" *ngFor=" let ingreso of ingresosList; let i = \'index\'">\n        <button ion-item class="no-border-cards" (click)="toggleIngreso(i)" detail-none [ngClass]="{ \'section-active\': ingreso.open, \'section\': !ingreso.open }">\n          <ion-row>\n            <ion-col col-1 >\n              <ion-icon item-left name="arrow-forward" *ngIf="!ingreso.open"></ion-icon>\n              <ion-icon item-left name="arrow-down" *ngIf="ingreso.open"></ion-icon>\n            </ion-col>        \n            <ion-col col-5>\n              <h2 padding text-left>Remito {{ingreso.nroRemito}}</h2>\n            </ion-col>\n            <ion-col col-6>\n              <ion-buttons right>\n                <button ion-button icon-only small outline color="white" (click)="goToLotes(ingreso)"><ion-icon name="cube"></ion-icon></button>\n                <button ion-button icon-only small outline color="white" (click)="goToViajes(ingreso)"><ion-icon name="bus"></ion-icon></button>\n                <button ion-button icon-only small outline color="white" (click)="goToEditIngreso(ingreso)"><ion-icon name="create"></ion-icon></button>\n                <button ion-button icon-only small outline color="white" (click)="alertDeleteIngreso(ingreso.id)"><ion-icon name="trash"></ion-icon></button>\n              </ion-buttons>\n            </ion-col>\n          </ion-row>\n        </button>\n        <ion-grid *ngIf="ingreso.open" class="back-black-color">\n          <ion-row>\n            <ion-col padding col-sm-12 col-md-12>\n              <ion-row>\n                <ion-col padding col-sm-12 col-md-6>\n                  <ion-item class="no-border">\n                    <ion-icon name="calendar" item-start></ion-icon>\n                      {{ingreso.fechaIngreso}}\n                  </ion-item>\n                </ion-col>\n                <ion-col padding col-sm-12 col-md-6>\n                  <ion-item class="no-border">\n                    <ion-icon name="contact" item-start></ion-icon>\n                      {{ingreso.createdFor}}\n                  </ion-item>\n                </ion-col>\n                <ion-col padding col-sm-12 col-md-4>\n                  <ion-item class="no-border">\n                    <ion-icon name="leaf" item-start></ion-icon>\n                      {{ingreso.lotes[0].chacra.renspa}} - {{ingreso.lotes[0].chacra.nombre}}\n                  </ion-item>\n                </ion-col>\n                <ion-col padding col-sm-12 col-md-4>\n                  <ion-item class="no-border">\n                    <ion-icon name="home" item-start></ion-icon>\n                      {{ingreso.ingresos_viajes[0].institucion.nombre}}\n                  </ion-item>\n                </ion-col>\n                <ion-col padding col-sm-12 col-md-4>\n                  <ion-item class="no-border">\n                    <ion-icon name="bus" item-start></ion-icon>\n                      {{ingreso.ingresos_viajes[0].camion.nombreChofer}}\n                  </ion-item>\n                </ion-col>\n              </ion-row>\n            </ion-col>\n            <!--ion-col *ngFor="let lote of ingreso.lotes" padding col-sm-12 col-md-4>\n              <ion-list>\n                <ion-item class="no-border">\n                  <ion-card>\n                    <ion-card-header no-padding no-margin class="card-hearder-color no-border">\n                      <ion-row>\n                        <ion-col col-md-6 no-padding>\n                          <h2 margin text-center class="black-color">Lote Nro {{lote.nroLote}}</h2>\n                        </ion-col>\n                        <ion-col col-md-6 no-padding> \n                          <ion-buttons right>\n                            <button ion-button clear color="white" icon-only small (click)="goToEditLote(lote)">\n                              <ion-icon name="create"></ion-icon>\n                            </button>\n                            <button ion-button clear color="white" icon-only small (click)="alertDeleteLote(lote.id)">\n                              <ion-icon name="trash"></ion-icon>\n                            </button>\n                          </ion-buttons>\n                        </ion-col>\n                      </ion-row>\n                    </ion-card-header>\n                    <ion-card-content>\n                      <ion-list no-padding no-margin>\n                        <ion-item class="no-border">\n                          <ion-icon name="cube" item-start></ion-icon>\n                          {{lote.cantBins}} Bins\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="podium" item-start></ion-icon>\n                          {{lote.pesoNeto}} Kgs\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="rose" item-start></ion-icon>\n                          {{lote.especy.tipo}}\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="flower" item-start></ion-icon>\n                          {{lote.variedad.tipo}}\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="star-half" item-start></ion-icon>\n                          {{lote.calidad.tipo}}\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="color-fill" item-start></ion-icon>\n                          {{lote.tratamiento.tipo}}\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="grid" item-start></ion-icon>\n                          {{lote.cuadro.up}}\n                        </ion-item>\n                      </ion-list>\n                    </ion-card-content>\n                  </ion-card>\n                </ion-item>\n              </ion-list>    \n            </ion-col-->\n          </ion-row>\n        </ion-grid>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\ingresos-list\ingresos-list.html"*/,
+            selector: 'page-ingresos-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\ingresos-list\ingresos-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Ingresos</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12>\n        <h1 padding text-center>Listado de Ingresos</h1>\n        <p text-center>Listado de de todos los ingresos de fruta con sus correspondientes lotes</p>\n      </ion-col>\n      <ion-col padding col-12 class="accordion-list" *ngFor=" let ingreso of ingresosList; let i = \'index\'">\n        <button ion-item class="no-border-cards" (click)="toggleIngreso(i)" detail-none [ngClass]="{ \'section-active\': ingreso.open, \'section\': !ingreso.open }">\n          <ion-row align-items-center>\n            <ion-col col-sm-1 col-md-1 col-lg-1 class="hidden-xs-down">\n              <ion-icon item-left name="arrow-forward" *ngIf="!ingreso.open"></ion-icon>\n              <ion-icon item-left name="arrow-down" *ngIf="ingreso.open"></ion-icon>\n            </ion-col>        \n            <ion-col col-12 col-sm-7 col-md-9 col-lg-9>\n              <h2 padding text-center>Remito {{ingreso.nroRemito}}</h2>\n            </ion-col>\n            <ion-col col-8 offset-2 col-sm-4 col-md-2 col-lg-2 offset-sm-0 offset-md-0 offset-lg-0>\n              <ion-buttons>\n                <ion-row align-items-center>\n                  <ion-col col-3 class="vertical-align-icon">\n                    <button ion-button icon-only small outline color="white" (click)="goToLotes(ingreso)"><ion-icon name="cube"></ion-icon></button>\n                  </ion-col>\n                  <ion-col col-3 class="vertical-align-icon">\n                    <button ion-button icon-only small outline color="white" (click)="goToViajes(ingreso)"><ion-icon name="bus"></ion-icon></button>\n                  </ion-col>\n                  <ion-col col-3 class="vertical-align-icon">\n                    <button ion-button icon-only small outline color="white" (click)="goToEditIngreso(ingreso)"><ion-icon name="create"></ion-icon></button>\n                  </ion-col>\n                  <ion-col col-3 class="vertical-align-icon">\n                    <button ion-button icon-only small outline color="white" (click)="alertDeleteIngreso(ingreso.id)"><ion-icon name="trash"></ion-icon></button>\n                  </ion-col>\n                </ion-row>\n              </ion-buttons>\n            </ion-col>\n          </ion-row>\n        </button>\n        <ion-grid *ngIf="ingreso.open" class="back-black-color">\n          <ion-row>\n            <ion-col padding col-sm-12 col-md-12>\n              <ion-row>\n                <ion-col padding col-sm-12 col-md-6>\n                  <ion-item class="no-border">\n                    <ion-icon name="calendar" item-start></ion-icon>\n                      {{ingreso.fechaIngreso}}\n                  </ion-item>\n                </ion-col>\n                <ion-col padding col-sm-12 col-md-6>\n                  <ion-item class="no-border">\n                    <ion-icon name="contact" item-start></ion-icon>\n                      {{ingreso.createdFor}}\n                  </ion-item>\n                </ion-col>\n                <ion-col padding col-sm-12 col-md-4>\n                  <ion-item class="no-border">\n                    <ion-icon name="leaf" item-start></ion-icon>\n                      {{ingreso.lotes[0].chacra.renspa}} - {{ingreso.lotes[0].chacra.nombre}}\n                  </ion-item>\n                </ion-col>\n                <ion-col padding col-sm-12 col-md-4>\n                  <ion-item class="no-border">\n                    <ion-icon name="home" item-start></ion-icon>\n                      {{ingreso.ingresos_viajes[0].institucion.nombre}}\n                  </ion-item>\n                </ion-col>\n                <ion-col padding col-sm-12 col-md-4>\n                  <ion-item class="no-border">\n                    <ion-icon name="bus" item-start></ion-icon>\n                      {{ingreso.ingresos_viajes[0].camion.nombreChofer}}\n                  </ion-item>\n                </ion-col>\n              </ion-row>\n            </ion-col>\n            <!--ion-col *ngFor="let lote of ingreso.lotes" padding col-sm-12 col-md-4>\n              <ion-list>\n                <ion-item class="no-border">\n                  <ion-card>\n                    <ion-card-header no-padding no-margin class="card-hearder-color no-border">\n                      <ion-row>\n                        <ion-col col-md-6 no-padding>\n                          <h2 margin text-center class="black-color">Lote Nro {{lote.nroLote}}</h2>\n                        </ion-col>\n                        <ion-col col-md-6 no-padding> \n                          <ion-buttons right>\n                            <button ion-button clear color="white" icon-only small (click)="goToEditLote(lote)">\n                              <ion-icon name="create"></ion-icon>\n                            </button>\n                            <button ion-button clear color="white" icon-only small (click)="alertDeleteLote(lote.id)">\n                              <ion-icon name="trash"></ion-icon>\n                            </button>\n                          </ion-buttons>\n                        </ion-col>\n                      </ion-row>\n                    </ion-card-header>\n                    <ion-card-content>\n                      <ion-list no-padding no-margin>\n                        <ion-item class="no-border">\n                          <ion-icon name="cube" item-start></ion-icon>\n                          {{lote.cantBins}} Bins\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="podium" item-start></ion-icon>\n                          {{lote.pesoNeto}} Kgs\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="rose" item-start></ion-icon>\n                          {{lote.especy.tipo}}\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="flower" item-start></ion-icon>\n                          {{lote.variedad.tipo}}\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="star-half" item-start></ion-icon>\n                          {{lote.calidad.tipo}}\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="color-fill" item-start></ion-icon>\n                          {{lote.tratamiento.tipo}}\n                        </ion-item>\n                        <ion-item class="no-border">\n                          <ion-icon name="grid" item-start></ion-icon>\n                          {{lote.cuadro.up}}\n                        </ion-item>\n                      </ion-list>\n                    </ion-card-content>\n                  </ion-card>\n                </ion-item>\n              </ion-list>    \n            </ion-col-->\n          </ion-row>\n        </ion-grid>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\ingresos-list\ingresos-list.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_ingresos_service_ingresos_service__["a" /* IngresosServiceProvider */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
@@ -4050,7 +3967,7 @@ var IngresosServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 751:
+/***/ 753:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4065,7 +3982,7 @@ var CalidadModel = (function () {
 
 /***/ }),
 
-/***/ 752:
+/***/ 754:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4080,7 +3997,7 @@ var EspecieModel = (function () {
 
 /***/ }),
 
-/***/ 753:
+/***/ 755:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4095,7 +4012,7 @@ var VariedadModel = (function () {
 
 /***/ }),
 
-/***/ 754:
+/***/ 756:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4110,7 +4027,7 @@ var ChacraModel = (function () {
 
 /***/ }),
 
-/***/ 755:
+/***/ 757:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4125,7 +4042,7 @@ var TratamientoModel = (function () {
 
 /***/ }),
 
-/***/ 756:
+/***/ 758:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4140,7 +4057,7 @@ var CuadroModel = (function () {
 
 /***/ }),
 
-/***/ 757:
+/***/ 759:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4164,7 +4081,7 @@ var IngresoModel = (function () {
 
 /***/ }),
 
-/***/ 758:
+/***/ 760:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4206,7 +4123,7 @@ var LoteModel = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_productor_edit_productor__ = __webpack_require__(380);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_productor_edit_productor__ = __webpack_require__(382);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4265,7 +4182,7 @@ var ProductoresList = (function () {
     };
     ProductoresList = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\productoresList\productoresList.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Productores</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Listado de Productores</h1>\n        <p text-center>Presentacion en forma de lista de los productores con los que se trabaja</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h4 padding-top no-margin>Datos generales de los productores</h4>\n        <ion-row padding>\n          <ion-col col-sm-12 col-md-8 offset-md-2>\n            <ion-list>\n              <ion-item ion-item *ngFor="let prod of productoresList" class="no-border">\n                <ion-avatar item-left>\n                  <img src="assets/imgs/user.png">\n                </ion-avatar>\n                <ion-row>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Productor</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{prod.nombre}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Dni</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{prod.dni}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Telefono</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{prod.telefono}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small (click)="goToEdit(prod)">\n                          <ion-icon name="create"></ion-icon>\n                        </button>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small \n                          (click)="alertDeleteProductor(prod.id)">\n                          <ion-icon name="trash"></ion-icon>\n                        </button>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                </ion-row>\n              </ion-item>\n            </ion-list>\n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\productoresList\productoresList.html"*/
+            selector: 'page-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\productoresList\productoresList.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Productores</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 padding>\n        <h1 text-center>Listado de Productores</h1>\n        <p text-center>Presentacion en forma de lista de los productores con los que se trabaja</p>\n      </ion-col>\n\n      <ion-col col-12 padding class="back-black-color">\n        <h4 padding-top no-margin>Datos generales de los Productores</h4>\n        <ion-row padding>\n\n          <!-- Forma Lista -->\n          <ion-col col-12 padding class="back-black-color hidden-md-down">\n            <ion-row padding-top>\n              <ion-col col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2>\n                <ion-list>\n                  <ion-item ion-item class="no-border">\n                    <ion-row>\n                      <ion-col col-3>\n                        <h2 text-center>Productor</h2>\n                      </ion-col>\n                      <ion-col col-3>\n                        <h2 text-center>Dni</h2>\n                      </ion-col>\n                      <ion-col col-3> \n                        <h2 text-center>Telefono</h2>\n                      </ion-col>\n                      <ion-col col-3 class="vertical-align-icon"> \n                        <ion-icon class="size-icon" name="more"></ion-icon>\n                      </ion-col>\n                    </ion-row>\n                  </ion-item>\n                  <ion-item ion-item *ngFor="let prod of productoresList" class="no-border">\n                    <ion-row align-items-center>\n                      <ion-col col-3>\n                        <p text-center>{{prod.nombre}}</p>\n                      </ion-col>\n                      <ion-col col-3>\n                        <p text-center>{{prod.dni}}</p>\n                      </ion-col>\n                      <ion-col col-3> \n                        <p text-center>{{prod.telefono}}</p>\n                      </ion-col>\n                      <ion-col col-3> \n                        <ion-row>\n                          <ion-col col-6 class="vertical-align-icon">\n                            <button ion-button color="semiDark" round icon-only small (click)="goToEdit(prod)">\n                              <ion-icon name="create"></ion-icon>\n                            </button>\n                          </ion-col>\n                          <ion-col col-6 class="vertical-align-icon">\n                            <button ion-button color="semiDark" round icon-only small \n                              (click)="alertDeleteProductor(prod.id)">\n                              <ion-icon name="trash"></ion-icon>\n                            </button>\n                          </ion-col>\n                        </ion-row>\n                      </ion-col>\n                    </ion-row>\n                  </ion-item>\n                </ion-list>\n              </ion-col>\n            </ion-row>\n          </ion-col>\n\n          <!-- Formato Card-->\n          <ion-col *ngFor="let prod of productoresList" offset-sm-1 col-sm-10 col-12 col-md-6 offset-md-0 no-padding class="hidden-lg-up">\n            <ion-list>\n              <ion-item class="no-border">\n                <ion-card>\n                  <ion-card-header no-padding no-margin class="card-hearder-color no-border">\n                    <ion-row align-items-center>\n                      <ion-col col-6 no-padding>\n                        <h2 margin text-center style="color: white">{{prod.nombre}}</h2>\n                      </ion-col>\n                      <ion-col col-6 no-padding> \n                        <ion-buttons right>\n                          <button ion-button clear color="white" icon-only small (click)="goToEdit(prod)">\n                            <ion-icon name="create"></ion-icon>\n                          </button>\n                          <button ion-button clear color="white" icon-only small (click)="alertDeleteProductor(prod.id)">\n                            <ion-icon name="trash"></ion-icon>\n                          </button>\n                        </ion-buttons>\n                      </ion-col>\n                    </ion-row>\n                  </ion-card-header>\n                  <ion-card-content>\n                    <ion-list no-padding no-margin>\n                      <ion-item class="no-border">\n                        <ion-icon name="contact" item-start></ion-icon>\n                        {{prod.dni}}\n                      </ion-item>\n                      <ion-item class="no-border">\n                        <ion-icon name="call" item-start></ion-icon>\n                        {{prod.telefono}}\n                      </ion-item>\n                    </ion-list>\n                  </ion-card-content>\n                </ion-card>\n              </ion-item>\n            </ion-list>    \n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\productoresList\productoresList.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__["a" /* ProductoresServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], ProductoresList);
@@ -4371,7 +4288,7 @@ var ProductoresServiceProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_camiones_service_camiones_service__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_camion_edit_camion__ = __webpack_require__(381);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_camion_edit_camion__ = __webpack_require__(383);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4430,7 +4347,7 @@ var CamionesList = (function () {
     };
     CamionesList = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-camiones-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\camiones-list\camiones-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Camiones</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Listado de Camiones</h1>\n        <p text-center>Presentacion en forma de lista de los camiones con los que se transporta</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h4 padding-top no-margin>Camiones</h4>\n        <ion-row padding>\n          <ion-col col-sm-12 col-md-8 offset-md-2>\n            <ion-list>\n              <ion-item ion-item *ngFor="let camion of camionesList" class="no-border">\n                <ion-avatar item-left>\n                  <img src="assets/imgs/camion-icon.png">\n                </ion-avatar>\n                <ion-row>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Chofer</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{camion.nombreChofer}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Patente Chasis</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{camion.patenteChasis}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Patente Acoplado</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{camion.patenteAcoplado}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small (click)="goToEdit(camion)">\n                          <ion-icon name="create"></ion-icon>\n                        </button>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small \n                          (click)="alertDeleteCamion(camion.id)">\n                          <ion-icon name="trash"></ion-icon>\n                        </button>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                </ion-row>\n              </ion-item>\n            </ion-list>\n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\camiones-list\camiones-list.html"*/,
+            selector: 'page-camiones-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\camiones-list\camiones-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Camiones</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 padding>\n        <h1 text-center>Listado de Camiones</h1>\n        <p text-center>Presentacion en forma de lista de los camiones con los que se transporta</p>\n      </ion-col>\n\n      <ion-col col-12 padding class="back-black-color">\n        <h4 padding-top no-margin>Datos generales de los Camiones</h4>\n        <ion-row padding>\n\n          <!-- Forma Lista -->\n          <ion-col col-12 padding class="back-black-color hidden-md-down">\n            <ion-row padding-top>\n              <ion-col col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2>\n                <ion-list>\n                  <ion-item ion-item class="no-border">\n                    <ion-row>\n                      <ion-col col-3>\n                        <h2 text-center>Chofer</h2>\n                      </ion-col>\n                      <ion-col col-3>\n                        <h2 text-center>Patente Chasis</h2>\n                      </ion-col>\n                      <ion-col col-3> \n                        <h2 text-center>Patente Acoplado</h2>\n                      </ion-col>\n                      <ion-col col-3 class="vertical-align-icon"> \n                        <ion-icon class="size-icon" name="more"></ion-icon>\n                      </ion-col>\n                    </ion-row>\n                  </ion-item>\n                  <ion-item  *ngFor="let camion of camionesList" class="no-border">\n                    <ion-row align-items-center>\n                      <ion-col col-3>\n                        <p text-center>{{camion.nombreChofer}}</p>\n                      </ion-col>\n                      <ion-col col-3>\n                        <p text-center>{{camion.patenteChasis}}</p>\n                      </ion-col>\n                      <ion-col col-3> \n                        <p text-center>{{camion.patenteAcoplado}}</p>\n                      </ion-col>\n                      <ion-col col-3> \n                        <ion-row>\n                          <ion-col col-6 class="vertical-align-icon">\n                            <button ion-button color="semiDark" round icon-only small (click)="goToEdit(camion)">\n                              <ion-icon name="create"></ion-icon>\n                            </button>\n                          </ion-col>\n                          <ion-col col-6 class="vertical-align-icon">\n                            <button ion-button color="semiDark" round icon-only small \n                              (click)="alertDeleteCamion(camion.id)">\n                              <ion-icon name="trash"></ion-icon>\n                            </button>\n                          </ion-col>\n                        </ion-row>\n                      </ion-col>\n                    </ion-row>\n                  </ion-item>\n                </ion-list>\n              </ion-col>\n            </ion-row>\n          </ion-col>\n\n          <!-- Formato Card-->\n          <ion-col  *ngFor="let camion of camionesList" offset-sm-1 col-sm-10 col-12 col-md-6 offset-md-0 no-padding class="hidden-lg-up">\n            <ion-list>\n              <ion-item class="no-border">\n                <ion-card>\n                  <ion-card-header no-padding no-margin class="card-hearder-color no-border">\n                    <ion-row align-items-center>\n                      <ion-col col-6 no-padding>\n                        <h2 margin text-center style="color: white">{{camion.nombreChofer}}</h2>\n                      </ion-col>\n                      <ion-col col-6 no-padding> \n                        <ion-buttons right>\n                          <button ion-button clear color="white" icon-only small (click)="goToEdit(camion)">\n                            <ion-icon name="create"></ion-icon>\n                          </button>\n                          <button ion-button clear color="white" icon-only small (click)="alertDeleteCamion(camion.id)">\n                            <ion-icon name="trash"></ion-icon>\n                          </button>\n                        </ion-buttons>\n                      </ion-col>\n                    </ion-row>\n                  </ion-card-header>\n                  <ion-card-content>\n                    <ion-list no-padding no-margin>\n                      <ion-item class="no-border">\n                        <ion-icon name="contact" item-start></ion-icon>\n                        {{camion.patenteChasis}}\n                      </ion-item>\n                      <ion-item class="no-border">\n                        <ion-icon name="call" item-start></ion-icon>\n                        {{camion.patenteAcoplado}}\n                      </ion-item>\n                    </ion-list>\n                  </ion-card-content>\n                </ion-card>\n              </ion-item>\n            </ion-list>    \n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\camiones-list\camiones-list.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], CamionesList);
@@ -4449,7 +4366,7 @@ var CamionesList = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_empresas_service_empresas_service__ = __webpack_require__(96);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_empresa_edit_empresa__ = __webpack_require__(382);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_empresa_edit_empresa__ = __webpack_require__(384);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4508,7 +4425,7 @@ var EmpresasList = (function () {
     };
     EmpresasList = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-empresas-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\empresas-list\empresas-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Empresas</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Listado de Empresas</h1>\n        <p text-center>Presentacion en forma de lista de las empresas con los que se comercializa</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h4 padding-top no-margin>Empresas</h4>\n        <ion-row padding>\n          <ion-col col-sm-12 col-md-8 offset-md-2>\n            <ion-list>\n              <ion-item ion-item *ngFor="let empresa of empresasList" class="no-border">\n                <ion-avatar item-left>\n                  <img src="assets/imgs/emperesa-icon.png">\n                </ion-avatar>\n                <ion-row>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Empresa</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{empresa.nombre}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Direccion</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{empresa.direccion}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Telefono</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{empresa.telefono}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small (click)="goToEdit(empresa)">\n                          <ion-icon name="create"></ion-icon>\n                        </button>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small \n                          (click)="alertDeleteEmpresa(empresa.id)">\n                          <ion-icon name="trash"></ion-icon>\n                        </button>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                </ion-row>\n              </ion-item>\n            </ion-list>\n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\empresas-list\empresas-list.html"*/,
+            selector: 'page-empresas-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\empresas-list\empresas-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Empresas</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 padding>\n        <h1 text-center>Listado de Empresas</h1>\n        <p text-center>Presentacion en forma de lista de las empresas con los que se comercializa</p>\n      </ion-col>\n\n      <ion-col col-12 padding class="back-black-color">\n        <h4 padding-top no-margin>Datos generales de las Empresas</h4>\n        <ion-row padding>\n\n          <!-- Forma Lista -->\n          <ion-col col-12 padding class="back-black-color hidden-md-down">\n            <ion-row padding-top>\n              <ion-col col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2>\n                <ion-list>\n                  <ion-item ion-item class="no-border">\n                    <ion-row>\n                      <ion-col col-3>\n                        <h2 text-center>Empresa</h2>\n                      </ion-col>\n                      <ion-col col-3>\n                        <h2 text-center>Direccion</h2>\n                      </ion-col>\n                      <ion-col col-3> \n                        <h2 text-center>Telefono</h2>\n                      </ion-col>\n                      <ion-col col-3 class="vertical-align-icon"> \n                        <ion-icon class="size-icon" name="more"></ion-icon>\n                      </ion-col>\n                    </ion-row>\n                  </ion-item>\n                  <ion-item ion-item *ngFor="let empresa of empresasList" class="no-border">\n                    <ion-row align-items-center>\n                      <ion-col col-3>\n                        <p text-center>{{empresa.nombre}}</p>\n                      </ion-col>\n                      <ion-col col-3>\n                        <p text-center>{{empresa.direccion}}</p>\n                      </ion-col>\n                      <ion-col col-3> \n                        <p text-center>{{empresa.telefono}}</p>\n                      </ion-col>\n                      <ion-col col-3> \n                        <ion-row>\n                          <ion-col col-6 class="vertical-align-icon">\n                            <button ion-button color="semiDark" round icon-only small (click)="goToEdit(empresa)">\n                              <ion-icon name="create"></ion-icon>\n                            </button>\n                          </ion-col>\n                          <ion-col col-6 class="vertical-align-icon">\n                            <button ion-button color="semiDark" round icon-only small \n                              (click)="alertDeleteEmpresa(empresa.id)">\n                              <ion-icon name="trash"></ion-icon>\n                            </button>\n                          </ion-col>\n                        </ion-row>\n                      </ion-col>\n                    </ion-row>\n                  </ion-item>\n                </ion-list>\n              </ion-col>\n            </ion-row>\n          </ion-col>\n\n          <!-- Formato Card-->\n          <ion-col *ngFor="let empresa of empresasList" offset-sm-1 col-sm-10 col-12 col-md-6 offset-md-0 no-padding class="hidden-lg-up">\n            <ion-list>\n              <ion-item class="no-border">\n                <ion-card>\n                  <ion-card-header no-padding no-margin class="card-hearder-color no-border">\n                    <ion-row align-items-center>\n                      <ion-col col-6 no-padding>\n                        <h2 margin text-center style="color: white">{{empresa.nombre}}</h2>\n                      </ion-col>\n                      <ion-col col-6 no-padding> \n                        <ion-buttons right>\n                          <button ion-button clear color="white" icon-only small (click)="goToEdit(empresa)">\n                            <ion-icon name="create"></ion-icon>\n                          </button>\n                          <button ion-button clear color="white" icon-only small (click)="alertDeleteEmpresa(empresa.id)">\n                            <ion-icon name="trash"></ion-icon>\n                          </button>\n                        </ion-buttons>\n                      </ion-col>\n                    </ion-row>\n                  </ion-card-header>\n                  <ion-card-content>\n                    <ion-list no-padding no-margin>\n                      <ion-item class="no-border">\n                        <ion-icon name="contact" item-start></ion-icon>\n                        {{empresa.direccion}}\n                      </ion-item>\n                      <ion-item class="no-border">\n                        <ion-icon name="call" item-start></ion-icon>\n                        {{empresa.telefono}}\n                      </ion-item>\n                    </ion-list>\n                  </ion-card-content>\n                </ion-card>\n              </ion-item>\n            </ion-list>    \n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\empresas-list\empresas-list.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_empresas_service_empresas_service__["a" /* EmpresasServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], EmpresasList);
@@ -4614,7 +4531,7 @@ var EmpresasServiceProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_instituciones_service_instituciones_service__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_institucion_edit_institucion__ = __webpack_require__(383);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_institucion_edit_institucion__ = __webpack_require__(385);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4674,7 +4591,7 @@ var InstitucionesList = (function () {
     };
     InstitucionesList = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-instituciones-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\instituciones-list\instituciones-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Instituciones</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-sm-12 col-md-12 padding>\n        <h1 text-center>Listado de Instituciones</h1>\n        <p text-center>Presentacion en forma de lista de las intituciones donde se destina la fruta</p>\n      </ion-col>\n      <ion-col col-sm-12 col-md-12 padding class="back-black-color">\n        <h4 padding-top no-margin>Instituciones</h4>\n        <ion-row padding>\n          <ion-col col-sm-12 col-md-8 offset-md-2>\n            <ion-list>\n              <ion-item ion-item *ngFor="let institucion of institucionesList" class="no-border">\n                <ion-avatar item-left>\n                  <img src="assets/imgs/institucion-icon.png">\n                </ion-avatar>\n                <ion-row>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Institucion</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{institucion.nombre}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3>\n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Direccion</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{institucion.direccion}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-12>\n                        <h2 text-center>Telefono</h2>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-12>\n                        <p text-center>{{institucion.telefono}}</p>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                  <ion-col col-sm-12 col-md-3> \n                    <ion-row>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small (click)="goToEdit(institucion)">\n                          <ion-icon name="create"></ion-icon>\n                        </button>\n                      </ion-col>\n                      <ion-col col-sm-12 col-md-6>\n                        <button ion-button color="semiDark" round icon-only small \n                          (click)="alertDeleteInstitucion(institucion.id)">\n                          <ion-icon name="trash"></ion-icon>\n                        </button>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n                </ion-row>\n              </ion-item>\n            </ion-list>\n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\instituciones-list\instituciones-list.html"*/,
+            selector: 'page-instituciones-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\instituciones-list\instituciones-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Instituciones</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 padding>\n        <h1 text-center>Listado de Instituciones</h1>\n        <p text-center>Presentacion en forma de lista de las intituciones donde se destina la fruta</p>\n      </ion-col>\n\n      <ion-col col-12 padding class="back-black-color">\n        <h4 padding-top no-margin>Datos generales de las Instituciones</h4>\n        <ion-row padding>\n\n          <!-- Forma Lista -->\n          <ion-col col-12 padding class="back-black-color hidden-md-down">\n            <ion-row padding-top>\n              <ion-col col-12 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2>\n                <ion-list>\n                  <ion-item ion-item class="no-border">\n                    <ion-row>\n                      <ion-col col-3>\n                        <h2 text-center>Institucion</h2>\n                      </ion-col>\n                      <ion-col col-3>\n                        <h2 text-center>Direccion</h2>\n                      </ion-col>\n                      <ion-col col-3> \n                        <h2 text-center>Telefono</h2>\n                      </ion-col>\n                      <ion-col col-3 class="vertical-align-icon"> \n                        <ion-icon class="size-icon" name="more"></ion-icon>\n                      </ion-col>\n                    </ion-row>\n                  </ion-item>\n                  <ion-item  *ngFor="let institucion of institucionesList" class="no-border">\n                    <ion-row align-items-center>\n                      <ion-col col-3>\n                        <p text-center>{{institucion.nombre}}</p>\n                      </ion-col>\n                      <ion-col col-3>\n                        <p text-center>{{institucion.direccion}}</p>\n                      </ion-col>\n                      <ion-col col-3> \n                        <p text-center>{{institucion.telefono}}</p>\n                      </ion-col>\n                      <ion-col col-3> \n                        <ion-row>\n                          <ion-col col-6 class="vertical-align-icon">\n                            <button ion-button color="semiDark" round icon-only small (click)="goToEdit(institucion)">\n                              <ion-icon name="create"></ion-icon>\n                            </button>\n                          </ion-col>\n                          <ion-col col-6 class="vertical-align-icon">\n                            <button ion-button color="semiDark" round icon-only small \n                              (click)="alertDeleteInstitucion(institucion.id)">\n                              <ion-icon name="trash"></ion-icon>\n                            </button>\n                          </ion-col>\n                        </ion-row>\n                      </ion-col>\n                    </ion-row>\n                  </ion-item>\n                </ion-list>\n              </ion-col>\n            </ion-row>\n          </ion-col>\n\n          <!-- Formato Card-->\n          <ion-col  *ngFor="let institucion of institucionesList" offset-sm-1 col-sm-10 col-12 col-md-6 offset-md-0 no-padding class="hidden-lg-up">\n            <ion-list>\n              <ion-item class="no-border">\n                <ion-card>\n                  <ion-card-header no-padding no-margin class="card-hearder-color no-border">\n                    <ion-row align-items-center>\n                      <ion-col col-6 no-padding>\n                        <h2 margin text-center style="color: white">{{institucion.nombre}}</h2>\n                      </ion-col>\n                      <ion-col col-6 no-padding> \n                        <ion-buttons right>\n                          <button ion-button clear color="white" icon-only small (click)="goToEdit(institucion)">\n                            <ion-icon name="create"></ion-icon>\n                          </button>\n                          <button ion-button clear color="white" icon-only small (click)="alertDeleteInstitucion(institucion.id)">\n                            <ion-icon name="trash"></ion-icon>\n                          </button>\n                        </ion-buttons>\n                      </ion-col>\n                    </ion-row>\n                  </ion-card-header>\n                  <ion-card-content>\n                    <ion-list no-padding no-margin>\n                      <ion-item class="no-border">\n                        <ion-icon name="contact" item-start></ion-icon>\n                        {{institucion.direccion}}\n                      </ion-item>\n                      <ion-item class="no-border">\n                        <ion-icon name="call" item-start></ion-icon>\n                        {{institucion.telefono}}\n                      </ion-item>\n                    </ion-list>\n                  </ion-card-content>\n                </ion-card>\n              </ion-item>\n            </ion-list>    \n          </ion-col>\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\instituciones-list\instituciones-list.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], InstitucionesList);
@@ -4683,7 +4600,180 @@ var InstitucionesList = (function () {
 
 //# sourceMappingURL=instituciones-list.js.map
 
+/***/ }),
+
+/***/ 98:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChacrasList; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_cuadros_service_cuadros_service__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_edit_chacra_edit_chacra__ = __webpack_require__(386);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var ChacrasList = (function () {
+    function ChacrasList(navCtrl, navParams, ChacrasServiceProvider, CuadrosServiceProvider, AlertController) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.ChacrasServiceProvider = ChacrasServiceProvider;
+        this.CuadrosServiceProvider = CuadrosServiceProvider;
+        this.AlertController = AlertController;
+        this.chacrasList = [];
+        this.newCuadro = { up: '', chacraId: '' };
+        this.getAllChacras();
+    }
+    ChacrasList.prototype.getAllChacras = function () {
+        var _this = this;
+        this.ChacrasServiceProvider.getAllChacras().subscribe(function (data) { return _this.chacrasList = data; });
+    };
+    ChacrasList.prototype.goToEdit = function (chacra) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__pages_edit_chacra_edit_chacra__["a" /* EditChacra */], {
+            chacra: chacra
+        });
+    };
+    ChacrasList.prototype.deleteChacra = function (chacraId) {
+        var _this = this;
+        this.ChacrasServiceProvider.deleteChacra(chacraId).subscribe(function (data) { return _this.getAllChacras(); });
+    };
+    ChacrasList.prototype.alertDeleteChacra = function (chacraId) {
+        var _this = this;
+        var alert = this.AlertController.create({
+            title: 'Confirmar eliminacion',
+            message: 'Esta seguro que desea eliminar la chacra de la lista?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function () { }
+                },
+                {
+                    text: 'Eliminar',
+                    handler: function () {
+                        _this.deleteChacra(chacraId);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    //CUADROS
+    ChacrasList.prototype.alertNewCuadro = function (chacraId) {
+        var _this = this;
+        var alert = this.AlertController.create({
+            title: 'Agregar Cuadro',
+            inputs: [
+                {
+                    name: 'Up',
+                    placeholder: 'Up',
+                }
+            ],
+            buttons: [
+                {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    handler: function (data) { }
+                },
+                {
+                    text: 'Crear',
+                    handler: function (data) {
+                        _this.newCuadro.up = data.Up;
+                        _this.newCuadro.chacraId = chacraId;
+                        _this.addNewCuadro();
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    ChacrasList.prototype.addNewCuadro = function () {
+        var _this = this;
+        this.CuadrosServiceProvider.addNewCuadro(this.newCuadro).subscribe(function (data) { return _this.getAllChacras(); });
+        this.newCuadro = { up: '', chacraId: '' };
+    };
+    ChacrasList.prototype.alertEditCuadro = function (cuadro) {
+        var _this = this;
+        var alert = this.AlertController.create({
+            title: 'Editar Cuadro',
+            inputs: [
+                {
+                    name: 'Up',
+                    placeholder: 'Up',
+                    value: cuadro.up,
+                }
+            ],
+            buttons: [
+                {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    handler: function (data) { }
+                },
+                {
+                    text: 'Editar',
+                    handler: function (data) {
+                        cuadro.up = data.Up;
+                        _this.editCuadro(cuadro);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    ChacrasList.prototype.editCuadro = function (cuadro) {
+        var _this = this;
+        this.CuadrosServiceProvider.editCuadro(cuadro).subscribe(function (data) { return _this.getAllChacras(); });
+    };
+    ChacrasList.prototype.alertDeleteCuadro = function (cuadroId) {
+        var _this = this;
+        var alert = this.AlertController.create({
+            title: 'Confirmar eliminacion',
+            message: 'Esta seguro que desea eliminar el cuadro de la lista?',
+            buttons: [
+                {
+                    text: 'Cancelar',
+                    role: 'cancel',
+                    handler: function () { }
+                },
+                {
+                    text: 'Eliminar',
+                    handler: function () {
+                        _this.deleteCuadro(cuadroId);
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    ChacrasList.prototype.deleteCuadro = function (cuadroId) {
+        var _this = this;
+        this.CuadrosServiceProvider.deleteCuadro(cuadroId).subscribe(function (data) { return _this.getAllChacras(); });
+    };
+    ChacrasList = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-chacras-list',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\chacras-list\chacras-list.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Chacras</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding class="back-color">\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 padding>\n        <h1 text-center>Listado de Chacras</h1>\n        <p text-center>Presentacion en forma de lista de chacras donde se obtiene la produccion</p>\n      </ion-col>\n      <ion-col col-12 class="back-black-color">\n        <h4 padding no-margin>Datos generales de las Chacras</h4>\n        <ion-row>\n\n          <!--Formato Lista-->\n          <ion-col col-12 col-md-10 offset-md-1 class="hidden-xs-down">\n            <ion-list>\n              <ion-item ion-item *ngFor="let chacra of chacrasList" class="no-border">\n                <ion-row>\n                  <ion-col col-12>\n                    <ion-row align-items-center>\n                      <ion-col col-4>\n                        <ion-row>\n                          <ion-col col-12>\n                            <h2 text-center>Chacra</h2>\n                          </ion-col>\n                          <ion-col col-12>\n                            <p text-center>{{chacra.nombre}}</p>\n                          </ion-col>\n                        </ion-row>\n                      </ion-col>\n                      <ion-col col-4>\n                        <ion-row>\n                          <ion-col col-12>\n                            <h2 text-center>Renspa</h2>\n                          </ion-col>\n                          <ion-col col-12>\n                            <p text-center>{{chacra.renspa}}</p>\n                          </ion-col>\n                        </ion-row>\n                      </ion-col>\n                      <ion-col col-4> \n                        <ion-row>\n                          <ion-col col-12 class="vertical-align-icon">\n                            <ion-icon class="size-icon" name="more"></ion-icon>\n                          </ion-col>\n                          <ion-col col-12 class="vertical-align-icon">\n                            <ion-row>\n                              <ion-col col-4>\n                                <button ion-button color="semiDark" round icon-only small (click)="alertNewCuadro(chacra.id)">\n                                  <ion-icon name="add"></ion-icon>\n                                </button>\n                              </ion-col>\n                              <ion-col col-4>\n                                <button ion-button color="semiDark" round icon-only small (click)="goToEdit(chacra)">\n                                  <ion-icon name="create"></ion-icon>\n                                </button>\n                              </ion-col>\n                              <ion-col col-4>\n                                <button ion-button color="semiDark" round icon-only small \n                                  (click)="alertDeleteChacra(chacra.id)">\n                                  <ion-icon name="trash"></ion-icon>\n                                </button>\n                              </ion-col>\n                            </ion-row>\n                          </ion-col>\n                        </ion-row>\n                      </ion-col>\n                    </ion-row>\n                  </ion-col>\n\n                  <ion-col no-padding col-12 col-lg-8 offset-lg-2 offset-0>\n                    <ion-list>\n                      <ion-item class="no-border">\n                        <ion-row align-items-center>\n                          <ion-col col-4 class="vertical-align-icon">\n                            <p text-center>Cuadro</p>\n                          </ion-col>\n                          <ion-col col-4 class="vertical-align-icon">\n                            <p text-center>Up</p>\n                          </ion-col>\n                          <ion-col col-4 class="vertical-align-icon"> \n                             <ion-icon class="size-icon" name="more"></ion-icon>\n                          </ion-col>\n                        </ion-row>\n                      </ion-item>\n                      <ion-item class="no-border" *ngFor="let cuadro of chacra.cuadros; let i = \'index\'">\n                        <ion-row align-items-center>\n                          <ion-col col-4 class="vertical-align-icon">\n                            <p text-center>{{i}}</p>\n                          </ion-col>\n                          <ion-col col-4 class="vertical-align-icon">\n                            <p text-center>{{cuadro.up}}</p>\n                          </ion-col>\n                          <ion-col col-4 class="vertical-align-icon"> \n                            <ion-row align-items-center>\n                              <ion-col col-6>\n                                <button ion-button color="semiDark" round icon-only small (click)="alertEditCuadro(cuadro)">\n                                  <ion-icon name="create"></ion-icon>\n                                </button>\n                              </ion-col>\n                              <ion-col col-6>\n                                <button ion-button color="semiDark" round icon-only small \n                                  (click)="alertDeleteCuadro(cuadro.id)">\n                                  <ion-icon name="trash"></ion-icon>\n                                </button>\n                              </ion-col>\n                            </ion-row>\n                          </ion-col>\n                        </ion-row>\n                      </ion-item>\n                    </ion-list>\n                  </ion-col>\n                </ion-row>\n              </ion-item>\n            </ion-list>\n          </ion-col>\n\n          <!-- Formato Card-->\n          <ion-col *ngFor="let chacra of chacrasList" offset-sm-1 col-sm-10 col-12 col-md-6 offset-md-0 col-lg-8 offset-lg-2 offset-0 no-padding class="hidden-sm-up">\n            <ion-card no-padding>\n              <ion-card-header no-padding no-margin class="card-hearder-color no-border">\n                <ion-row align-items-center>\n                  <ion-col col-6 no-padding>\n                    <h2 margin text-center style="color: white">{{chacra.nombre}}</h2>\n                  </ion-col>\n                  <ion-col col-6 no-padding> \n                    <ion-buttons right>\n                      <ion-col col-4>\n                        <button ion-button color="semiDark" round icon-only small (click)="alertNewCuadro(chacra.id)">\n                          <ion-icon name="add"></ion-icon>\n                        </button>\n                      </ion-col>\n                      <ion-col col-4>\n                        <button ion-button color="semiDark" round icon-only small (click)="goToEdit(chacra)">\n                          <ion-icon name="create"></ion-icon>\n                        </button>\n                      </ion-col>\n                      <ion-col col-4>\n                        <button ion-button color="semiDark" round icon-only small \n                          (click)="alertDeleteChacra(chacra.id)">\n                          <ion-icon name="trash"></ion-icon>\n                        </button>\n                      </ion-col>\n                    </ion-buttons>\n                  </ion-col>\n                </ion-row>\n              </ion-card-header>\n              <ion-card-content no-padding no-margin>\n                <ion-list no-padding no-margin>\n                  <ion-item class="no-border" padding>\n                    <ion-icon name="cube" item-start></ion-icon>\n                    {{chacra.renspa}}\n                  </ion-item>\n                  <ion-item class="no-border">\n                    <ion-list>\n                      <ion-item>\n                        <ion-row align-items-center>\n                          <ion-col col-4 class="vertical-align-icon">\n                            <p text-center>Cuadro</p>\n                          </ion-col>\n                          <ion-col col-4 class="vertical-align-icon">\n                            <p text-center>Up</p>\n                          </ion-col>\n                          <ion-col col-4 class="vertical-align-icon"> \n                             <ion-icon class="size-icon" name="more"></ion-icon>\n                          </ion-col>\n                        </ion-row>\n                      </ion-item>\n                      <ion-item class="no-border" *ngFor="let cuadro of chacra.cuadros; let i = \'index\'">\n                        <ion-row align-items-center>\n                          <ion-col col-4 class="vertical-align-icon">\n                            <p text-center>{{i}}</p>\n                          </ion-col>\n                          <ion-col col-4 class="vertical-align-icon">\n                            <p text-center>{{cuadro.up}}</p>\n                          </ion-col>\n                          <ion-col col-4 class="vertical-align-icon"> \n                            <ion-row align-items-center>\n                              <ion-col col-12>\n                                <button ion-button color="semiDark" round icon-only small (click)="alertEditCuadro(cuadro)">\n                                  <ion-icon name="create"></ion-icon>\n                                </button>\n                              </ion-col>\n                              <ion-col col-12>\n                                <button ion-button color="semiDark" round icon-only small \n                                  (click)="alertDeleteCuadro(cuadro.id)">\n                                  <ion-icon name="trash"></ion-icon>\n                                </button>\n                              </ion-col>\n                            </ion-row>\n                          </ion-col>\n                        </ion-row>\n                      </ion-item>\n                    </ion-list>\n                  </ion-item>\n                </ion-list>\n              </ion-card-content>\n            </ion-card>  \n          </ion-col>\n\n        </ion-row>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n\n<!--ion-content padding class="back-color">\n  <div class="back-black-color" padding>\n    <h3 padding>Listado de Chacras:</h3>\n      <ion-list>\n        <ion-item ion-item *ngFor="let chacra of chacrasList">\n          <ion-avatar item-left>\n            <img src="assets/img/user.png">\n          </ion-avatar>\n          <h2>{{chacra.nombre}}</h2>\n          <p>Renspa: {{chacra.renspa}}</p>\n          <div padding>\n            <h3 padding>Cuadros: </h3>\n            <ion-list>\n              <ion-item ion-item *ngFor="let cuadro of chacra.cuadros">\n                <p>UP: {{cuadro.up}}</p>\n                <button ion-button (click)="alertEditCuadro(cuadro)">\n                 Editar\n                </button>\n                <button ion-button (click)="alertDeleteCuadro(cuadro.id)">\n                 Eliminar\n                </button>\n              </ion-item>\n            </ion-list>\n            <button ion-button (click)="alertNewCuadro(chacra.id)">\n             Agregar Cuadro\n            </button>\n          </div>\n          <button ion-button (click)="goToEdit(chacra)">\n           Editar\n          </button>\n          <button ion-button (click)="alertDeleteChacra(chacra.id)">\n           Eliminar\n          </button>\n        </ion-item>\n      </ion-list>\n    </div>\n</ion-content-->\n\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\chacras-list\chacras-list.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_cuadros_service_cuadros_service__["a" /* CuadrosServiceProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+    ], ChacrasList);
+    return ChacrasList;
+}());
+
+//# sourceMappingURL=chacras-list.js.map
+
 /***/ })
 
-},[398]);
+},[400]);
 //# sourceMappingURL=main.js.map

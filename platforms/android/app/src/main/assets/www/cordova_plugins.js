@@ -24,6 +24,15 @@ module.exports = [
     "clobbers": [
       "navigator.splashscreen"
     ]
+  },
+  {
+    "id": "de.appplant.cordova.plugin.printer.Printer",
+    "file": "plugins/de.appplant.cordova.plugin.printer/www/printer.js",
+    "pluginId": "de.appplant.cordova.plugin.printer",
+    "clobbers": [
+      "plugin.printer",
+      "cordova.plugins.printer"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -33,7 +42,8 @@ module.exports.metadata =
   "cordova-plugin-whitelist": "1.3.1",
   "cordova-plugin-device": "1.1.4",
   "cordova-plugin-splashscreen": "4.0.3",
-  "cordova-plugin-ionic-webview": "1.1.16"
+  "cordova-plugin-ionic-webview": "1.1.16",
+  "de.appplant.cordova.plugin.printer": "0.7.1"
 };
 // BOTTOM OF METADATA
 });

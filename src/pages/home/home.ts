@@ -11,6 +11,7 @@ import { InstitucionesList } from '../../pages/instituciones-list/instituciones-
 import { ChacrasList } from '../../pages/chacras-list/chacras-list';
 import { IngresosList } from '../../pages/ingresos-list/ingresos-list';
 import { NewIngreso } from '../../pages/new-ingreso/new-ingreso';
+import { PrinterView } from '../../pages/printer-view/printer-view';
 
 @Component({
   selector: 'page-home',
@@ -26,7 +27,8 @@ export class HomePage {
       { title: 'Empresas', icon: 'briefcase', component: EmpresasList },
       { title: 'Chacras', icon: 'leaf', component: ChacrasList },
       { title: 'Camiones', icon: 'bus', component: CamionesList },
-      { title: 'Instituciones', icon: 'home', component: InstitucionesList }
+      { title: 'Instituciones', icon: 'home', component: InstitucionesList },
+      { title: 'Imprimir', icon: 'print', component: PrinterView }
     ];
 
   	constructor(public navCtrl: NavController, public AuthServiceProvider: AuthServiceProvider) {

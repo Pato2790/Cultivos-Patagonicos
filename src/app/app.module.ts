@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-content.component';
 import { SelectSearchableModule } from '../shared/select/select-module';
+import { Printer, PrintOptions } from '@ionic-native/printer';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -29,6 +30,7 @@ import { EditLote } from '../pages/edit-lote/edit-lote';
 import { NewViaje } from '../pages/new-viaje/new-viaje';
 import { ViajesList } from '../pages/viajes-list/viajes-list';
 import { LotesList } from '../pages/lotes-list/lotes-list';
+import { PrinterView } from '../pages/printer-view/printer-view';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -88,7 +90,8 @@ export const firebaseConfig = {
     EditLote,
     NewViaje,
     ViajesList,
-    LotesList
+    LotesList,
+    PrinterView
   ],
   imports: [
     BrowserModule,
@@ -124,11 +127,13 @@ export const firebaseConfig = {
     EditLote,
     NewViaje,
     ViajesList,
-    LotesList
+    LotesList,
+    PrinterView
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Printer,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ProductoresServiceProvider,
     ChacrasServiceProvider,

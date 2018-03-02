@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar color="cultivos">
+    <ion-title>Imprimir</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<ion-grid>
+	    <ion-row>
+	        <ion-col col-12 padding>
+	          <h1 text-center>Nuevo Ingresos</h1>
+	          <p text-center>Ingrese los datos necesarios para generar un nuevo ingreso de fruta.</p>
+	        </ion-col>
+	        <ion-col col-12 class="back-black-color">
+	        	<ion-item col-12 class="no-border">
+	        	  <ion-label stacked>Impresora</ion-label>
+	        	  <ion-input type="date" [(ngModel)]="selectedPrinter" [disabled]="true"  name="selectedPrinter"></ion-input>
+	        	</ion-item>
+	        	<ion-item col-12 class="no-border">
+	        		<button ion-button type="button" color="semiDark" (click)="pickPrinter(ingreso)">Seleccionar Impresora</button>
+	        	</ion-item>
+	        	<ion-item col-12 class="no-border">
+	        	  <ion-label stacked>Estado</ion-label>
+	        	  <ion-input type="date" [(ngModel)]="available" [disabled]="true"  name="available"></ion-input>
+	        	</ion-item>
+	        	<ion-item col-12 class="no-border">
+	        		<button ion-button type="button" color="semiDark" (click)="print()">Imprimir</button>
+	        	</ion-item>
+	        </ion-col>
+	    </ion-row>
+	</ion-grid>
+</ion-content>

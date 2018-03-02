@@ -1,6 +1,6 @@
 webpackJsonp([0],{
 
-/***/ 149:
+/***/ 150:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,15 +8,16 @@ webpackJsonp([0],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_login_login__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_login_login__ = __webpack_require__(156);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_productoresList_productoresList__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_new_productor_new_productor__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_new_productor_new_productor__ = __webpack_require__(170);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_camiones_list_camiones_list__ = __webpack_require__(94);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_empresas_list_empresas_list__ = __webpack_require__(95);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_instituciones_list_instituciones_list__ = __webpack_require__(97);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_chacras_list_chacras_list__ = __webpack_require__(98);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_ingresos_list_ingresos_list__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_new_ingreso_new_ingreso__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_new_ingreso_new_ingreso__ = __webpack_require__(175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_printer_view_printer_view__ = __webpack_require__(395);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -26,6 +27,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -50,7 +52,8 @@ var HomePage = (function () {
             { title: 'Empresas', icon: 'briefcase', component: __WEBPACK_IMPORTED_MODULE_7__pages_empresas_list_empresas_list__["a" /* EmpresasList */] },
             { title: 'Chacras', icon: 'leaf', component: __WEBPACK_IMPORTED_MODULE_9__pages_chacras_list_chacras_list__["a" /* ChacrasList */] },
             { title: 'Camiones', icon: 'bus', component: __WEBPACK_IMPORTED_MODULE_6__pages_camiones_list_camiones_list__["a" /* CamionesList */] },
-            { title: 'Instituciones', icon: 'home', component: __WEBPACK_IMPORTED_MODULE_8__pages_instituciones_list_instituciones_list__["a" /* InstitucionesList */] }
+            { title: 'Instituciones', icon: 'home', component: __WEBPACK_IMPORTED_MODULE_8__pages_instituciones_list_instituciones_list__["a" /* InstitucionesList */] },
+            { title: 'Imprimir', icon: 'print', component: __WEBPACK_IMPORTED_MODULE_12__pages_printer_view_printer_view__["a" /* PrinterView */] }
         ];
     }
     HomePage.prototype.signOut = function () {
@@ -64,26 +67,25 @@ var HomePage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar color="cultivos" hideBackButton="true">\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>Inicio</ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only (click)="signOut()">\n        Cerrar Sesion\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding class="backImg">\n  <ion-col col-10 offset-1>\n    <ion-row>\n      <ion-col col-12>\n        <p padding text-center style="font-size: 35px; font-weight:700">Panel de Control</p>\n      </ion-col>\n      <ion-col col-lg-3 col-md-6 col-sm-6 col-12 *ngFor="let page of pages"> \n        <button (click)="goToPage(page)" ion-item detail-none color="semiDark" class="no-border-cards">\n          <ion-icon item-left style="zoom:1.35;" name="{{page.icon}}"></ion-icon>\n          {{page.title}}\n        </button>\n      </ion-col>\n    </ion-row>\n  </ion-col>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\home\home.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__["a" /* AuthServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_auth_service_auth_service__["a" /* AuthServiceProvider */]])
     ], HomePage);
     return HomePage;
-    var _a, _b;
 }());
 
 //# sourceMappingURL=home.js.map
 
 /***/ }),
 
-/***/ 155:
+/***/ 156:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Login; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_user_model__ = __webpack_require__(481);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_user_model__ = __webpack_require__(483);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_auth_service_auth_service__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(150);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -146,7 +148,7 @@ var Login = (function () {
 
 /***/ }),
 
-/***/ 169:
+/***/ 170:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -234,7 +236,7 @@ var NewProductor = (function () {
 
 /***/ }),
 
-/***/ 170:
+/***/ 171:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -321,7 +323,7 @@ var CuadrosServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 171:
+/***/ 172:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -408,7 +410,7 @@ var LotesServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 172:
+/***/ 173:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -462,7 +464,7 @@ var CalidadesServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 173:
+/***/ 174:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -516,7 +518,7 @@ var EspecieServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 174:
+/***/ 175:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -524,19 +526,19 @@ var EspecieServiceProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_ingresos_list_ingresos_list__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_new_viaje_new_viaje__ = __webpack_require__(391);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_calidad_model__ = __webpack_require__(751);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_especie_model__ = __webpack_require__(752);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_variedad_model__ = __webpack_require__(753);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__models_chacra_model__ = __webpack_require__(754);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__models_tratamiento_model__ = __webpack_require__(755);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__models_cuadro_model__ = __webpack_require__(756);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__models_ingreso_model__ = __webpack_require__(757);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__models_lote_model__ = __webpack_require__(758);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_calidades_service_calidades_service__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_especie_service_especie_service__ = __webpack_require__(173);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_cuadros_service_cuadros_service__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_tratamientos_service_tratamientos_service__ = __webpack_require__(393);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_new_viaje_new_viaje__ = __webpack_require__(392);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_calidad_model__ = __webpack_require__(753);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_especie_model__ = __webpack_require__(754);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_variedad_model__ = __webpack_require__(755);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__models_chacra_model__ = __webpack_require__(756);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__models_tratamiento_model__ = __webpack_require__(757);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__models_cuadro_model__ = __webpack_require__(758);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__models_ingreso_model__ = __webpack_require__(759);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__models_lote_model__ = __webpack_require__(760);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_calidades_service_calidades_service__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_especie_service_especie_service__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_cuadros_service_cuadros_service__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__providers_tratamientos_service_tratamientos_service__ = __webpack_require__(394);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__providers_ingresos_service_ingresos_service__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__providers_auth_service_auth_service__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_chacras_service_chacras_service__ = __webpack_require__(46);
@@ -703,7 +705,7 @@ var NewIngreso = (function () {
 
 /***/ }),
 
-/***/ 187:
+/***/ 188:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -716,7 +718,7 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 187;
+webpackEmptyAsyncContext.id = 188;
 
 /***/ }),
 
@@ -725,12 +727,12 @@ webpackEmptyAsyncContext.id = 187;
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return urlAPI; });
-var urlAPI = 'http://localhost:3000';
+var urlAPI = 'http://cultivospatagonicos.sytes.net:3000';
 //# sourceMappingURL=api-service.js.map
 
 /***/ }),
 
-/***/ 232:
+/***/ 233:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -743,18 +745,18 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 232;
+webpackEmptyAsyncContext.id = 233;
 
 /***/ }),
 
-/***/ 272:
+/***/ 273:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SideMenuContentComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_side_menu_redirect_events__ = __webpack_require__(440);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_side_menu_redirect_events__ = __webpack_require__(442);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1063,7 +1065,7 @@ var SideMenuContentComponent = (function () {
 
 /***/ }),
 
-/***/ 273:
+/***/ 274:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1227,7 +1229,7 @@ var SelectSearchablePage = (function () {
 
 /***/ }),
 
-/***/ 381:
+/***/ 382:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1307,7 +1309,7 @@ var EditProductor = (function () {
 
 /***/ }),
 
-/***/ 382:
+/***/ 383:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1387,7 +1389,7 @@ var EditCamion = (function () {
 
 /***/ }),
 
-/***/ 383:
+/***/ 384:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1467,7 +1469,7 @@ var EditEmpresa = (function () {
 
 /***/ }),
 
-/***/ 384:
+/***/ 385:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1547,7 +1549,7 @@ var EditInstitucion = (function () {
 
 /***/ }),
 
-/***/ 385:
+/***/ 386:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1627,7 +1629,7 @@ var EditChacra = (function () {
 
 /***/ }),
 
-/***/ 386:
+/***/ 387:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1720,7 +1722,7 @@ var EditIngreso = (function () {
 
 /***/ }),
 
-/***/ 387:
+/***/ 388:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1758,15 +1760,15 @@ var ViajesList = (function () {
 
 /***/ }),
 
-/***/ 388:
+/***/ 389:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LotesList; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_edit_lote_edit_lote__ = __webpack_require__(389);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_lotes_service_lotes_service__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_edit_lote_edit_lote__ = __webpack_require__(390);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_lotes_service_lotes_service__ = __webpack_require__(172);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1832,17 +1834,17 @@ var LotesList = (function () {
 
 /***/ }),
 
-/***/ 389:
+/***/ 390:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EditLote; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_lotes_service_lotes_service__ = __webpack_require__(171);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_calidades_service_calidades_service__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_especie_service_especie_service__ = __webpack_require__(173);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_variedades_service_variedades_service__ = __webpack_require__(390);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_lotes_service_lotes_service__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_calidades_service_calidades_service__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_especie_service_especie_service__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_variedades_service_variedades_service__ = __webpack_require__(391);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1943,7 +1945,7 @@ var EditLote = (function () {
 
 /***/ }),
 
-/***/ 390:
+/***/ 391:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1997,7 +1999,7 @@ var VariedadesServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 391:
+/***/ 392:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2008,7 +2010,7 @@ var VariedadesServiceProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_ingresos_service_ingresos_service__ = __webpack_require__(68);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_camiones_service_camiones_service__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_instituciones_service_instituciones_service__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_viajes_service_viajes_service__ = __webpack_require__(392);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_viajes_service_viajes_service__ = __webpack_require__(393);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_ingresos_list_ingresos_list__ = __webpack_require__(67);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2116,7 +2118,7 @@ var NewViaje = (function () {
 
 /***/ }),
 
-/***/ 392:
+/***/ 393:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2214,7 +2216,7 @@ var ViajesServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 393:
+/***/ 394:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2268,7 +2270,81 @@ var TratamientosServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 394:
+/***/ 395:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PrinterView; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_printer__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var PrinterView = (function () {
+    function PrinterView(navCtrl, navParams, printer) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.printer = printer;
+        this.available = 'Apagada';
+        this.selectedPrinter = '';
+    }
+    PrinterView.prototype.pickPrinter = function () {
+        var _this = this;
+        this.printer.pick()
+            .then(function (data) {
+            _this.selectedPrinter = data;
+            _this.checkPrinter();
+        })
+            .catch(function (error) { return alert('Hubo un error al intentar seleccionar la impresora'); });
+    };
+    PrinterView.prototype.checkPrinter = function () {
+        var _this = this;
+        this.printer.isAvailable()
+            .then(function (data) { return _this.available = 'Lista'; })
+            .catch(function (error) { return alert('La impresora no se encuentra lista. Por favor compruebe que se encuentre enchufada y en correcto funcionamiento'); });
+    };
+    PrinterView.prototype.print = function () {
+        if (this.selectedPrinter !== '' && this.available === 'Lista') {
+            this.options = {
+                name: 'MyDocument',
+                printerId: this.selectedPrinter,
+                duplex: false,
+                landscape: true,
+                grayscale: true
+            };
+            var context = '<html><body><h1>Probando</h1></body></html>';
+            this.printer.print(context, this.options)
+                .then(function (data) { return alert('Se ha imprimido correctamente'); })
+                .catch(function (error) { return alert('Se ha generado un error mientras se realizaba la impresion.'); });
+        }
+        else {
+            alert('Seleccione una impresora o corrobore que se encuentre en estado Lista');
+        }
+    };
+    PrinterView = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
+            selector: 'page-printer-view',template:/*ion-inline-start:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\printer-view\printer-view.html"*/'<ion-header>\n  <ion-navbar color="cultivos">\n    <ion-title>Imprimir</ion-title>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n	<ion-grid>\n	    <ion-row>\n	        <ion-col col-12 padding>\n	          <h1 text-center>Nuevo Ingresos</h1>\n	          <p text-center>Ingrese los datos necesarios para generar un nuevo ingreso de fruta.</p>\n	        </ion-col>\n	        <ion-col col-12 class="back-black-color">\n	        	<ion-item col-12 class="no-border">\n	        	  <ion-label stacked>Impresora</ion-label>\n	        	  <ion-input type="date" [(ngModel)]="selectedPrinter" [disabled]="true"  name="selectedPrinter"></ion-input>\n	        	</ion-item>\n	        	<ion-item col-12 class="no-border">\n	        		<button ion-button type="button" color="semiDark" (click)="pickPrinter(ingreso)">Seleccionar Impresora</button>\n	        	</ion-item>\n	        	<ion-item col-12 class="no-border">\n	        	  <ion-label stacked>Estado</ion-label>\n	        	  <ion-input type="date" [(ngModel)]="available" [disabled]="true"  name="available"></ion-input>\n	        	</ion-item>\n	        	<ion-item col-12 class="no-border">\n	        		<button ion-button type="button" color="semiDark" (click)="print()">Imprimir</button>\n	        	</ion-item>\n	        </ion-col>\n	    </ion-row>\n	</ion-grid>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\Cultivos\Mobile-Web\Ingresos-App\src\pages\printer-view\printer-view.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["l" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["m" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0__ionic_native_printer__["a" /* Printer */]])
+    ], PrinterView);
+    return PrinterView;
+}());
+
+//# sourceMappingURL=printer-view.js.map
+
+/***/ }),
+
+/***/ 396:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2350,7 +2426,7 @@ var NewChacra = (function () {
 
 /***/ }),
 
-/***/ 395:
+/***/ 397:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2432,7 +2508,7 @@ var NewCamion = (function () {
 
 /***/ }),
 
-/***/ 396:
+/***/ 398:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2520,7 +2596,7 @@ var NewEmpresa = (function () {
 
 /***/ }),
 
-/***/ 397:
+/***/ 399:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2602,13 +2678,13 @@ var NewInstitucion = (function () {
 
 /***/ }),
 
-/***/ 398:
+/***/ 400:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(399);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(403);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(401);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(405);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -2616,7 +2692,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 403:
+/***/ 405:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2625,58 +2701,62 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_side_menu_content_side_menu_content_component__ = __webpack_require__(272);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_select_select_module__ = __webpack_require__(441);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(443);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(155);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_productoresList_productoresList__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_new_productor_new_productor__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_edit_productor_edit_productor__ = __webpack_require__(381);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_chacras_list_chacras_list__ = __webpack_require__(98);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_new_chacra_new_chacra__ = __webpack_require__(394);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_edit_chacra_edit_chacra__ = __webpack_require__(385);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_camiones_list_camiones_list__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_new_camion_new_camion__ = __webpack_require__(395);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_edit_camion_edit_camion__ = __webpack_require__(382);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_empresas_list_empresas_list__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_new_empresa_new_empresa__ = __webpack_require__(396);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_edit_empresa_edit_empresa__ = __webpack_require__(383);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_instituciones_list_instituciones_list__ = __webpack_require__(97);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_new_institucion_new_institucion__ = __webpack_require__(397);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_edit_institucion_edit_institucion__ = __webpack_require__(384);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_new_ingreso_new_ingreso__ = __webpack_require__(174);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_ingresos_list_ingresos_list__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_edit_ingreso_edit_ingreso__ = __webpack_require__(386);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_edit_lote_edit_lote__ = __webpack_require__(389);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_new_viaje_new_viaje__ = __webpack_require__(391);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_viajes_list_viajes_list__ = __webpack_require__(387);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_lotes_list_lotes_list__ = __webpack_require__(388);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__ionic_native_status_bar__ = __webpack_require__(274);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__ionic_native_splash_screen__ = __webpack_require__(279);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__angular_http__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33_angularfire2__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34_angularfire2_auth__ = __webpack_require__(280);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__providers_auth_service_auth_service__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__providers_camiones_service_camiones_service__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__providers_empresas_service_empresas_service__ = __webpack_require__(96);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__providers_instituciones_service_instituciones_service__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__providers_cuadros_service_cuadros_service__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__providers_ingresos_service_ingresos_service__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__providers_especie_service_especie_service__ = __webpack_require__(173);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__providers_calidades_service_calidades_service__ = __webpack_require__(172);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__providers_variedades_service_variedades_service__ = __webpack_require__(390);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__providers_chacras_service_chacras_service__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__providers_productores_service_productores_service__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__providers_lotes_service_lotes_service__ = __webpack_require__(171);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__providers_tratamientos_service_tratamientos_service__ = __webpack_require__(393);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__providers_viajes_service_viajes_service__ = __webpack_require__(392);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_side_menu_content_side_menu_content_component__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_select_select_module__ = __webpack_require__(443);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_printer__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__(451);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_login_login__ = __webpack_require__(156);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_productoresList_productoresList__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_new_productor_new_productor__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_edit_productor_edit_productor__ = __webpack_require__(382);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_chacras_list_chacras_list__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_new_chacra_new_chacra__ = __webpack_require__(396);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_edit_chacra_edit_chacra__ = __webpack_require__(386);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_camiones_list_camiones_list__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_new_camion_new_camion__ = __webpack_require__(397);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_edit_camion_edit_camion__ = __webpack_require__(383);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_empresas_list_empresas_list__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_new_empresa_new_empresa__ = __webpack_require__(398);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_edit_empresa_edit_empresa__ = __webpack_require__(384);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_instituciones_list_instituciones_list__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__pages_new_institucion_new_institucion__ = __webpack_require__(399);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__pages_edit_institucion_edit_institucion__ = __webpack_require__(385);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__pages_new_ingreso_new_ingreso__ = __webpack_require__(175);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_ingresos_list_ingresos_list__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__pages_edit_ingreso_edit_ingreso__ = __webpack_require__(387);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__pages_edit_lote_edit_lote__ = __webpack_require__(390);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__pages_new_viaje_new_viaje__ = __webpack_require__(392);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__pages_viajes_list_viajes_list__ = __webpack_require__(388);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__pages_lotes_list_lotes_list__ = __webpack_require__(389);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__pages_printer_view_printer_view__ = __webpack_require__(395);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__ionic_native_status_bar__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__ionic_native_splash_screen__ = __webpack_require__(280);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__angular_http__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35_angularfire2__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_angularfire2_auth__ = __webpack_require__(281);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__providers_auth_service_auth_service__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__providers_camiones_service_camiones_service__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__providers_empresas_service_empresas_service__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__providers_instituciones_service_instituciones_service__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__providers_cuadros_service_cuadros_service__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__providers_ingresos_service_ingresos_service__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__providers_especie_service_especie_service__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__providers_calidades_service_calidades_service__ = __webpack_require__(173);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_45__providers_variedades_service_variedades_service__ = __webpack_require__(391);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_46__providers_chacras_service_chacras_service__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_47__providers_productores_service_productores_service__ = __webpack_require__(86);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_48__providers_lotes_service_lotes_service__ = __webpack_require__(172);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_49__providers_tratamientos_service_tratamientos_service__ = __webpack_require__(394);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_50__providers_viajes_service_viajes_service__ = __webpack_require__(393);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -2740,89 +2820,92 @@ var AppModule = (function () {
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */],
                 __WEBPACK_IMPORTED_MODULE_3__shared_side_menu_content_side_menu_content_component__["a" /* SideMenuContentComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__pages_login_login__["a" /* Login */],
-                __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_8__pages_productoresList_productoresList__["a" /* ProductoresList */],
-                __WEBPACK_IMPORTED_MODULE_9__pages_new_productor_new_productor__["a" /* NewProductor */],
-                __WEBPACK_IMPORTED_MODULE_10__pages_edit_productor_edit_productor__["a" /* EditProductor */],
-                __WEBPACK_IMPORTED_MODULE_11__pages_chacras_list_chacras_list__["a" /* ChacrasList */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_new_chacra_new_chacra__["a" /* NewChacra */],
-                __WEBPACK_IMPORTED_MODULE_13__pages_edit_chacra_edit_chacra__["a" /* EditChacra */],
-                __WEBPACK_IMPORTED_MODULE_14__pages_camiones_list_camiones_list__["a" /* CamionesList */],
-                __WEBPACK_IMPORTED_MODULE_15__pages_new_camion_new_camion__["a" /* NewCamion */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_edit_camion_edit_camion__["a" /* EditCamion */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_empresas_list_empresas_list__["a" /* EmpresasList */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_new_empresa_new_empresa__["a" /* NewEmpresa */],
-                __WEBPACK_IMPORTED_MODULE_19__pages_edit_empresa_edit_empresa__["a" /* EditEmpresa */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_instituciones_list_instituciones_list__["a" /* InstitucionesList */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_new_institucion_new_institucion__["a" /* NewInstitucion */],
-                __WEBPACK_IMPORTED_MODULE_22__pages_edit_institucion_edit_institucion__["a" /* EditInstitucion */],
-                __WEBPACK_IMPORTED_MODULE_24__pages_ingresos_list_ingresos_list__["a" /* IngresosList */],
-                __WEBPACK_IMPORTED_MODULE_23__pages_new_ingreso_new_ingreso__["a" /* NewIngreso */],
-                __WEBPACK_IMPORTED_MODULE_25__pages_edit_ingreso_edit_ingreso__["a" /* EditIngreso */],
-                __WEBPACK_IMPORTED_MODULE_26__pages_edit_lote_edit_lote__["a" /* EditLote */],
-                __WEBPACK_IMPORTED_MODULE_27__pages_new_viaje_new_viaje__["a" /* NewViaje */],
-                __WEBPACK_IMPORTED_MODULE_28__pages_viajes_list_viajes_list__["a" /* ViajesList */],
-                __WEBPACK_IMPORTED_MODULE_29__pages_lotes_list_lotes_list__["a" /* LotesList */]
+                __WEBPACK_IMPORTED_MODULE_8__pages_login_login__["a" /* Login */],
+                __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_9__pages_productoresList_productoresList__["a" /* ProductoresList */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_new_productor_new_productor__["a" /* NewProductor */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_edit_productor_edit_productor__["a" /* EditProductor */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_chacras_list_chacras_list__["a" /* ChacrasList */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_new_chacra_new_chacra__["a" /* NewChacra */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_edit_chacra_edit_chacra__["a" /* EditChacra */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_camiones_list_camiones_list__["a" /* CamionesList */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_new_camion_new_camion__["a" /* NewCamion */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_edit_camion_edit_camion__["a" /* EditCamion */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_empresas_list_empresas_list__["a" /* EmpresasList */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_new_empresa_new_empresa__["a" /* NewEmpresa */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_edit_empresa_edit_empresa__["a" /* EditEmpresa */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_instituciones_list_instituciones_list__["a" /* InstitucionesList */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_new_institucion_new_institucion__["a" /* NewInstitucion */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_edit_institucion_edit_institucion__["a" /* EditInstitucion */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_ingresos_list_ingresos_list__["a" /* IngresosList */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_new_ingreso_new_ingreso__["a" /* NewIngreso */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_edit_ingreso_edit_ingreso__["a" /* EditIngreso */],
+                __WEBPACK_IMPORTED_MODULE_27__pages_edit_lote_edit_lote__["a" /* EditLote */],
+                __WEBPACK_IMPORTED_MODULE_28__pages_new_viaje_new_viaje__["a" /* NewViaje */],
+                __WEBPACK_IMPORTED_MODULE_29__pages_viajes_list_viajes_list__["a" /* ViajesList */],
+                __WEBPACK_IMPORTED_MODULE_30__pages_lotes_list_lotes_list__["a" /* LotesList */],
+                __WEBPACK_IMPORTED_MODULE_31__pages_printer_view_printer_view__["a" /* PrinterView */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */], {}, {
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["f" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */], {}, {
                     links: []
                 }),
-                __WEBPACK_IMPORTED_MODULE_33_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
-                __WEBPACK_IMPORTED_MODULE_34_angularfire2_auth__["b" /* AngularFireAuthModule */],
-                __WEBPACK_IMPORTED_MODULE_32__angular_http__["c" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_35_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
+                __WEBPACK_IMPORTED_MODULE_36_angularfire2_auth__["b" /* AngularFireAuthModule */],
+                __WEBPACK_IMPORTED_MODULE_34__angular_http__["c" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_4__shared_select_select_module__["a" /* SelectSearchableModule */]
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicApp */]],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_7__pages_login_login__["a" /* Login */],
-                __WEBPACK_IMPORTED_MODULE_6__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_8__pages_productoresList_productoresList__["a" /* ProductoresList */],
-                __WEBPACK_IMPORTED_MODULE_9__pages_new_productor_new_productor__["a" /* NewProductor */],
-                __WEBPACK_IMPORTED_MODULE_10__pages_edit_productor_edit_productor__["a" /* EditProductor */],
-                __WEBPACK_IMPORTED_MODULE_11__pages_chacras_list_chacras_list__["a" /* ChacrasList */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_new_chacra_new_chacra__["a" /* NewChacra */],
-                __WEBPACK_IMPORTED_MODULE_13__pages_edit_chacra_edit_chacra__["a" /* EditChacra */],
-                __WEBPACK_IMPORTED_MODULE_14__pages_camiones_list_camiones_list__["a" /* CamionesList */],
-                __WEBPACK_IMPORTED_MODULE_15__pages_new_camion_new_camion__["a" /* NewCamion */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_edit_camion_edit_camion__["a" /* EditCamion */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_empresas_list_empresas_list__["a" /* EmpresasList */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_new_empresa_new_empresa__["a" /* NewEmpresa */],
-                __WEBPACK_IMPORTED_MODULE_19__pages_edit_empresa_edit_empresa__["a" /* EditEmpresa */],
-                __WEBPACK_IMPORTED_MODULE_20__pages_instituciones_list_instituciones_list__["a" /* InstitucionesList */],
-                __WEBPACK_IMPORTED_MODULE_21__pages_new_institucion_new_institucion__["a" /* NewInstitucion */],
-                __WEBPACK_IMPORTED_MODULE_22__pages_edit_institucion_edit_institucion__["a" /* EditInstitucion */],
-                __WEBPACK_IMPORTED_MODULE_24__pages_ingresos_list_ingresos_list__["a" /* IngresosList */],
-                __WEBPACK_IMPORTED_MODULE_23__pages_new_ingreso_new_ingreso__["a" /* NewIngreso */],
-                __WEBPACK_IMPORTED_MODULE_25__pages_edit_ingreso_edit_ingreso__["a" /* EditIngreso */],
-                __WEBPACK_IMPORTED_MODULE_26__pages_edit_lote_edit_lote__["a" /* EditLote */],
-                __WEBPACK_IMPORTED_MODULE_27__pages_new_viaje_new_viaje__["a" /* NewViaje */],
-                __WEBPACK_IMPORTED_MODULE_28__pages_viajes_list_viajes_list__["a" /* ViajesList */],
-                __WEBPACK_IMPORTED_MODULE_29__pages_lotes_list_lotes_list__["a" /* LotesList */]
+                __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_8__pages_login_login__["a" /* Login */],
+                __WEBPACK_IMPORTED_MODULE_7__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_9__pages_productoresList_productoresList__["a" /* ProductoresList */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_new_productor_new_productor__["a" /* NewProductor */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_edit_productor_edit_productor__["a" /* EditProductor */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_chacras_list_chacras_list__["a" /* ChacrasList */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_new_chacra_new_chacra__["a" /* NewChacra */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_edit_chacra_edit_chacra__["a" /* EditChacra */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_camiones_list_camiones_list__["a" /* CamionesList */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_new_camion_new_camion__["a" /* NewCamion */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_edit_camion_edit_camion__["a" /* EditCamion */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_empresas_list_empresas_list__["a" /* EmpresasList */],
+                __WEBPACK_IMPORTED_MODULE_19__pages_new_empresa_new_empresa__["a" /* NewEmpresa */],
+                __WEBPACK_IMPORTED_MODULE_20__pages_edit_empresa_edit_empresa__["a" /* EditEmpresa */],
+                __WEBPACK_IMPORTED_MODULE_21__pages_instituciones_list_instituciones_list__["a" /* InstitucionesList */],
+                __WEBPACK_IMPORTED_MODULE_22__pages_new_institucion_new_institucion__["a" /* NewInstitucion */],
+                __WEBPACK_IMPORTED_MODULE_23__pages_edit_institucion_edit_institucion__["a" /* EditInstitucion */],
+                __WEBPACK_IMPORTED_MODULE_25__pages_ingresos_list_ingresos_list__["a" /* IngresosList */],
+                __WEBPACK_IMPORTED_MODULE_24__pages_new_ingreso_new_ingreso__["a" /* NewIngreso */],
+                __WEBPACK_IMPORTED_MODULE_26__pages_edit_ingreso_edit_ingreso__["a" /* EditIngreso */],
+                __WEBPACK_IMPORTED_MODULE_27__pages_edit_lote_edit_lote__["a" /* EditLote */],
+                __WEBPACK_IMPORTED_MODULE_28__pages_new_viaje_new_viaje__["a" /* NewViaje */],
+                __WEBPACK_IMPORTED_MODULE_29__pages_viajes_list_viajes_list__["a" /* ViajesList */],
+                __WEBPACK_IMPORTED_MODULE_30__pages_lotes_list_lotes_list__["a" /* LotesList */],
+                __WEBPACK_IMPORTED_MODULE_31__pages_printer_view_printer_view__["a" /* PrinterView */]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_30__ionic_native_status_bar__["a" /* StatusBar */],
-                __WEBPACK_IMPORTED_MODULE_31__ionic_native_splash_screen__["a" /* SplashScreen */],
+                __WEBPACK_IMPORTED_MODULE_32__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_33__ionic_native_splash_screen__["a" /* SplashScreen */],
+                __WEBPACK_IMPORTED_MODULE_5__ionic_native_printer__["a" /* Printer */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["e" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_45__providers_productores_service_productores_service__["a" /* ProductoresServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_44__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_35__providers_auth_service_auth_service__["a" /* AuthServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_36__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_37__providers_empresas_service_empresas_service__["a" /* EmpresasServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_38__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_39__providers_cuadros_service_cuadros_service__["a" /* CuadrosServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_40__providers_ingresos_service_ingresos_service__["a" /* IngresosServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_41__providers_especie_service_especie_service__["a" /* EspecieServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_42__providers_calidades_service_calidades_service__["a" /* CalidadesServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_43__providers_variedades_service_variedades_service__["a" /* VariedadesServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_46__providers_lotes_service_lotes_service__["a" /* LotesServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_47__providers_tratamientos_service_tratamientos_service__["a" /* TratamientosServiceProvider */],
-                __WEBPACK_IMPORTED_MODULE_48__providers_viajes_service_viajes_service__["a" /* ViajesServiceProvider */]
+                __WEBPACK_IMPORTED_MODULE_47__providers_productores_service_productores_service__["a" /* ProductoresServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_46__providers_chacras_service_chacras_service__["a" /* ChacrasServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_37__providers_auth_service_auth_service__["a" /* AuthServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_38__providers_camiones_service_camiones_service__["a" /* CamionesServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_39__providers_empresas_service_empresas_service__["a" /* EmpresasServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_40__providers_instituciones_service_instituciones_service__["a" /* InstitucionesServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_41__providers_cuadros_service_cuadros_service__["a" /* CuadrosServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_42__providers_ingresos_service_ingresos_service__["a" /* IngresosServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_43__providers_especie_service_especie_service__["a" /* EspecieServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_44__providers_calidades_service_calidades_service__["a" /* CalidadesServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_45__providers_variedades_service_variedades_service__["a" /* VariedadesServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_48__providers_lotes_service_lotes_service__["a" /* LotesServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_49__providers_tratamientos_service_tratamientos_service__["a" /* TratamientosServiceProvider */],
+                __WEBPACK_IMPORTED_MODULE_50__providers_viajes_service_viajes_service__["a" /* ViajesServiceProvider */]
             ]
         })
     ], AppModule);
@@ -2833,7 +2916,7 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 440:
+/***/ 442:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2844,15 +2927,15 @@ var SideMenuRedirectEvent = 'sidemenu:redirect';
 
 /***/ }),
 
-/***/ 441:
+/***/ 443:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SelectSearchableModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__select__ = __webpack_require__(442);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__select_page__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__select__ = __webpack_require__(444);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__select_page__ = __webpack_require__(274);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2893,7 +2976,7 @@ var SelectSearchableModule = (function () {
 
 /***/ }),
 
-/***/ 442:
+/***/ 444:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2901,7 +2984,7 @@ var SelectSearchableModule = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__select_page__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__select_page__ = __webpack_require__(274);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3143,30 +3226,30 @@ var SelectSearchable = (function () {
 
 /***/ }),
 
-/***/ 443:
+/***/ 451:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(274);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(279);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_side_menu_content_side_menu_content_component__ = __webpack_require__(272);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(280);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_side_menu_content_side_menu_content_component__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_home_home__ = __webpack_require__(150);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_login_login__ = __webpack_require__(156);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_productoresList_productoresList__ = __webpack_require__(85);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_new_productor_new_productor__ = __webpack_require__(169);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_new_productor_new_productor__ = __webpack_require__(170);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_chacras_list_chacras_list__ = __webpack_require__(98);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_new_chacra_new_chacra__ = __webpack_require__(394);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_new_chacra_new_chacra__ = __webpack_require__(396);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_camiones_list_camiones_list__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_new_camion_new_camion__ = __webpack_require__(395);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_new_camion_new_camion__ = __webpack_require__(397);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_empresas_list_empresas_list__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_new_empresa_new_empresa__ = __webpack_require__(396);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_new_empresa_new_empresa__ = __webpack_require__(398);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_instituciones_list_instituciones_list__ = __webpack_require__(97);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_new_institucion_new_institucion__ = __webpack_require__(397);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_new_institucion_new_institucion__ = __webpack_require__(399);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_ingresos_list_ingresos_list__ = __webpack_require__(67);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_new_ingreso_new_ingreso__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_new_ingreso_new_ingreso__ = __webpack_require__(175);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_auth_service_auth_service__ = __webpack_require__(48);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3461,7 +3544,7 @@ var ChacrasServiceProvider = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthServiceProvider; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__ = __webpack_require__(280);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angularfire2_auth__ = __webpack_require__(281);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3511,7 +3594,7 @@ var AuthServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 481:
+/***/ 483:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3708,9 +3791,9 @@ var InstitucionesServiceProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_ingresos_service_ingresos_service__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_ingreso_edit_ingreso__ = __webpack_require__(386);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_viajes_list_viajes_list__ = __webpack_require__(387);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_lotes_list_lotes_list__ = __webpack_require__(388);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_ingreso_edit_ingreso__ = __webpack_require__(387);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_viajes_list_viajes_list__ = __webpack_require__(388);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_lotes_list_lotes_list__ = __webpack_require__(389);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3884,7 +3967,7 @@ var IngresosServiceProvider = (function () {
 
 /***/ }),
 
-/***/ 751:
+/***/ 753:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3899,7 +3982,7 @@ var CalidadModel = (function () {
 
 /***/ }),
 
-/***/ 752:
+/***/ 754:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3914,7 +3997,7 @@ var EspecieModel = (function () {
 
 /***/ }),
 
-/***/ 753:
+/***/ 755:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3929,7 +4012,7 @@ var VariedadModel = (function () {
 
 /***/ }),
 
-/***/ 754:
+/***/ 756:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3944,7 +4027,7 @@ var ChacraModel = (function () {
 
 /***/ }),
 
-/***/ 755:
+/***/ 757:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3959,7 +4042,7 @@ var TratamientoModel = (function () {
 
 /***/ }),
 
-/***/ 756:
+/***/ 758:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3974,7 +4057,7 @@ var CuadroModel = (function () {
 
 /***/ }),
 
-/***/ 757:
+/***/ 759:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3998,7 +4081,7 @@ var IngresoModel = (function () {
 
 /***/ }),
 
-/***/ 758:
+/***/ 760:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4040,7 +4123,7 @@ var LoteModel = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_productores_service_productores_service__ = __webpack_require__(86);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_productor_edit_productor__ = __webpack_require__(381);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_productor_edit_productor__ = __webpack_require__(382);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4205,7 +4288,7 @@ var ProductoresServiceProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_camiones_service_camiones_service__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_camion_edit_camion__ = __webpack_require__(382);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_camion_edit_camion__ = __webpack_require__(383);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4283,7 +4366,7 @@ var CamionesList = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_empresas_service_empresas_service__ = __webpack_require__(96);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_empresa_edit_empresa__ = __webpack_require__(383);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_empresa_edit_empresa__ = __webpack_require__(384);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4448,7 +4531,7 @@ var EmpresasServiceProvider = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_instituciones_service_instituciones_service__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_institucion_edit_institucion__ = __webpack_require__(384);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_edit_institucion_edit_institucion__ = __webpack_require__(385);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4527,8 +4610,8 @@ var InstitucionesList = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_chacras_service_chacras_service__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_cuadros_service_cuadros_service__ = __webpack_require__(170);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_edit_chacra_edit_chacra__ = __webpack_require__(385);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_cuadros_service_cuadros_service__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_edit_chacra_edit_chacra__ = __webpack_require__(386);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -4692,5 +4775,5 @@ var ChacrasList = (function () {
 
 /***/ })
 
-},[398]);
+},[400]);
 //# sourceMappingURL=main.js.map
