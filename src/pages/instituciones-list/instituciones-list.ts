@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, IonicPage } from 'ionic-angular';
 
 import { InstitucionesServiceProvider } from '../../providers/instituciones-service/instituciones-service';
-import { EditInstitucion } from '../../pages/edit-institucion/edit-institucion';
 
+import { EditInstitucion } from '../../pages/edit-institucion/edit-institucion';
+import { NewInstitucion } from '../../pages/new-institucion/new-institucion';
+
+@IonicPage()
 @Component({
   selector: 'page-instituciones-list',
   templateUrl: 'instituciones-list.html',
@@ -26,6 +29,11 @@ export class InstitucionesList {
 		this.navCtrl.push(EditInstitucion, {
 			institucion : institucion
 		})
+	}
+
+	goToAddInstitucion()
+	{
+		this.navCtrl.push(NewInstitucion);
 	}
 
 	deleteInstitucion(institucionId) {

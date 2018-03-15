@@ -38,6 +38,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="de.appplant.cordova.plugin.printer.ui.SelectPrinterActivity"
+            android:exported="false"
+            android:label="Printer" />
     </application>
 
 </manifest>

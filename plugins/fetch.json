@@ -39,10 +39,10 @@
     "is_top_level": true,
     "variables": {}
   },
-  "de.appplant.cordova.plugin.printer": {
+  "cordova-plugin-printer": {
     "source": {
       "type": "registry",
-      "id": "de.appplant.cordova.plugin.printer"
+      "id": "https://github.com/katzer/cordova-plugin-printer.git"
     },
     "is_top_level": true,
     "variables": {}

@@ -17,25 +17,25 @@
             </ion-col>
             <ion-col col-12 padding class="back-black-color">
                 <h3 padding-top no-margin>Datos generales del Viaje</h3>
-            	<form (ngSubmit)="addNewViaje()">
+            	<form [formGroup]="formNewViaje" (ngSubmit)="addNewViaje()">
             	    <ion-grid>
                         <ion-row>
                             <ion-col col-12 padding-bottom>
                                 <ion-row>
                                     <ion-item col-12 col-md-6 col-lg-6 class="no-border">
                                       <ion-label stacked>Fecha</ion-label>
-                                      <ion-input type="date" [value]="viaje.fecha" (input)="viaje.fecha = $event.target.value" name="fecha"></ion-input>
+                                      <ion-input type="date" [value]="viaje.fecha" (input)="viaje.fecha = $event.target.value" formControlName="fecha"></ion-input>
                                     </ion-item>
                                     <ion-item col-12 col-md-6 col-lg-6 class="no-border">
                                       <ion-label stacked>Costo</ion-label>
-                                      <ion-input type="number" [(ngModel)]="viaje.costo" name="costo">
+                                      <ion-input type="number" [(ngModel)]="viaje.costo" formControlName="costo">
                                       </ion-input>
                                     </ion-item>
                                 </ion-row>
                                 <ion-item class="no-border">
                                     <select-searchable
                                         [(ngModel)]="viaje.institucion"
-                                        name="institucion"
+                                        formControlName="institucion"
                                         title="Instituciones"
                                         itemValueField="id"
                                         itemTextField="nombre"
@@ -47,7 +47,7 @@
                                 <ion-item class="no-border">
                                     <select-searchable
                                         [(ngModel)]="viaje.camion"
-                                        name="camion"
+                                        formControlName="camion"
                                         title="Camiones"
                                         itemValueField="id"
                                         itemTextField="nombreChofer"

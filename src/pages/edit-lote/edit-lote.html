@@ -1,8 +1,5 @@
 <ion-header>
   <ion-navbar color="cultivos">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
     <ion-title>Editar Lote</ion-title>
   </ion-navbar>
 </ion-header>
@@ -17,29 +14,29 @@
             </ion-col>
             <ion-col col-12 padding class="back-black-color">
                 <h3 padding-top no-margin>Datos generales del Lote</h3>
-            	<form (ngSubmit)="editLote()">
+            	<form [formGroup]="formEditLote" (ngSubmit)="editLote()">
             	    <ion-grid>
                         <ion-row>
                             <ion-col col-12 padding-bottom>
                                 <ion-row>
                                     <ion-item col-12 col-md-4 col-lg-4 class="no-border">
                                       <ion-label stacked>Numero Lote</ion-label>
-                                      <ion-input type="text" [(ngModel)]="lote.nroLote" name="nroRemito"></ion-input>
+                                      <ion-input type="text" [(ngModel)]="lote.nroLote" formControlName="nroRemito"></ion-input>
                                     </ion-item>
                                     <ion-item col-12 col-md-4 col-lg-4 class="no-border">
                                       <ion-label stacked>Cantidad Bins</ion-label>
-                                      <ion-input type="number" [value]="lote.cantBins" (input)="lote.cantBins = $event.target.value" name="cantBins"></ion-input>
+                                      <ion-input type="number" [value]="lote.cantBins" (input)="lote.cantBins = $event.target.value" formControlName="cantBins"></ion-input>
                                     </ion-item>
                                     <ion-item col-12 col-md-4 col-lg-4 class="no-border">
                                       <ion-label stacked>Peso</ion-label>
-                                      <ion-input type="number" [value]="lote.pesoNeto" (input)="lote.pesoNeto = $event.target.value" name="pesoNeto"></ion-input>
+                                      <ion-input type="number" [value]="lote.pesoNeto" (input)="lote.pesoNeto = $event.target.value" formControlName="pesoNeto"></ion-input>
                                     </ion-item>
                                 </ion-row>
                                 <ion-col col-12 no-padding>
                                     <ion-item class="no-border">
                                         <select-searchable
                                             [(ngModel)]="lote.calidad"
-                                            name="calidad"
+                                            formControlName="calidad"
                                             title="Calidades"
                                             itemValueField="id"
                                             itemTextField="tipo"
@@ -53,7 +50,7 @@
                                     <ion-item class="no-border">
                                         <select-searchable
                                             [(ngModel)]="lote.especy"
-                                            name="especie"
+                                            formControlName="especie"
                                             title="Especies"
                                             itemValueField="id"
                                             itemTextField="tipo"
@@ -67,13 +64,55 @@
                                     <ion-item class="no-border">
                                         <select-searchable
                                             [(ngModel)]="lote.variedad"
-                                            name="variedad"
+                                            formControlName="variedad"
                                             title="Variedades"
                                             itemValueField="id"
                                             itemTextField="tipo"
                                             [items]="variedades"
                                             [canSearch]="true"
                                             (onChange)="variedadChange($event,lote)">
+                                        </select-searchable>
+                                    </ion-item>
+                                </ion-col>
+                                <ion-col col-12 no-padding>
+                                    <ion-item class="no-border">
+                                        <select-searchable
+                                            [(ngModel)]="lote.chacra"
+                                            formControlName="chacra"
+                                            title="Chacras"
+                                            itemValueField="id"
+                                            itemTextField="nombre"
+                                            [items]="chacras"
+                                            [canSearch]="true"
+                                            (onChange)="chacraChange($event,lote)">
+                                        </select-searchable>
+                                    </ion-item>
+                                </ion-col>
+                                <ion-col col-12 no-padding>
+                                    <ion-item class="no-border">
+                                        <select-searchable
+                                            [(ngModel)]="lote.cuadro"
+                                            formControlName="cuadro"
+                                            title="Cuadros"
+                                            itemValueField="id"
+                                            itemTextField="up"
+                                            [items]="cuadros"
+                                            [canSearch]="true"
+                                            (onChange)="cuadroChange($event,lote)">
+                                        </select-searchable>
+                                    </ion-item>
+                                </ion-col>
+                                <ion-col col-12 no-padding>
+                                    <ion-item class="no-border">
+                                        <select-searchable
+                                            [(ngModel)]="lote.tratamiento"
+                                            formControlName="tratamiento"
+                                            title="Tratamientos"
+                                            itemValueField="id"
+                                            itemTextField="tipo"
+                                            [items]="tratamientos"
+                                            [canSearch]="true"
+                                            (onChange)="tratamientoChange($event,lote)">
                                         </select-searchable>
                                     </ion-item>
                                 </ion-col>

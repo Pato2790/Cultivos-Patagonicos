@@ -5,6 +5,7 @@ import { EditLote } from '../../pages/edit-lote/edit-lote';
 
 import { LotesServiceProvider } from '../../providers/lotes-service/lotes-service';
 
+@IonicPage()
 @Component({
   selector: 'page-lotes-list',
   templateUrl: 'lotes-list.html',

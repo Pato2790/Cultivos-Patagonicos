@@ -1,0 +1,109 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "https://github.com/katzer/cordova-plugin-printer.git",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "https://github.com/katzer/cordova-plugin-printer.git",
+        "spec": "git+https://github.com/katzer/cordova-plugin-printer.git",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:katzer/cordova-plugin-printer.git",
+          "sshUrl": "git+ssh://git@github.com/katzer/cordova-plugin-printer.git",
+          "httpsUrl": "git+https://github.com/katzer/cordova-plugin-printer.git",
+          "gitUrl": "git://github.com/katzer/cordova-plugin-printer.git",
+          "shortcut": "github:katzer/cordova-plugin-printer",
+          "directUrl": "https://raw.githubusercontent.com/katzer/cordova-plugin-printer/master/package.json"
+        }
+      },
+      "C:\\xampp\\htdocs\\Cultivos\\Mobile-Web\\Ingresos-App"
+    ]
+  ],
+  "_from": "git+https://github.com/katzer/cordova-plugin-printer.git",
+  "_id": "cordova-plugin-printer@0.7.3",
+  "_inCache": true,
+  "_location": "/cordova-plugin-printer",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "https://github.com/katzer/cordova-plugin-printer.git",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "https://github.com/katzer/cordova-plugin-printer.git",
+    "spec": "git+https://github.com/katzer/cordova-plugin-printer.git",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:katzer/cordova-plugin-printer.git",
+      "sshUrl": "git+ssh://git@github.com/katzer/cordova-plugin-printer.git",
+      "httpsUrl": "git+https://github.com/katzer/cordova-plugin-printer.git",
+      "gitUrl": "git://github.com/katzer/cordova-plugin-printer.git",
+      "shortcut": "github:katzer/cordova-plugin-printer",
+      "directUrl": "https://raw.githubusercontent.com/katzer/cordova-plugin-printer/master/package.json"
+    }
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/katzer/cordova-plugin-printer.git#ee9fba07ac9e51006c70548bdec40575a895830a",
+  "_shasum": "6189304941071afbb6c57e4f4990140d0ff614ee",
+  "_shrinkwrap": null,
+  "_spec": "https://github.com/katzer/cordova-plugin-printer.git",
+  "_where": "C:\\xampp\\htdocs\\Cultivos\\Mobile-Web\\Ingresos-App",
+  "author": {
+    "name": "Sebastián Katzer"
+  },
+  "bugs": {
+    "url": "https://github.com/katzer/cordova-plugin-printer/issues"
+  },
+  "cordova": {
+    "id": "cordova-plugin-printer",
+    "platforms": [
+      "ios",
+      "android",
+      "windows"
+    ]
+  },
+  "dependencies": {},
+  "description": "Prints HTML documents",
+  "devDependencies": {},
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    },
+    {
+      "name": "android-sdk",
+      "version": ">=19"
+    },
+    {
+      "name": "apple-ios",
+      "version": ">=8.0"
+    }
+  ],
+  "gitHead": "ee9fba07ac9e51006c70548bdec40575a895830a",
+  "homepage": "https://github.com/katzer/cordova-plugin-printer#readme",
+  "keywords": [
+    "appplant",
+    "printer",
+    "cordova",
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android",
+    "cordova-windows"
+  ],
+  "license": "Apache 2.0",
+  "name": "cordova-plugin-printer",
+  "optionalDependencies": {},
+  "readme": "\r\n<p align=\"left\">\r\n    <b><a href=\"https://github.com/katzer/cordova-plugin-printer/blob/example/README.md\">SAMPLE APP</a> :point_right:</b>\r\n</p>\r\n\r\nCordova Print Plugin [![npm version](https://badge.fury.io/js/cordova-plugin-printer.svg)](http://badge.fury.io/js/cordova-plugin-printer) [![Build Status](https://travis-ci.org/katzer/cordova-plugin-printer.svg?branch=master)](https://travis-ci.org/katzer/cordova-plugin-printer)\r\n====================\r\n\r\nPlugin for the [Cordova][cordova] framework to print HTML from iOS, Android and Windows Universal apps.\r\n\r\n<p align=\"center\">\r\n    <img width=\"23.8%\" src=\"https://github.com/katzer/cordova-plugin-printer/blob/example/images/print-ios.png\"></img>\r\n    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\r\n    <img width=\"26.8%\" src=\"https://github.com/katzer/cordova-plugin-printer/blob/example/images/print-windows.png\"></img>\r\n    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\r\n    <img width=\"23.8%\" src=\"https://github.com/katzer/cordova-plugin-printer/blob/example/images/print-android.png\"></img>\r\n</p>\r\n\r\n### About Apple AirPrint\r\nAirPrint is an Apple™ technology that helps you create full-quality printed output without the need to download or install drivers. AirPrint is built in to many printer models from most popular printer manufacturers. Just select an AirPrint printer on your local network to print from your favorite iOS or OS X app.\r\n\r\nSee [Drawing and Printing Guide for iOS][ios_guide] for detailed informations. \r\n\r\n### About Android Printing Framework\r\nStarting with _KitKat_, most Android devices have print service plugins installed to enable printing using the Google Cloud Print and Google Drive services. Print service plugins from other printer manufactures are available through the App Store though the Google Cloud Print service plugin can also be used to print from an Android device to just about any printer type and model.<br>\r\nIn addition to supporting physical printers, it is also possible to save printed output to your Google Drive account or locally as a PDF file on the Android device.\r\n\r\nSee [Building Apps with Multimedia for Android][android_guide] for detailed informations. \r\n\r\n\r\n## Supported Platforms\r\n- iOS 8 or newer\r\n- Android KitKat or newer\r\n- Universal Windows Platform\r\n\r\n\r\n## Installation\r\nInstall the latest version:\r\n\r\n    cordova plugin add cordova-plugin-printer\r\n\r\nOr a specific version:\r\n\r\n    cordova plugin add cordova-plugin-printer@VERSION\r\n\r\nOr the latest dev version:\r\n\r\n    cordova plugin add https://github.com/katzer/cordova-plugin-printer.git\r\n\r\nOr a custom version:\r\n\r\n    cordova plugin add cordova-plugin-printer --searchpath path/to/plugin\r\n\r\nAnd then execute:\r\n\r\n    cordova build\r\n\r\n\r\n## ChangeLog\r\n#### Version 0.7.4 (not yet released)\r\n- Fix broken _check_ and _pick_ on Android N and above\r\n\r\n#### Version 0.7.3 (19.12.2016)\r\n- Fixed incompatibility with Android KitKat (4.4)\r\n\r\nKnown limitations\r\n- Plugin crashes on Windows OS 10.0.14\r\n- _check_ on Android might return empty result as some versions of cordova seems to have a bug with multipart results.\r\n\r\nSee [CHANGELOG.md][changelog] to get the full changelog for the plugin.\r\n\r\n\r\n## Usage\r\nThe plugin and its methods are not available before the *deviceready* event has been fired.\r\n\r\n```javascript\r\ndocument.addEventListener('deviceready', function () {\r\n    // cordova.plugins.printer is now available\r\n}, false);\r\n```\r\n\r\n### Check printer\r\nThe device his printing capabilities can be reviewed through the `printer.check` interface. Use this function to hide print functionality from users who will be unable to use it.\r\n\r\n```javascript\r\n/**\r\n * Checks if the printer service is available (iOS)\r\n * or if printer services are installed and enabled (Android).\r\n *\r\n * @param {Function} callback\r\n *      A callback function\r\n * @param {Object} scope\r\n *      Optional scope of the callback\r\n *      Defaults to: window\r\n */\r\ncordova.plugins.printer.check(function (available, count) {\r\n    alert(available ? 'Found ' + count + ' services' : 'No');\r\n});\r\n```\r\n\r\n### Pick a printer\r\nDisplays a system interface allowing the user to select an available printer. \r\nTo speak with a printer directly you need to know the network address by picking them before via `printer.pick`.\r\n\r\nNote that picking a printer is not supported for windows platform.\r\n\r\n```javascript\r\n/**\r\n * Displays system interface for selecting a printer.\r\n *\r\n * @param {Function} callback\r\n *      A callback function\r\n */\r\ncordova.plugins.printer.pick(function (uri) {\r\n    alert(uri ? uri : 'Canceled');\r\n});\r\n```\r\n\r\n### Print content\r\nContent can be send to a printer through the `printer.print` interface. The method takes a string with HTML content, an URI pointing to another web page or any DOM node.\r\n\r\n```javascript\r\n/**\r\n * Sends the content to print service.\r\n *\r\n * @param {String} content\r\n *      HTML string or DOM node\r\n *      if latter, innerHTML is used to get the content\r\n * @param {Object} options\r\n *       Options for the print job\r\n * @param {Function} callback\r\n *      An optional callback function\r\n * @param {Object} scope\r\n *      An optional scope of the callback\r\n *      Defaults to: window\r\n */\r\ncordova.plugins.printer.print('<html>..</html>', { duplex: 'long' }, function (res) {\r\n    alert(res ? 'Done' : 'Canceled');\r\n});\r\n```\r\n\r\nThe method accepts a list of attributes. Not all are supported on each platform and by each printer!\r\n\r\n| Name | Description | Type | Platform |\r\n|:---- |:----------- |:----:| --------:|\r\n| name | The name of the print job and of the document | String | all |\r\n| duplex | Specifies the duplex mode to use for the print job.<br>Either double-sided on short site (duplex:'short'), double-sided on long site (duplex:'long') or single-sided (duplex:'none').<br>Defaults to: 'none' | String | all |\r\n| landscape| The orientation of the printed content, portrait or landscape.<br>Defaults to: false | Boolean | all |\r\n| graystyle | If your application only prints black text, setting this property to _true_ can result in better performance in many cases.<br>Defaults to: false | Boolean | all |\r\n| printerId | The network URL to the printer. | String | iOS |\r\n| border | Set to _false_ to skip any border. Useful for fullscreen images.<br>Defaults to: true | Boolean | iOS |\r\n| hidePageRange | Set to _true_ to hide the control for the page range.<br>Defaults to: false | Boolean | iOS |\r\n| hideNumberOfCopies | Set to _true_ to hide the control for the number of copies.<br>Defaults to: false | Boolean | iOS |\r\n| hidePaperFormat | Set to _true_ to hide the control for the paper format.<br>Defaults to: false | Boolean | iOS |\r\n| bounds | The Size and position of the print view<br>Defaults to: [40, 30, 0, 0] | Array | iPad |\r\n\r\n#### Further informations\r\n- All CSS rules needs to be embedded or accessible via absolute URLs in order to print out HTML encoded content.\r\n- The string can contain HTML content or an URI pointing to another web page.\r\n\r\n\r\n## Examples\r\n__NOTE:__ All CSS rules needs to be embedded or accessible via absolute URLs in order to print out HTML encoded content.\r\n\r\nPrint the whole HTML page:\r\n\r\n```javascript\r\nvar page = location.href;\r\n\r\ncordova.plugins.printer.print(page, 'Document.html');\r\n```\r\n\r\nPrint the content from one part of the page:\r\n\r\n```javascript\r\nvar page = document.getElementById('legal-notice');\r\n\r\ncordova.plugins.printer.print(page, 'Document.html');\r\n```\r\n\r\nPrint some custom content:\r\n\r\n```javascript\r\nvar page = '<h1>Hello Document</h1>';\r\n\r\ncordova.plugins.printer.print(page, 'Document.html');\r\n```\r\n\r\nPrint a remote web page:\r\n\r\n```javascript\r\ncordova.plugins.printer.print('http://blackberry.de', 'BB10');\r\n```\r\n\r\nSend to printer directly:\r\n\r\n```javascript\r\ncordova.plugins.printer.pick(function (uri) {\r\n    cordova.plugins.printer.print(page, { printerId: uri });\r\n});\r\n```\r\n\r\n\r\n## Contributing\r\n\r\n1. Fork it\r\n2. Create your feature branch (`git checkout -b my-new-feature`)\r\n3. Commit your changes (`git commit -am 'Add some feature'`)\r\n4. Push to the branch (`git push origin my-new-feature`)\r\n5. Create new Pull Request\r\n\r\n## License\r\n\r\nThis software is released under the [Apache 2.0 License][apache2_license].\r\n\r\nMade with :yum: from Leipzig\r\n\r\n© 2016 [appPlant GmbH][appplant]\r\n\r\n\r\n[cordova]: https://cordova.apache.org\r\n[ios_guide]: http://developer.apple.com/library/ios/documentation/2ddrawing/conceptual/drawingprintingios/Printing/Printing.html\r\n[android_guide]: https://developer.android.com/training/building-multimedia.html\r\n[changelog]: CHANGELOG.md\r\n[check]: #check-printer\r\n[pick]: #pick-a-printer\r\n[print]: #print-content\r\n[apache2_license]: http://opensource.org/licenses/Apache-2.0\r\n[appplant]: www.appplant.de\r\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katzer/cordova-plugin-printer.git"
+  },
+  "version": "0.7.3"
+}

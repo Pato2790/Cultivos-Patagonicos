@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, IonicPage } from 'ionic-angular';
 
 import { EmpresasServiceProvider } from '../../providers/empresas-service/empresas-service';
 import { EditEmpresa } from '../../pages/edit-empresa/edit-empresa';
+import { NewEmpresa } from '../../pages/new-empresa/new-empresa';
 
+@IonicPage()
 @Component({
   selector: 'page-empresas-list',
   templateUrl: 'empresas-list.html',
@@ -25,6 +27,11 @@ export class EmpresasList {
 		this.navCtrl.push(EditEmpresa, {
 			empresa : empresa
 		})
+	}
+
+	goToAddEmpresa()
+	{
+		this.navCtrl.push(NewEmpresa);
 	}
 
 	deleteEmpresa(empresaId) {

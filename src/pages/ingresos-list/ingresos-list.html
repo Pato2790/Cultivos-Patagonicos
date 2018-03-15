@@ -27,17 +27,20 @@
             <ion-col col-8 offset-2 col-sm-4 col-md-2 col-lg-2 offset-sm-0 offset-md-0 offset-lg-0>
               <ion-buttons>
                 <ion-row align-items-center>
-                  <ion-col col-3 class="vertical-align-icon">
+                  <ion-col col-2 class="vertical-align-icon">
                     <button ion-button icon-only small outline color="white" (click)="goToLotes(ingreso)"><ion-icon name="cube"></ion-icon></button>
                   </ion-col>
-                  <ion-col col-3 class="vertical-align-icon">
+                  <ion-col col-2 class="vertical-align-icon">
                     <button ion-button icon-only small outline color="white" (click)="goToViajes(ingreso)"><ion-icon name="bus"></ion-icon></button>
                   </ion-col>
-                  <ion-col col-3 class="vertical-align-icon">
+                  <ion-col col-2 class="vertical-align-icon">
                     <button ion-button icon-only small outline color="white" (click)="goToEditIngreso(ingreso)"><ion-icon name="create"></ion-icon></button>
                   </ion-col>
-                  <ion-col col-3 class="vertical-align-icon">
+                  <ion-col col-2 class="vertical-align-icon">
                     <button ion-button icon-only small outline color="white" (click)="alertDeleteIngreso(ingreso.id)"><ion-icon name="trash"></ion-icon></button>
+                  </ion-col>
+                  <ion-col col-2 class="vertical-align-icon">
+                    <button ion-button icon-only small outline color="white" (click)="goToPrint(ingreso)"><ion-icon name="print"></ion-icon></button>
                   </ion-col>
                 </ion-row>
               </ion-buttons>
@@ -142,4 +145,7 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+  <ion-fab bottom right padding margin>
+      <button ion-fab color="semiDark" (click)="goToAddIngreso()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
 </ion-content>

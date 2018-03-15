@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, IonicPage } from 'ionic-angular';
+import { Validators, FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
 
 import { ProductoresServiceProvider } from '../../providers/productores-service/productores-service';
 
+@IonicPage()
 @Component({
   selector: 'page-edit-productor',
   templateUrl: 'edit-productor.html',
@@ -10,19 +12,50 @@ import { ProductoresServiceProvider } from '../../providers/productores-service/
 export class EditProductor {
 
 	productor = [];
+	formEditProductor : FormGroup;
+	nombre: AbstractControl;
+	dni: AbstractControl;
+	telefono: AbstractControl;
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, private ProductoresServiceProvider : ProductoresServiceProvider, public AlertController: AlertController) {
+	constructor(public navCtrl: NavController, public navParams: NavParams, private ProductoresServiceProvider : ProductoresServiceProvider, 
+		public AlertController: AlertController, private formBuilder: FormBuilder) {
+
 		this.productor = this.navParams.get('productor');
+
+		this.formEditProductor = this.formBuilder.group({
+		  nombre: ['', Validators.required],
+		  dni: ['', Validators.compose([Validators.required, Validators.minLength(8), Validators.maxLength(8)])],
+		  telefono: ['', Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(10)])],
+		});
+
+		this.nombre = this.formEditProductor.controls['nombre'];
+		this.dni = this.formEditProductor.controls['dni'];
+		this.telefono = this.formEditProductor.controls['telefono'];
 	}
 
 	editProductor()	{
-		this.ProductoresServiceProvider.editProductor(this.productor).subscribe(data => this.alertEditLote(data.error));
+		if(!this.formEditProductor.valid)
+		{
+			this.AlertController.create({
+			  title: 'Datos Incorrectos',
+			  message: 'Los datos ingresados pueden ser incorrectos o faltantes.',
+			  buttons: [
+			    {
+			      text: 'Aceptar',
+			      handler: () => {}
+			    }
+			  ]
+			}).present();
+		}
+		else {
+			this.ProductoresServiceProvider.editProductor(this.productor).subscribe(data => this.alertEditLote(data));
+		}
 	}
 
-	alertEditLote(error) {
+	alertEditLote(data) {
 	  let alert;
 
-	  if(!error)
+	  if(!JSON.parse(data._body).error)
 	  {
 	    alert = this.AlertController.create({
 	      title: 'Edicion exitosa',

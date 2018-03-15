@@ -19,6 +19,13 @@ export class CuadrosServiceProvider {
 		.catch(this.catchError);
 	}
 
+	getAllCuadrosByChacras(chacrasId){
+		return this.http.get(this.urlAPI + "/byChacra/" + chacrasId)
+		.map(this.extractData)
+		.do(res => console.log(res))
+		.catch(this.catchError);
+	}
+
 	addNewCuadro(cuadro : any){
 		let headers = new Headers({
 			'Content-Type': 'application/json'

@@ -1,8 +1,5 @@
 <ion-header>
   <ion-navbar color="cultivos">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
     <ion-title>Editar Chacra</ion-title>
   </ion-navbar>
 </ion-header>
@@ -16,18 +13,30 @@
       </ion-col>
       <ion-col col-12 padding class="back-black-color">
         <h3 padding-top no-margin>Datos generales de la Chacra</h3>
-        <form (ngSubmit)="editChacra()">
+        <form [formGroup]="formEditChacra" (ngSubmit)="editChacra()">
           <ion-grid>
             <ion-row>
               <ion-col col-12 padding-bottom>
                 <ion-row>
                   <ion-item col-12 col-md-6 col-lg-6 class="no-border">
                     <ion-label stacked>Nombre</ion-label>
-                    <ion-input type="text" [(ngModel)]="chacra.nombre" name="name"></ion-input>
+                    <ion-input type="text" [(ngModel)]="chacra.nombre" formControlName="nombre"></ion-input>
                   </ion-item>
                   <ion-item col-12 col-md-6 col-lg-6 class="no-border">
                     <ion-label stacked>Renspa</ion-label>
-                    <ion-input type="text" [(ngModel)]="chacra.renspa" name="renspa"></ion-input>
+                    <ion-input type="text" [(ngModel)]="chacra.renspa" formControlName="renspa"></ion-input>
+                  </ion-item>
+                  <ion-item class="no-border">
+                    <select-searchable
+                        [(ngModel)]="productor"
+                        formControlName="productor_id"
+                        title="Productor"
+                        itemValueField="id"
+                        itemTextField="nombre"
+                        [items]="productores"
+                        [canSearch]="true"
+                        (onChange)="productorChange($event)">
+                    </select-searchable>
                   </ion-item>
                   <ion-col col-12 col-md-12 padding>
                     <ion-buttons right>

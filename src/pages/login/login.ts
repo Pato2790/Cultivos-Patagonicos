@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, AlertController } from 'ionic-angular';
+import { NavController, LoadingController, AlertController, IonicPage } from 'ionic-angular';
 
 import { UserModel } from '../../models/user-model';
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { HomePage } from '../../pages/home/home';
 
+@IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',

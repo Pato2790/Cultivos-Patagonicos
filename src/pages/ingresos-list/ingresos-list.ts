@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, IonicPage } from 'ionic-angular';
 
 import { IngresosServiceProvider } from '../../providers/ingresos-service/ingresos-service';
 
 import { EditIngreso } from '../../pages/edit-ingreso/edit-ingreso';
+import { NewIngreso } from '../../pages/new-ingreso/new-ingreso';
 import { ViajesList } from '../../pages/viajes-list/viajes-list';
 import { LotesList } from '../../pages/lotes-list/lotes-list';
+import { PrinterView } from '../../pages/printer-view/printer-view';
 
+@IonicPage()
 @Component({
   selector: 'page-ingresos-list',
   templateUrl: 'ingresos-list.html',
@@ -35,6 +38,11 @@ export class IngresosList {
     this.navCtrl.push(EditIngreso, {
       ingreso : ingreso
     })
+  }
+
+  goToAddIngreso()
+  {
+    this.navCtrl.push(NewIngreso);
   }
 
   alertDeleteIngreso(ingresoId) {
@@ -73,6 +81,13 @@ export class IngresosList {
   {
     this.navCtrl.push(LotesList, {
       lotes : ingreso.lotes
+    })
+  }
+
+  goToPrint(ingreso)  
+  {
+    this.navCtrl.push(PrinterView, {
+      ingreso : ingreso
     })
   }
 }

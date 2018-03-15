@@ -2,40 +2,40 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SideMenuContentComponent } from '../shared/side-menu-content/side-menu-content.component';
-import { SelectSearchableModule } from '../shared/select/select-module';
-import { Printer, PrintOptions } from '@ionic-native/printer';
+import { Printer } from '@ionic-native/printer';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { Login } from '../pages/login/login';
-import { ProductoresList } from '../pages/productoresList/productoresList';
-import { NewProductor } from '../pages/new-productor/new-productor';
-import { EditProductor } from '../pages/edit-productor/edit-productor';
-import { ChacrasList } from '../pages/chacras-list/chacras-list';
-import { NewChacra } from '../pages/new-chacra/new-chacra';
-import { EditChacra } from '../pages/edit-chacra/edit-chacra';
-import { CamionesList } from '../pages/camiones-list/camiones-list';
-import { NewCamion } from '../pages/new-camion/new-camion';
-import { EditCamion } from '../pages/edit-camion/edit-camion';
-import { EmpresasList } from '../pages/empresas-list/empresas-list';
-import { NewEmpresa } from '../pages/new-empresa/new-empresa';
-import { EditEmpresa } from '../pages/edit-empresa/edit-empresa';
-import { InstitucionesList } from '../pages/instituciones-list/instituciones-list';
-import { NewInstitucion } from '../pages/new-institucion/new-institucion';
-import { EditInstitucion } from '../pages/edit-institucion/edit-institucion';
-import { NewIngreso } from '../pages/new-ingreso/new-ingreso';
-import { IngresosList } from '../pages/ingresos-list/ingresos-list';
-import { EditIngreso } from '../pages/edit-ingreso/edit-ingreso';
-import { EditLote } from '../pages/edit-lote/edit-lote';
-import { NewViaje } from '../pages/new-viaje/new-viaje';
-import { ViajesList } from '../pages/viajes-list/viajes-list';
-import { LotesList } from '../pages/lotes-list/lotes-list';
+import { HomePageModule } from '../pages/home/home.module';
+import { LoginModule } from '../pages/login/login.module';
+import { ProductoresListModule } from '../pages/productoresList/productoresList.module';
+import { NewProductorModule } from '../pages/new-productor/new-productor.module';
+import { EditProductorModule } from '../pages/edit-productor/edit-productor.module';
+import { ChacrasListModule } from '../pages/chacras-list/chacras-list.module';
+import { NewChacraModule } from '../pages/new-chacra/new-chacra.module';
+import { EditChacraModule} from '../pages/edit-chacra/edit-chacra.module';
+import { CamionesListModule } from '../pages/camiones-list/camiones-list.module';
+import { NewCamionModule } from '../pages/new-camion/new-camion.module';
+import { EditCamionModule } from '../pages/edit-camion/edit-camion.module';
+import { EmpresasListModule } from '../pages/empresas-list/empresas-list.module';
+import { NewEmpresaModule } from '../pages/new-empresa/new-empresa.module';
+import { EditEmpresaModule } from '../pages/edit-empresa/edit-empresa.module';
+import { InstitucionesListModule } from '../pages/instituciones-list/instituciones-list.module';
+import { NewInstitucionModule } from '../pages/new-institucion/new-institucion.module';
+import { EditInstitucionModule } from '../pages/edit-institucion/edit-institucion.module';
+import { NewIngresoModule } from '../pages/new-ingreso/new-ingreso.module';
+import { IngresosListModule } from '../pages/ingresos-list/ingresos-list.module';
+import { EditIngresoModule } from '../pages/edit-ingreso/edit-ingreso.module';
+import { EditLoteModule } from '../pages/edit-lote/edit-lote.module';
+import { NewViajeModule } from '../pages/new-viaje/new-viaje.module';
+import { ViajesListModule } from '../pages/viajes-list/viajes-list.module';
+import { LotesListModule } from '../pages/lotes-list/lotes-list.module';
 import { PrinterView } from '../pages/printer-view/printer-view';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http';
+import { SelectSearchableModule } from '../shared/select/select-module';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -67,30 +67,6 @@ export const firebaseConfig = {
   declarations: [
     MyApp,
     SideMenuContentComponent,
-    Login,
-    HomePage,
-    ProductoresList,
-    NewProductor,
-    EditProductor,
-    ChacrasList,
-    NewChacra,
-    EditChacra,
-    CamionesList,
-    NewCamion,
-    EditCamion,
-    EmpresasList,
-    NewEmpresa,
-    EditEmpresa,
-    InstitucionesList,
-    NewInstitucion,
-    EditInstitucion,
-    IngresosList,
-    NewIngreso,
-    EditIngreso,
-    EditLote,
-    NewViaje,
-    ViajesList,
-    LotesList,
     PrinterView
   ],
   imports: [
@@ -98,13 +74,37 @@ export const firebaseConfig = {
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
+    SelectSearchableModule,
     HttpModule,
-    SelectSearchableModule
+    LoginModule,
+    HomePageModule,
+    ProductoresListModule,
+    NewProductorModule,
+    EditProductorModule,
+    ChacrasListModule,
+    NewChacraModule,
+    EditChacraModule,
+    CamionesListModule,
+    NewCamionModule,
+    EditCamionModule,
+    EmpresasListModule,
+    NewEmpresaModule,
+    EditEmpresaModule,
+    InstitucionesListModule,
+    NewInstitucionModule,
+    EditInstitucionModule,
+    IngresosListModule,
+    NewIngresoModule,
+    EditIngresoModule,
+    EditLoteModule,
+    NewViajeModule,
+    ViajesListModule,
+    LotesListModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    Login,
+    /*Login,
     HomePage,
     ProductoresList,
     NewProductor,
@@ -127,7 +127,7 @@ export const firebaseConfig = {
     EditLote,
     NewViaje,
     ViajesList,
-    LotesList,
+    LotesList,*/
     PrinterView
   ],
   providers: [

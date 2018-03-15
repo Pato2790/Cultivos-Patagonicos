@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, IonicPage } from 'ionic-angular';
 
 import { CamionesServiceProvider } from '../../providers/camiones-service/camiones-service';
 import { EditCamion } from '../../pages/edit-camion/edit-camion';
+import { NewCamion } from '../../pages/new-camion/new-camion';
 
+@IonicPage()
 @Component({
   selector: 'page-camiones-list',
   templateUrl: 'camiones-list.html',
@@ -26,6 +28,11 @@ export class CamionesList {
 		this.navCtrl.push(EditCamion, {
 			camion : camion
 		})
+	}
+
+	goToAddCamion()
+	{
+		this.navCtrl.push(NewCamion);
 	}
 
 	deleteCamion(camionId) {

@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, IonicPage } from 'ionic-angular';
+import {Validators, FormBuilder, FormGroup, AbstractControl } from '@angular/forms';
 
 import { InstitucionesServiceProvider } from '../../providers/instituciones-service/instituciones-service';
 
+@IonicPage()
 @Component({
   selector: 'page-edit-institucion',
   templateUrl: 'edit-institucion.html',
@@ -10,19 +12,50 @@ import { InstitucionesServiceProvider } from '../../providers/instituciones-serv
 export class EditInstitucion {
 
 	institucion = [];
+  formEditInstitucion : FormGroup;
+  nombre: AbstractControl;
+  direccion: AbstractControl;
+  telefono: AbstractControl;
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, private InstitucionesServiceProvider: InstitucionesServiceProvider, public AlertController: AlertController) {
+	constructor(public navCtrl: NavController, public navParams: NavParams, private InstitucionesServiceProvider: InstitucionesServiceProvider, 
+    public AlertController: AlertController, private formBuilder: FormBuilder) {
+
 		this.institucion = this.navParams.get('institucion');
+
+    this.formEditInstitucion = this.formBuilder.group({
+      nombre: ['', Validators.required],
+      direccion: ['', Validators.required],
+      telefono: ['', Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(10)])],
+    });
+
+    this.nombre = this.formEditInstitucion.controls['nombre'];
+    this.direccion = this.formEditInstitucion.controls['direccion'];
+    this.telefono = this.formEditInstitucion.controls['telefono'];
 	}
 
 	editInstitucion(institucion){
-  	this.InstitucionesServiceProvider.editInstitucion(this.institucion).subscribe(data => this.alertEditInstitucion(data.error));
+    if(!this.formEditInstitucion.valid)
+    {
+      this.AlertController.create({
+        title: 'Datos Incorrectos',
+        message: 'Los datos ingresados pueden ser incorrectos o faltantes.',
+        buttons: [
+          {
+            text: 'Aceptar',
+            handler: () => {}
+          }
+        ]
+      }).present();
+    }
+    else {
+      this.InstitucionesServiceProvider.editInstitucion(this.institucion).subscribe(data => this.alertEditInstitucion(data));
+    }
   }
 
-  alertEditInstitucion(error) {
+  alertEditInstitucion(data) {
     let alert;
 
-    if(!error)
+    if(!JSON.parse(data._body).error)
     {
       alert = this.AlertController.create({
         title: 'Edicion exitosa',

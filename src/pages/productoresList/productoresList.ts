@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, IonicPage } from 'ionic-angular';
 import { ProductoresServiceProvider } from '../../providers/productores-service/productores-service';
 
 import { EditProductor } from '../../pages/edit-productor/edit-productor';
+import { NewProductor } from '../../pages/new-productor/new-productor';
 
+@IonicPage()
 @Component({
   selector: 'page-list',
   templateUrl: 'productoresList.html'
@@ -24,6 +26,11 @@ export class ProductoresList {
   	this.navCtrl.push(EditProductor, {
   		productor : productor
   	})
+  }
+
+  goToAddProductor()
+  {
+    this.navCtrl.push(NewProductor);
   }
 
   deleteProductor(productorId) {

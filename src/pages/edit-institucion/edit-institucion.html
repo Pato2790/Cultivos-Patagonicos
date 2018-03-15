@@ -1,8 +1,5 @@
 <ion-header>
   <ion-navbar color="cultivos">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
     <ion-title>Editar Institucion</ion-title>
   </ion-navbar>
 </ion-header>
@@ -16,22 +13,22 @@
       </ion-col>
       <ion-col col-12 padding class="back-black-color">
         <h3 padding-top no-margin>Datos generales de la institucion</h3>
-        <form (ngSubmit)="editInstitucion()">
+        <form [formGroup]="formEditInstitucion" (ngSubmit)="editInstitucion()">
           <ion-grid>
             <ion-row>
               <ion-col col-12 padding-bottom>
                 <ion-row>
                   <ion-item col-12 class="no-border">
                     <ion-label stacked>Nombre</ion-label>
-                    <ion-input type="text" [(ngModel)]="institucion.nombre" name="name"></ion-input>
+                    <ion-input type="text" [(ngModel)]="institucion.nombre" formControlName="nombre"></ion-input>
                   </ion-item>
                   <ion-item col-12 col-md-6 col-lg-6 class="no-border">
                     <ion-label stacked>Direccion</ion-label>
-                    <ion-input type="text" [(ngModel)]="institucion.direccion" name="direccion"></ion-input>
+                    <ion-input type="text" [(ngModel)]="institucion.direccion" formControlName="direccion"></ion-input>
                   </ion-item>
                   <ion-item col-12 col-md-6 col-lg-6 class="no-border">
                     <ion-label stacked>Telefono</ion-label>
-                    <ion-input type="number" [(ngModel)]="institucion.telefono" name="telefono"></ion-input>
+                    <ion-input type="number" [(ngModel)]="institucion.telefono" formControlName="telefono"></ion-input>
                   </ion-item>
                   <ion-col ccol-12 padding>
                     <ion-buttons right>

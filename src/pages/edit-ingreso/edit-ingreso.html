@@ -1,8 +1,5 @@
 <ion-header>
   <ion-navbar color="cultivos">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
     <ion-title>Editar Ingreso</ion-title>
   </ion-navbar>
 </ion-header>
@@ -17,18 +14,18 @@
             </ion-col>
             <ion-col col-12 padding class="back-black-color">
                 <h3 padding-top no-margin>Datos generales del Ingreso</h3>
-            	<form (ngSubmit)="editIngreso()">
+            	<form [formGroup]="formEditIngreso" (ngSubmit)="editIngreso()">
             	    <ion-grid>
                         <ion-row>
                             <ion-col col-12 padding-bottom>
                                 <ion-row>
                                     <ion-item col-12 col-md-6 col-lg-6 class="no-border">
                                       <ion-label stacked>Nro Remito</ion-label>
-                                      <ion-input type="text" [(ngModel)]="ingreso.nroRemito" name="nroRemito"></ion-input>
+                                      <ion-input type="text" [(ngModel)]="ingreso.nroRemito" formControlName="nroRemito"></ion-input>
                                     </ion-item>
                                     <ion-item col-12 col-md-6 col-lg-6 class="no-border">
                                       <ion-label stacked>Fecha de Ingreso</ion-label>
-                                      <ion-input type="date" [value]="ingreso.fechaIngreso" (input)="ingreso.fechaIngreso = $event.target.value" name="fechaIngreso"></ion-input>
+                                      <ion-input type="date" [value]="ingreso.fechaIngreso" (input)="ingreso.fechaIngreso = $event.target.value" formControlName="fechaIngreso"></ion-input>
                                     </ion-item>
                                 </ion-row>
                             </ion-col>

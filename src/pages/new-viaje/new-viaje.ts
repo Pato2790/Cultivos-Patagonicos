@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, IonicPage } from 'ionic-angular';
 import { SelectSearchable } from '../../shared/select/select';
+import { Validators, FormBuilder, FormControl, FormGroup, AbstractControl } from '@angular/forms';
 
 import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { IngresosServiceProvider } from '../../providers/ingresos-service/ingresos-service';
@@ -10,6 +11,7 @@ import { ViajesServiceProvider } from '../../providers/viajes-service/viajes-ser
 
 import { IngresosList } from '../../pages/ingresos-list/ingresos-list';
 
+@IonicPage()
 @Component({
   selector: 'page-new-viaje',
   templateUrl: 'new-viaje.html',
@@ -18,16 +20,47 @@ export class NewViaje {
 
 	ingresos = [];
 	viaje = { fecha : this.formatDate(), costo: 0, createdFor: this.AuthServiceProvider.getCurrentUser().email, 
-			institucionId: 0, camionId: 0, camiones: [], camion: {}, instituciones: [], institucion: {}, ingresos: [] };
+			institucionId: '', camionId: '', camiones: [], camion: {}, instituciones: [], institucion: {}, ingresos: [] };
+
+	formNewViaje : FormGroup;
+  	fecha: AbstractControl;
+  	costo: AbstractControl;
+  	institucion: FormControl;
+  	camion: FormControl;
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, public AuthServiceProvider: AuthServiceProvider,
 		public IngresosServiceProvider: IngresosServiceProvider, public ViajesServiceProvider: ViajesServiceProvider, 
 		public CamionesServiceProvider: CamionesServiceProvider, public InstitucionesServiceProvider: InstitucionesServiceProvider,
-		public AlertController:AlertController) {
+		public AlertController:AlertController, private formBuilder: FormBuilder) {
+		
 		this.ingresos = this.navParams.get('ingresos');
 
-		this.InstitucionesServiceProvider.getAllInstituciones().subscribe(data => this.viaje.instituciones = data);
-		this.CamionesServiceProvider.getAllCamiones().subscribe(data => this.viaje.camiones = data); 
+		this.institucion = this.formBuilder.control('', Validators.required);
+		this.camion = this.formBuilder.control('', Validators.required);
+
+		this.formNewViaje = this.formBuilder.group({
+		  institucion: this.institucion,
+		  camion: this.camion,
+		  fecha: ['', Validators.required],
+		  costo: ['',  Validators.required]
+		});
+
+		this.fecha = this.formNewViaje.controls['fecha'];
+		this.costo = this.formNewViaje.controls['costo'];
+
+		this.InstitucionesServiceProvider.getAllInstituciones()
+			.subscribe(data => 
+				{
+					this.viaje.instituciones = data;
+					this.institucion.setValue('');
+				});
+
+		this.CamionesServiceProvider.getAllCamiones()
+			.subscribe(data => 
+				{
+					this.viaje.camiones = data;
+					this.camion.setValue('');
+				});		
 	}
 
 	camionChange(event: { component: SelectSearchable, value: any }) {
@@ -40,8 +73,23 @@ export class NewViaje {
 
 	addNewViaje()
 	{
-		this.viaje.ingresos = this.ingresos;
-		this.ViajesServiceProvider.addNewViajeWithIngresos(this.viaje).subscribe(data => this.alertSuccess(data));
+		if(!this.formNewViaje.valid)
+		{
+		  this.AlertController.create({
+		    title: 'Datos Incorrectos',
+		    message: 'Los datos ingresados pueden ser incorrectos o faltantes.',
+		    buttons: [
+		      {
+		        text: 'Aceptar',
+		        handler: () => {}
+		      }
+		    ]
+		  }).present();
+		}
+		else {
+		  	this.viaje.ingresos = this.ingresos;
+			this.ViajesServiceProvider.addNewViajeWithIngresos(this.viaje).subscribe(data => this.alertSuccess(data));
+		}
 	}
 
 	finishAdding()
@@ -58,13 +106,13 @@ export class NewViaje {
 	formatDate()
 	{
 		var fecha = new Date();
-	    return fecha.getFullYear()  + "-" + fecha.getMonth() + 1 + "-" + fecha.getDate();
+	    return fecha.getFullYear()  + "-" + (fecha.getMonth() + 1) + "-" + fecha.getDate();
 	}
 
 	alertSuccess(data) {
     let alert;
 
-    if(JSON.parse(data._body).error)
+    if(!JSON.parse(data._body).error)
     {
     	alert = this.AlertController.create({
 			title: 'Error',

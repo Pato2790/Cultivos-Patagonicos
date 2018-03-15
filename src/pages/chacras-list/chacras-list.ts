@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController  } from 'ionic-angular';
+import { NavController, NavParams, AlertController, IonicPage  } from 'ionic-angular';
 
 import { ChacrasServiceProvider } from '../../providers/chacras-service/chacras-service';
 import { CuadrosServiceProvider } from '../../providers/cuadros-service/cuadros-service';
 
 import { EditChacra } from '../../pages/edit-chacra/edit-chacra';
+import { NewChacra } from '../../pages/new-chacra/new-chacra';
 
+@IonicPage()
 @Component({
   selector: 'page-chacras-list',
   templateUrl: 'chacras-list.html',
@@ -28,6 +30,11 @@ export class ChacrasList {
 		this.navCtrl.push(EditChacra, {
 			chacra : chacra
 		})
+	}
+
+	goToAddChacra()
+	{
+		this.navCtrl.push(NewChacra);
 	}
 
 	deleteChacra(chacraId) {
@@ -57,7 +64,7 @@ export class ChacrasList {
 
 //CUADROS
 	alertNewCuadro(chacraId) {
-	  let alert = this.AlertController.create({
+	  let alertMessage = this.AlertController.create({
 	    title: 'Agregar Cuadro',
 	    inputs: [
 	      {
@@ -74,14 +81,21 @@ export class ChacrasList {
 	      {
 	        text: 'Crear',
 	        handler: data => {
-	        	this.newCuadro.up = data.Up;
-	        	this.newCuadro.chacraId = chacraId;
-	        	this.addNewCuadro();
+	        	if(data.Up.length === 11)
+	        	{
+	        		this.newCuadro.up = data.Up;
+	        		this.newCuadro.chacraId = chacraId;
+	        		this.addNewCuadro();
+	        	}
+	        	else {
+	        		alert("El Up debe constar de 11 caracteres. Ingrese los datos nuevamente");
+	        		return false;
+	        	}
 	        }
 	      }
 	    ]
 	  });
-	  alert.present();
+	  alertMessage.present();
 	}
 
 	addNewCuadro() {
@@ -90,7 +104,7 @@ export class ChacrasList {
 	}
 
 	alertEditCuadro(cuadro) {
-	  let alert = this.AlertController.create({
+	  let alertMessage = this.AlertController.create({
 	    title: 'Editar Cuadro',
 	    inputs: [
 	      {
@@ -108,13 +122,20 @@ export class ChacrasList {
 	      {
 	        text: 'Editar',
 	        handler: data => {
-	        	cuadro.up = data.Up;
+	        	if(data.Up.length === 11)
+	        	{
+	        		cuadro.up = data.Up;
 	        	this.editCuadro(cuadro);
+	        	}
+	        	else {
+	        		alert("El Up debe constar de 11 caracteres. Ingrese los datos nuevamente");
+	        		return false;
+	        	}
 	        }
 	      }
 	    ]
 	  });
-	  alert.present();
+	  alertMessage.present();
 	}
 
 	editCuadro(cuadro)
