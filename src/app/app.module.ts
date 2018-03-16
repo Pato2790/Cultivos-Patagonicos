@@ -27,6 +27,7 @@ import { IngresosListModule } from '../pages/ingresos-list/ingresos-list.module'
 import { EditIngresoModule } from '../pages/edit-ingreso/edit-ingreso.module';
 import { EditLoteModule } from '../pages/edit-lote/edit-lote.module';
 import { NewViajeModule } from '../pages/new-viaje/new-viaje.module';
+import { NewViajeIngresoModule } from '../pages/new-viaje-ingreso/new-viaje-ingreso.module';
 import { ViajesListModule } from '../pages/viajes-list/viajes-list.module';
 import { LotesListModule } from '../pages/lotes-list/lotes-list.module';
 import { PrinterView } from '../pages/printer-view/printer-view';
@@ -55,12 +56,12 @@ import { TratamientosServiceProvider } from '../providers/tratamientos-service/t
 import { ViajesServiceProvider } from '../providers/viajes-service/viajes-service';
 
 export const firebaseConfig = {
-    apiKey: "AIzaSyAlCvR3L2sO5B8GFSaRvPRMWD1uU498VgE",
-    authDomain: "cultivos-sistema.firebaseapp.com",
-    databaseURL: "https://cultivos-sistema.firebaseio.com",
-    projectId: "cultivos-sistema",
-    storageBucket: "cultivos-sistema.appspot.com",
-    messagingSenderId: "1042519531953"
+    apiKey: "AIzaSyBAxnE0e9OGn8Vs-iXAex0WOKezzml0F8Y",
+    authDomain: "cultivos-patagonicos-app.firebaseapp.com",
+    databaseURL: "https://cultivos-patagonicos-app.firebaseio.com",
+    projectId: "cultivos-patagonicos-app",
+    storageBucket: "cultivos-patagonicos-app.appspot.com",
+    messagingSenderId: "203353588881"
 };
 
 @NgModule({
@@ -100,34 +101,11 @@ export const firebaseConfig = {
     NewViajeModule,
     ViajesListModule,
     LotesListModule,
+    NewViajeIngresoModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    /*Login,
-    HomePage,
-    ProductoresList,
-    NewProductor,
-    EditProductor,
-    ChacrasList,
-    NewChacra,
-    EditChacra,
-    CamionesList,
-    NewCamion,
-    EditCamion,
-    EmpresasList,
-    NewEmpresa,
-    EditEmpresa,
-    InstitucionesList,
-    NewInstitucion,
-    EditInstitucion,
-    IngresosList,
-    NewIngreso,
-    EditIngreso,
-    EditLote,
-    NewViaje,
-    ViajesList,
-    LotesList,*/
     PrinterView
   ],
   providers: [

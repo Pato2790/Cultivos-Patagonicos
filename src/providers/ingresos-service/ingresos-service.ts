@@ -20,6 +20,20 @@ export class IngresosServiceProvider {
   	.catch(this.catchError);
   }
 
+  getAllSimplifyIngresos(){
+    return this.http.get(this.urlAPI + '/simplifyIngresos')
+    .map(this.extractData)
+    .do(res => console.log(res))
+    .catch(this.catchError);
+  }
+
+  getAllIngresosWithViajes(ingresoId){
+    return this.http.get(this.urlAPI + '/withViajes/' + ingresoId)
+    .map(this.extractData)
+    .do(res => console.log(res))
+    .catch(this.catchError);
+  }
+
   addNewIngreso(ingreso : any){
   	let headers = new Headers({
   		'Content-Type': 'application/json'

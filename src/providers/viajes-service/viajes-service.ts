@@ -12,11 +12,11 @@ export class ViajesServiceProvider {
 	constructor(public http: Http) {
 	}
 
-	getAllViajes(){
+	  getAllViajes(){
   		return this.http.get(this.urlAPI)
   		.map(this.extractData)
-        .do(res => console.log(res))
-        .catch(this.catchError);
+      .do(res => console.log(res))
+      .catch(this.catchError);
   	}
 
   	addNewViaje(data : any){

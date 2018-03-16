@@ -4,7 +4,7 @@ import { AuthServiceProvider } from '../../providers/auth-service/auth-service';
 import { Login } from '../../pages/login/login';
 
 import { ProductoresList } from '../../pages/productoresList/productoresList';
-import { NewProductor } from '../../pages/new-productor/new-productor';
+import { NewViajeIngreso } from '../../pages/new-viaje-ingreso/new-viaje-ingreso';
 import { CamionesList } from '../../pages/camiones-list/camiones-list';
 import { EmpresasList } from '../../pages/empresas-list/empresas-list';
 import { InstitucionesList } from '../../pages/instituciones-list/instituciones-list';
@@ -22,8 +22,8 @@ export class HomePage {
 	pages = [
       { title: 'Ingresos', icon: 'crop', component: IngresosList },
       { title: 'Nuevo Ingreso', icon: 'add', component: NewIngreso },
+      { title: 'Nuevo Viaje', icon: 'add', component: NewViajeIngreso },
       { title: 'Productores', icon: 'contact', component: ProductoresList },
-      { title: 'Nuevo Productor', icon: 'add', component: NewProductor },
       { title: 'Empresas', icon: 'briefcase', component: EmpresasList },
       { title: 'Chacras', icon: 'leaf', component: ChacrasList },
       { title: 'Camiones', icon: 'bus', component: CamionesList },

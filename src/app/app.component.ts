@@ -20,6 +20,7 @@ import { InstitucionesList } from '../pages/instituciones-list/instituciones-lis
 import { NewInstitucion } from '../pages/new-institucion/new-institucion';
 import { IngresosList } from '../pages/ingresos-list/ingresos-list';
 import { NewIngreso } from '../pages/new-ingreso/new-ingreso';
+import { NewViajeIngreso } from '../pages/new-viaje-ingreso/new-viaje-ingreso';
 
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
 
@@ -97,6 +98,17 @@ export class MyApp {
                   displayName: `Nuevo Ingreso`,
                   iconName: 'add',
                   component: NewIngreso,
+              }
+          ]
+      });
+
+      menuOptions.push({
+          displayName: `Viajes`,
+          subItems: [
+              {
+                  displayName: `Nuevo Viaje`,
+                  iconName: 'add',
+                  component: NewViajeIngreso,
               }
           ]
       });
