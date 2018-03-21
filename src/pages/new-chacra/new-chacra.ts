@@ -28,7 +28,7 @@ export class NewChacra {
 	  
     this.formNewChacra = this.formBuilder.group({
       nombre: ['', Validators.required],
-      renspa: ['', Validators.compose([Validators.required, Validators.minLength(12), Validators.maxLength(12)])],
+      renspa: ['', Validators.compose([Validators.required, Validators.minLength(14), Validators.maxLength(14)])],
       productor_id: ['', Validators.required],
     });
 

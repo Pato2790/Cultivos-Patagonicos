@@ -112,7 +112,7 @@ export class NewViaje {
 	alertSuccess(data) {
     let alert;
 
-    if(!JSON.parse(data._body).error)
+    if(JSON.parse(data._body).error)
     {
     	alert = this.AlertController.create({
 			title: 'Error',
