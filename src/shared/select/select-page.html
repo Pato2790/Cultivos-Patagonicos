@@ -1,8 +1,8 @@
 <ion-header>
-    <ion-navbar>
+    <ion-navbar color="cultivos">
         <ion-title>{{selectComponent.title}}</ion-title>
     </ion-navbar>
-    <ion-toolbar *ngIf="selectComponent.canSearch">
+    <ion-toolbar *ngIf="selectComponent.canSearch" color="cultivos">
         <ion-searchbar
             #searchbarComponent
             [(ngModel)]="selectComponent.filterText"
@@ -20,7 +20,7 @@
         <button ion-item detail-none *ngFor="let item of filteredItems" (click)="select(item)">
             <ion-icon
                 [name]="isItemSelected(item) ? 'checkmark-circle' : 'radio-button-off'"
-                [color]="isItemSelected(item) ? 'primary' : 'daek'"
+                [color]="isItemSelected(item) ? 'semiDark' : 'daek'"
                 item-left>
             </ion-icon>
             <h2>{{selectComponent.formatItem(item)}}</h2>
@@ -37,15 +37,15 @@
             <ion-col no-padding *ngIf="selectComponent.canReset"
                 [attr.col-6]="selectComponent.canReset && selectComponent.multiple ? '' : null"
                 [attr.col-12]="selectComponent.canReset && !selectComponent.multiple ? '' : null">
-                <button ion-button full no-margin (click)="reset()" [disabled]="!selectedItems.length">
-                    Clear
+                <button color="semiDark" col-6 push-3 ion-button full no-margin (click)="reset()" [disabled]="!selectedItems.length">
+                    Reiniciar
                 </button>
             </ion-col>
             <ion-col no-padding *ngIf="selectComponent.multiple"
                 [attr.col-6]="selectComponent.canReset && selectComponent.multiple ? '' : null"
                 [attr.col-12]="!selectComponent.canReset && selectComponent.multiple ? '' : null">
-                <button ion-button full no-margin (click)="ok()">
-                    OK
+                <button color="semiDark" col-6 push-3 ion-button full no-margin (click)="ok()">
+                    Aceptar
                 </button>
             </ion-col>
         </ion-row>

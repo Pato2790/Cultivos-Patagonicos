@@ -33474,6 +33474,10 @@ page-ingresos-list .black-color {
   color: white;
 }
 
+page-ingresos-list .no-color {
+  background-color: transparent;
+}
+
 page-lotes-list .size-icon {
   font-size: 25px;
 }

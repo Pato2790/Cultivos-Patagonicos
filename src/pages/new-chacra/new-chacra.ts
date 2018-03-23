@@ -24,7 +24,7 @@ export class NewChacra {
 	constructor(public navCtrl: NavController, public navParams: NavParams, private ChacrasServiceProvider: ChacrasServiceProvider,
     public AlertController: AlertController, private formBuilder: FormBuilder, private ProductoresServiceProvider: ProductoresServiceProvider) {
 
-    this.ProductoresServiceProvider.getAllProductores().subscribe(data => this.productores = data);
+    this.ProductoresServiceProvider.getAllProductores().subscribe(data => this.productores = data );
 	  
     this.formNewChacra = this.formBuilder.group({
       nombre: ['', Validators.required],
